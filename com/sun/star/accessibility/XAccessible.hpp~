@@ -1,29 +1,49 @@
 #pragma once 
+using namespace com::sun::star::uno;
+
 namespace com {
   namespace sun { 
     namespace star{ 
       namespace accessibility {
-        class XAccessible {};
-        class XAccessibleContext {};
-        class XAccessibleAction         {};
-        class XAccessibleComponent      {};
-        class XAccessibleEditableText   {};
-        class XAccessibleHypertext      {};
-        class XAccessibleImage          {};
-        class XAccessibleMultiLineText  {};
-        class XAccessibleSelection      {};
-        class XAccessibleTable          {};
-        class XAccessibleText           {};
-        class XAccessibleTextMarkup     {};
-        class XAccessibleTextAttributes {};
-        class XAccessibleValue          {};
-        class XAccessibleEventListener {};
+        class XAccessibleContext;
+
+        class XAccessible : public XInterface{
+        public:
+          XAccessibleContext * getAccessibleContext();
+          void release();
+          void acquire();
+        };
+
+        class XAccessibleAction     : public XAccessible    {};
+        class XAccessibleComponent  : public XAccessible    {};
+        class XAccessibleEditableText : public XAccessible  {};
+        class XAccessibleHypertext    : public XAccessible  {};
+        class XAccessibleImage         : public XAccessible  {};
+        class XAccessibleMultiLineText : public XAccessible {};
+        class XAccessibleSelection   : public XAccessible   {};
+        class XAccessibleTable        : public XAccessible  {};
+        class XAccessibleText          : public XAccessible {};
+        class XAccessibleTextMarkup    : public XAccessible {};
+        class XAccessibleTextAttributes : public XAccessible {};
+        class XAccessibleValue        : public XAccessible  {};
+        class XAccessibleEventListener {
+        public :
+          //  XAccessibleEventListener(AtkListener*);
+          
+        };
         class AccessibleEventObject {};
+
+
+        class Set {
+        public:
+          int getLength();
+          uno::Reference< accessibility::XAccessible > operator [] (int x);
+        };
 
         class AccessibleRelationType {
         public :
-          enum x {
-            CONTENT_FLOWS_FROM
+          enum relation_type {
+            CONTENT_FLOWS_FROM,
             CONTROLLED_BY,
             CONTROLLER_FOR,
             LABELED_BY,
@@ -33,13 +53,32 @@ namespace com {
             SUB_WINDOW_OF,
             CONTENT_FLOWS_TO
           };
+        };
+
+        class AccessibleRelation {
+        public:
+
+          AccessibleRelationType::relation_type RelationType;
+
+          Set TargetSet;
+          
+        };
+        
+        class XAccessibleRelationSet {
+        public : 
+          AccessibleRelation getRelation(int n);
+          int getRelationCount();
+        };
 
 
-          class AccessibleStateType {
-          public :
-            enum x { 
-              ACTIVE,
-              ARMED,
+
+ 
+       
+        class AccessibleStateType {
+        public :
+          enum x { 
+            ACTIVE,
+            ARMED,
               BUSY ,
               DEFUNC,
               CHECKED ,
@@ -68,14 +107,14 @@ namespace com {
               STALE ,
               TRANSIENT ,
               VERTICAL ,
-              VISIBLE };
-          };
-          
-          class AccessibleStateType {};
+              VISIBLE 
+            };
+        };
+       
 
-          class AccessibleRole { 
-          public:
-            enum x {
+        class AccessibleRole { 
+        public:
+          enum role {
               EDIT_BAR,
               CAPTION,
               CHART,
@@ -94,9 +133,40 @@ namespace com {
               SHAPE,
               TEXT_FRAME,
               TREE_ITEM};
-          };
+        };
 
+        class XAccessibleStateSet {
+        public:
+          uno::Sequence< sal_Int16 > getStates();
+          template <class T> bool contains(T);
+        };
+        class XAccessibleEventBroadcaster {
+        public :
+          template <class T> void addAccessibleEventListener(T);
+        };
+
+        class XAccessibleContext : public XAccessible {
+        public:
+          OUString getAccessibleName();
+          OUString getAccessibleDescription();
+          int getAccessibleChildCount();
+          Reference<XAccessible>
+          getAccessibleChild( int i );
+          int getAccessibleIndexInParent();
+          Reference<XAccessibleRelationSet> getAccessibleRelationSet();
+          Reference<XAccessibleStateSet>     getAccessibleStateSet ();
+          AccessibleRole::role getAccessibleRole();
+          Reference<accessibility::XAccessible> getAccessibleParent();
+        };
       };
     };
   };
 };
+
+
+//enum AtkRole;
+
+template <class T> int SAL_N_ELEMENTS(T [] );
+template <class T> void OSL_FAIL(T);
+template <class T> void OSL_ASSERT(T);
+

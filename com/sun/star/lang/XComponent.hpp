@@ -1,9 +1,2 @@
-namespace com {
-  namespace sun { 
-    namespace star {
-      namespace lang {
-        class EventObject {};
-      };
-    };
-  };
-};
+#pragma once
+#include <all.hxx>
