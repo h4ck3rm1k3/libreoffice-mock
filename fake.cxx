@@ -102,6 +102,36 @@ void textIfaceInit(AtkTextIface *iface){}
 void valueIfaceInit(AtkValueIface *iface){}
 //AtkListener::AtkListener(AtkObjectWrapper * pWrapper);
 
+/*
+AtkObject *
+atk_object_wrapper_new( const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible >& rxAccessible,
+                        AtkObject* parent )
+*/
+
+#include <iostream>
+
+AtkRole mapToAtkRole( sal_Int16 nRole );
+void test_mapToAtkRole() {
+
+  for (
+       sal_Int16 nRole = 0;
+       nRole < 10;
+       nRole ++) {
+    AtkRole r= mapToAtkRole( nRole );
+    std::cout <<nRole;
+    std::cout << '\t';
+    std::cout <<r;
+    std::cout << std::endl;
+    
+  }
+}
+
+void test_atk () {
+  
+  test_mapToAtkRole();
+};
+
 int main () {
+  test_atk();
 
 }

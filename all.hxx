@@ -3,7 +3,7 @@
 //#include <com/sun/star/lang/XComponent.hpp>
 
 #include <assert.h>
-
+#include <iostream>
 
 typedef short  sal_Int16;
 typedef int    sal_Int32;
@@ -349,7 +349,15 @@ namespace com {
 
 //enum AtkRole;
 
-template <class T> int SAL_N_ELEMENTS(T [] ) {}
+template <class T> int SAL_N_ELEMENTS(T v [] ) {
+  //  size_t c = sizeof(v);
+  //  size_t c2 = sizeof(T);
+  size_t c = sizeof(v)/sizeof(T);
+
+  std::cout << "Count" << c << std::endl;
+
+  return c;
+}
 template <class T> void OSL_FAIL(T) {}
 template <class T> void OSL_ASSERT(T) {}
 
