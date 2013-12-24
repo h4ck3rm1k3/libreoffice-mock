@@ -1,0 +1,43 @@
+#pragma once 
+
+typedef short  sal_Int16;
+typedef int    sal_Int32;
+typedef unsigned int sal_uInt32;
+
+class OUString {};
+class OString {
+public:
+  const char * getStr();
+
+};
+const int RTL_TEXTENCODING_UTF8=1;
+OString OUStringToOString(OUString , int );
+
+namespace com {
+  namespace sun { 
+    namespace star { 
+      namespace uno {
+
+        template<class T> class Sequence {
+        public:
+          int getLength();
+          T operator [] (int x);
+        };
+
+        enum extra { UNO_QUERY }; 
+ 
+        class Exception {};
+        class RuntimeException : Exception {};
+        template <class T> class Reference {
+        public:
+          Reference(T*&);
+          Reference(Reference<T>, extra);
+          T * operator ->  ();
+          bool is();
+        } ;
+      };
+    };
+  };
+};
+
+template <class T,class U> int rtl_str_compare(T, U);
