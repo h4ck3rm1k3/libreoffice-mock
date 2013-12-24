@@ -115,7 +115,7 @@ void test_mapToAtkRole() {
 
   for (
        sal_Int16 nRole = 0;
-       nRole < 10;
+       nRole <  ATK_ROLE_LAST_DEFINED;
        nRole ++) {
     AtkRole r= mapToAtkRole( nRole );
     std::cout <<nRole;
