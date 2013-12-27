@@ -72,7 +72,7 @@ class Window;
 
 #define ACC_STATE_MASK 0x1F
 
-typedef sal_uInt16 tAccessibleStates;
+//typedef sal_uInt16 tAccessibleStates;
 
 class SwAccessibleMap : public ::accessibility::IAccessibleViewForwarder,
                         public ::accessibility::IAccessibleParent

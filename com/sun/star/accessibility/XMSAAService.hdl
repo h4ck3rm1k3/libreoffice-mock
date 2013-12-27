@@ -15,24 +15,24 @@ namespace com { namespace sun { namespace star { namespace uno { class Type; } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XMSAAService : public ::css::lang::XComponent
+class SAL_NO_VTABLE XMSAAService : public ::com::sun::star::lang::XComponent
 {
 public:
 
     // Methods
-    virtual ::sal_Int64 SAL_CALL getAccObjectPtr( ::sal_Int64 hWnd, ::sal_Int64 lParam, ::sal_Int64 wParam ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual void SAL_CALL handleWindowOpened( ::sal_Int64 i ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int64 SAL_CALL getAccObjectPtr( ::sal_Int64 hWnd, ::sal_Int64 lParam, ::sal_Int64 wParam ) /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual void SAL_CALL handleWindowOpened( ::sal_Int64 i ) /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
 
-    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
 
 protected:
     ~XMSAAService() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XMSAAService const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XMSAAService const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XMSAAService > *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XMSAAService > *) ;
 
 #endif

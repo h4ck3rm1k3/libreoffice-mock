@@ -46,7 +46,7 @@ class SdrObject;
 namespace accessibility {
 
 class AccessibleShapeInfo;
-class AccessibleShapeTreeInfo;
+    //class AccessibleShapeTreeInfo;
 class IAccessibleParent;
 
 /** This base class provides a base implementation for all shapes.  For more

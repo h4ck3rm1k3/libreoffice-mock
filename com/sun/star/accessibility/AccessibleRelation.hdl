@@ -20,10 +20,10 @@ namespace com { namespace sun { namespace star { namespace accessibility {
 struct AccessibleRelation {
     inline AccessibleRelation();
 
-    inline AccessibleRelation(const sal_Int16& RelationType_, const ::css::uno::Sequence< ::css::uno::Reference< ::css::uno::XInterface > >& TargetSet_);
+    inline AccessibleRelation(const sal_Int16& RelationType_, const ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface > >& TargetSet_);
 
     sal_Int16 RelationType;
-    ::css::uno::Sequence< ::css::uno::Reference< ::css::uno::XInterface > > TargetSet;
+    ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface > > TargetSet;
 };
 
 #ifdef SAL_W32
@@ -31,9 +31,9 @@ struct AccessibleRelation {
 #endif
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::AccessibleRelation const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleRelation const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::accessibility::AccessibleRelation *);
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::accessibility::AccessibleRelation *);
 
 #endif

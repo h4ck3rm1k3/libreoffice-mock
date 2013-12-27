@@ -17,7 +17,7 @@
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-inline AccessibleTableModelChange::AccessibleTableModelChange() SAL_THROW(())
+inline AccessibleTableModelChange::AccessibleTableModelChange() 
     : Type(0)
     , FirstRow(0)
     , LastRow(0)
@@ -26,7 +26,7 @@ inline AccessibleTableModelChange::AccessibleTableModelChange() SAL_THROW(())
 {
 }
 
-inline AccessibleTableModelChange::AccessibleTableModelChange(const ::sal_Int16& Type_, const ::sal_Int32& FirstRow_, const ::sal_Int32& LastRow_, const ::sal_Int32& FirstColumn_, const ::sal_Int32& LastColumn_) SAL_THROW(())
+inline AccessibleTableModelChange::AccessibleTableModelChange(const ::sal_Int16& Type_, const ::sal_Int32& FirstRow_, const ::sal_Int32& LastRow_, const ::sal_Int32& FirstColumn_, const ::sal_Int32& LastColumn_) 
     : Type(Type_)
     , FirstRow(FirstRow_)
     , LastRow(LastRow_)
@@ -39,9 +39,9 @@ inline AccessibleTableModelChange::AccessibleTableModelChange(const ::sal_Int16&
 
 namespace com { namespace sun { namespace star { namespace accessibility { namespace detail {
 
-struct theAccessibleTableModelChangeType : public rtl::StaticWithInit< ::css::uno::Type *, theAccessibleTableModelChangeType >
+struct theAccessibleTableModelChangeType : public rtl::StaticWithInit< ::com::sun::star::uno::Type *, theAccessibleTableModelChangeType >
 {
-    ::css::uno::Type * operator()() const
+    ::com::sun::star::uno::Type * operator()() const
     {
         ::rtl::OUString the_name( "com.sun.star.accessibility.AccessibleTableModelChange" );
         ::rtl::OUString the_tname0( "short" );
@@ -61,21 +61,21 @@ struct theAccessibleTableModelChangeType : public rtl::StaticWithInit< ::css::un
         ::typelib_typedescription_newStruct(&the_newType, the_name.pData, 0, 5, the_members);
         ::typelib_typedescription_register(&the_newType);
         ::typelib_typedescription_release(the_newType);
-        return new ::css::uno::Type(::css::uno::TypeClass_STRUCT, the_name); // leaked
+        return new ::com::sun::star::uno::Type(::com::sun::star::uno::TypeClass_STRUCT, the_name); // leaked
     }
 };
 } } } } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::AccessibleTableModelChange const *) {
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleTableModelChange const *) {
     return *detail::theAccessibleTableModelChangeType::get();
 }
 
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(SAL_UNUSED_PARAMETER ::css::accessibility::AccessibleTableModelChange const *) SAL_THROW(()) {
-    return ::cppu::UnoType< ::css::accessibility::AccessibleTableModelChange >::get();
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleTableModelChange const *)  {
+    return ::cppu::UnoType< ::com::sun::star::accessibility::AccessibleTableModelChange >::get();
 }
 
 #endif // INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLETABLEMODELCHANGE_HPP

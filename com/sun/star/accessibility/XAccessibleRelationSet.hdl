@@ -17,26 +17,26 @@ namespace com { namespace sun { namespace star { namespace uno { class Type; } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XAccessibleRelationSet : public ::css::uno::XInterface
+class SAL_NO_VTABLE XAccessibleRelationSet : public ::com::sun::star::uno::XInterface
 {
 public:
 
     // Methods
-    virtual ::sal_Int32 SAL_CALL getRelationCount() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::css::accessibility::AccessibleRelation SAL_CALL getRelation( ::sal_Int32 nIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Bool SAL_CALL containsRelation( ::sal_Int16 aRelationType ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::css::accessibility::AccessibleRelation SAL_CALL getRelationByType( ::sal_Int16 aRelationType ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getRelationCount() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::accessibility::AccessibleRelation SAL_CALL getRelation( ::sal_Int32 nIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL containsRelation( ::sal_Int16 aRelationType ) /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::accessibility::AccessibleRelation SAL_CALL getRelationByType( ::sal_Int16 aRelationType ) /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
 
-    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
 
 protected:
     ~XAccessibleRelationSet() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleRelationSet const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessibleRelationSet const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleRelationSet > *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleRelationSet > *) ;
 
 #endif

@@ -4,6 +4,7 @@
 //#include <atkobject.h>
 #include <atk/atk.h>
 #include <vector>
+class AccessibleShapeTreeInfo {};
 // {
 //   ATK_ROLE_INVALID = 0,
 //   ATK_ROLE_ACCEL_LABEL,
@@ -113,17 +114,17 @@
 #include <assert.h>
 #include <iostream>
 typedef char sal_Int8;
+typedef long long sal_Int64;
 typedef int sal_Unicode;
 typedef short  sal_Int16;
 typedef unsigned short  sal_uInt16;
 typedef bool   sal_Bool;
 typedef int    sal_Int32;
 typedef unsigned int sal_uInt32;
-class OUStringHash{};
-class OUString {};
 
 const sal_Bool sal_False=false;
 const sal_Bool sal_True=false;
+
 
 namespace osl {
   class Mutex{};
@@ -158,7 +159,19 @@ public:
 class SolarMutexGuard {};
 
 const int RTL_TEXTENCODING_UTF8=1;
-inline OString OUStringToOString(OUString , int ) {}
+
+namespace rtl {
+  class OUStringHash{};
+  class OUString {
+  public:
+    OUString() {}
+    OUString(const char *) {}
+  };
+  inline OString OUStringToOString(OUString , int ) {}  
+
+  template <class T, class U> class StaticWithInit {};
+};
+using namespace rtl;
 
 class SdrObject{};
 
@@ -175,7 +188,14 @@ class Window{};
 namespace com {
   namespace sun { 
     namespace star {
+      
+      namespace document {
+        class EventObject {};
+        class XEventListener{};
+      }
       namespace awt {
+        class KeyStroke{};
+        class XFocusListener{};
         class Point {
           int X;
           int Y;          
@@ -189,7 +209,14 @@ namespace com {
       };
 
 
+      //using namespace com::sun::star::uno
       namespace uno {
+        class XAggregation{};
+        enum types {
+          TypeClass_EXCEPTION,
+          TypeClass_STRUCT,
+          TypeClass_INTERFACE,
+        };
 
 
         enum some_types {
@@ -199,7 +226,8 @@ namespace com {
 
         class Type {
         public :
-          template <class T> Type (T);
+          Type(com::sun::star::uno::types, rtl::OUString&){}
+          template <class T> Type (T){}
           some_types eTypeClass;
         };
 
@@ -211,6 +239,7 @@ namespace com {
           operator bool() {return false;}
         };
 
+        //::com::sun::star::uno::
         class XInterface {
         public :
           template <class T> Any queryInterface(T) {}
@@ -224,9 +253,8 @@ namespace com {
 
         enum extra { UNO_QUERY }; 
  
-        class Exception {};
 
-        class RuntimeException : Exception {};
+
 
 
         template <class T> class Reference {
@@ -252,12 +280,49 @@ namespace com {
         };
 
 
+        class Exception {
+        public:
+          Exception(
+                    const ::rtl::OUString& Message_, 
+                    const ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface >& Context_
+                    ) 
+          {
+          
+          }
+
+          Exception(
+                    ) 
+          {
+          
+          }
+
+        };
+
+        class RuntimeException : Exception {};
+
       };
     };
   };
 };
 
 namespace cppu {
+
+  template <
+    class T, 
+    class T2, 
+    class T3,
+    class T4
+            >
+  class PartialWeakComponentImplHelper4{};
+  template <
+    class T, 
+    class T2, 
+    class T3,
+    class T4
+            >
+  class ImplHelper4{};
+
+
   template <class T> class WeakImplHelper1 : public T{};
   template <class T> class UnoType {
   public :
@@ -279,9 +344,23 @@ template <class T,class U> int rtl_str_compare(T, U) {}
 namespace com {
   namespace sun { 
     namespace star {
+      namespace drawing {
+        class XShape {};
+      }
+
       namespace lang {
+        class XComponent {};
+        class XTypeProvider{};
+        class XUnoTunnel{};
+        class DisposedException{};
+        class XServiceInfo {};
         class Locale {};
-        class EventObject {};
+        class EventObject {
+        public:
+          template <class T> EventObject(T) {}
+          EventObject( ){} 
+        };
+        class XEventListener {};
         class IndexOutOfBoundsException {};
         class IllegalArgumentException {};
       };
@@ -289,28 +368,42 @@ namespace com {
   };
 };
 
+
+class ChildrenManager {};
 using namespace com::sun::star::uno;
 
 namespace com {
   namespace sun { 
     namespace star{ 
-
+      namespace container {
+        class XContainerListener{};
+        class ContainerEvent{};
+      }
+      namespace util {
+        class XModeChangeListener{};
+        class ModeChangeEvent{};
+      }
 
       namespace beans {
+        class XPropertySetInfo{};
+        class PropertyChangeEvent{};
+        class XPropertySet {};
+        class XPropertyChangeListener {};
         class PropertyValue {};
       };
 
       namespace accessibility {
+
         //  com.sun.star.accessibility
 
 
         class AccessibleShape {};
-        class IllegalAccessibleComponentStateException {};
-        class TextSegment{
-        public:
-          int SegmentStart;
-          int SegmentEnd;
-        };
+        //        class IllegalAccessibleComponentStateException {};
+        // class TextSegment{
+        // public:
+        //   int SegmentStart;
+        //   int SegmentEnd;
+        // };
         class AccessibleTableModelChangeType {
         public:
           enum X {
@@ -332,59 +425,66 @@ namespace com {
 
         class XAccessibleContext;
         class XAccessibleTextSelection {};
-        class XAccessibleExtendedAttributes {};
+        //        class XAccessibleExtendedAttributes {};
         class AccessibleEventId {
         public :
-          enum X {
-            ACTION_CHANGED,
-            ACTIVE_DESCENDANT_CHANGED,
-            BOUNDRECT_CHANGED,
-            CARET_CHANGED,
-            CHILD,
-            CONTENT_FLOWS_FROM_RELATION_CHANGED,
-            CONTENT_FLOWS_TO_RELATION_CHANGED,
-            CONTROLLED_BY_RELATION_CHANGED,
-            CONTROLLER_FOR_RELATION_CHANGED,
-            DESCRIPTION_CHANGED,
-            HYPERTEXT_CHANGED,
-            INVALIDATE_ALL_CHILDREN,
-            LABELED_BY_RELATION_CHANGED,
-            LABEL_FOR_RELATION_CHANGED,
-            LISTBOX_ENTRY_COLLAPSED,
-            LISTBOX_ENTRY_EXPANDED,
-            MEMBER_OF_RELATION_CHANGED,
-            NAME_CHANGED,
-            SELECTION_CHANGED,
-            STATE_CHANGED,
-            SUB_WINDOW_OF_RELATION_CHANGED,
-            TABLE_CAPTION_CHANGED,
-            TABLE_COLUMN_DESCRIPTION_CHANGED,
-            TABLE_COLUMN_HEADER_CHANGED,
-            TABLE_MODEL_CHANGED,
-            TABLE_ROW_DESCRIPTION_CHANGED,
-            TABLE_ROW_HEADER_CHANGED,
-            TABLE_SUMMARY_CHANGED,
-            TEXT_ATTRIBUTE_CHANGED,
-            TEXT_CHANGED,
-            TEXT_SELECTION_CHANGED,
-            VALUE_CHANGED,
-            VISIBLE_DATA_CHANGED,            
+          enum type_enum {
+            ACTION_CHANGED = (sal_Int16)3,
+            ACTIVE_DESCENDANT_CHANGED = (sal_Int16)5,
+            ACTIVE_DESCENDANT_CHANGED_NOFOCUS = (sal_Int16)34,
+            BOUNDRECT_CHANGED = (sal_Int16)6,
+            CARET_CHANGED = (sal_Int16)20,
+            CHILD = (sal_Int16)7,
+            COLUMN_CHANGED = (sal_Int16)40,
+            CONTENT_FLOWS_FROM_RELATION_CHANGED = (sal_Int16)12,
+            CONTENT_FLOWS_TO_RELATION_CHANGED = (sal_Int16)13,
+            CONTROLLED_BY_RELATION_CHANGED = (sal_Int16)14,
+            CONTROLLER_FOR_RELATION_CHANGED = (sal_Int16)15,
+            DESCRIPTION_CHANGED = (sal_Int16)2,
+            HYPERTEXT_CHANGED = (sal_Int16)24,
+            INVALIDATE_ALL_CHILDREN = (sal_Int16)8,
+            LABELED_BY_RELATION_CHANGED = (sal_Int16)17,
+            LABEL_FOR_RELATION_CHANGED = (sal_Int16)16,
+            LISTBOX_ENTRY_COLLAPSED = (sal_Int16)33,
+            LISTBOX_ENTRY_EXPANDED = (sal_Int16)32,
+            MEMBER_OF_RELATION_CHANGED = (sal_Int16)18,
+            NAME_CHANGED = (sal_Int16)1,
+            PAGE_CHANGED = (sal_Int16)38,
+            SECTION_CHANGED = (sal_Int16)39,
+            SELECTION_CHANGED = (sal_Int16)9,
+            SELECTION_CHANGED_ADD = (sal_Int16)35,
+            SELECTION_CHANGED_REMOVE = (sal_Int16)36,
+            SELECTION_CHANGED_WITHIN = (sal_Int16)37,
+            STATE_CHANGED = (sal_Int16)4,
+            SUB_WINDOW_OF_RELATION_CHANGED = (sal_Int16)19,
+            TABLE_CAPTION_CHANGED = (sal_Int16)25,
+            TABLE_COLUMN_DESCRIPTION_CHANGED = (sal_Int16)26,
+            TABLE_COLUMN_HEADER_CHANGED = (sal_Int16)27,
+            TABLE_MODEL_CHANGED = (sal_Int16)28,
+            TABLE_ROW_DESCRIPTION_CHANGED = (sal_Int16)29,
+            TABLE_ROW_HEADER_CHANGED = (sal_Int16)30,
+            TABLE_SUMMARY_CHANGED = (sal_Int16)31,
+            TEXT_ATTRIBUTE_CHANGED = (sal_Int16)23,
+            TEXT_CHANGED = (sal_Int16)22,
+            TEXT_SELECTION_CHANGED = (sal_Int16)21,
+            VALUE_CHANGED = (sal_Int16)11,
+            VISIBLE_DATA_CHANGED = (sal_Int16)10,
           };
           
         };
 
+        class XAccessible;
+        /*
         class XAccessible : public XInterface{
         public:
           XAccessibleContext * getAccessibleContext() {}
           void release() {}
           void acquire() {}
         };
-
+        */
+        /*
         class XAccessibleAction     : public XAccessible    {};
         class XAccessibleComponent  : public XAccessible    {};
-
-
-
         class XAccessibleHypertext    : public XAccessible  {};
         class XAccessibleImage         : public XAccessible  {};
         class XAccessibleMultiLineText : public XAccessible {};
@@ -392,7 +492,6 @@ namespace com {
         class XAccessibleTable        : public XAccessible  {};
         class XAccessibleText          : public XAccessible {};
         class XAccessibleEditableText : public XAccessibleText  {        };
-
         class XAccessibleTextMarkup    : public XAccessible {};
         class XAccessibleTextAttributes : public XAccessible {};
         class XAccessibleValue        : public XAccessible  {};
@@ -401,16 +500,49 @@ namespace com {
           //  XAccessibleEventListener(AtkListener*);
           
         };
+        class XAccessibleStateSet {
+        public:
+          uno::Sequence< sal_Int16 > getStates() {}
+          template <class T> bool contains(T) {}
+        };
+        class XAccessibleEventBroadcaster {
+        public :
+          template <class T> void addAccessibleEventListener(T) {}
+        };
+
+        class XAccessibleContext : public XAccessible {
+        public:
+          
+          OUString getAccessibleName() {}
+          OUString getAccessibleDescription() {}
+          int getAccessibleChildCount() {}
+          Reference<XAccessible>  getAccessibleChild( int i ) {}
+          int getAccessibleIndexInParent() {}
+          Reference<XAccessibleRelationSet> getAccessibleRelationSet() {}
+          Reference<XAccessibleStateSet>     getAccessibleStateSet () {}
+          AccessibleRole::role getAccessibleRole() {}
+          Reference<accessibility::XAccessible> getAccessibleParent(){}
+        };
+
+        class XAccessibleRelationSet {
+        public : 
+          AccessibleRelation getRelation(int n) {}
+          int getRelationCount() {}
+        };
+
+
+    
+
         class AccessibleEventObject {
         public :
-          AccessibleEventId::X EventId;
+          AccessibleEventId::type_enum EventId;
           Any OldValue;
           Any NewValue;
           //Reference< accessibility::XAccessibleContext > Source;
           Reference< XInterface > Source;
         };
 
-
+    */
         class Set {
         public:
           int getLength() {}
@@ -432,24 +564,13 @@ namespace com {
           };
         };
 
+        /*
         class AccessibleRelation {
         public:
-
           AccessibleRelationType::relation_type RelationType;
-
-          Set TargetSet;
-          
+          Set TargetSet;          
         };
-        
-        class XAccessibleRelationSet {
-        public : 
-          AccessibleRelation getRelation(int n) {}
-          int getRelationCount() {}
-        };
-
-
-
- 
+        */ 
        
         class AccessibleStateType {
         public :
@@ -597,29 +718,6 @@ namespace com {
           };
         };
 
-        class XAccessibleStateSet {
-        public:
-          uno::Sequence< sal_Int16 > getStates() {}
-          template <class T> bool contains(T) {}
-        };
-        class XAccessibleEventBroadcaster {
-        public :
-          template <class T> void addAccessibleEventListener(T) {}
-        };
-
-        class XAccessibleContext : public XAccessible {
-        public:
-          
-          OUString getAccessibleName() {}
-          OUString getAccessibleDescription() {}
-          int getAccessibleChildCount() {}
-          Reference<XAccessible>  getAccessibleChild( int i ) {}
-          int getAccessibleIndexInParent() {}
-          Reference<XAccessibleRelationSet> getAccessibleRelationSet() {}
-          Reference<XAccessibleStateSet>     getAccessibleStateSet () {}
-          AccessibleRole::role getAccessibleRole() {}
-          Reference<accessibility::XAccessible> getAccessibleParent(){}
-        };
       };
     };
   };
@@ -651,26 +749,31 @@ public:
   SwViewShell * GetShell() const;
 };
 
-#define SAL_THROW 	( 	  	exc)		   throw exc
+#define SAL_THROW(X)
 
 //#define SAL_THROW
 //#define SAL_THROW(X) ;
 // throws X
 
+#define SAL_NO_VTABLE
 #define SVX_DLLPUBLIC
-#define SAL_CALL 
+#define SVX_DLLPRIVATE
+#define SAL_CALL
+#define SAL_UNUSED_PARAMETER
+#define CPPU_GCC_DLLPUBLIC_EXPORT
+#define CPPU_GCC_DLLPRIVATE
+#define CPPU_GCC3_ALIGN
+
 class SwPaM {};
 
 using namespace com::sun::star::awt;
 template <class T> void OSL_ENSURE(T, const char * message){}
+class typelib_TypeDescription {};
+class typelib_TypeClass {};
 
+#define EDITENG_DLLPUBLIC
+#define DECLARE_XINTERFACE(X)
+#define DECLARE_XTYPEPROVIDER(X)
 
 #include <acccontext.hxx>
 #include <accfrmobj.hxx>
-
-
-
-
-
-
-

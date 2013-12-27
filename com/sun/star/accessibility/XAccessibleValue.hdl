@@ -16,26 +16,26 @@ namespace com { namespace sun { namespace star { namespace uno { class Type; } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XAccessibleValue : public ::css::uno::XInterface
+class SAL_NO_VTABLE XAccessibleValue : public ::com::sun::star::uno::XInterface
 {
 public:
 
     // Methods
-    virtual ::css::uno::Any SAL_CALL getCurrentValue() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Bool SAL_CALL setCurrentValue( const ::css::uno::Any& aNumber ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::css::uno::Any SAL_CALL getMaximumValue() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::css::uno::Any SAL_CALL getMinimumValue() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::uno::Any SAL_CALL getCurrentValue() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL setCurrentValue( const ::com::sun::star::uno::Any& aNumber ) /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::uno::Any SAL_CALL getMaximumValue() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::uno::Any SAL_CALL getMinimumValue() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
 
-    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
 
 protected:
     ~XAccessibleValue() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleValue const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessibleValue const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleValue > *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleValue > *) ;
 
 #endif

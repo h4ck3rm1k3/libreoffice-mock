@@ -16,9 +16,9 @@ namespace com { namespace sun { namespace star { namespace accessibility {
 #endif
 
 struct TextSegment {
-    inline TextSegment() SAL_THROW(());
+    inline TextSegment() ;
 
-    inline TextSegment(const ::rtl::OUString& SegmentText_, const ::sal_Int32& SegmentStart_, const ::sal_Int32& SegmentEnd_) SAL_THROW(());
+    inline TextSegment(const ::rtl::OUString& SegmentText_, const ::sal_Int32& SegmentStart_, const ::sal_Int32& SegmentEnd_) ;
 
     ::rtl::OUString SegmentText;
     ::sal_Int32 SegmentStart;
@@ -30,9 +30,9 @@ struct TextSegment {
 #endif
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::TextSegment const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::TextSegment const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::accessibility::TextSegment *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::accessibility::TextSegment *) ;
 
 #endif

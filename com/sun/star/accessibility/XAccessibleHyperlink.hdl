@@ -17,27 +17,27 @@ namespace com { namespace sun { namespace star { namespace uno { class Type; } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XAccessibleHyperlink : public ::css::accessibility::XAccessibleAction
+class SAL_NO_VTABLE XAccessibleHyperlink : public ::com::sun::star::accessibility::XAccessibleAction
 {
 public:
 
     // Methods
-    virtual ::css::uno::Any SAL_CALL getAccessibleActionAnchor( ::sal_Int32 nIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::css::uno::Any SAL_CALL getAccessibleActionObject( ::sal_Int32 nIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Int32 SAL_CALL getStartIndex() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Int32 SAL_CALL getEndIndex() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Bool SAL_CALL isValid() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::uno::Any SAL_CALL getAccessibleActionAnchor( ::sal_Int32 nIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::com::sun::star::uno::Any SAL_CALL getAccessibleActionObject( ::sal_Int32 nIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getStartIndex() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getEndIndex() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL isValid() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
 
-    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
 
 protected:
     ~XAccessibleHyperlink() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleHyperlink const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessibleHyperlink const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleHyperlink > *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleHyperlink > *) ;
 
 #endif

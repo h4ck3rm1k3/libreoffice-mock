@@ -16,14 +16,14 @@ namespace com { namespace sun { namespace star { namespace accessibility {
 #   pragma pack(push, 8)
 #endif
 
-struct AccessibleEventObject: public ::css::lang::EventObject {
-    inline AccessibleEventObject() SAL_THROW(());
+struct AccessibleEventObject: public ::com::sun::star::lang::EventObject {
+    inline AccessibleEventObject() ;
 
-    inline AccessibleEventObject(const ::css::uno::Reference< ::css::uno::XInterface >& Source_, const ::sal_Int16& EventId_, const ::css::uno::Any& NewValue_, const ::css::uno::Any& OldValue_) SAL_THROW(());
+    inline AccessibleEventObject(const ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface >& Source_, const ::sal_Int16& EventId_, const ::com::sun::star::uno::Any& NewValue_, const ::com::sun::star::uno::Any& OldValue_) ;
 
-    ::sal_Int16 EventId CPPU_GCC3_ALIGN(::css::lang::EventObject);
-    ::css::uno::Any NewValue;
-    ::css::uno::Any OldValue;
+    ::sal_Int16 EventId; //CPPU_GCC3_ALIGN(::com::sun::star::lang::EventObject);
+    ::com::sun::star::uno::Any NewValue;
+    ::com::sun::star::uno::Any OldValue;
 };
 
 #ifdef SAL_W32
@@ -31,9 +31,9 @@ struct AccessibleEventObject: public ::css::lang::EventObject {
 #endif
 
 
-inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::AccessibleEventObject const *);
+inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleEventObject const *);
 } } } }
 
-inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::accessibility::AccessibleEventObject *) SAL_THROW(());
+inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::accessibility::AccessibleEventObject *) ;
 
 #endif
