@@ -1,0 +1,60 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETABLE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETABLE_HDL
+
+#include "sal/config.h"
+
+#include <exception>
+
+namespace com { namespace sun { namespace star { namespace accessibility { class XAccessible; } } } }
+namespace com { namespace sun { namespace star { namespace accessibility { class XAccessibleTable; } } } }
+#include "com/sun/star/lang/IndexOutOfBoundsException.hdl"
+#include "com/sun/star/uno/RuntimeException.hdl"
+#include "com/sun/star/uno/XInterface.hdl"
+#include "com/sun/star/uno/Reference.h"
+#include "com/sun/star/uno/Sequence.h"
+#include "cppu/macros.hxx"
+#include "rtl/ustring.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+class SAL_NO_VTABLE XAccessibleTable : public ::css::uno::XInterface
+{
+public:
+
+    // Methods
+    virtual ::sal_Int32 SAL_CALL getAccessibleRowCount() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleColumnCount() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::rtl::OUString SAL_CALL getAccessibleRowDescription( ::sal_Int32 nRow ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::rtl::OUString SAL_CALL getAccessibleColumnDescription( ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleRowExtentAt( ::sal_Int32 nRow, ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleColumnExtentAt( ::sal_Int32 nRow, ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessibleTable > SAL_CALL getAccessibleRowHeaders() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessibleTable > SAL_CALL getAccessibleColumnHeaders() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Sequence< ::sal_Int32 > SAL_CALL getSelectedAccessibleRows() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Sequence< ::sal_Int32 > SAL_CALL getSelectedAccessibleColumns() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL isAccessibleRowSelected( ::sal_Int32 nRow ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL isAccessibleColumnSelected( ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessible > SAL_CALL getAccessibleCellAt( ::sal_Int32 nRow, ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessible > SAL_CALL getAccessibleCaption() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessible > SAL_CALL getAccessibleSummary() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL isAccessibleSelected( ::sal_Int32 nRow, ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleIndex( ::sal_Int32 nRow, ::sal_Int32 nColumn ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleRow( ::sal_Int32 nChildIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getAccessibleColumn( ::sal_Int32 nChildIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XAccessibleTable() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleTable const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleTable > *) SAL_THROW(());
+
+#endif

@@ -1,0 +1,37 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEVENTLISTENER_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEVENTLISTENER_HDL
+
+#include "sal/config.h"
+
+#include <exception>
+
+#include "com/sun/star/accessibility/AccessibleEventObject.hdl"
+#include "com/sun/star/lang/XEventListener.hdl"
+#include "com/sun/star/uno/RuntimeException.hdl"
+#include "com/sun/star/uno/Reference.h"
+#include "cppu/macros.hxx"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+class SAL_NO_VTABLE XAccessibleEventListener : public ::css::lang::XEventListener
+{
+public:
+
+    // Methods
+    virtual void SAL_CALL notifyEvent( const ::css::accessibility::AccessibleEventObject& aEvent ) /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XAccessibleEventListener() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleEventListener const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleEventListener > *) SAL_THROW(());
+
+#endif

@@ -3,6 +3,7 @@
 //#include <com/sun/star/lang/XComponent.hpp>
 //#include <atkobject.h>
 #include <atk/atk.h>
+#include <vector>
 // {
 //   ATK_ROLE_INVALID = 0,
 //   ATK_ROLE_ACCEL_LABEL,
@@ -111,12 +112,43 @@
 
 #include <assert.h>
 #include <iostream>
-
+typedef char sal_Int8;
+typedef int sal_Unicode;
 typedef short  sal_Int16;
+typedef unsigned short  sal_uInt16;
+typedef bool   sal_Bool;
 typedef int    sal_Int32;
 typedef unsigned int sal_uInt32;
-
+class OUStringHash{};
 class OUString {};
+
+const sal_Bool sal_False=false;
+const sal_Bool sal_True=false;
+
+namespace osl {
+  class Mutex{};
+  class MutexGuard{
+  public:
+    MutexGuard(Mutex){}
+  };
+};
+
+enum tAccessibleStates {
+
+};
+
+
+class SwClient{};
+
+class SwAccessibleSelectionHelper{};
+class SwTOXSortTabBase{};
+class SfxPoolItem{};
+namespace utl {
+  class AccessibleStateSetHelper{
+
+  };
+};
+
 class OString {
 public:
   OString(const char *) {}
@@ -128,9 +160,35 @@ class SolarMutexGuard {};
 const int RTL_TEXTENCODING_UTF8=1;
 inline OString OUStringToOString(OUString , int ) {}
 
+class SdrObject{};
+
+
+
+class SwFrm {};
+class SwRect{
+public:
+  template <class T> bool IsOver(T) const ;
+};
+class Window{};
+
+
 namespace com {
   namespace sun { 
-    namespace star { 
+    namespace star {
+      namespace awt {
+        class Point {
+          int X;
+          int Y;          
+        };
+        class Rectangle : public Point{
+          int Width;
+
+        };
+        class Size {};
+
+      };
+
+
       namespace uno {
 
 
@@ -170,6 +228,7 @@ namespace com {
 
         class RuntimeException : Exception {};
 
+
         template <class T> class Reference {
         public:
           Reference() {}
@@ -177,6 +236,8 @@ namespace com {
           Reference(T*) {}
           Reference(Reference<T>, extra){}
           template <class U> Reference(Reference<U>, extra) {}
+          template <class U> Reference(Reference<U>) {}
+          template <class U> Reference(U*&) {}
           T * operator ->  () const  {}
           bool operator ==  (Reference<T> const) const {
             return false;
@@ -184,6 +245,13 @@ namespace com {
           bool is() const {};
           T * get() const {}
         } ;
+
+        template <class T> class WeakReference  : public Reference<T> {
+        public:
+          WeakReference<T> operator = (Reference<T>){}
+        };
+
+
       };
     };
   };
@@ -212,8 +280,10 @@ namespace com {
   namespace sun { 
     namespace star {
       namespace lang {
+        class Locale {};
         class EventObject {};
         class IndexOutOfBoundsException {};
+        class IllegalArgumentException {};
       };
     };
   };
@@ -224,8 +294,18 @@ using namespace com::sun::star::uno;
 namespace com {
   namespace sun { 
     namespace star{ 
-      
+
+
+      namespace beans {
+        class PropertyValue {};
+      };
+
       namespace accessibility {
+        //  com.sun.star.accessibility
+
+
+        class AccessibleShape {};
+        class IllegalAccessibleComponentStateException {};
         class TextSegment{
         public:
           int SegmentStart;
@@ -251,6 +331,8 @@ namespace com {
         };
 
         class XAccessibleContext;
+        class XAccessibleTextSelection {};
+        class XAccessibleExtendedAttributes {};
         class AccessibleEventId {
         public :
           enum X {
@@ -300,13 +382,17 @@ namespace com {
 
         class XAccessibleAction     : public XAccessible    {};
         class XAccessibleComponent  : public XAccessible    {};
-        class XAccessibleEditableText : public XAccessible  {};
+
+
+
         class XAccessibleHypertext    : public XAccessible  {};
         class XAccessibleImage         : public XAccessible  {};
         class XAccessibleMultiLineText : public XAccessible {};
         class XAccessibleSelection   : public XAccessible   {};
         class XAccessibleTable        : public XAccessible  {};
         class XAccessibleText          : public XAccessible {};
+        class XAccessibleEditableText : public XAccessibleText  {        };
+
         class XAccessibleTextMarkup    : public XAccessible {};
         class XAccessibleTextAttributes : public XAccessible {};
         class XAccessibleValue        : public XAccessible  {};
@@ -406,24 +492,109 @@ namespace com {
         class AccessibleRole { 
         public:
           enum role {
-              EDIT_BAR,
-              CAPTION,
-              CHART,
-              DOCUMENT,
-              EMBEDDED_OBJECT,
-              END_NOTE,
-              FOOTNOTE,
-              FORM,
-              GROUP_BOX,
-              HEADING,
-              HYPER_LINK,
-              IMAGE_MAP,
-              NOTE,
-              PAGE,
-              SECTION,
-              SHAPE,
-              TEXT_FRAME,
-              TREE_ITEM};
+
+            ALERT = (sal_Int16)1,
+            BUTTON_DROPDOWN = (sal_Int16)68,
+            BUTTON_MENU = (sal_Int16)69,
+            CANVAS = (sal_Int16)3,
+            CAPTION = (sal_Int16)70,
+            CHART = (sal_Int16)71,
+            CHECK_BOX = (sal_Int16)4,
+            CHECK_MENU_ITEM = (sal_Int16)5,
+            COLOR_CHOOSER = (sal_Int16)6,
+            COLUMN_HEADER = (sal_Int16)2,
+            COMBO_BOX = (sal_Int16)7,
+            COMMENT = (sal_Int16)81,
+            COMMENT_END = (sal_Int16)82,
+            DATE_EDITOR = (sal_Int16)8,
+            DESKTOP_ICON = (sal_Int16)9,
+            DESKTOP_PANE = (sal_Int16)10,
+            DIALOG = (sal_Int16)12,
+            DIRECTORY_PANE = (sal_Int16)11,
+            DOCUMENT = (sal_Int16)13,
+            EDIT_BAR = (sal_Int16)72,
+            EMBEDDED_OBJECT = (sal_Int16)14,
+            END_NOTE = (sal_Int16)15,
+            FILE_CHOOSER = (sal_Int16)16,
+            FILLER = (sal_Int16)17,
+            FONT_CHOOSER = (sal_Int16)18,
+            FOOTER = (sal_Int16)19,
+            FOOTNOTE = (sal_Int16)20,
+            FORM = (sal_Int16)73,
+            FRAME = (sal_Int16)21,
+            GLASS_PANE = (sal_Int16)22,
+            GRAPHIC = (sal_Int16)23,
+            GROUP_BOX = (sal_Int16)24,
+            HEADER = (sal_Int16)25,
+            HEADING = (sal_Int16)26,
+            HYPER_LINK = (sal_Int16)27,
+            ICON = (sal_Int16)28,
+            IMAGE_MAP = (sal_Int16)74,
+            INTERNAL_FRAME = (sal_Int16)29,
+            LABEL = (sal_Int16)30,
+            LAYERED_PANE = (sal_Int16)31,
+            LIST = (sal_Int16)32,
+            LIST_ITEM = (sal_Int16)33,
+            MENU = (sal_Int16)34,
+            MENU_BAR = (sal_Int16)35,
+            MENU_ITEM = (sal_Int16)36,
+            NOTE = (sal_Int16)75,
+            OPTION_PANE = (sal_Int16)37,
+            PAGE = (sal_Int16)76,
+            PAGE_TAB = (sal_Int16)38,
+            PAGE_TAB_LIST = (sal_Int16)39,
+            PANEL = (sal_Int16)40,
+            PARAGRAPH = (sal_Int16)41,
+            PASSWORD_TEXT = (sal_Int16)42,
+            POPUP_MENU = (sal_Int16)43,
+            PROGRESS_BAR = (sal_Int16)45,
+            PUSH_BUTTON = (sal_Int16)44,
+            RADIO_BUTTON = (sal_Int16)46,
+            RADIO_MENU_ITEM = (sal_Int16)47,
+            ROOT_PANE = (sal_Int16)49,
+            ROW_HEADER = (sal_Int16)48,
+            RULER = (sal_Int16)77,
+            SCROLL_BAR = (sal_Int16)50,
+            SCROLL_PANE = (sal_Int16)51,
+            SECTION = (sal_Int16)78,
+            SEPARATOR = (sal_Int16)53,
+            SHAPE = (sal_Int16)52,
+            SLIDER = (sal_Int16)54,
+            SPIN_BOX = (sal_Int16)55,
+            SPLIT_PANE = (sal_Int16)56,
+            STATUS_BAR = (sal_Int16)57,
+            TABLE = (sal_Int16)58,
+            TABLE_CELL = (sal_Int16)59,
+            TEXT = (sal_Int16)60,
+            TEXT_FRAME = (sal_Int16)61,
+            TOGGLE_BUTTON = (sal_Int16)62,
+            TOOL_BAR = (sal_Int16)63,
+            TOOL_TIP = (sal_Int16)64,
+            TREE = (sal_Int16)65,
+            TREE_ITEM = (sal_Int16)79,
+            TREE_TABLE = (sal_Int16)80,
+            UNKNOWN = (sal_Int16)0,
+            VIEW_PORT = (sal_Int16)66,
+            WINDOW = (sal_Int16)67,
+              // EDIT_BAR,
+              // CAPTION,
+              // CHART,
+              // DOCUMENT,
+              // EMBEDDED_OBJECT,
+              // END_NOTE,
+              // FOOTNOTE,
+              // FORM,
+              // GROUP_BOX,
+              // HEADING,
+              // HYPER_LINK,
+              // IMAGE_MAP,
+              // NOTE,
+              // PAGE,
+              // SECTION,
+              // SHAPE,
+              // TEXT_FRAME,
+              // TREE_ITEM
+          };
         };
 
         class XAccessibleStateSet {
@@ -438,6 +609,7 @@ namespace com {
 
         class XAccessibleContext : public XAccessible {
         public:
+          
           OUString getAccessibleName() {}
           OUString getAccessibleDescription() {}
           int getAccessibleChildCount() {}
@@ -466,4 +638,39 @@ std::size_t SAL_N_ELEMENTS(T(&)[Size]) {
 
 template <class T> void OSL_FAIL(T) {}
 template <class T> void OSL_ASSERT(T) {}
+class SwCrsrShell {} ;
+class SwViewShell : public SwCrsrShell {
+public :
+  Window * GetWin() const {}
+  template <class T> bool ISA(T) const{}
+};
+#define ISA(X) ISA(X())
+
+class SwAccessibleMap{
+public:
+  SwViewShell * GetShell() const;
+};
+
+#define SAL_THROW 	( 	  	exc)		   throw exc
+
+//#define SAL_THROW
+//#define SAL_THROW(X) ;
+// throws X
+
+#define SVX_DLLPUBLIC
+#define SAL_CALL 
+class SwPaM {};
+
+using namespace com::sun::star::awt;
+template <class T> void OSL_ENSURE(T, const char * message){}
+
+
+#include <acccontext.hxx>
+#include <accfrmobj.hxx>
+
+
+
+
+
+
 

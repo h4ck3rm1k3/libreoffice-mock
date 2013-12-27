@@ -1,0 +1,42 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEGROUPPOSITION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEGROUPPOSITION_HDL
+
+#include "sal/config.h"
+
+#include <exception>
+
+#include "com/sun/star/lang/IndexOutOfBoundsException.hdl"
+#include "com/sun/star/uno/RuntimeException.hdl"
+#include "com/sun/star/uno/XInterface.hdl"
+#include "com/sun/star/uno/Any.h"
+#include "com/sun/star/uno/Reference.h"
+#include "com/sun/star/uno/Sequence.h"
+#include "cppu/macros.hxx"
+#include "rtl/ustring.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+class SAL_NO_VTABLE XAccessibleGroupPosition : public ::css::uno::XInterface
+{
+public:
+
+    // Methods
+    virtual ::css::uno::Sequence< ::sal_Int32 > SAL_CALL getGroupPosition( const ::css::uno::Any& accoject ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::rtl::OUString SAL_CALL getObjectLink( const ::css::uno::Any& accoject ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XAccessibleGroupPosition() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleGroupPosition const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleGroupPosition > *) SAL_THROW(());
+
+#endif

@@ -1,0 +1,41 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEHYPERTEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEHYPERTEXT_HDL
+
+#include "sal/config.h"
+
+#include <exception>
+
+namespace com { namespace sun { namespace star { namespace accessibility { class XAccessibleHyperlink; } } } }
+#include "com/sun/star/accessibility/XAccessibleText.hdl"
+#include "com/sun/star/lang/IndexOutOfBoundsException.hdl"
+#include "com/sun/star/uno/RuntimeException.hdl"
+#include "com/sun/star/uno/Reference.h"
+#include "cppu/macros.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+class SAL_NO_VTABLE XAccessibleHypertext : public ::css::accessibility::XAccessibleText
+{
+public:
+
+    // Methods
+    virtual ::sal_Int32 SAL_CALL getHyperLinkCount() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::css::uno::Reference< ::css::accessibility::XAccessibleHyperlink > SAL_CALL getHyperLink( ::sal_Int32 nLinkIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getHyperLinkIndex( ::sal_Int32 nCharIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XAccessibleHypertext() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleHypertext const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleHypertext > *) SAL_THROW(());
+
+#endif

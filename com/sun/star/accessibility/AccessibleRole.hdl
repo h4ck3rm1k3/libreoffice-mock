@@ -1,0 +1,14 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEROLE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEROLE_HDL
+
+#include "sal/config.h"
+
+#include "cppu/macros.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace accessibility { namespace AccessibleRole {
+          
+          // Refactored into an enum
+} } } } }
+
+#endif // INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEROLE_HDL

@@ -1,0 +1,45 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTSELECTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTSELECTION_HDL
+
+#include "sal/config.h"
+
+#include <exception>
+
+#include "com/sun/star/awt/Point.hdl"
+#include "com/sun/star/lang/IllegalArgumentException.hdl"
+#include "com/sun/star/lang/IndexOutOfBoundsException.hdl"
+#include "com/sun/star/uno/RuntimeException.hdl"
+#include "com/sun/star/uno/XInterface.hdl"
+#include "com/sun/star/uno/Reference.h"
+#include "cppu/macros.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+class SAL_NO_VTABLE XAccessibleTextSelection : public ::css::uno::XInterface
+{
+public:
+
+    // Methods
+    virtual ::sal_Bool SAL_CALL scrollToPosition( const ::css::awt::Point& aPoint, ::sal_Bool isLeftTop ) /* throw (::css::lang::IllegalArgumentException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getSelectedPortionCount() /* throw (::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getSeletedPositionStart( ::sal_Int32 nSelectedPortionIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL getSeletedPositionEnd( ::sal_Int32 nSelectedPortionIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Int32 SAL_CALL addSelection( ::sal_Int32 selectionIndex, ::sal_Int32 startOffset, ::sal_Int32 endOffset ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+    virtual ::sal_Bool SAL_CALL removeSelection( ::sal_Int32 selectionIndex ) /* throw (::css::lang::IndexOutOfBoundsException, ::css::uno::RuntimeException, ::std::exception) */ = 0;
+
+    static inline ::css::uno::Type const & SAL_CALL static_type(void * = 0);
+
+protected:
+    ~XAccessibleTextSelection() throw () {} // avoid warnings about virtual members and non-virtual dtor
+};
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::XAccessibleTextSelection const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::uno::Reference< ::css::accessibility::XAccessibleTextSelection > *) SAL_THROW(());
+
+#endif

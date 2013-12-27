@@ -1,0 +1,38 @@
+#ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_TEXTSEGMENT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_TEXTSEGMENT_HDL
+
+#include "sal/config.h"
+
+#include "cppu/macros.hxx"
+#include "rtl/ustring.hxx"
+#include "sal/types.h"
+
+namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+
+#ifdef SAL_W32
+#   pragma pack(push, 8)
+#endif
+
+struct TextSegment {
+    inline TextSegment() SAL_THROW(());
+
+    inline TextSegment(const ::rtl::OUString& SegmentText_, const ::sal_Int32& SegmentStart_, const ::sal_Int32& SegmentEnd_) SAL_THROW(());
+
+    ::rtl::OUString SegmentText;
+    ::sal_Int32 SegmentStart;
+    ::sal_Int32 SegmentEnd;
+};
+
+#ifdef SAL_W32
+#   pragma pack(pop)
+#endif
+
+
+inline ::css::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::css::accessibility::TextSegment const *);
+} } } }
+
+inline ::css::uno::Type const & SAL_CALL getCppuType(const ::css::accessibility::TextSegment *) SAL_THROW(());
+
+#endif
