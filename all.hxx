@@ -14,8 +14,8 @@
 #define CPPU_GCC_DLLPUBLIC_EXPORT
 #define CPPU_GCC_DLLPRIVATE
 #define CPPU_GCC3_ALIGN
-#define CHECK_FOR_DEFUNC(X)
-
+//#define CHECK_FOR_DEFUNC(X) ../sw/source/core/access/acccontext.hxx:410
+//#define THROW_RUNTIME_EXCEPTION(X)  ../sw/source/core/access/acccontext.hxx:394
 
 class AccessibleShapeTreeInfo {};
 // {
@@ -201,23 +201,11 @@ class SdrObject{};
 
 
 class SwFEShell {};
-class SwFrm {};
-
-class SwRect{
-public:
-  bool operator ==  (SwRect const) const {
-    return false;
-  }
-
-  template <class T> bool IsOver(T) const ;
-
-  SwRect SVRect() const;
-
+class SwFrm {
+public :
+  bool IsRootFrm() const;
 };
-class Window{
-public:
-  bool HasFocus() {}
-};
+
 
 
 namespace com {
@@ -232,11 +220,24 @@ namespace com {
         class KeyStroke{};
         class XFocusListener{};
         class Point {
+        public:
+          Point() {}
+          Point(const int&, const int&) {}
           int X;
-          int Y;          
+          int Y;   
+          void setX(int X) {}
+          void setY(int X) {}
+          int getX() {}
+          int getY() {}
         };
+        // com::sun::star::awt::Rectangle
         class Rectangle : public Point{
+        public:
+          Rectangle(int, int, int, int) {}
+          Rectangle() {}
           int Width;
+          int Height;
+          Point TopLeft() {}
 
         };
         class Size {};
@@ -296,10 +297,16 @@ namespace com {
           Reference(T&) {}
           Reference(T*) {}
           Reference(Reference<T>, extra){}
+
           template <class U> Reference(Reference<U>, extra) {}
           template <class U> Reference(Reference<U>) {}
-          template <class U> Reference(U*&) {}
+          template <class U> Reference(U&) {}
+          template <class U> Reference(U*) {}
           T * operator ->  () const  {}
+          T * operator =  (T *)  {}
+          template <class U>   Reference<T> & operator =  (U *)  {}
+          Reference<T> operator =  (Reference<T>)  {}
+
           bool operator ==  (Reference<T> const) const {
             return false;
           }
@@ -330,7 +337,13 @@ namespace com {
 
         };
 
-        class RuntimeException : Exception {};
+        class RuntimeException : Exception {
+        public:
+          template<class T> RuntimeException(
+                           rtl::OUString, 
+                           com::sun::star::uno::Reference<
+                           T>&) {}
+        };
 
       };
     };
@@ -400,11 +413,19 @@ namespace com {
         class XShape {};
       }
 
+
+      //::com::sun::star::lang
       namespace lang {
         class XComponent {};
         class XTypeProvider{};
         class XUnoTunnel{};
-        class DisposedException{};
+        class DisposedException{
+        public:
+          template <class T>
+          DisposedException(
+                            rtl::OUString, 
+                            T &) {}
+        };
         class XServiceInfo {};
         class Locale {};
         class EventObject {
@@ -416,7 +437,14 @@ namespace com {
           EventObject( ){} 
         };
         class XEventListener {};
-        class IndexOutOfBoundsException {};
+        class IndexOutOfBoundsException {
+        public:
+          template <class T> IndexOutOfBoundsException(
+                                                       rtl::OUString, 
+                                                       T &
+                                                       ) {}
+
+        };
         class IllegalArgumentException {};
       };
     };
@@ -769,8 +797,13 @@ namespace com {
 }
 
 namespace utl {
+  class AccessibleRelationSetHelper {
+    
+  };
   class AccessibleStateSetHelper{
   public:
+    AccessibleStateSetHelper() {}
+
     void AddState(
                   ::com::sun::star::accessibility::AccessibleStateType::state_type
                   
@@ -816,6 +849,9 @@ std::size_t SAL_N_ELEMENTS(T(&)[Size]) {
 template <class T> void OSL_FAIL(T) {}
 template <class T> void OSL_ASSERT(T) {}
 class SwCrsrShell {} ;
+
+class Window;
+
 class SwViewShell : public SwCrsrShell {
 public :
   Window * GetWin() const {}
@@ -855,10 +891,15 @@ com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, sal_Int16) {
 }
 
 #include <com/sun/star/accessibility/AccessibleEventObject.hdl>
+#include <com/sun/star/accessibility/XAccessibleEventListener.hdl>
 
 namespace comphelper {
   class AccessibleEventNotifier {
   public:
+    static int registerClient();
+    static void revokeClient( int nClientId );
+    static int removeEventListener(sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>&);
+    static void addEventListener( sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>& );
     static void 
     addEvent( 
              int nClientId, 
@@ -867,7 +908,57 @@ namespace comphelper {
   };
 };
 
-#include <com/sun/star/accessibility/XAccessible.hpp>
+//#include <com/sun/star/accessibility/XAccessible.hpp>
+#include <com/sun/star/accessibility/XAccessible.hdl>
+
+class FunkyXAccessible {};
+
+class Window{
+public:
+  bool HasFocus() {}
+
+  FunkyXAccessible funky;
+
+  ::com::sun::star::uno::Reference< 
+    ::com::sun::star::accessibility::XAccessible > r;
+
+  ::com::sun::star::uno::Reference<
+    ::com::sun::star::accessibility::XAccessible
+    > GetAccessible() {}
+  FunkyXAccessible   GetAccessible2() {}
+
+};
+
+class LanguageTag 
+{
+public:
+
+::com::sun::star::lang::Locale getLocale();
+
+};
+
+class Settings {
+public:
+LanguageTag GetLanguageTag();
+};
+
+
+class Application {
+public:
+static Settings GetSettings();
+};
+
+class SwRect : public com::sun::star::awt::Rectangle {
+public:
+  bool operator ==  (SwRect const) const {
+    return false;
+  }
+
+  template <class T> bool IsOver(T) const ;
+
+  SwRect SVRect() const;
+
+};
 
 #include <acccontext.hxx>
 #include <accfrmobj.hxx>

@@ -16,7 +16,8 @@ namespace com { namespace sun { namespace star { namespace uno { class Type; } }
 
 namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XAccessibleExtendedAttributes : public ::com::sun::star::uno::XInterface
+class SAL_NO_VTABLE XAccessibleExtendedAttributes : 
+      public ::com::sun::star::uno::XInterface
 {
 public:
 
