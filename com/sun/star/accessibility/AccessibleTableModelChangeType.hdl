@@ -6,11 +6,8 @@
 #include "cppu/macros.hxx"
 #include "sal/types.h"
 
-namespace com { namespace sun { namespace star { namespace accessibility { namespace AccessibleTableModelChangeType {
+namespace com { namespace sun { namespace star { namespace accessibility { namespace AccessibleTableModelChangeType_old {
 
-static const ::sal_Int16 DELETE = (sal_Int16)2;
-static const ::sal_Int16 INSERT = (sal_Int16)1;
-static const ::sal_Int16 UPDATE = (sal_Int16)3;
 
 } } } } }
 

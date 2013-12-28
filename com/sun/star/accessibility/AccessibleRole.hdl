@@ -6,7 +6,7 @@
 #include "cppu/macros.hxx"
 #include "sal/types.h"
 
-namespace com { namespace sun { namespace star { namespace accessibility { namespace AccessibleRole {
+namespace com { namespace sun { namespace star { namespace accessibility { namespace AccessibleRole_old {
           
           // Refactored into an enum
 } } } } }

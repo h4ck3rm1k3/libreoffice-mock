@@ -35,7 +35,7 @@
 class SwAccessibleParagraph;
 
 class SwViewShell;
-class Rectangle;
+//class Rectangle;
 class SwFrm;
 class SwTxtFrm;
 class SwPageFrm;
