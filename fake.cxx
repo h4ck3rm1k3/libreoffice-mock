@@ -87,8 +87,9 @@ template <> void cppu::UnoType<XAccessibleValue>::get{}
 //void editableTextIfaceInit{}
 //void hypertextIfaceInit{}
 //void imageIfaceInit{}
-void ooo_wrapper_registry_add(Reference<XAccessible> const&, _AtkObject*){}
-AtkObject * ooo_wrapper_registry_get(Reference<XAccessible> const&){}
+//void ooo_wrapper_registry_add(Reference<XAccessible> const&, _AtkObject*){}
+//AtkObject * ooo_wrapper_registry_get(Reference<XAccessible> const&){}
+AtkObject* ooo_wrapper_registry_get(const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessible>&) {}
 void ooo_wrapper_registry_remove(XAccessible*){}
 
 void actionIfaceInit(AtkActionIface *iface) {}
@@ -121,7 +122,7 @@ void test_mapToAtkRole() {
   }
 }
 
-void test_atk_object_wrapper_new ()
+void test_atk_object_wrapper_new (){}
 /*
 AtkObject *
 atk_object_wrapper_new( const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible >& rxAccessible,

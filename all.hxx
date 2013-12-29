@@ -6,6 +6,8 @@
 #include <vector>
 
 
+
+const int SW_ADD_SELECT = 1;
 #define SAL_NO_VTABLE
 #define SVX_DLLPUBLIC
 #define SVX_DLLPRIVATE
@@ -16,6 +18,11 @@
 #define CPPU_GCC3_ALIGN
 //#define CHECK_FOR_DEFUNC(X) ../sw/source/core/access/acccontext.hxx:410
 //#define THROW_RUNTIME_EXCEPTION(X)  ../sw/source/core/access/acccontext.hxx:394
+enum colors{
+  COL_BLACK,
+  COL_WHITE
+};
+
 
 class AccessibleShapeTreeInfo {};
 // {
@@ -128,6 +135,7 @@ class AccessibleShapeTreeInfo {};
 #include <assert.h>
 #include <iostream>
 //class XInterface;
+typedef char sal_uInt8;
 typedef char sal_Char;
 typedef char sal_Int8;
 typedef long long sal_Int64;
@@ -141,6 +149,7 @@ typedef unsigned int sal_uInt32;
 const sal_Bool sal_False=false;
 const sal_Bool sal_True=false;
 
+const char * SW_RESSTR(sal_uInt16&) {}
 
 namespace osl {
   class Mutex{};
@@ -173,9 +182,16 @@ class SolarMutexGuard {};
 const int RTL_TEXTENCODING_UTF8=1;
 
 
+
 namespace rtl {
   template <class T> class Reference {
   public:
+    Reference() {}
+    Reference(T&) {}
+    Reference(T*) {}
+    template <class U> Reference(Reference<U>) {}
+    template <class U> Reference(U&) {}
+    template <class U> Reference(U*) {}
 
     //aEvent.NewValue <<= xThis;
 
@@ -189,6 +205,8 @@ namespace rtl {
   public:
     OUString() {}
     OUString(const char *) {}
+    OUString & replaceFirst(OUString, const OUString &);
+
   };
   inline OString OUStringToOString(OUString , int ) {}  
 
@@ -199,13 +217,68 @@ using namespace rtl;
 
 class SdrObject{};
 
-
-class SwFEShell {};
-class SwFrm {
-public :
-  bool IsRootFrm() const;
+class SwCntntFrm;
+class SwTxtNode {
+public:
+  void GetOfst() {}
 };
 
+class SwCrsrShell {
+public:
+  void ClearMark() {};
+  template <class T> bool ISA(T) {};
+  void KillPams() {};
+  template <class T> void SetSelection(T){};
+  void ShowCrsr(){};
+};
+
+class SwFEShell : public SwCrsrShell {
+public:
+  void FinishOLEObj(){}
+  bool IsFrmSelected() const{}
+  bool IsObjSelected()const{}
+  template <class T> void SelectObj(T&, int){}
+  template <class T> void SelectObj(T&, int, SdrObject *&){}
+};
+
+class AFrm {
+public:
+  bool IsEmpty() const {} 
+};
+
+class SwFrm {
+public :
+  bool IsRootFrm() const {};
+  bool IsLayoutFrm() const {};
+  bool IsTxtFrm() const {};
+  bool IsPageFrm() const {};
+  bool IsEmptyPage() const {};
+  bool IsFlyFrm() const {};
+  bool IsCntntFrm() const {};
+  const SwCntntFrm * ContainsCntnt() const {};
+  int GetPhyPageNum() const {};
+  const SdrObject * GetVirtDrawObj() const {};
+  const AFrm & Frm() const {};
+  
+};
+class SwIndex{
+public:
+  template<class T> SwIndex(T*, SwIndex&) {}
+};
+class SwPosition {
+public:
+  template <class T> SwPosition(const T&, SwIndex&){}
+};
+class SwPageFrm  : public SwFrm {};
+class SwFlyFrm   : public SwFrm {};
+class SwCntntFrm : public SwFrm {};
+class SwLayoutFrm : public SwFrm {};
+class SwTxtFrm : public SwCntntFrm {
+
+public:
+  SwIndex & GetOfst() const;
+  const SwTxtNode * GetTxtNode() const;
+};
 
 
 namespace com {
@@ -237,16 +310,28 @@ namespace com {
           Rectangle() {}
           int Width;
           int Height;
-          Point TopLeft() {}
-
+          int Left() const;
+          int Top() const;
+          Point TopLeft() const {}
+          void Move(int x, int y);
+          int GetWidth() const;
+          int GetHeight() const;
         };
-        class Size {};
+        class Size {
+        public:
+
+          Size() {}
+          Size(int x, int y) {}
+          
+        };
 
       };
 
 
       //using namespace com::sun::star::uno
       namespace uno {
+        enum extra { UNO_QUERY }; 
+
         class XAggregation{};
         enum types {
           TypeClass_EXCEPTION,
@@ -289,7 +374,7 @@ namespace com {
           T operator [] (int x) {}
         };
 
-        enum extra { UNO_QUERY }; 
+
 
         template <class T> class Reference {
         public:
@@ -352,6 +437,8 @@ namespace com {
 
 namespace cppu {
 
+  template <class T, class U> bool supportsService(T,U) {};
+
   template <
     class T, 
     class T2, 
@@ -361,7 +448,10 @@ namespace cppu {
   class PartialWeakComponentImplHelper4
     : //public T, 
     public T2,public T3, public T4
-  {};
+  {
+  public:
+    void dispose();
+  };
   template <
     class T, 
     class T2, 
@@ -460,7 +550,10 @@ namespace com {
       namespace accessibility {
         //  com.sun.star.accessibility
    
-        //class AccessibleShape {};
+        /*        class AccessibleShape {
+        public:
+          void dispose();
+          };*/
         //        class IllegalAccessibleComponentStateException {};
         // class TextSegment{
         // public:
@@ -848,14 +941,24 @@ std::size_t SAL_N_ELEMENTS(T(&)[Size]) {
 
 template <class T> void OSL_FAIL(T) {}
 template <class T> void OSL_ASSERT(T) {}
-class SwCrsrShell {} ;
 
 class Window;
 
+class SwPostItMgr{
+public: 
+  bool HasNotes();
+  bool ShowNotes();
+  template <class T> bool HasFrmConnectedSidebarWins(T);
+  template <class T, class U> Window* GetSidebarWinForFrmByIndex(T,U);
+  template <class T, class U> Window* GetAllSidebarWinForFrm(T,U);
+
+};
 class SwViewShell : public SwCrsrShell {
 public :
   Window * GetWin() const {}
   bool IsPreview(){}
+  SwPostItMgr * GetPostItMgr(){}
+
   template <class T> bool ISA(T) const{}
 };
 #define ISA(X) ISA(X())
@@ -872,7 +975,19 @@ class Fraction {};
 //#define SAL_THROW(X) ;
 // throws X
 
-class SwPaM {};
+  class Foo{
+  public:
+    bool operator == ( Foo &){}
+};
+
+class SwPaM {
+public:
+  SwPaM(SwPosition&){};
+  Foo * GetMark(){};
+  Foo * GetPoint() {}
+  bool HasMark(){}
+  
+};
 
 using namespace com::sun::star::awt;
 template <class T> void OSL_ENSURE(T, const char * message){}
@@ -900,6 +1015,11 @@ namespace comphelper {
     static void revokeClient( int nClientId );
     static int removeEventListener(sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>&);
     static void addEventListener( sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>& );
+
+    template <class T> static void revokeClientNotifyDisposing(
+                                                               sal_uInt32&, 
+                                                               T&
+                                                               ){}
     static void 
     addEvent( 
              int nClientId, 
@@ -927,6 +1047,8 @@ public:
     > GetAccessible() {}
   FunkyXAccessible   GetAccessible2() {}
 
+Point OutputToAbsoluteScreenPixel(Point);
+
 };
 
 class LanguageTag 
@@ -948,18 +1070,44 @@ public:
 static Settings GetSettings();
 };
 
-class SwRect : public com::sun::star::awt::Rectangle {
+class SwRect : public com::sun::star::awt::Rectangle 
+{
 public:
-  bool operator ==  (SwRect const) const {
-    return false;
-  }
-
-  template <class T> bool IsOver(T) const ;
-
-  SwRect SVRect() const;
+bool operator ==  (SwRect const) const {
+return false;
+}
+void SSize(com::sun::star::awt::Size x);
+template <class T> bool IsOver(T) const ;
+SwRect SVRect() const;
+int GetPreviewPageSize( int nPageNum );
+bool IsEmpty() const;
 
 };
 
+
+class SwWrtShell
+: public SwCrsrShell
+{
+public:
+template<class T>  void SetSelection(T&);
+  void SttSelect();
+};
+
+/*
+'nFlags' was not declared in this scope
+
+invalid static_cast from type 
+no matching function for call to 'SwPaM::SwPaM(SwPosition&)'
+no matching function for call to 'SwPosition::SwPosition(const SwTxtNode&, SwIndex&)'
+no matching function for call to 'rtl::Reference<accessibility::AccessibleShape>::Reference(accessibility::AccessibleShape*&)'
+passing 'const SwRect' as 'this' argument of 'bool SwRect::IsEmpty()' discards qualifiers [-fpermissive]
+passing 'const SwRect' as 'this' argument of 'int com::sun::star::awt::Rectangle::Left()' discards qualifiers [-fpermissive]
+passing 'const SwRect' as 'this' argument of 'int com::sun::star::awt::Rectangle::Top()' discards qualifiers [-fpermissive]
+passing 'const SwTxtFrm' as 'this' argument of 'const SwTxtNode* SwTxtFrm::GetTxtNode()' discards qualifiers [-fpermissive]
+request for member 'IsEmpty' in '(& rChildFrmOrObj)->sw::access::SwAccessibleChild::GetSwFrm()->SwFrm::Frm()', which is of pointer type 'AFrm*' (maybe you meant to use '->' ?)
+request for member 'IsEmpty' in '((SwAccessibleContext*)this)->SwAccessibleContext::<anonymous>.SwAccessibleFrame::GetFrm()->SwFrm::Frm()', which is of pointer type 'AFrm*' (maybe you meant to use '->' ?)
+
+*/
 #include <acccontext.hxx>
 #include <accfrmobj.hxx>
 
