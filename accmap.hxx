@@ -39,7 +39,7 @@ class SwViewShell;
 class SwFrm;
 class SwTxtFrm;
 class SwPageFrm;
-class SwAccessibleContext;
+//class SwAccessibleContext;
 class SwAccessibleContextMap_Impl;
 class SwAccessibleEventList_Impl;
 class SwAccessibleEventMap_Impl;

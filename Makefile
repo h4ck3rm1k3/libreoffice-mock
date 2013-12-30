@@ -12,4 +12,30 @@ all:
 	../vcl/unx/gtk/a11y/atkwrapper.cxx \
 	../vcl/unx/gtk/a11y/atklistener.cxx \
 	../sw/source/core/access/acccontext.cxx \
+	../sw/source/core/access/acccell.cxx \
+	../sw/source/core/access/accdoc.cxx \
+	../sw/source/core/access/accembedded.cxx \
+	../sw/source/core/access/accfield.cxx \
+	../sw/source/core/access/accfootnote.cxx \
+	../sw/source/core/access/accframebase.cxx \
+	../sw/source/core/access/accframe.cxx	 \
+	../sw/source/core/access/accfrmobj.cxx \
+	../sw/source/core/access/accfrmobjmap.cxx \
+	../sw/source/core/access/accfrmobjslist.cxx \
+	../sw/source/core/access/accgraphic.cxx	\
+	../sw/source/core/access/accheaderfooter.cxx \
+	../sw/source/core/access/acchyperlink.cxx \
+	../sw/source/core/access/acchypertextdata.cxx \
+	../sw/source/core/access/accmap.cxx \
+	../sw/source/core/access/accnotextframe.cxx \
+	../sw/source/core/access/accnotexthyperlink.cxx \
+	../sw/source/core/access/accpage.cxx \
+	../sw/source/core/access/accpara.cxx \
+	../sw/source/core/access/accportions.cxx  \
+	../sw/source/core/access/accpreview.cxx 
+	../sw/source/core/access/accselectionhelper.cxx \
+	../sw/source/core/access/acctable.cxx \
+	../sw/source/core/access/acctextframe.cxx \
+	../sw/source/core/access/parachangetrackinginfo.cxx \
+	../sw/source/core/access/textmarkuphelper.cxx\
 	fake.cxx
