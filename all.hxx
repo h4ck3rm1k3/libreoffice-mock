@@ -135,16 +135,17 @@ class AccessibleShapeTreeInfo {};
 #include <assert.h>
 #include <iostream>
 //class XInterface;
-typedef char sal_uInt8;
-typedef char sal_Char;
-typedef char sal_Int8;
-typedef long long sal_Int64;
-typedef int sal_Unicode;
-typedef short  sal_Int16;
-typedef unsigned short  sal_uInt16;
-typedef bool   sal_Bool;
-typedef int    sal_Int32;
-typedef unsigned int sal_uInt32;
+typedef bool           sal_Bool;
+typedef char           sal_Char;
+typedef char           sal_Int8;
+typedef unsigned char  sal_uInt8;
+typedef int            sal_Int32;
+typedef int            sal_Unicode;
+typedef long long      sal_Int64;
+typedef long           sal_uLong;
+typedef short          sal_Int16;
+typedef unsigned int   sal_uInt32;
+typedef unsigned short sal_uInt16;
 
 const sal_Bool sal_False=false;
 const sal_Bool sal_True=false;
@@ -1106,8 +1107,573 @@ passing 'const SwRect' as 'this' argument of 'int com::sun::star::awt::Rectangle
 passing 'const SwTxtFrm' as 'this' argument of 'const SwTxtNode* SwTxtFrm::GetTxtNode()' discards qualifiers [-fpermissive]
 request for member 'IsEmpty' in '(& rChildFrmOrObj)->sw::access::SwAccessibleChild::GetSwFrm()->SwFrm::Frm()', which is of pointer type 'AFrm*' (maybe you meant to use '->' ?)
 request for member 'IsEmpty' in '((SwAccessibleContext*)this)->SwAccessibleContext::<anonymous>.SwAccessibleFrame::GetFrm()->SwFrm::Frm()', which is of pointer type 'AFrm*' (maybe you meant to use '->' ?)
+ 'aBuffer' was not declared in this scope
+ 'AddChild' was not declared in this scope
+ 'aDepend' was not declared in this scope
+ 'aIter' was not declared in this scope
+ 'aList' was not declared in this scope
+ 'aLogBounds' was not declared in this scope
+ 'aMutex' was not declared in this scope
+ 'aPixPoint' was not declared in this scope
+ 'aSelectionHelper' was not declared in this scope
+ 'aURL' was not declared in this scope
+ 'aValue' was not declared in this scope
+ 'aVisList' was not declared in this scope
+ 'bBeginDocumentLoad' was not declared in this scope
+ 'bDisposing' was not declared in this scope
+ 'bFinished' was not declared in this scope
+ 'bIsDefuncState' was not declared in this scope
+ 'bIsEditableState' was not declared in this scope
+ 'bIsOpaqueState' was not declared in this scope
+ 'bIsSeletedInDoc' was not declared in this scope
+ 'bIsShowingState' was not declared in this scope
+ 'bRegisteredAtAccessibleMap' was not declared in this scope
+ 'DisposeChild' was not declared in this scope
+ 'DisposeShape' was not declared in this scope
+ 'eAnchorId' was not declared in this scope
+ 'EndListening' was not declared in this scope
+ 'FindBreak' was not declared in this scope
+ 'FireAccessibleEvent' was not declared in this scope
+ 'FireStateChangedEvent' was not declared in this scope
+ 'FireVisibleDataEvent' was not declared in this scope
+ 'FLY_AS_CHAR' was not declared in this scope
+ 'FLY_AT_PARA' was not declared in this scope
+ 'FormatNumber' was not declared in this scope
+ 'getBoundsImpl' was not declared in this scope
+ 'GetBounds' was not declared in this scope
+ 'GetChildAtPixel' was not declared in this scope
+ 'GetChildCount' was not declared in this scope
+ 'GetChild' was not declared in this scope
+ 'GetCrsrShell' was not declared in this scope
+ 'GetFrm' was not declared in this scope
+ 'GetMap' was not declared in this scope
+ 'GetModelPosition' was not declared in this scope
+ 'GetName' was not declared in this scope
+ 'GetParent' was not declared in this scope
+ 'GetRegisteredInNonConst' was not declared in this scope
+ 'GetRegisteredIn' was not declared in this scope
+ 'GetResource' was not declared in this scope
+ 'GetRole' was not declared in this scope
+ 'GetSdrObjectFromXShape' was not declared in this scope
+ 'GetShell' was not declared in this scope
+ 'getSize' was not declared in this scope
+ 'GetVisArea' was not declared in this scope
+ 'GetWeakParent' was not declared in this scope
+ 'GetWindow' was not declared in this scope
+ 'g_pBreakIt' was not declared in this scope
+
+ 'HasCursor' was not declared in this scope
+ 'ImageMap' was not declared in this scope
+ 'IMapObject' was not declared in this scope
+ 'IsEditable' was not declared in this scope
+ 'isIfAsynLoad' was not declared in this scope
+ 'IsInPagePreview' was not declared in this scope
+ 'IsOpaque' was not declared in this scope
+ 'IsShowing' was not declared in this scope
+ 'i' was not declared in this scope
+ 'LoadURL' was not declared in this scope
+ 'maEventListeners' was not declared in this scope
+ 'maSelectionHelper' was not declared in this scope
+ 'maVisArea' was not declared in this scope
+ 'mpDrawModel' was not declared in this scope
+ 'mpFrmFmt' was not declared in this scope
+ 'nClientId' was not declared in this scope
+ 'nControlsId' was not declared in this scope
+ 'nEndIndex' was not declared in this scope
+ 'nHellId' was not declared in this scope
+ 'nHere' was not declared in this scope
+ 'nLayer' was not declared in this scope
+ 'nLineNum' was not declared in this scope
+ 'nLinks' was not declared in this scope
+ 'nResId' was not declared in this scope
+ 'nRole' was not declared in this scope
+ 'nStartIndex' was not declared in this scope
+ 'NULL' was not declared in this scope
+ 'pAccImpl' was not declared in this scope
+ 'pAcc' was not declared in this scope
+ 'pAnchor' was not declared in this scope
+ 'pCNd' was not declared in this scope
+ 'pCntntNode' was not declared in this scope
+ 'pCurrSctFrm' was not declared in this scope
+ 'pDocSh' was not declared in this scope
+ 'pDoc' was not declared in this scope
+ 'pEvent' was not declared in this scope
+ '_pField' was not declared in this scope
+ 'pFmt' was not declared in this scope
+ 'pFrmFmt' was not declared in this scope
+ 'pHints' was not declared in this scope
+ 'pKeyBindingHelper' was not declared in this scope
+ 'pMapObj' was not declared in this scope
+ 'pMap' was not declared in this scope
+ 'pNdIdx' was not declared in this scope
+ 'pObjs' was not declared in this scope
+ 'pParent' was not declared in this scope
+ 'pPrevNode' was not declared in this scope
+ 'pSection' was not declared in this scope
+ '__pStartCrsr' was not declared in this scope
+ 'pStateSet' was not declared in this scope
+ 'pSwCntntNode' was not declared in this scope
+ 'pTxtAttr2' was not declared in this scope
+ 'pTxtFtn' was not declared in this scope
+ 'pUpper' was not declared in this scope
+ 'pVclEvent' was not declared in this scope
+ 'pVOpt' was not declared in this scope
+ 'rAnchor' was not declared in this scope
+ 'rBack' was not declared in this scope
+ 'RemoveChild' was not declared in this scope
+ 'RemoveFrmFromAccessibleMap' was not declared in this scope
+
+ 'rFmtCol' was not declared in this scope
+ 'rFmtSctCol' was not declared in this scope
+ 'rINetFmt' was not declared in this scope
+ 'rMrkList' was not declared in this scope
+ 'RndStdIds' was not declared in this scope
+ 'sAccessibleServiceName' was not declared in this scope
+ 'sAccessibleString' was not declared in this scope
+ 'ScrolledInShape' was not declared in this scope
+ 'Select' was not declared in this scope
+ 'SetName' was not declared in this scope
+ 'SetParent' was not declared in this scope
+ 'SetVisArea' was not declared in this scope
+ 'SfxBroadcaster' was not declared in this scope
+ '' was not declared in this scope
+ 'sName' was not declared in this scope
+ 'tbl_formula' was not declared in this scope
+
+ 'xAccContext' was not declared in this scope
+ 'xAcc' was not declared in this scope
+ 'xAnchor' was not declared in this scope
+ 'xContextTable' was not declared in this scope
+ 'xParent' was not declared in this scope
+ 'xTableReference' was not declared in this scope
+ 'xTmp' was not declared in this scope
+ 'xWeakParent' was not declared in this scope
+
 
 */
+
+#define   THROW_RUNTIME_EXCEPTION
+
+enum stuff {
+
+  GPOS_NONE,
+  KEY_RETURN,
+  KSHORT,
+  LINK,
+  ND_TEXTNODE,
+  SAL_WARN_IF,
+  CHECK_FOR_DEFUNC,
+  CHECK_FOR_WINDOW,
+  ClearFrm,
+  CNT_GRF,
+  CNT_OLE,
+  CNT_TXT,
+  COL_AUTO,
+  COL_TRANSPARENT,
+  DBG_ASSERT,
+  SFX_TITLE_APINAME,
+  STR_ACCESS_DOC_DESC,
+  STR_ACCESS_DOC_NAME,
+  STR_ACCESS_DOC_WORDPROCESSING_READONLY,
+  STR_ACCESS_DOC_WORDPROCESSING,
+  STR_ACCESS_ENDNOTE_NAME,
+  STR_ACCESS_FOOTER_DESC,
+  STR_ACCESS_FOOTER_NAME,
+  STR_ACCESS_FOOTNOTE_NAME,
+  STR_ACCESS_HEADER_DESC,
+  STR_ACCESS_HEADER_NAME,
+  STR_ACCESS_PAGE_DESC,
+  STR_ACCESS_PAGE_NAME,
+  STR_ACCESS_PREVIEW_DOC_NAME,
+  STR_ACCESS_PREVIEW_DOC_SUFFIX,
+  SVX_NUM_ARABIC,
+  SVX_NUM_NUMBER_NONE,
+  RES_DESCRIPTION_CHANGED,
+  RES_FMT_CHG,
+  RES_NAME_CHANGED,
+  RES_OBJECTDYING,
+  RES_TITLE_CHANGED,
+  RES_TXTATR_INETFMT,
+  TOX_CONTENT_SECTION,
+  TOX_HEADER_SECTION,
+  URLLOAD_NOFILTER,
+  VCLEVENT_OBJECT_DYING,
+  VCLEVENT_WINDOW_HIDE,
+  VCLEVENT_WINDOW_SHOW,
+    };
+
+class  VclWindowEvent {};
+class  WindowChildEventListener{};
+
+
+class SwCntntNode {};
+class SwDocShell {};
+class SwDoc {};
+class SwDrawContact {};
+class SwFmtChg {};
+class SwFmtURL {};
+class SwFrmFmt {};
+class SwModify {};
+class SW_MOD {};
+class SwPtrMsgPoolItem {};
+class SwSectionFrm {};
+class SwStringMsgPoolItem {};
+class SwTblBoxValue {};
+class SwTxtINetFmt {};
+class SwVirtFlyDrawObj {};
+
+class SwAccessibleContext; // forward
+#include <sw/source/core/access/acccontext.hxx>
+// todo replace thse
+// class SwAccessibleContext :
+//     public ::cppu::WeakImplHelper5<
+//                 ::com::sun::star::accessibility::XAccessible,
+//                 ::com::sun::star::accessibility::XAccessibleContext,
+//                 ::com::sun::star::accessibility::XAccessibleComponent,
+//                 ::com::sun::star::accessibility::XAccessibleEventBroadcaster,
+//                 ::com::sun::star::lang::XServiceInfo
+//                 >,
+//     public SwAccessibleFrame
+// {
+//   void acquire(){}
+//   void release(){}
+
+
+
+//     friend class SwAccessibleSelectionHelper;
+
+// protected:
+//     mutable ::osl::Mutex aListenerMutex;
+//     mutable ::osl::Mutex aMutex;
+
+// private:
+//     OUString sName;
+
+
+
+//     ::com::sun::star::uno::WeakReference <
+//         ::com::sun::star::accessibility::XAccessible > xWeakParent;
+
+//     SwAccessibleMap *pMap;
+
+//     sal_uInt32 nClientId;
+//     sal_Int16 nRole;
+
+
+//     sal_Bool bIsShowingState : 1;
+//     sal_Bool bIsEditableState : 1;
+//     sal_Bool bIsOpaqueState : 1;
+//     sal_Bool bIsDefuncState : 1;
+
+
+//     sal_Bool bDisposing : 1;
+
+
+
+//     bool bRegisteredAtAccessibleMap;
+
+//     void InitStates();
+
+//     sal_Bool bBeginDocumentLoad;
+
+// protected:
+//     void SetName( const OUString& rName ) { sName = rName; }
+//     inline sal_Int16 GetRole() const
+//     {
+//         return nRole;
+//     }
+
+//     sal_Bool isIfAsynLoad;
+
+//     sal_Bool bIsSeletedInDoc;
+//     void SetParent( SwAccessibleContext *pParent );
+//     ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> GetWeakParent() const;
+
+//     sal_Bool IsDisposing() const { return bDisposing; }
+
+//     Window *GetWindow();
+//     SwAccessibleMap *GetMap() { return pMap; }
+//     const SwAccessibleMap *GetMap() const { return pMap; }
+
+
+//     inline SwViewShell* GetShell()
+//     {
+//         return GetMap()->GetShell();
+//     }
+//     inline const SwViewShell* GetShell() const
+//     {
+//         return GetMap()->GetShell();
+//     }
+
+
+
+//     SwCrsrShell* GetCrsrShell();
+//     const SwCrsrShell* GetCrsrShell() const;
+
+
+
+
+//     void ChildrenScrolled( const SwFrm *pFrm, const SwRect& rOldVisArea );
+
+
+
+//     void Scrolled( const SwRect& rOldVisArea );
+
+
+//     void ScrolledWithin( const SwRect& rOldVisArea );
+
+
+//     void ScrolledIn();
+
+
+//     void ScrolledOut( const SwRect& rOldVisArea );
+
+
+
+
+//     void InvalidateChildrenStates( const SwFrm* _pFrm,
+//                                    tAccessibleStates _nStates );
+
+
+
+//     void DisposeChildren( const SwFrm *pFrm,
+//                                        sal_Bool bRecursive );
+
+//     void DisposeShape( const SdrObject *pObj,
+//                                 ::accessibility::AccessibleShape *pAccImpl );
+//     void ScrolledInShape( const SdrObject *pObj,
+//                                 ::accessibility::AccessibleShape *pAccImpl );
+
+//     virtual void _InvalidateContent( sal_Bool bVisibleDataFired );
+
+//     virtual void _InvalidateCursorPos();
+//     virtual void _InvalidateFocus();
+
+// public:
+//     void SetMap(SwAccessibleMap *pM){pMap = pM;}
+//     void FireAccessibleEvent( ::com::sun::star::accessibility::AccessibleEventObject& rEvent );
+
+// protected:
+
+//     void FireVisibleDataEvent();
+
+
+//     void FireStateChangedEvent( sal_Int16 nState, sal_Bool bNewState );
+
+
+
+
+//     virtual void GetStates( ::utl::AccessibleStateSetHelper& rStateSet );
+
+//      sal_Bool IsEditableState();
+
+//     virtual ::com::sun::star::awt::Rectangle
+//         getBoundsImpl(sal_Bool bRelative)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     inline void NotRegisteredAtAccessibleMap()
+//     {
+//         bRegisteredAtAccessibleMap = false;
+//     }
+//     void RemoveFrmFromAccessibleMap();
+
+//     virtual ~SwAccessibleContext();
+
+// public:
+//     SwAccessibleContext( SwAccessibleMap *pMap, sal_Int16 nRole,
+//                          const SwFrm *pFrm );
+
+
+
+
+//     virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleContext>
+//         getAccessibleContext (void) throw (com::sun::star::uno::RuntimeException);
+
+
+
+
+//     virtual sal_Int32 getAccessibleChildCount (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible>
+//         getAccessibleChild (sal_Int32 nIndex)
+//         throw (::com::sun::star::uno::RuntimeException,
+//                 ::com::sun::star::lang::IndexOutOfBoundsException);
+
+
+//     virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible>
+//         getAccessibleParent (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual sal_Int32
+//         getAccessibleIndexInParent (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual sal_Int16
+//         getAccessibleRole (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual OUString
+//         getAccessibleDescription (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual OUString
+//         getAccessibleName (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual ::com::sun::star::uno::Reference<
+//             ::com::sun::star::accessibility::XAccessibleRelationSet>
+//         getAccessibleRelationSet (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual ::com::sun::star::uno::Reference<
+//             ::com::sun::star::accessibility::XAccessibleStateSet>
+//         getAccessibleStateSet (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+
+//     virtual ::com::sun::star::lang::Locale
+//         getLocale (void)
+//         throw (::com::sun::star::accessibility::IllegalAccessibleComponentStateException, ::com::sun::star::uno::RuntimeException);
+
+
+
+//     virtual void addAccessibleEventListener(
+//             const ::com::sun::star::uno::Reference<
+//                 ::com::sun::star::accessibility::XAccessibleEventListener >& xListener )
+//         throw (::com::sun::star::uno::RuntimeException);
+//     virtual void removeAccessibleEventListener(
+//             const ::com::sun::star::uno::Reference<
+//                 ::com::sun::star::accessibility::XAccessibleEventListener >& xListener )
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual sal_Bool containsPoint(
+//             const ::com::sun::star::awt::Point& aPoint )
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::uno::Reference<
+//         ::com::sun::star::accessibility::XAccessible > getAccessibleAtPoint(
+//                 const ::com::sun::star::awt::Point& aPoint )
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::awt::Rectangle getBounds()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::awt::Point getLocation()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::awt::Point getLocationOnScreen()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::awt::Size getSize()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual void grabFocus()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+//     virtual ::com::sun::star::uno::Any getAccessibleKeyBinding()
+//         throw (::com::sun::star::uno::RuntimeException);
+//     virtual sal_Int32 getForeground()
+//         throw (::com::sun::star::uno::RuntimeException);
+//     virtual sal_Int32 getBackground()
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+
+
+//     virtual OUString
+//         getImplementationName (void)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+//     virtual sal_Bool
+//         supportsService (const OUString& sServiceName)
+//         throw (::com::sun::star::uno::RuntimeException);
+
+
+
+//     virtual ::com::sun::star::uno::Sequence< OUString>
+//         getSupportedServiceNames (void)
+//              throw (::com::sun::star::uno::RuntimeException);
+
+
+
+
+//     virtual void Dispose( sal_Bool bRecursive = sal_False );
+
+
+//     virtual void DisposeChild( const sw::access::SwAccessibleChild& rFrmOrObj, sal_Bool bRecursive );
+
+
+//     virtual void InvalidatePosOrSize( const SwRect& rFrm );
+
+
+//     virtual void InvalidateChildPosOrSize( const sw::access::SwAccessibleChild& rFrmOrObj,
+//                                            const SwRect& rFrm );
+
+
+//     void InvalidateContent();
+
+
+//     void InvalidateCursorPos();
+
+
+//     void InvalidateFocus();
+
+
+
+//     void InvalidateStates( tAccessibleStates _nStates );
+
+
+//     void InvalidateRelation( sal_uInt16 nType );
+
+//     void InvalidateTextSelection();
+//     void InvalidateAttr();
+
+//     bool HasAdditionalAccessibleChildren();
+
+
+//     Window* GetAdditionalAccessibleChild( const sal_Int32 nIndex );
+
+
+//     void GetAdditionalAccessibleChildren( std::vector< Window* >* pChildren );
+
+//     const OUString& GetName() const { return sName; }
+
+//     virtual sal_Bool HasCursor();
+
+//     sal_Bool Select( SwPaM *pPaM, SdrObject *pObj, sal_Bool bAdd );
+//     inline sal_Bool Select( SwPaM& rPaM )
+//     {
+//         return Select( &rPaM, 0, sal_False );
+//     }
+//     inline sal_Bool Select( SdrObject *pObj, sal_Bool bAdd )
+//     {
+//         return Select( 0, pObj, bAdd );
+//     }
+
+
+//     virtual sal_Bool SetSelectedState(sal_Bool bSeleted);
+//     sal_Bool IsSeletedInDoc(){ return bIsSeletedInDoc; }
+
+//     static OUString GetResource( sal_uInt16 nResId,
+//                                         const OUString *pArg1 = 0,
+//                                         const OUString *pArg2 = 0 );
+// };
+
+class SwAccessibleSelectionHelper{};
+
+
 #include <acccontext.hxx>
 #include <accfrmobj.hxx>
 
