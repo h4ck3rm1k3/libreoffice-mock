@@ -16,6 +16,7 @@ typedef short          sal_Int16;
 typedef unsigned int   sal_uInt32;
 typedef unsigned short sal_uInt16;
 
+class xTableReference {};
 const sal_Bool sal_False=false;
 const sal_Bool sal_True=false;
 const int SW_ADD_SELECT = 1;
@@ -479,7 +480,10 @@ class SwSection {};
 class SwSectionNode {}; 
 class SwSortedObjs {}; 
 class SwStartNode {}; 
-class SwTableBox {}; 
+class SwTableBox {
+public:
+  const OUString& GetName() const { }
+}; 
 class SwTableNode {}; 
 class SwTblBoxFormula {}; 
 class SwTxtFtn {}; 
@@ -785,7 +789,11 @@ namespace com {
   };
 };
 
-class SwSelBoxes{};
+class SwSelBoxes{
+public:
+  bool find(SwTableBox *) const;
+  bool end() const;
+};
 class SwShellTableCrsr {
 public:
   SwShellTableCrsr (const SwCrsrShell &rCrsrSh, const SwPosition &rPos){}
@@ -799,9 +807,9 @@ public:
   virtual short 	MaxReplaceArived (){}; 
   virtual void 	SaveTblBoxCntnt (const SwPosition *pPos){}
   virtual sal_Bool 	IsAtValidPos (sal_Bool, ::com::sun::star::awt::Point ) const {};
-  SwSelBoxes const& GetSelectedBoxes();
-  bool find(SwTableBox *) const;
-  bool end() const;
+  SwSelBoxes const& GetSelectedBoxes() const;
+  //  bool find(SwTableBox *) const;
+  //  bool end() const;
 };
 namespace cppu {
 
@@ -1612,7 +1620,7 @@ request for member 'IsEmpty' in '((SwAccessibleContext*)this)->SwAccessibleConte
  'xAnchor' was not declared in this scope
  'xContextTable' was not declared in this scope
  'xParent' was not declared in this scope
- 'xTableReference' was not declared in this scope
+ '' was not declared in this scope
  'xTmp' was not declared in this scope
  'xWeakParent' was not declared in this scope
 
@@ -2047,9 +2055,9 @@ class SwAccessibleContext; // forward
 //                                         const OUString *pArg2 = 0 );
 // };
 
-class SwAccessibleSelectionHelper{};
+//class SwAccessibleSelectionHelper{};
 
-
+#include <sw/source/core/access/accselectionhelper.hxx>
 #include <acccontext.hxx>
 #include <accfrmobj.hxx>
 
