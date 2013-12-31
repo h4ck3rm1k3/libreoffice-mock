@@ -4,9 +4,20 @@
 //#include <atkobject.h>
 #include <atk/atk.h>
 #include <vector>
+typedef bool           sal_Bool;
+typedef char           sal_Char;
+typedef char           sal_Int8;
+typedef unsigned char  sal_uInt8;
+typedef int            sal_Int32;
+typedef int            sal_Unicode;
+typedef long long      sal_Int64;
+typedef long           sal_uLong;
+typedef short          sal_Int16;
+typedef unsigned int   sal_uInt32;
+typedef unsigned short sal_uInt16;
 
-
-
+const sal_Bool sal_False=false;
+const sal_Bool sal_True=false;
 const int SW_ADD_SELECT = 1;
 #define SAL_NO_VTABLE
 #define SVX_DLLPUBLIC
@@ -135,22 +146,16 @@ class AccessibleShapeTreeInfo {};
 #include <assert.h>
 #include <iostream>
 //class XInterface;
-typedef bool           sal_Bool;
-typedef char           sal_Char;
-typedef char           sal_Int8;
-typedef unsigned char  sal_uInt8;
-typedef int            sal_Int32;
-typedef int            sal_Unicode;
-typedef long long      sal_Int64;
-typedef long           sal_uLong;
-typedef short          sal_Int16;
-typedef unsigned int   sal_uInt32;
-typedef unsigned short sal_uInt16;
 
-const sal_Bool sal_False=false;
-const sal_Bool sal_True=false;
 
 const char * SW_RESSTR(sal_uInt16&) {}
+
+class SdrLayerID {}; 
+class SwStartNodeType{};
+class ViewShell {}; 
+
+class xmlTextWriterPtr {}; 
+class xub_StrLen {}; 
 
 namespace osl {
   class Mutex{};
@@ -182,8 +187,6 @@ class SolarMutexGuard {};
 
 const int RTL_TEXTENCODING_UTF8=1;
 
-
-
 namespace rtl {
   template <class T> class Reference {
   public:
@@ -202,6 +205,7 @@ namespace rtl {
     bool is() {}
   };
   class OUStringHash{};
+  // ::rtl::OUString
   class OUString {
   public:
     OUString() {}
@@ -224,6 +228,9 @@ public:
   void GetOfst() {}
 };
 
+
+class SwShellTableCrsr;
+
 class SwCrsrShell {
 public:
   void ClearMark() {};
@@ -231,7 +238,349 @@ public:
   void KillPams() {};
   template <class T> void SetSelection(T){};
   void ShowCrsr(){};
+  bool IsTableMode() const {};
+  const SwShellTableCrsr * 	GetTableCrsr () const;
 };
+
+class FnForEach_SwNodes {}; 
+class Graphic {}; 
+class GraphicObject {}; 
+class KSHORT {}; 
+class SfxBroadcaster {}; 
+class SwAttrSet {}; 
+class SwGrfFmtColl {}; 
+class SwHistory {}; 
+class SwPaM;
+class SwNode;
+class SwCntntNode;
+class SwNodeIndex;
+class SwDoc;
+class SwGrfNode;
+class SwNodePtr {}; 
+class SwNodeRange{};
+class SwOLENode;
+class SwSectionNode;
+class SwTableNode;
+class SwTxtNode;
+
+namespace svt {
+  class EmbeddedObjectRef{};
+}; 
+class SwSectionFmt {}; 
+class SwSectionData {}; 
+class SwTOXBase;
+class SwStartNode;
+class SwTxtFmtColl;
+/*fwd*/class FnForEach_SwNodes; 
+/*fwd*/class Graphic; 
+/*fwd*/class GraphicObject; 
+/*fwd*/class KSHORT;
+///*fwd*/class Point; 
+/*fwd*/class Reference; 
+/*fwd*/class SdrLayerID; 
+/*fwd*/class SfxBroadcaster; 
+/*fwd*/class SwAttrSet; 
+/*fwd*/class SwGrfFmtColl; 
+/*fwd*/class SwHistory; 
+/*fwd*/class SwPaM; 
+/*fwd*/class SwPosition; 
+/*fwd*/class SwSectionData; 
+/*fwd*/class SwSectionFmt; 
+/*fwd*/class SwTOXBase; 
+/*fwd*/class SwTableBoxFmt; 
+/*fwd*/class SwTableFmt; 
+/*fwd*/class SwTableLine; 
+/*fwd*/class SwTableLineFmt; 
+/*fwd*/class SwTblToTxtSaves; 
+/*fwd*/class SwTxtFmtColl; 
+/*fwd*/class SwUndoTblToTxt; 
+/*fwd*/class SwUndoTxtToTbl; 
+/*fwd*/class TableRanges_t; 
+/*fwd*/class SfxItemSet; 
+/*fwd*/class SwIndex; 
+
+
+class SwOutlineNodes {}; 
+
+class SwNodes{
+public:
+  ~SwNodes(){}
+  SwNode * 	DocumentSectionEndNode(SwNode *pNode) const{};
+  void 	dumpAsXml (xmlTextWriterPtr writer){};
+  SwNode * 	DocumentSectionStartNode(SwNode *pNode) const  {  };
+  SwCntntNode *  GoNext(SwNodeIndex *) const  {  };
+  SwCntntNode * 	GoNextSection(SwNodeIndex *, int bSkipHidden, int bSkipProtect) const{}
+  SwCntntNode * 	GoPrevSection(SwNodeIndex *, int bSkipHidden, int bSkipProtect) const{}
+  SwCntntNode * 	GoPrevious(SwNodeIndex *) const{}
+  SwDoc * 	GetDoc(){}
+  SwGrfNode * 	MakeGrfNode (const SwNodeIndex &rWhere, const GraphicObject &rGrfObj, SwGrfFmtColl *pColl, SwAttrSet *pAutoAttr){}
+  SwGrfNode * 	MakeGrfNode (const SwNodeIndex &rWhere, 
+                             const ::rtl::OUString &rGrfName, 
+                             const ::rtl::OUString &rFltName, const Graphic *pGraphic, SwGrfFmtColl *pColl, SwAttrSet *pAutoAttr, sal_Bool bDelayed=sal_False){}
+  SwNode & 	GetEndOfAutotext () const{}
+  SwNode & 	GetEndOfContent () const{}
+  SwNode & 	GetEndOfExtras () const{}
+  SwNode & 	GetEndOfInserts () const{}
+  SwNode & 	GetEndOfPostIts () const{}
+  SwNode & 	GetEndOfRedlines () const{}
+  SwNode * 	FindPrvNxtFrmNode (SwNodeIndex &rFrmIdx, const SwNode *pEnd) const{}
+  SwNode * 	GoNextWithFrm (SwNodeIndex *) const{}
+  SwNode * 	GoPreviousWithFrm (SwNodeIndex *) const{}
+  SwNodePtr 	operator[] (sal_uLong n) const{}
+  SwNodeRange * 	ExpandRangeForTableBox (const SwNodeRange &rRange){}
+  SwOLENode * 	MakeOLENode (const SwNodeIndex &rWhere, const OUString &rName, sal_Int64 nAspect, SwGrfFmtColl *pColl, SwAttrSet *pAutoAttr){}
+  SwOLENode * 	MakeOLENode (const SwNodeIndex &rWhere, const svt::EmbeddedObjectRef &, SwGrfFmtColl *pColl, SwAttrSet *pAutoAttr){}
+  SwSectionNode * 	InsertTextSection (SwNodeIndex const &rNdIdx, SwSectionFmt &rSectionFmt, SwSectionData const &, SwTOXBase const *const pTOXBase, SwNodeIndex const *const pEnde, bool const bInsAtStart=true, bool const bCreateFrms=true){}
+  SwStartNode * 	MakeEmptySection (const SwNodeIndex &rIdx, SwStartNodeType){}
+  SwStartNode * 	MakeTextSection (const SwNodeIndex &rWhere, SwStartNodeType eSttNdTyp, SwTxtFmtColl *pColl, SwAttrSet *pAutoAttr){}
+  SwTableNode * 	InsertTable (const SwNodeIndex &rNdIdx, sal_uInt16 nBoxes, SwTxtFmtColl *pCntntTxtColl, sal_uInt16 nLines, sal_uInt16 nRepeat, SwTxtFmtColl *pHeadlineTxtColl, const SwAttrSet *pAttrSet){}
+  SwTableNode * 	SplitTable (const SwNodeIndex &rPos, sal_Bool bAfter, sal_Bool bCalcNewSize=sal_False){}
+  SwTableNode * 	TextToTable (const SwNodeRange &rRange, sal_Unicode cCh, SwTableFmt *pTblFmt, SwTableLineFmt *pLineFmt, SwTableBoxFmt *pBoxFmt, SwTxtFmtColl *pTxtColl, SwUndoTxtToTbl *pUndo){}
+  SwTableNode * 	TextToTable (const TableRanges_t &rTableNodes, SwTableFmt *pTblFmt, SwTableLineFmt *pLineFmt, SwTableBoxFmt *pBoxFmt, SwTxtFmtColl *pTxtColl){}
+  SwTableNode * 	UndoTableToText (sal_uLong nStt, sal_uLong nEnd, const SwTblToTxtSaves &rSavedData){}
+  SwTxtNode * 	MakeTxtNode (const SwNodeIndex &rWhere, SwTxtFmtColl *pColl, SwAttrSet *pAutoAttr){}
+  const SwDoc * 	GetDoc () const{}
+  const SwOutlineNodes & 	GetOutLineNds () const{}
+  sal_Bool 	CheckNodesRange (const SwNodeIndex &rStt, const SwNodeIndex &rEnd) const{}
+  sal_Bool 	InsBoxen (SwTableNode *, SwTableLine *, SwTableBoxFmt *, SwTxtFmtColl *, const SfxItemSet *pAutoAttr, sal_uInt16 nInsPos, sal_uInt16 nCnt=1){}
+  sal_Bool 	IsDocNodes () const{}
+  sal_Bool 	MergeTable (const SwNodeIndex &rPos, sal_Bool bWithPrev, sal_uInt16 nMode, SwHistory *pHistory){}
+  sal_Bool 	TableToText (const SwNodeRange &rRange, sal_Unicode cCh, SwUndoTblToTxt *){}
+  sal_Bool 	_MoveNodes (const SwNodeRange &, SwNodes &rNodes, const SwNodeIndex &, sal_Bool bNewFrms){}
+  sal_uInt16 	GetSectionLevel (const SwNodeIndex &rIndex) const{}
+  sal_uLong 	Count () const{}
+  void 	Delete (const SwNodeIndex &rPos, sal_uLong nNodes){}
+  void 	ForEach (FnForEach_SwNodes fnForEach, void *pArgs){}
+  void 	ForEach (const SwNodeIndex &rStart, const SwNodeIndex &rEnd, FnForEach_SwNodes fnForEach, void *pArgs){}
+  void 	ForEach (sal_uLong nStt, sal_uLong nEnd, FnForEach_SwNodes fnForEach, void *pArgs){}
+  void 	GoEndOfSection (SwNodeIndex *) const{}
+  void 	GoStartOfSection (SwNodeIndex *) const{}
+  void 	MoveRange (SwPaM &, SwPosition &, SwNodes &rNodes){}
+  void 	SectionDown (SwNodeRange *pRange, SwStartNodeType){}
+  void 	SectionUp (SwNodeRange *){}
+  void 	UpdateOutlineNode (SwNode &rNd){}
+  void 	_Copy (const SwNodeRange &rRg, const SwNodeIndex &rInsPos, sal_Bool bNewFrms) const{}
+};
+
+class SwNodeIndex {
+  SwNodeIndex (SwNodes &rNds, sal_uLong nIdx){}
+  SwNodeIndex (const SwNode &, long nDiff){}
+  SwNodeIndex (const SwNodeIndex &, long nDiff){}
+  ~SwNodeIndex (){}
+  SwNode & 	GetNode () const{}
+  SwNodeIndex & 	Assign (SwNodes &rNds, sal_uLong){}
+  SwNodeIndex & 	Assign (const SwNode &rNd, long nOffset){}
+  SwNodeIndex & 	operator= (const SwNode &){}
+  SwNodeIndex & 	operator= (const SwNodeIndex &){}
+  SwNodeIndex & 	operator= (sal_uLong){}
+  SwNodes & 	GetNodes (){}
+  const SwNodes & 	GetNodes () const{}
+  sal_Bool 	operator!= (const SwNodeIndex &) const{}
+  sal_Bool 	operator!= (sal_uLong nWert) const{}
+  sal_Bool 	operator< (const SwNodeIndex &) const{}
+  sal_Bool 	operator< (sal_uLong nWert) const{}
+  sal_Bool 	operator<= (const SwNodeIndex &) const{}
+  sal_Bool 	operator<= (sal_uLong nWert) const{}
+  sal_Bool 	operator== (const SwNodeIndex &) const{}
+  sal_Bool 	operator== (sal_uLong nWert) const{}
+  sal_Bool 	operator> (const SwNodeIndex &) const{}
+    sal_Bool 	operator> (sal_uLong nWert) const{}
+    sal_Bool 	operator>= (const SwNodeIndex &) const{}
+  sal_Bool 	operator>= (sal_uLong nWert) const{}
+  sal_uLong 	GetIndex () const{}
+  sal_uLong 	operator++ (){}
+  sal_uLong 	operator++ (int){}
+  sal_uLong 	operator+= (const SwNodeIndex &){}
+  sal_uLong 	operator+= (sal_uLong){}
+  sal_uLong 	operator-- (){}
+  sal_uLong 	operator-- (int){}
+  sal_uLong 	operator-= (const SwNodeIndex &){}
+  sal_uLong 	operator-= (sal_uLong){}
+};
+
+class SwPosition {
+public:
+  template <class T> SwPosition(const T&, SwIndex&){}
+  //  SwPosition (const SwNodeIndex &rNode, const SwIndex &rCntnt){}
+  SwPosition (const SwNodeIndex &rNode){}
+  SwPosition (const SwNode &rNode){}
+  SwPosition (SwCntntNode &rNode, const xub_StrLen nOffset){}
+  SwPosition (const SwPosition &){}
+  SwPosition & 	operator= (const SwPosition &){} 
+  SwDoc * 	GetDoc () const {}
+  bool 	operator< (const SwPosition &) const {}
+  bool 	operator> (const SwPosition &) const {}
+  bool 	operator<= (const SwPosition &) const {}
+  bool 	operator>= (const SwPosition &) const {}
+  bool 	operator== (const SwPosition &) const {}
+  bool 	operator!= (const SwPosition &) const {}
+};
+
+
+
+class SwTOXBase {}; 
+class SwTableBoxFmt {}; 
+class SwTableFmt {}; 
+class SwTableLine {}; 
+class SwTableLineFmt {}; 
+class SwTblToTxtSaves {}; 
+class SwTxtFmtColl {}; 
+class SwUndoTblToTxt {}; 
+class SwUndoTxtToTbl {}; 
+class TableRanges_t {}; 
+
+
+
+class IDocumentContentOperations {}; 
+class IDocumentDeviceAccess {}; 
+class IDocumentDrawModelAccess {}; 
+class IDocumentFieldsAccess {}; 
+class IDocumentLayoutAccess {}; 
+class IDocumentLineNumberAccess {}; 
+class IDocumentLinksAdministration {}; 
+class IDocumentListItems {}; 
+class IDocumentMarkAccess {}; 
+class IDocumentRedlineAccess {}; 
+class IDocumentSettingAccess {}; 
+class IDocumentStylePoolAccess {}; 
+class IStyleAccess {}; 
+
+class OUStringBuffer {}; 
+class SW_DLLPRIVATE {}; 
+class SdrMarkList {}; 
+class SdrModel {}; 
+class SfxHint {}; 
+class SfxItemSet {}; 
+class SvxBrushItem {}; 
+class SwCntntNode {}; 
+class SwCursor {}; 
+class SwDepend {}; 
+class SwDoc {}; 
+class SwEndNode {}; 
+class SwFmtAnchor {}; 
+class SwFmtCntnt {}; 
+class SwFmtCol {}; 
+class SwFmtINetFmt {}; 
+class SwFrmFmt {}; 
+class SwGrfNode {}; 
+
+class SwIndex{
+public:
+  template<class T> SwIndex(T*, SwIndex&) {}
+};
+
+class SwNoTxtNode {}; 
+
+class SwNodes; 
+class SwOLENode {}; 
+
+class SwPageDesc {}; 
+class SwSection {}; 
+class SwSectionNode {}; 
+class SwSortedObjs {}; 
+class SwStartNode {}; 
+class SwTableBox {}; 
+class SwTableNode {}; 
+class SwTblBoxFormula {}; 
+class SwTxtFtn {}; 
+class SwViewOption {}; 
+class SwpHints {}; 
+
+
+class SwNode {
+public:
+  IDocumentContentOperations * 	getIDocumentContentOperations (){}
+  IDocumentFieldsAccess * 	getIDocumentFieldsAccess (){}
+  IDocumentLayoutAccess * 	getIDocumentLayoutAccess (){}
+  IDocumentLinksAdministration * 	getIDocumentLinksAdministration (){}
+  IDocumentLinksAdministration * 	getIDocumentLinksAdministration () const{}
+  IDocumentListItems & 	getIDocumentListItems (){}
+  IStyleAccess & 	getIDocumentStyleAccess (){}
+  SwCntntNode * 	GetCntntNode (){}
+  SwDoc * 	GetDoc (){}
+  SwEndNode * 	EndOfSectionNode (){}
+  SwEndNode * 	GetEndNode (){}
+  SwFrmFmt * 	GetFlyFmt () const{}
+  SwGrfNode * 	GetGrfNode (){}
+  SwNoTxtNode * 	GetNoTxtNode (){};
+  SwNodes & 	GetNodes (){};
+  SwOLENode * 	GetOLENode (){};
+  SwSectionNode * 	FindSectionNode (){};
+  SwSectionNode * 	GetSectionNode (){};
+  SwStartNode * 	FindSttNodeByType (SwStartNodeType eTyp){};
+  SwStartNode * 	GetStartNode (){};
+  SwStartNode * 	StartOfSectionNode (){};
+  SwTableBox * 	GetTblBox () const{};
+  SwTableNode * 	FindTableNode (){};
+  SwTableNode * 	GetTableNode (){}
+  SwTxtNode * 	GetTxtNode (){}
+  bool 	IsIgnoreDontExpand () const{}
+  bool 	IsInProtectSect () const{}
+  bool 	IsSetNumLSpace () const{}
+  const IDocumentDeviceAccess * 	getIDocumentDeviceAccess () const{}
+  const IDocumentDrawModelAccess * 	getIDocumentDrawModelAccess () const{}
+  const IDocumentFieldsAccess * 	getIDocumentFieldsAccess () const{}
+  const IDocumentLayoutAccess * 	getIDocumentLayoutAccess () const{}
+  const IDocumentLineNumberAccess * 	getIDocumentLineNumberAccess () const{}
+  const IDocumentMarkAccess * 	getIDocumentMarkAccess () const{}
+  const IDocumentRedlineAccess * 	getIDocumentRedlineAccess () const{}
+  const IDocumentSettingAccess * 	getIDocumentSettingAccess () const{}
+  const IDocumentStylePoolAccess * 	getIDocumentStylePoolAccess () const{}
+  const SwCntntNode * 	GetCntntNode () const{}
+  const SwDoc * 	GetDoc () const{}
+  const SwEndNode * 	EndOfSectionNode () const{}
+  const SwEndNode * 	GetEndNode () const{}
+  const SwGrfNode * 	GetGrfNode () const{}
+  const SwNoTxtNode * 	GetNoTxtNode () const{}
+  const SwNodes & 	GetNodes () const{}
+  const SwOLENode * 	GetOLENode () const{}
+  const SwPageDesc * 	FindPageDesc (sal_Bool bCalcLay, sal_uInt32 *pPgDescNdIdx) const{}
+  const SwSectionNode * 	FindSectionNode () const{}
+  const SwSectionNode * 	GetSectionNode () const{}
+  const SwStartNode * 	FindFlyStartNode () const{}
+  const SwStartNode * 	FindFooterStartNode () const{}
+  const SwStartNode * 	FindFootnoteStartNode () const{}
+  const SwStartNode * 	FindHeaderStartNode () const{}
+const SwStartNode * 	FindSttNodeByType (SwStartNodeType eTyp) const{}
+  const SwStartNode * 	FindTableBoxStartNode () const{}
+  const SwStartNode * 	GetStartNode () const{}
+  const SwStartNode * 	StartOfSectionNode () const{}
+  const SwTableNode * 	FindTableNode () const{}
+  const SwTableNode * 	GetTableNode () const{}
+  const SwTxtNode * 	FindOutlineNodeOfLevel (sal_uInt8 nLvl) const{}
+  const SwTxtNode * 	GetTxtNode () const{}
+  long 	GetSerial () const{}
+  sal_Bool 	IsCntntNode () const{}
+  sal_Bool 	IsEndNode () const{}
+  sal_Bool 	IsGrfNode () const{}
+  sal_Bool 	IsInRedlines () const{}
+  sal_Bool 	IsInVisibleArea (ViewShell *pSh) const{}
+  sal_Bool 	IsNoTxtNode () const{}
+  sal_Bool 	IsOLENode () const{}
+  sal_Bool 	IsProtect () const{}
+  sal_Bool 	IsSectionNode () const{}
+  sal_Bool 	IsStartNode () const{}
+  sal_Bool 	IsTableNode () const{}
+  sal_Bool 	IsTxtNode () const{}
+  sal_uInt16 	GetSectionLevel () const{}
+  sal_uInt8 	GetAutoFmtLvl () const{}
+  sal_uInt8 	GetNodeType () const{}
+  sal_uInt8 	HasPrevNextLayNode () const{}
+  sal_uLong 	EndOfSectionIndex () const{}
+  sal_uLong 	GetIndex () const{}
+  sal_uLong 	StartOfSectionIndex () const{}
+  ~SwNode ()  {}
+  virtual void 	dumpAsXml (xmlTextWriterPtr writer){}
+  void 	SetAutoFmtLvl (sal_uInt8 nVal){}
+  void 	SetIgnoreDontExpand (bool bNew){}
+  void 	SetNumLSpace (bool bFlag){}
+ 
+};
+
+class SwCntntNode;
+class SwNodeIndex;
+
+
 
 class SwFEShell : public SwCrsrShell {
 public:
@@ -262,14 +611,13 @@ public :
   const AFrm & Frm() const {};
   
 };
-class SwIndex{
+
+//class SwTableBox{};
+class SwCellFrm : public SwFrm {
 public:
-  template<class T> SwIndex(T*, SwIndex&) {}
+  SwTableBox * GetTabBox() const {};
 };
-class SwPosition {
-public:
-  template <class T> SwPosition(const T&, SwIndex&){}
-};
+
 class SwPageFrm  : public SwFrm {};
 class SwFlyFrm   : public SwFrm {};
 class SwCntntFrm : public SwFrm {};
@@ -293,6 +641,7 @@ namespace com {
       namespace awt {
         class KeyStroke{};
         class XFocusListener{};
+        // ::com::sun::star::awt::Point 
         class Point {
         public:
           Point() {}
@@ -436,6 +785,24 @@ namespace com {
   };
 };
 
+class SwSelBoxes{};
+class SwShellTableCrsr {
+public:
+  SwShellTableCrsr (const SwCrsrShell &rCrsrSh, const SwPosition &rPos){}
+  SwShellTableCrsr (const SwCrsrShell &rCrsrSh, const SwPosition &rMkPos, 
+                    const ::com::sun::star::awt::Point   &rMkPt, const SwPosition &rPtPos, const ::com::sun::star::awt::Point  &rPtPt){}
+  virtual 	~SwShellTableCrsr (){}
+  virtual void 	FillRects (){}
+  sal_Bool 	IsInside (const ::com::sun::star::awt::Point  &rPt) const{}
+  virtual void 	SetMark (){} ; 
+  virtual SwCursor * 	Create (SwPaM *pRing) const {}; 
+  virtual short 	MaxReplaceArived (){}; 
+  virtual void 	SaveTblBoxCntnt (const SwPosition *pPos){}
+  virtual sal_Bool 	IsAtValidPos (sal_Bool, ::com::sun::star::awt::Point ) const {};
+  SwSelBoxes const& GetSelectedBoxes();
+  bool find(SwTableBox *) const;
+  bool end() const;
+};
 namespace cppu {
 
   template <class T, class U> bool supportsService(T,U) {};
@@ -1048,7 +1415,7 @@ public:
     > GetAccessible() {}
   FunkyXAccessible   GetAccessible2() {}
 
-Point OutputToAbsoluteScreenPixel(Point);
+Point OutputToAbsoluteScreenPixel(::com::sun::star::awt::Point );
 
 };
 
@@ -1306,13 +1673,13 @@ class  VclWindowEvent {};
 class  WindowChildEventListener{};
 
 
-class SwCntntNode {};
+//class SwCntntNode {};
 class SwDocShell {};
-class SwDoc {};
+//class SwDoc {};
 class SwDrawContact {};
 class SwFmtChg {};
 class SwFmtURL {};
-class SwFrmFmt {};
+//class SwFrmFmt {};
 class SwModify {};
 class SW_MOD {};
 class SwPtrMsgPoolItem {};
@@ -1323,7 +1690,16 @@ class SwTxtINetFmt {};
 class SwVirtFlyDrawObj {};
 
 class SwAccessibleContext; // forward
+
+///*dcl*/class SwSelBoxes {}; 
+/*dcl*/class SwTabFrm {}; 
+/*dcl*/class SwAccessibleField {}; 
+/*dcl*/class SwFtnFrm {}; 
+///*dcl*/class SwAccessibleMap {}; 
+
+#include <sw/source/core/access/accfrmobjslist.hxx>
 #include <sw/source/core/access/acccontext.hxx>
+
 // todo replace thse
 // class SwAccessibleContext :
 //     public ::cppu::WeakImplHelper5<
