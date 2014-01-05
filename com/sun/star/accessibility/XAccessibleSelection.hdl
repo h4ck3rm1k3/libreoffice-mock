@@ -13,32 +13,6 @@ namespace com { namespace sun { namespace star { namespace accessibility { class
 #include "cppu/macros.hxx"
 #include "sal/types.h"
 
-namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
-
-namespace com { namespace sun { namespace star { namespace accessibility {
-
-class SAL_NO_VTABLE XAccessibleSelection : public ::com::sun::star::uno::XInterface
-{
-public:
-
-    // Methods
-    virtual void SAL_CALL selectAccessibleChild( ::sal_Int32 nChildIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Bool SAL_CALL isAccessibleChildSelected( ::sal_Int32 nChildIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual void SAL_CALL clearAccessibleSelection() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual void SAL_CALL selectAllAccessibleChildren() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::sal_Int32 SAL_CALL getSelectedAccessibleChildCount() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > SAL_CALL getSelectedAccessibleChild( ::sal_Int32 nSelectedChildIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-    virtual void SAL_CALL deselectAccessibleChild( ::sal_Int32 nChildIndex ) /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-
-    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
-
-protected:
-    ~XAccessibleSelection() throw () {} // avoid warnings about virtual members and non-virtual dtor
-};
-
-
-inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessibleSelection const *);
-} } } }
 
 inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleSelection > *) ;
 

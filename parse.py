@@ -30,6 +30,11 @@ def parse_file(filename):
             pass
         elif (parse_name(re.search(r'error: invalid use of incomplete type \'class (\w+)\'', l))):
             pass
+        elif (parse_name(re.search(r'error: \'(\w+)\' does not name a type', l))):
+            pass
+
+        #error: 'class com::sun::star::accessibility::XAccessible' has no member named 'GetAccessible'
+
 
 def main():
     try:

@@ -1,34 +1,15 @@
 #ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLE_HDL
 #define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLE_HDL
 
-//#include "sal/config.h"
+#include "sal/config.h"
 //#include <exception>
 //namespace com { namespace sun { namespace star { namespace accessibility { class XAccessibleContext; } } } }
 ///#include "com/sun/star/uno/RuntimeException.hdl"
-///#include "com/sun/star/uno/XInterface.hdl"
+#include "com/sun/star/uno/XInterface.hdl"
 ///#include "com/sun/star/uno/Reference.h"
 ///#include "cppu/macros.hxx"
 //namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
 
-namespace com { namespace sun { namespace star { namespace accessibility {
 
-class SAL_NO_VTABLE XAccessible : public ::com::sun::star::uno::XInterface
-{
-public:
-
-    // Methods
-    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleContext > SAL_CALL getAccessibleContext() /* throw (::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-
-    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
-
-protected:
-    ~XAccessible() throw () {} // avoid warnings about virtual members and non-virtual dtor
-};
-
-
-inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessible const *);
-} } } }
-
-inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > *);
 
 #endif

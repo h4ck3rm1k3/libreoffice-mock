@@ -8,30 +8,6 @@
 
 namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
 
-namespace com { namespace sun { namespace star { namespace accessibility {
-
-class IllegalAccessibleComponentStateException : public ::com::sun::star::uno::Exception
-{
-public:
-    inline CPPU_GCC_DLLPRIVATE IllegalAccessibleComponentStateException();
-
-    inline CPPU_GCC_DLLPRIVATE IllegalAccessibleComponentStateException(const ::rtl::OUString& Message_, const ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface >& Context_) ;
-
-    inline CPPU_GCC_DLLPRIVATE IllegalAccessibleComponentStateException(IllegalAccessibleComponentStateException const &);
-
-    inline CPPU_GCC_DLLPRIVATE ~IllegalAccessibleComponentStateException();
-
-    inline CPPU_GCC_DLLPRIVATE IllegalAccessibleComponentStateException & operator =(IllegalAccessibleComponentStateException const &);
-
-};
-
-
-inline 
-       ::com::sun::star::uno::Type const & 
-       cppu_detail_getUnoType(
-       IllegalAccessibleComponentStateException const *
-       );
-} } } }
 
 inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::accessibility::IllegalAccessibleComponentStateException *) ;
 

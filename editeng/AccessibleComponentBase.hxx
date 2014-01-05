@@ -22,10 +22,10 @@
 #define INCLUDED_EDITENG_ACCESSIBLECOMPONENTBASE_HXX
 
 
-#include <com/sun/star/accessibility/XAccessible.hpp>
+//#include <com/sun/star/accessibility/XAccessible.hpp>
 #include <com/sun/star/accessibility/XAccessibleExtendedComponent.hpp>
-#include <com/sun/star/awt/XFocusListener.hpp>
-#include <editeng/editengdllapi.h>
+//#include <com/sun/star/awt/XFocusListener.hpp>
+//#include <editeng/editengdllapi.h>
 
 namespace accessibility {
 
@@ -38,7 +38,7 @@ namespace accessibility {
         XAccessibleContext, <type>XInterface</type>,
         XServiceInfo, and <type>XTypeProvider</type>.
 */
-class EDITENG_DLLPUBLIC AccessibleComponentBase
+class AccessibleComponentBase
     :   public ::com::sun::star::accessibility::XAccessibleExtendedComponent
 {
 public:

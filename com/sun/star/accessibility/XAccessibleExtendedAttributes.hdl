@@ -14,26 +14,5 @@
 
 namespace com { namespace sun { namespace star { namespace uno { class Type; } } } }
 
-namespace com { namespace sun { namespace star { namespace accessibility {
-
-class SAL_NO_VTABLE XAccessibleExtendedAttributes : 
-      public ::com::sun::star::uno::XInterface
-{
-public:
-
-    // Methods
-    virtual ::com::sun::star::uno::Any SAL_CALL getExtendedAttributes() /* throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException, ::std::exception) */ = 0;
-
-    static inline ::com::sun::star::uno::Type const & SAL_CALL static_type(void * = 0);
-
-protected:
-    ~XAccessibleExtendedAttributes() throw () {} // avoid warnings about virtual members and non-virtual dtor
-};
-
-
-inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::XAccessibleExtendedAttributes const *);
-} } } }
-
-inline ::com::sun::star::uno::Type const & SAL_CALL getCppuType(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleExtendedAttributes > *) ;
 
 #endif

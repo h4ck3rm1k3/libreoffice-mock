@@ -16,16 +16,6 @@ namespace com { namespace sun { namespace star { namespace accessibility {
 #   pragma pack(push, 8)
 #endif
 
-struct AccessibleEventObject: public ::com::sun::star::lang::EventObject {
-    inline AccessibleEventObject() ;
-
-    inline AccessibleEventObject(const ::com::sun::star::uno::Reference< ::com::sun::star::uno::XInterface >& Source_, const ::sal_Int16& EventId_, const ::com::sun::star::uno::Any& NewValue_, const ::com::sun::star::uno::Any& OldValue_) ;
-
-    ::sal_Int16 EventId; //CPPU_GCC3_ALIGN(::com::sun::star::lang::EventObject);
-    ::com::sun::star::uno::Any NewValue;
-    ::com::sun::star::uno::Any OldValue;
-};
-
 #ifdef SAL_W32
 #   pragma pack(pop)
 #endif

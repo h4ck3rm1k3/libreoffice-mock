@@ -1,67 +1,67 @@
 #ifndef INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEXTENDEDCOMPONENT_HPP
 #define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEXTENDEDCOMPONENT_HPP
 
-#include "sal/config.h"
+// #include "sal/config.h"
+// #include <exception>
+// #include "com/sun/star/accessibility/XAccessibleExtendedComponent.hdl"
+// #include "com/sun/star/accessibility/XAccessibleComponent.hpp"
+// #include "com/sun/star/awt/XFont.hpp"
+// #include "com/sun/star/uno/RuntimeException.hpp"
+// #include "com/sun/star/uno/Reference.hxx"
+// #include "com/sun/star/uno/Type.hxx"
+// #include "cppu/unotype.hxx"
+// #include "osl/mutex.hxx"
+// #include "rtl/ustring.hxx"
+// #include "rtl/instance.hxx"
 
-#include <exception>
 
-#include "com/sun/star/accessibility/XAccessibleExtendedComponent.hdl"
-
-#include "com/sun/star/accessibility/XAccessibleComponent.hpp"
-#include "com/sun/star/awt/XFont.hpp"
-#include "com/sun/star/uno/RuntimeException.hpp"
-#include "com/sun/star/uno/Reference.hxx"
-#include "com/sun/star/uno/Type.hxx"
-#include "cppu/unotype.hxx"
-#include "osl/mutex.hxx"
-#include "rtl/ustring.hxx"
-#include "rtl/instance.hxx"
-
-namespace com { namespace sun { namespace star { namespace accessibility { namespace detail {
-
-struct theXAccessibleExtendedComponentType : public rtl::StaticWithInit< ::com::sun::star::uno::Type *, theXAccessibleExtendedComponentType >
-{
-    ::com::sun::star::uno::Type * operator()() const
+namespace com { namespace sun { namespace star { namespace accessibility { namespace detail { struct theXAccessibleExtendedComponentType : public rtl::StaticWithInit< ::com::sun::star::uno::Type *, theXAccessibleExtendedComponentType >
+{    ::com::sun::star::uno::Type * operator()() const
     {
         ::rtl::OUString sTypeName( "com.sun.star.accessibility.XAccessibleExtendedComponent" );
-
-        // Start inline typedescription generation
-        // typelib_InterfaceTypeDescription * pTD = 0;
-
-        // typelib_TypeDescriptionReference * aSuperTypes[1];
-        // aSuperTypes[0] = ::cppu::UnoType< ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleComponent > >::get().getTypeLibType();
-        // typelib_TypeDescriptionReference * pMembers[3] = { 0,0,0 };
-        // ::rtl::OUString sMethodName0( "com.sun.star.accessibility.XAccessibleExtendedComponent::getFont" );
-        // typelib_typedescriptionreference_new( &pMembers[0],
-        //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
-        //                                       sMethodName0.pData );
-        // ::rtl::OUString sMethodName1( "com.sun.star.accessibility.XAccessibleExtendedComponent::getTitledBorderText" );
-        // typelib_typedescriptionreference_new( &pMembers[1],
-        //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
-        //                                       sMethodName1.pData );
-        // ::rtl::OUString sMethodName2( "com.sun.star.accessibility.XAccessibleExtendedComponent::getToolTipText" );
-        // typelib_typedescriptionreference_new( &pMembers[2],
-        //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
-        //                                       sMethodName2.pData );
-
-        // typelib_typedescription_newMIInterface(
-        //     &pTD,
-        //     sTypeName.pData, 0, 0, 0, 0, 0,
-        //     1, aSuperTypes,
-        //     3,
-        //     pMembers );
-
-        // typelib_typedescription_register( (typelib_TypeDescription**)&pTD );
-        // typelib_typedescriptionreference_release( pMembers[0] );
-        // typelib_typedescriptionreference_release( pMembers[1] );
-        // typelib_typedescriptionreference_release( pMembers[2] );
-        // typelib_typedescription_release( (typelib_TypeDescription*)pTD );
-
-        return new ::com::sun::star::uno::Type( ::com::sun::star::uno::TypeClass_INTERFACE, sTypeName ); // leaked
+        return new ::com::sun::star::uno::Type( ::com::sun::star::uno::TypeClass_INTERFACE, sTypeName );
     }
-};
+}; } } } } }
 
-} } } } }
+
+// namespace com { namespace sun { namespace star { namespace accessibility { namespace detail {
+// struct theXAccessibleExtendedComponentType : public rtl::StaticWithInit< ::com::sun::star::uno::Type *, theXAccessibleExtendedComponentType >
+// {
+//     ::com::sun::star::uno::Type * operator()() const
+//     {
+//         ::rtl::OUString sTypeName( "com.sun.star.accessibility.XAccessibleExtendedComponent" );
+//         // Start inline typedescription generation
+//         // typelib_InterfaceTypeDescription * pTD = 0;
+//         // typelib_TypeDescriptionReference * aSuperTypes[1];
+//         // aSuperTypes[0] = ::cppu::UnoType< ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleComponent > >::get().getTypeLibType();
+//         // typelib_TypeDescriptionReference * pMembers[3] = { 0,0,0 };
+//         // ::rtl::OUString sMethodName0( "com.sun.star.accessibility.XAccessibleExtendedComponent::getFont" );
+//         // typelib_typedescriptionreference_new( &pMembers[0],
+//         //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
+//         //                                       sMethodName0.pData );
+//         // ::rtl::OUString sMethodName1( "com.sun.star.accessibility.XAccessibleExtendedComponent::getTitledBorderText" );
+//         // typelib_typedescriptionreference_new( &pMembers[1],
+//         //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
+//         //                                       sMethodName1.pData );
+//         // ::rtl::OUString sMethodName2( "com.sun.star.accessibility.XAccessibleExtendedComponent::getToolTipText" );
+//         // typelib_typedescriptionreference_new( &pMembers[2],
+//         //                                       (typelib_TypeClass)::com::sun::star::uno::TypeClass_INTERFACE_METHOD,
+//         //                                       sMethodName2.pData );
+//         // typelib_typedescription_newMIInterface(
+//         //     &pTD,
+//         //     sTypeName.pData, 0, 0, 0, 0, 0,
+//         //     1, aSuperTypes,
+//         //     3,
+//         //     pMembers );
+//         // typelib_typedescription_register( (typelib_TypeDescription**)&pTD );
+//         // typelib_typedescriptionreference_release( pMembers[0] );
+//         // typelib_typedescriptionreference_release( pMembers[1] );
+//         // typelib_typedescriptionreference_release( pMembers[2] );
+//         // typelib_typedescription_release( (typelib_TypeDescription*)pTD );
+//         return new ::com::sun::star::uno::Type( ::com::sun::star::uno::TypeClass_INTERFACE, sTypeName ); // leaked
+//     }
+// };
+// } } } } }
 
 // namespace com { namespace sun { namespace star { namespace accessibility {
 
