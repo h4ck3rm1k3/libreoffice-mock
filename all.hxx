@@ -3465,13 +3465,14 @@ private:
     //Add a member to identify the firt time that document load
     sal_Bool bBeginDocumentLoad;
 protected:
-    void SetName( const OUString& rName ) { sName = rName; }
-     sal_Int16 GetRole() const
-    {
-        return nRole;
-    }
-    //Add a member to identify if the document is Asyn load.
-    sal_Bool isIfAsynLoad;
+  template <class T> Any queryInterface(T){}
+  void SetName( const OUString& rName ) { sName = rName; }
+  sal_Int16 GetRole() const
+  {
+    return nRole;
+  }  
+  //Add a member to identify if the document is Asyn load.
+  sal_Bool isIfAsynLoad;
     //This flag is used to mark the object's selected state.
     sal_Bool   bIsSeletedInDoc;
   void SetParent( SwAccessibleContext *pParent );
@@ -3535,9 +3536,9 @@ protected:
   void RemoveFrmFromAccessibleMap() ;
 
 public:
+  ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > getTypes(){}
   SwAccessibleContext(){}
   virtual ~SwAccessibleContext();
-
   SwAccessibleContext( SwAccessibleMap *pMap, sal_Int16 nRole, const SwFrm *pFrm );
     // XAccessible
     // Return the XAccessibleContext.
@@ -4342,3 +4343,8 @@ public:
         throw (::com::sun::star::uno::RuntimeException) {}
 };
 
+const sal_Char 	sAccessibleServiceName [] = "com.sun.star.accessibility.Accessible";
+const sal_Char 	sDefunc [] = "object is defunctional";
+const sal_Char 	sMissingWindow [] = "window is missing";
+
+template <class T>  const com::sun::star::uno::Type& getCppuType(T){}
