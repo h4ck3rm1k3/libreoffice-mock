@@ -2,7 +2,73 @@
 #define ISA(X) DOISA(X())
 
 // block this from being included
+
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCELL_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCONTEXT_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCONTEXT_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCDOC_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCEMBEDDED_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFOOTNOTE_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFRAMEBASE_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFRAME_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFRMOBJMAP_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFRMOBJSLIST_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCFRMOBJ_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCGRAPHIC_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCHEADERFOOTER_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCHYPERLINK_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCHYPERTEXTDATA_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCNOTEXTFRAME_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCPAGE_HXX
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCPARA_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCPORTIONS_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCPREVIEW_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCSELECTIONHELPER_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCTABLE_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCTEXTFRAME_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_PARACHANGETRACKINGINFO_HXX
+#define INCLUDED_SW_SOURCE_CORE_ACCESS_TEXTMARKUPHELPER_HXX
+#define _ACCNOTEXTHYPERLINK_HXX
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEEVENTID_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEEVENTOBJECT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLERELATION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLERELATIONTYPE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLEROLE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLESTATETYPE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLETABLEMODELCHANGE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLETABLEMODELCHANGETYPE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ACCESSIBLETEXTTYPE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_ILLEGALACCESSIBLECOMPONENTSTATEEXCEPTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_TEXTSEGMENT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEACTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLECOMPONENT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLECONTEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEDITABLETEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEVENTBROADCASTER_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEVENTLISTENER_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEXTENDEDATTRIBUTES_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEEXTENDEDCOMPONENT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEGETACCFLOWTO_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEGROUPPOSITION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEHYPERLINK_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEHYPERTEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEIMAGE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEKEYBINDING_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEMULTILINETEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLERELATIONSET_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLESELECTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLESTATESET_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETABLE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETABLESELECTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTATTRIBUTES_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXT_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTMARKUP_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTSELECTION_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEVALUE_HDL
+#define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XMSAASERVICE_HDL
+
+
 //#include <com/sun/star/uno/Any.hxx>
 //#include <com/sun/star/lang/XComponent.hpp>
 //#include <atkobject.h>
@@ -100,15 +166,17 @@ namespace accessibility {
 /*dcl*/class SvxWeightItem{};
 /*dcl*/class SvxWidowsItem{};
 /*dcl*/class SvxWordLineModeItem{};
-/*dcl*/class SwAccPreviewData {}; 
+/*dcl*/class SwAccPreviewData; // IMPL
 /*dcl*/class SwAccessibleContext; 
-/*dcl*/class SwAccessibleContextMap_Impl {}; 
-/*dcl*/class SwAccessibleEventList_Impl {}; 
-/*dcl*/class SwAccessibleEventMap_Impl {}; 
-/*dcl*/class SwAccessibleEvent_Impl {}; 
+
+/*dcl*/class SwAccessibleContextMap_Impl; 
+/*dcl*/class SwAccessibleEventList_Impl; 
+/*dcl*/class SwAccessibleEventMap_Impl; 
+/*dcl*/class SwAccessibleEvent_Impl; 
+/*dcl*/class SwAccessibleSelectedParas_Impl;
+/*dcl*/class SwAccessibleShapeMap_Impl; 
+
 /*dcl*/class SwAccessibleField{};
-/*dcl*/class SwAccessibleSelectedParas_Impl {}; 
-/*dcl*/class SwAccessibleShapeMap_Impl {}; 
 /*dcl*/class SwChannelBGrf{};
 /*dcl*/class SwChannelGGrf{};
 /*dcl*/class SwChannelRGrf{};
@@ -148,7 +216,7 @@ namespace accessibility {
 /*dcl*/class SwRegisterItem{};
 /*dcl*/class SwRootFrm{};
 /*dcl*/class SwRotationGrf{};
-/*dcl*/class SwShapeList_Impl {}; 
+/*dcl*/class SwShapeList_Impl; 
 /*dcl*/class SwTblBoxNumFormat{};
 /*dcl*/class SwTextGridItem{};
 /*dcl*/class SwTransparencyGrf{};
@@ -156,6 +224,9 @@ namespace accessibility {
 /*dcl*/class XFillGradientItem{};
 /*dcl*/class XFillStyleItem{};
 class SvxUnoTextRangeBase{};
+
+
+
 
 /*dcl*/class AccessibleControlShape {}; 
 namespace com {namespace sun {namespace star {namespace accessibility { class AccessibleEventObject; }}}}
@@ -169,7 +240,7 @@ namespace com {namespace sun {namespace star {namespace accessibility { class Ac
 /*dcl*/class SvxUnoTextRangeBaseList {}; 
 /*dcl*/class SvxViewForwarder {}; 
 
-namespace sw { namespace access { /*dcl*/class SwAccessibleChild; }}
+
 
 ///*dcl*/class TextSegment {}; 
 /*dcl*/class VEC_CELL {}; 
@@ -191,7 +262,7 @@ namespace sw { namespace access { /*dcl*/class SwAccessibleChild; }}
 /*dcl*/class reverse_iterator {}; 
 /*dcl*/class SvxTextForwarder{};
 /*dcl*/class SwAccessibleHyperTextData {}; 
-/*dcl*/class SwAccessiblePortionData {}; 
+///*dcl*/class SwAccessiblePortionData {}; 
 /*dcl*/class SwParaChangeTrackingInfo {}; 
 /*dcl*/class SwRedline {}; 
 /*dcl*/class SwXTextPortion {}; 
@@ -221,6 +292,7 @@ typedef int  sal_Unicode;
 typedef long long sal_Int64;
 typedef long sal_uLong;
 typedef short sal_Int16;
+typedef short KSHORT;
 typedef unsigned int   sal_uInt32;
 typedef unsigned short sal_uInt16;
 class UnoTunnelIdInit{};
@@ -526,7 +598,7 @@ public:
 class FnForEach_SwNodes{};
 class Graphic{};
 class GraphicObject{};
-class KSHORT{};
+
 class SfxBroadcaster{};
 class SwGrfFmtColl{};
 class SwHistory{};
@@ -553,7 +625,6 @@ class SwTxtFmtColl;
 /*fwd*/class FnForEach_SwNodes;
 /*fwd*/class Graphic;
 /*fwd*/class GraphicObject;
-/*fwd*/class KSHORT;
 /*fwd*/class SdrLayerID;
 /*fwd*/class SfxBroadcaster;
 /*fwd*/class SwAttrSet;
@@ -1618,7 +1689,6 @@ template <class T, class U> void DBG_ASSERT(T,U){}
 enum stuff{
   GPOS_NONE,
   KEY_RETURN,
-  KSHORT,
   LINK,
   ND_TEXTNODE,
   CHECK_FOR_DEFUNC,
@@ -2016,6 +2086,7 @@ private:
 //   }
 // }
 
+//namespace sw { namespace access { /*dcl*/class SwAccessibleChild; }}
 namespace sw { namespace access {
 class SwAccessibleChild
 {
@@ -2854,97 +2925,82 @@ class SwAccessibleMap :
     ::com::sun::star::uno::WeakReference < ::com::sun::star::accessibility::XAccessible > mxCursorContext;
     sal_Int32 mnPara;
     bool mbShapeSelected;
-    void FireEvent( const SwAccessibleEvent_Impl& rEvent ) {}
-    void AppendEvent( const SwAccessibleEvent_Impl& rEvent ) {}
-    void InvalidateCursorPosition(
-        const ::com::sun::star::uno::Reference<
-            ::com::sun::star::accessibility::XAccessible>& rAcc ) {}
-    void DoInvalidateShapeSelection(sal_Bool bInvalidateFocusMode = sal_False) {}
-    void InvalidateShapeSelection() {}
+  void FireEvent( const SwAccessibleEvent_Impl& rEvent );
+  void AppendEvent( const SwAccessibleEvent_Impl& rEvent ) ;
+  void InvalidateCursorPosition(const ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible>& rAcc );
+  void DoInvalidateShapeSelection(sal_Bool bInvalidateFocusMode = sal_False);
+  void InvalidateShapeSelection();
     //mpSelectedFrmMap contains the old selected objects.
     SwAccessibleContextMap_Impl *mpSeletedFrmMap;
     //IvalidateShapeInParaSelection() method is reponsible for the updating the selected states of the objects.
-    void InvalidateShapeInParaSelection() {}
-    void _InvalidateRelationSet( const SwFrm* pFrm, bool bFrom ) {}
-    ::com::sun::star::uno::Reference<
-        ::com::sun::star::accessibility::XAccessible>
-            _GetDocumentView( bool bPagePreview ) {}
+  void InvalidateShapeInParaSelection();
+  void _InvalidateRelationSet( const SwFrm* pFrm, bool bFrom );
+    ::com::sun::star::uno::Reference<  ::com::sun::star::accessibility::XAccessible>  _GetDocumentView( bool bPagePreview );
     /** method to build up a new data structure of the accessible pararaphs,
         which have a selection
         Important note: method has to used inside a mutual exclusive section
         @author OD
     */
-    SwAccessibleSelectedParas_Impl* _BuildSelectedParas() {}
+    SwAccessibleSelectedParas_Impl* _BuildSelectedParas() ;
 public:
-    SwAccessibleMap( SwViewShell *pSh ) {}
-    ~SwAccessibleMap() {}
-    ::com::sun::star::uno::Reference<
-        ::com::sun::star::accessibility::XAccessible> GetDocumentView() {}
-    ::com::sun::star::uno::Reference<
-        ::com::sun::star::accessibility::XAccessible> GetDocumentPreview(
-                            const std::vector<PreviewPage*>& _rPreviewPages,
-                            const Fraction&  _rScale,
-                            const SwPageFrm* _pSelectedPageFrm,
-                            const Size&      _rPreviewWinSize ) {}
-    ::rtl::Reference < SwAccessibleContext > GetContextImpl(
-                                                 const SwFrm *pFrm,
-                                                sal_Bool bCreate = sal_True ) {}
-    ::com::sun::star::uno::Reference<
-        ::com::sun::star::accessibility::XAccessible> GetContext(
-                                                 const SwFrm *pFrm,
-                                                sal_Bool bCreate = sal_True ) {}
+  SwAccessibleMap( SwViewShell *pSh );
+  ~SwAccessibleMap();
+    ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> GetDocumentView();
+    ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> GetDocumentPreview(const std::vector<PreviewPage*>& _rPreviewPages,const Fraction&  _rScale,const SwPageFrm* _pSelectedPageFrm,const Size&      _rPreviewWinSize );
+    ::rtl::Reference < SwAccessibleContext > GetContextImpl(const SwFrm *pFrm,sal_Bool bCreate = sal_True );
+    ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> GetContext(const SwFrm *pFrm,sal_Bool bCreate = sal_True );
     ::rtl::Reference < ::accessibility::AccessibleShape > GetContextImpl(
                                         const SdrObject *pObj,
                                         SwAccessibleContext *pParentImpl,
-                                        sal_Bool bCreate = sal_True ) {}
+                                        sal_Bool bCreate = sal_True );
     ::com::sun::star::uno::Reference<
         ::com::sun::star::accessibility::XAccessible> GetContext(
                                         const SdrObject *pObj,
                                         SwAccessibleContext *pParentImpl,
-                                        sal_Bool bCreate = sal_True ) {}
+                                        sal_Bool bCreate = sal_True );
     SwViewShell* GetShell() const
     {
         return mpVSh;
     }
-    sal_Bool IsInSameLevel(const SdrObject* pObj, const SwFEShell* pFESh) {}
+  sal_Bool IsInSameLevel(const SdrObject* pObj, const SwFEShell* pFESh);
     void AddShapeContext(const SdrObject *pObj,
-                             ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccShape) {}
+                         ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccShape);
     void AddGroupContext(const SdrObject *pParentObj,
-                    ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccParent) {}
-    void RemoveGroupContext(const SdrObject *pParentObj, ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccParent) {}
-    const SwRect& GetVisArea() const {}
+                    ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccParent) ;
+    void RemoveGroupContext(const SdrObject *pParentObj, ::com::sun::star::uno::Reference < ::com::sun::star::accessibility::XAccessible > xAccParent) ;
+    const SwRect& GetVisArea() const ;
     /** get size of a dedicated preview page
         @author OD
         @param _nPreviewPageNum
         input parameter - physical page number of page visible in the page preview
         @return an object of class <Size>
     */
-    Size GetPreviewPageSize( sal_uInt16 _nPreviewPageNum ) const {}
-    void RemoveContext( const SwFrm *pFrm ) {}
-    void RemoveContext( const SdrObject *pObj ) {}
+    Size GetPreviewPageSize( sal_uInt16 _nPreviewPageNum ) const ;
+    void RemoveContext( const SwFrm *pFrm ) ;
+    void RemoveContext( const SdrObject *pObj ) ;
     // Dispose frame and its children if bRecursive is set
     void Dispose( const SwFrm* pFrm,
                   const SdrObject* pObj,
                   Window* pWindow,
-                  sal_Bool bRecursive = sal_False ) {}
+                  sal_Bool bRecursive = sal_False ) ;
     void InvalidatePosOrSize( const SwFrm* pFrm,
                               const SdrObject* pObj,
                               Window* pWindow,
-                              const SwRect& rOldFrm ) {}
-    void InvalidateContent( const SwFrm *pFrm ) {}
-    void InvalidateAttr( const SwTxtFrm& rTxtFrm ) {}
-    void InvalidateCursorPosition( const SwFrm *pFrm ) {}
-    void InvalidateFocus() {}
-    void FirePageChangeEvent(sal_uInt16 nOldPage, sal_uInt16 nNewPage) {}
-    void FireSectionChangeEvent(sal_uInt16 nOldSection, sal_uInt16 nNewSection) {}
-    void FireColumnChangeEvent(sal_uInt16 nOldColumn, sal_uInt16 nNewColumn) {}
+                              const SwRect& rOldFrm ) ;
+    void InvalidateContent( const SwFrm *pFrm ) ;
+    void InvalidateAttr( const SwTxtFrm& rTxtFrm ) ;
+    void InvalidateCursorPosition( const SwFrm *pFrm ) ;
+    void InvalidateFocus() ;
+    void FirePageChangeEvent(sal_uInt16 nOldPage, sal_uInt16 nNewPage) ;
+    void FireSectionChangeEvent(sal_uInt16 nOldSection, sal_uInt16 nNewSection) ;
+    void FireColumnChangeEvent(sal_uInt16 nOldColumn, sal_uInt16 nNewColumn) ;
     void SetCursorContext(
-        const ::rtl::Reference < SwAccessibleContext >& rCursorContext ) {}
+        const ::rtl::Reference < SwAccessibleContext >& rCursorContext ) ;
     // Invalidate state of whole tree. If an action is open, this call
     // is processed when the last action ends.
     void InvalidateStates( tAccessibleStates _nStates,
-                           const SwFrm* _pFrm = 0 ) {}
-    void InvalidateRelationSet( const SwFrm* pMaster, const SwFrm* pFollow ) {}
+                           const SwFrm* _pFrm = 0 ) ;
+    void InvalidateRelationSet( const SwFrm* pMaster, const SwFrm* pFollow ) ;
     /** invalidation CONTENT_FLOWS_FROM/_TO relation of a paragraph
         @author OD
         @param _rTxtFrm
@@ -2955,48 +3011,48 @@ public:
         (value <true>) or CONTENT_FLOWS_TO (value <false>) has to be invalidated.
     */
     void InvalidateParaFlowRelation( const SwTxtFrm& _rTxtFrm,
-                                     const bool _bFrom ) {}
+                                     const bool _bFrom ) ;
     /** invalidation of text selection of a paragraph
         @author OD
     */
-    void InvalidateParaTextSelection( const SwTxtFrm& _rTxtFrm ) {}
+    void InvalidateParaTextSelection( const SwTxtFrm& _rTxtFrm ) ;
     /** invalidation of text selection of all paragraphs
         @author OD
     */
-    void InvalidateTextSelectionOfAllParas() {}
+    void InvalidateTextSelectionOfAllParas() ;
     sal_Int32 GetChildIndex( const SwFrm& rParentFrm,
-                             Window& rChild ) const {}
+                             Window& rChild ) const ;
     // update preview data (and fire events if necessary)
     void UpdatePreview( const std::vector<PreviewPage*>& _rPreviewPages,
                         const Fraction&  _rScale,
                         const SwPageFrm* _pSelectedPageFrm,
-                        const Size&      _rPreviewWinSize ) {}
-    void InvalidatePreviewSelection( sal_uInt16 nSelPage ) {}
-    bool IsPageSelected( const SwPageFrm *pPageFrm ) const {}
-    void FireEvents() {}
+                        const Size&      _rPreviewWinSize ) ;
+    void InvalidatePreviewSelection( sal_uInt16 nSelPage ) ;
+    bool IsPageSelected( const SwPageFrm *pPageFrm ) const ;
+    void FireEvents() ;
     // IAccessibleViewForwarder
-    virtual sal_Bool IsValid() const {}
-    virtual Rectangle GetVisibleArea() const {}
-    virtual Point LogicToPixel (const Point& rPoint) const {}
-    virtual Size LogicToPixel (const Size& rSize) const {}
-    virtual Point PixelToLogic (const Point& rPoint) const {}
-    virtual Size PixelToLogic (const Size& rSize) const {}
+    virtual sal_Bool IsValid() const ;
+    virtual Rectangle GetVisibleArea() const ;
+    virtual Point LogicToPixel (const Point& rPoint) const ;
+    virtual Size LogicToPixel (const Size& rSize) const ;
+    virtual Point PixelToLogic (const Point& rPoint) const ;
+    virtual Size PixelToLogic (const Size& rSize) const ;
     virtual sal_Bool ReplaceChild (
         ::accessibility::AccessibleShape* pCurrentChild,
         const ::com::sun::star::uno::Reference< ::com::sun::star::drawing::XShape >& _rxShape,
         const long _nIndex,
         const ::accessibility::AccessibleShapeTreeInfo& _rShapeTreeInfo
-    )   throw (::com::sun::star::uno::RuntimeException) {}
+    )   throw (::com::sun::star::uno::RuntimeException) ;
     virtual ::accessibility::AccessibleControlShape* GetAccControlShapeFromModel
         (::com::sun::star::beans::XPropertySet* pSet)
-        throw (::com::sun::star::uno::RuntimeException) {}
+        throw (::com::sun::star::uno::RuntimeException) ;
     virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible >   GetAccessibleCaption (
         const ::com::sun::star::uno::Reference< ::com::sun::star::drawing::XShape > & xShape)
-    throw (::com::sun::star::uno::RuntimeException) {}
+    throw (::com::sun::star::uno::RuntimeException) ;
     // additional Core/Pixel conversions for internal use; also works
     // for preview
-    Point PixelToCore (const Point& rPoint) const {}
-    Rectangle CoreToPixel (const Rectangle& rRect) const {}
+    Point PixelToCore (const Point& rPoint) const ;
+    Rectangle CoreToPixel (const Rectangle& rRect) const ;
 private:
     /** get mapping mode for LogicToPixel and PixelToLogic conversions
         Replacement method <PreviewAdjust(..)> by new method <GetMapMode>.
@@ -3014,9 +3070,9 @@ private:
         by the method
     */
     void GetMapMode( const Point& _rPoint,
-                     MapMode&     _orMapMode ) const {}
+                     MapMode&     _orMapMode ) const ;
 public:
-    virtual sal_Bool IsDocumentSelAll() {}
+    virtual sal_Bool IsDocumentSelAll() ;
     ::com::sun::star::uno::WeakReference < ::com::sun::star::accessibility::XAccessible >
         GetCursorContext() const { return mxCursorContext; }
     //Para Container for InvalidateCursorPosition
@@ -3673,339 +3729,6 @@ public:
                 ::com::sun::star::uno::RuntimeException ) {}
 };
 
-namespace com { namespace sun { namespace star {
-    namespace i18n { struct Boundary; }
-    namespace accessibility { class XAccessibleHyperlink; }
-    namespace style { struct TabStop; }
-    } } }
-typedef ::boost::unordered_map< OUString,
-                         ::com::sun::star::beans::PropertyValue,
-                         OUStringHash,
-                         ::std::equal_to< OUString > > tAccParaPropValMap;
-class SwAccessibleParagraph :
-        public SwClient, // #i108125#
-        public SwAccessibleContext,
-        public ::com::sun::star::accessibility::XAccessibleEditableText,
-        public com::sun::star::accessibility::XAccessibleSelection,
-        public com::sun::star::accessibility::XAccessibleHypertext,
-        public com::sun::star::accessibility::XAccessibleTextMarkup,
-        public com::sun::star::accessibility::XAccessibleMultiLineText,
-        public ::com::sun::star::accessibility::XAccessibleTextAttributes,
-        public com::sun::star::accessibility::XAccessibleTextSelection,
-        public  com::sun::star::accessibility::XAccessibleExtendedAttributes
-{
-    friend class SwAccessibleHyperlink;
-    OUString sDesc;  // protected by base classes mutex
-    // data for this paragraph's text portions; this contains the
-    // mapping from the core 'model string' to the accessible text
-    // string.
-    // pPortionData may be NULL; it should only be accessed through the
-    // Get/Clear/Has/UpdatePortionData() methods
-    SwAccessiblePortionData* pPortionData;
-    SwAccessibleHyperTextData *pHyperTextData;
-    sal_Int32 nOldCaretPos; // The 'old' caret pos. It's only valid as long
-                            // as the cursor is inside this object (protected by
-                            // mutex)
-    sal_Bool bIsHeading;    // protected by base classes mutex
-    sal_Int32 nHeadingLevel;
-    // implementation for XAccessibleSelection
-    SwAccessibleSelectionHelper aSelectionHelper;
-    SwParaChangeTrackingInfo* mpParaChangeTrackInfo; // #i108125#
-    /// get the SwTxtNode (requires frame; check before)
-    const SwTxtNode* GetTxtNode() const {}
-    /// get the (accessible) text string (requires frame; check before)
-    OUString GetString() {}
-    OUString GetDescription() {}
-    // get the current care position
-    sal_Int32 GetCaretPos() {}
-    // determine the current selection. Fill the values with
-    // -1 if there is no selection in the this paragraph
-    sal_Bool GetSelection(sal_Int32& nStart, sal_Int32& nEnd) {}
-    // helper for GetSelection and getCaretPosition
-    // #i27301# - add parameter <_bForSelection>, which indicates,
-    // if the cursor is retrieved for selection or for caret position.
-    SwPaM* GetCursor( const bool _bForSelection ) {}
-    // for cut/copy/paste: execute a particular slot at the view shell
-    void ExecuteAtViewShell( sal_uInt16 nSlot ) {}
-    // helper method for get/setAttributes
-    // (for the special case of (nEndIndex==-1) a single character will
-    //  be selected)
-    SwXTextPortion* CreateUnoPortion( sal_Int32 nStart, sal_Int32 nEnd ) {}
-    // methods for checking the parameter range:
-    // does nPos point to a char?
-    sal_Bool IsValidChar(sal_Int32 nPos, sal_Int32 nLength) {}
-    // does nPos point to a position? (may be behind the last character)
-    sal_Bool IsValidPosition(sal_Int32 nPos, sal_Int32 nLength) {}
-    // is nBegin...nEnd a valid range? (nEnd points past the last character)
-    sal_Bool IsValidRange(sal_Int32 nBegin, sal_Int32 nEnd, sal_Int32 nLength) {}
-    // Ensure ordered range (i.e. nBegin is smaller then nEnd)
-    void OrderRange(sal_Int32& nBegin, sal_Int32& nEnd)
-    {
-        if( nBegin > nEnd )
-        {
-            sal_Int32 nTmp = nBegin; nBegin = nEnd; nEnd = nTmp;
-        }
-    }
-    const SwRedline* GetRedlineAtIndex( sal_Int32 nPos ) {}
-    OUString GetFieldTypeNameAtIndex(sal_Int32 nIndex) {}
-    // #i63870#
-    void _getDefaultAttributesImpl(
-            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
-            tAccParaPropValMap& rDefAttrSeq,
-            const bool bOnlyCharAttrs = false ) {}
-    void _getRunAttributesImpl(
-            const sal_Int32 nIndex,
-            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
-            tAccParaPropValMap& rRunAttrSeq ) {}
-    void _getSupplementalAttributesImpl(
-            const sal_Int32 nIndex,
-            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
-            tAccParaPropValMap& rSupplementalAttrSeq ) {}
-    void _correctValues(
-            const sal_Int32 nIndex,
-            ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue >& rValues ) {}
-public:
-    SwTOXSortTabBase* GetTOXSortTabBase() {}
-    short GetTOCLevel() {}
-    sal_Bool IsHeading() const {}
-protected:
-    // Set states for getAccessibleStateSet.
-    // This drived class additinaly sets MULTILINE(1), MULTISELECTABLE(+),
-    // FOCUSABLE(+) and FOCUSED(+)
-    virtual void GetStates( ::utl::AccessibleStateSetHelper& rStateSet ) {}
-    virtual void _InvalidateContent( sal_Bool bVisibleDataFired ) {}
-    virtual void _InvalidateCursorPos() {}
-    virtual void _InvalidateFocus() {}
-    virtual ~SwAccessibleParagraph() {}
-    // handling of data for the text portions
-    // force update of new portion data
-    void UpdatePortionData()
-        throw( com::sun::star::uno::RuntimeException ) {}
-    // remove the current portion data
-    void ClearPortionData() {}
-    // get portion data; update if necessary
-    SwAccessiblePortionData& GetPortionData()
-        throw( com::sun::star::uno::RuntimeException )
-    {
-      if( pPortionData == NULL )
-        UpdatePortionData();
-      return *pPortionData;
-    }
-    // determine if portion data is currently available
-  sal_Bool HasPortionData()   { return (pPortionData != NULL) ;}
-    //helpers for word boundaries
-    sal_Bool GetCharBoundary( com::sun::star::i18n::Boundary& rBound,
-                              const OUString& rText,
-                              sal_Int32 nPos ) {}
-    sal_Bool GetWordBoundary( com::sun::star::i18n::Boundary& rBound,
-                              const OUString& rText,
-                              sal_Int32 nPos ) {}
-    sal_Bool GetSentenceBoundary( com::sun::star::i18n::Boundary& rBound,
-                                  const OUString& rText,
-                                  sal_Int32 nPos ) {}
-    sal_Bool GetLineBoundary( com::sun::star::i18n::Boundary& rBound,
-                              const OUString& rText,
-                              sal_Int32 nPos ) {}
-    sal_Bool GetParagraphBoundary( com::sun::star::i18n::Boundary& rBound,
-                                   const OUString& rText,
-                                   sal_Int32 nPos ) {}
-    sal_Bool GetAttributeBoundary( com::sun::star::i18n::Boundary& rBound,
-                                   const OUString& rText,
-                                   sal_Int32 nPos ) {}
-    sal_Bool GetGlyphBoundary( com::sun::star::i18n::Boundary& rBound,
-                               const OUString& rText,
-                               sal_Int32 nPos ) {}
-    // get boundaries of word/sentence/etc. for specified text type
-    // Does all argument checking, and then delegates to helper methods above.
-    sal_Bool GetTextBoundary( com::sun::star::i18n::Boundary& rBound,
-                              const OUString& rText,
-                              sal_Int32 nPos,
-                              sal_Int16 aTextType )
-        throw (
-            ::com::sun::star::lang::IndexOutOfBoundsException,
-            ::com::sun::star::lang::IllegalArgumentException,
-            ::com::sun::star::uno::RuntimeException) {}
-    virtual void Modify( const SfxPoolItem* pOld, const SfxPoolItem* pNew) {}
-public:
-    SwAccessibleParagraph( SwAccessibleMap& rInitMap,
-                           const SwTxtFrm& rTxtFrm ) {}
-  operator ::com::sun::star::accessibility::XAccessibleText *(){}
-    virtual sal_Bool HasCursor() {}   // required by map to remember that object
-    com::sun::star::uno::Sequence< ::com::sun::star::style::TabStop > GetCurrentTabStop( sal_Int32 nIndex  ) {}
-    virtual sal_Int16 SAL_CALL getAccessibleRole (void)     throw (::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleContext
-    // Return this object's description.
-    virtual OUString SAL_CALL
-        getAccessibleDescription (void)
-        throw (com::sun::star::uno::RuntimeException) {}
-    // Return the parents locale or throw exception if this object has no
-    // parent yet/anymore.
-    virtual ::com::sun::star::lang::Locale SAL_CALL
-        getLocale (void)
-        throw (::com::sun::star::accessibility::IllegalAccessibleComponentStateException, ::com::sun::star::uno::RuntimeException) {}
-    // #i27138# - paragraphs are in relation CONTENT_FLOWS_FROM and/or CONTENT_FLOWS_TO
-    virtual ::com::sun::star::uno::Reference<
-            ::com::sun::star::accessibility::XAccessibleRelationSet> SAL_CALL
-        getAccessibleRelationSet (void)
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleComponent
-    virtual void SAL_CALL grabFocus()
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // #i71385#
-    virtual sal_Int32 SAL_CALL getForeground()
-        throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getBackground()
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // XServiceInfo
-    // Returns an identifier for the implementation of this object.
-    virtual OUString SAL_CALL
-        getImplementationName (void)
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // Return whether the specified service is supported by this class.
-    virtual sal_Bool SAL_CALL
-        supportsService (const OUString& sServiceName)
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // Returns a list of all supported services.  In this case that is just
-    // the AccessibleContext service.
-    virtual ::com::sun::star::uno::Sequence< OUString> SAL_CALL
-        getSupportedServiceNames (void)
-        throw (::com::sun::star::uno::RuntimeException) {}
-    // XInterface
-    // (XInterface methods need to be implemented to disambiguate
-    // between those inherited through SwAcessibleContext and
-    // XAccessibleEditableText).
-    virtual ::com::sun::star::uno::Any SAL_CALL queryInterface(
-        const ::com::sun::star::uno::Type& aType )
-        throw (::com::sun::star::uno::RuntimeException) {}
-    virtual void SAL_CALL acquire(  ) throw ()
-  { 
-    //SwAccessibleContext::acquire() {} 
-  };
-  virtual void SAL_CALL release(  ) throw ()
-  { 
-    //SwAccessibleContext::release() {} 
-  };
-    // XTypeProvider
-    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > SAL_CALL getTypes(  ) throw(::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::uno::Sequence< sal_Int8 > SAL_CALL getImplementationId(  ) throw(::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleText
-    virtual sal_Int32 SAL_CALL getCaretPosition(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL setCaretPosition( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Unicode SAL_CALL getCharacter( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getCharacterAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::awt::Rectangle SAL_CALL getCharacterBounds( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getCharacterCount(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getIndexAtPoint( const ::com::sun::star::awt::Point& aPoint ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual OUString SAL_CALL getSelectedText(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getSelectionStart(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getSelectionEnd(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL setSelection( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual OUString SAL_CALL getText(  ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual OUString SAL_CALL getTextRange( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextAtIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBeforeIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBehindIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL copyText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleEditableText
-    virtual sal_Bool SAL_CALL cutText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL pasteText( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL deleteText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL insertText( const OUString& sText, sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL replaceText( sal_Int32 nStartIndex, sal_Int32 nEndIndex, const OUString& sReplacement ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL setAttributes( sal_Int32 nStartIndex, sal_Int32 nEndIndex, const ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue >& aAttributeSet ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL setText( const OUString& sText ) throw (::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleSelection
-    virtual void SAL_CALL selectAccessibleChild(
-        sal_Int32 nChildIndex )
-        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException ) {}
-    virtual sal_Bool SAL_CALL isAccessibleChildSelected(
-        sal_Int32 nChildIndex )
-        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException ) {}
-    virtual void SAL_CALL clearAccessibleSelection(  )
-        throw ( ::com::sun::star::uno::RuntimeException ) {}
-    virtual void SAL_CALL selectAllAccessibleChildren(  )
-        throw ( ::com::sun::star::uno::RuntimeException ) {}
-    virtual sal_Int32 SAL_CALL getSelectedAccessibleChildCount(  )
-        throw ( ::com::sun::star::uno::RuntimeException ) {}
-    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > SAL_CALL getSelectedAccessibleChild(
-        sal_Int32 nSelectedChildIndex )
-        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException) {}
-    // index has to be treated as global child index.
-    virtual void SAL_CALL deselectAccessibleChild(
-        sal_Int32 nChildIndex )
-        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException ) {}
-    // XAccessibleHypertext
-    virtual sal_Int32 SAL_CALL getHyperLinkCount()
-        throw (::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::uno::Reference<
-            ::com::sun::star::accessibility::XAccessibleHyperlink >
-        SAL_CALL getHyperLink( sal_Int32 nLinkIndex )
-        throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getHyperLinkIndex( sal_Int32 nCharIndex )
-        throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                ::com::sun::star::uno::RuntimeException) {}
-    // #i71360#
-    // XAccesibleTextMarkup
-    virtual sal_Int32 SAL_CALL getTextMarkupCount( sal_Int32 nTextMarkupType )
-            throw (::com::sun::star::lang::IllegalArgumentException,
-                   ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
-            getTextMarkup( sal_Int32 nTextMarkupIndex,
-                           sal_Int32 nTextMarkupType )
-            throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                   ::com::sun::star::lang::IllegalArgumentException,
-                   ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::accessibility::TextSegment > SAL_CALL
-            getTextMarkupAtIndex( sal_Int32 nCharIndex,
-                                  sal_Int32 nTextMarkupType )
-            throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                   ::com::sun::star::lang::IllegalArgumentException,
-                   ::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleTextSelection
-    virtual sal_Bool SAL_CALL scrollToPosition( const ::com::sun::star::awt::Point& aPoint, sal_Bool isLeftTop )
-        throw (::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getSelectedPortionCount(  )
-        throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getSeletedPositionStart( sal_Int32 nSelectedPortionIndex )
-        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getSeletedPositionEnd( sal_Int32 nSelectedPortionIndex )
-        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Bool SAL_CALL removeSelection( sal_Int32 selectionIndex )
-        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL  addSelection( sal_Int32 selectionIndex, sal_Int32 startOffset, sal_Int32 endOffset)
-        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-    // XAccessibleExtendedAttributes
-    virtual ::com::sun::star::uno::Any SAL_CALL getExtendedAttributes()
-        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) ;
-    sal_Bool GetSelectionAtIndex(sal_Int32& nIndex, sal_Int32& nStart, sal_Int32& nEnd) {}
-    sal_Int32 GetRealHeadingLevel() {}
-    // XAccessibleComponent
-    sal_Bool m_bLastHasSelection;
-    sal_Bool tabCharInWord(sal_Int32 nIndex, com::sun::star::i18n::Boundary&  aBound) {}
-    // #i89175#
-    // XAccessibleMultiLineText
-    virtual sal_Int32 SAL_CALL getLineNumberAtIndex( sal_Int32 nIndex )
-            throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                   ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
-            getTextAtLineNumber( sal_Int32 nLineNo )
-            throw (::com::sun::star::lang::IndexOutOfBoundsException,
-                   ::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
-            getTextAtLineWithCaret()
-            throw (::com::sun::star::uno::RuntimeException) {}
-    virtual sal_Int32 SAL_CALL getNumberOfLineWithCaret()
-            throw (::com::sun::star::uno::RuntimeException) {}
-    // #i63870#
-    // XAccesibleTextAttributes
-    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getDefaultAttributes( const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::uno::RuntimeException) {}
-    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getRunAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
-};
 
 class SwAccessibleTable;
 class SwAccessibleCell : public SwAccessibleContext,
@@ -4348,3 +4071,892 @@ const sal_Char 	sDefunc [] = "object is defunctional";
 const sal_Char 	sMissingWindow [] = "window is missing";
 
 template <class T>  const com::sun::star::uno::Type& getCppuType(T){}
+
+
+class SwAccessibleDocumentBase : public SwAccessibleContext
+{
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::accessibility::XAccessible> mxParent;
+    Window* mpChildWin; // protected by solar mutext
+    using SwAccessibleFrame::SetVisArea;
+protected:
+    virtual ~SwAccessibleDocumentBase();
+public:
+  //  SwAccessibleDocumentBase(){}
+    SwAccessibleDocumentBase( SwAccessibleMap* pInitMap );
+    void SetVisArea();
+    virtual void AddChild( Window *pWin, sal_Bool bFireEvent = sal_True );
+    virtual void RemoveChild( Window *pWin );
+    // XAccessibleContext
+    // Return the number of currently visible children.
+    virtual sal_Int32 SAL_CALL getAccessibleChildCount (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // Return the specified child or NULL if index is invalid.
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> SAL_CALL
+        getAccessibleChild (sal_Int32 nIndex)
+        throw (::com::sun::star::uno::RuntimeException,
+                ::com::sun::star::lang::IndexOutOfBoundsException);
+    // Return a reference to the parent.
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible> SAL_CALL
+        getAccessibleParent (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // Return this objects index among the parents children.
+    virtual sal_Int32 SAL_CALL
+        getAccessibleIndexInParent (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // Return this object's description.
+    virtual OUString SAL_CALL
+        getAccessibleDescription (void) throw (com::sun::star::uno::RuntimeException);
+    virtual OUString SAL_CALL getAccessibleName (void) throw (::com::sun::star::uno::RuntimeException);
+    // XAccessibleComponent
+    virtual sal_Bool SAL_CALL containsPoint(
+            const ::com::sun::star::awt::Point& aPoint )
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::uno::Reference<
+        ::com::sun::star::accessibility::XAccessible > SAL_CALL getAccessibleAtPoint(
+                const ::com::sun::star::awt::Point& aPoint )
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::awt::Rectangle SAL_CALL getBounds()
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::awt::Point SAL_CALL getLocation()
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::awt::Point SAL_CALL getLocationOnScreen()
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::awt::Size SAL_CALL getSize()
+        throw (::com::sun::star::uno::RuntimeException);
+};
+/**
+ * access to an accessible Writer document
+ */
+ namespace com {
+   namespace sun {
+     namespace star {
+       namespace accessibility {
+         class XAccessibleGetAccFlowTo{};
+       }}}}
+
+ // SwAccessibleDocumentBase a;
+ // com::sun::star::accessibility::XAccessibleSelection b;                              
+ com::sun::star::document::XEventListener c;
+ // com::sun::star::accessibility::XAccessibleExtendedAttributes d;
+ com::sun::star::accessibility::XAccessibleGetAccFlowTo e;
+
+class SwAccessibleDocument : 
+public SwAccessibleDocumentBase,
+public com::sun::star::accessibility::XAccessibleSelection,
+  public com::sun::star::document::XEventListener,
+  public com::sun::star::accessibility::XAccessibleExtendedAttributes,
+          public com::sun::star::accessibility::XAccessibleGetAccFlowTo
+{
+    // Implementation for XAccessibleSelection interface
+    SwAccessibleSelectionHelper maSelectionHelper;
+protected:
+    // Set states for getAccessibleStateSet.
+    // This drived class additinaly sets MULTISELECTABLE(1)
+    virtual void GetStates( ::utl::AccessibleStateSetHelper& rStateSet );
+    virtual ~SwAccessibleDocument();
+public:
+    SwAccessibleDocument( SwAccessibleMap* pInitMap );
+    DECL_LINK( WindowChildEventListener, VclSimpleEvent* );
+    //=====  XEventListener====================================================
+    virtual void SAL_CALL notifyEvent( const ::com::sun::star::document::EventObject& Event )
+            throw (::com::sun::star::uno::RuntimeException);
+    virtual void SAL_CALL disposing( const ::com::sun::star::lang::EventObject& Event )
+            throw (::com::sun::star::uno::RuntimeException);
+    // XServiceInfo
+    // Returns an identifier for the implementation of this object.
+    virtual OUString SAL_CALL
+        getImplementationName (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // Return whether the specified service is supported by this class.
+    virtual sal_Bool SAL_CALL
+        supportsService (const OUString& sServiceName)
+        throw (::com::sun::star::uno::RuntimeException);
+    // Returns a list of all supported services.  In this case that is just
+    // the AccessibleContext service.
+    virtual ::com::sun::star::uno::Sequence< OUString> SAL_CALL
+        getSupportedServiceNames (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // XInterface
+    // XInterface is inherited through SwAcessibleContext and
+    // XAccessibleSelection. These methods are needed to avoid
+    // ambigiouties.
+    virtual ::com::sun::star::uno::Any SAL_CALL queryInterface(
+        const ::com::sun::star::uno::Type& aType )
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual void SAL_CALL acquire(  ) throw ()
+  { //SwAccessibleContext::acquire(); 
+  };
+    virtual void SAL_CALL release(  ) throw ()
+        { 
+          //SwAccessibleContext::release(); 
+        };
+    // XTypeProvider
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > SAL_CALL getTypes(  ) throw(::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::uno::Sequence< sal_Int8 > SAL_CALL getImplementationId(  ) throw(::com::sun::star::uno::RuntimeException);
+    // XAccessibleSelection
+    virtual void SAL_CALL selectAccessibleChild(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException );
+    virtual sal_Bool SAL_CALL isAccessibleChildSelected(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException );
+    virtual void SAL_CALL clearAccessibleSelection(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    virtual void SAL_CALL selectAllAccessibleChildren(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    virtual sal_Int32 SAL_CALL getSelectedAccessibleChildCount(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > SAL_CALL getSelectedAccessibleChild(
+        sal_Int32 nSelectedChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException);
+    // index has to be treated as global child index.
+    virtual void SAL_CALL deselectAccessibleChild(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException );
+    virtual ::com::sun::star::uno::Any SAL_CALL getExtendedAttributes()
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) ;
+    // thread safe C++ interface
+    // The object is not visible an longer and should be destroyed
+    virtual void Dispose( sal_Bool bRecursive = sal_False );
+    // XAccessibleComponent
+    sal_Int32 SAL_CALL getBackground()
+        throw (::com::sun::star::uno::RuntimeException);
+    // XAccessibleGetAccFlowTo
+    ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Any >
+        SAL_CALL get_AccFlowTo(const ::com::sun::star::uno::Any& rAny, sal_Int32 nType)
+        throw ( ::com::sun::star::uno::RuntimeException );
+};
+
+class SwAccessibleFrameBase {
+public:
+  SwAccessibleMap* GetMap(){};
+};
+namespace com {  namespace sun {    namespace star {       namespace accessibility {        
+class XAccessibleImage {
+public:
+  virtual void release(){}
+  virtual void acquire(){}
+};}}}}
+
+class SwAccessibleNoTextFrame : public  SwAccessibleFrameBase,
+                                public ::com::sun::star::accessibility::XAccessibleImage,
+                                public ::com::sun::star::accessibility::XAccessibleHypertext//Added by yangzhh for HyperLink
+{
+    friend class SwAccessibleNoTextHyperlink;
+    //HyperLinksMap alinksMap;
+    com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessibleHyperlink > alink;
+    SwDepend        aDepend;
+    OUString msTitle; // #i73249#
+    OUString msDesc;
+protected:
+    virtual ~SwAccessibleNoTextFrame();
+    const SwNoTxtNode *GetNoTxtNode() const;
+    virtual void Modify( const SfxPoolItem* pOld, const SfxPoolItem *pNew);
+public:
+    SwAccessibleNoTextFrame( SwAccessibleMap* pInitMap,
+                             sal_Int16 nInitRole,
+                             const SwFlyFrm *pFlyFrm );
+    // XAccessibleContext
+    // #i73249# - Return the object's current name.
+    virtual OUString SAL_CALL
+        getAccessibleName (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    /// Return this object's description.
+    virtual OUString SAL_CALL
+        getAccessibleDescription (void)
+        throw (com::sun::star::uno::RuntimeException);
+    // XInterface methods need to be implemented to disambiguate
+    // between those inherited through SwAcessibleContext and
+    // XAccessibleImage.
+    virtual ::com::sun::star::uno::Any SAL_CALL queryInterface(
+        const ::com::sun::star::uno::Type& aType )
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual void SAL_CALL acquire(  ) throw ()
+  { //SwAccessibleContext::acquire(); 
+};
+    virtual void SAL_CALL release(  ) throw ()
+  { //SwAccessibleContext::release(); 
+};
+    // XTypeProvider
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > SAL_CALL getTypes(  ) throw(::com::sun::star::uno::RuntimeException);
+    // XAccessibleImage
+    virtual OUString SAL_CALL
+        getAccessibleImageDescription(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    virtual sal_Int32 SAL_CALL
+        getAccessibleImageHeight(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    virtual sal_Int32 SAL_CALL
+        getAccessibleImageWidth(  )
+        throw ( ::com::sun::star::uno::RuntimeException );
+    // The object is not visible an longer and should be destroyed
+    virtual void Dispose( sal_Bool bRecursive = sal_False );
+    virtual sal_Int32 SAL_CALL getCaretPosition(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual sal_Bool SAL_CALL setCaretPosition( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    virtual sal_Unicode SAL_CALL getCharacter( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);//Shen Zhen Jie changed sal_Unicode to sal_uInt32
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getCharacterAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::awt::Rectangle SAL_CALL getCharacterBounds( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    virtual sal_Int32 SAL_CALL getCharacterCount(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual sal_Int32 SAL_CALL getIndexAtPoint( const ::com::sun::star::awt::Point& aPoint ) throw (::com::sun::star::uno::RuntimeException);
+    virtual OUString SAL_CALL getSelectedText(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual sal_Int32 SAL_CALL getSelectionStart(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual sal_Int32 SAL_CALL getSelectionEnd(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual sal_Bool SAL_CALL setSelection( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    virtual OUString SAL_CALL getText(  ) throw (::com::sun::star::uno::RuntimeException);
+    virtual OUString SAL_CALL getTextRange( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextAtIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBeforeIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBehindIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException);
+    virtual sal_Bool SAL_CALL copyText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException);
+    //=====  XAccessibleHypertext  ============================================
+    virtual sal_Int32 SAL_CALL getHyperLinkCount()
+        throw (::com::sun::star::uno::RuntimeException);
+    virtual ::com::sun::star::uno::Reference<
+        ::com::sun::star::accessibility::XAccessibleHyperlink >
+    SAL_CALL getHyperLink( sal_Int32 nLinkIndex )
+    throw (::com::sun::star::lang::IndexOutOfBoundsException,
+            ::com::sun::star::uno::RuntimeException);
+    virtual sal_Int32 SAL_CALL getHyperLinkIndex( sal_Int32 nCharIndex )
+    throw (::com::sun::star::lang::IndexOutOfBoundsException,
+            ::com::sun::star::uno::RuntimeException);
+    SwAccessibleMap *GetAccessibleMap(){ return GetMap();}
+private:
+    com::sun::star::accessibility::AccessibleRelation makeRelation(
+        sal_Int16 nType, const SwFlyFrm* pFrm );
+public:
+    virtual ::com::sun::star::uno::Reference<
+            ::com::sun::star::accessibility::XAccessibleRelationSet> SAL_CALL
+        getAccessibleRelationSet (void)
+        throw (::com::sun::star::uno::RuntimeException);
+};
+
+
+class SwAccessibleHeaderFooter : public SwAccessibleContext
+{
+protected:
+    virtual ~SwAccessibleHeaderFooter();
+public:
+    SwAccessibleHeaderFooter( SwAccessibleMap* pInitMap,
+                              const SwHeaderFrm* pHdFrm );
+    SwAccessibleHeaderFooter( SwAccessibleMap* pInitMap,
+                              const SwFooterFrm* pFtFrm );
+    // XAccessibleContext
+    /// Return this object's description.
+    virtual OUString SAL_CALL
+        getAccessibleDescription (void)
+        throw (com::sun::star::uno::RuntimeException);
+    // XServiceInfo
+    /** Returns an identifier for the implementation of this object. */
+    virtual OUString SAL_CALL
+        getImplementationName (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    /** Return whether the specified service is supported by this class. */
+    virtual sal_Bool SAL_CALL
+        supportsService (const OUString& sServiceName)
+        throw (::com::sun::star::uno::RuntimeException);
+    /** Returns a list of all supported services.  In this case that is just
+        the AccessibleContext service. */
+    virtual ::com::sun::star::uno::Sequence< OUString> SAL_CALL
+        getSupportedServiceNames (void)
+        throw (::com::sun::star::uno::RuntimeException);
+    // XTypeProvider
+    virtual ::com::sun::star::uno::Sequence< sal_Int8 > SAL_CALL getImplementationId(  ) throw(::com::sun::star::uno::RuntimeException);
+    //=====  XAccessibleComponent  ============================================
+    sal_Int32 SAL_CALL getBackground()
+        throw (::com::sun::star::uno::RuntimeException);
+};
+
+class SwPortionHandler
+{
+public:
+    SwPortionHandler() {}           /// (emtpy) constructor
+    virtual ~SwPortionHandler() {}  /// (empty) destructor
+    /** text portion. A run of nLength characters from the model
+     * string, that contains no special characters like embedded
+     * fields, etc. Thus, the on-screen text of this portion
+     * corresponds exactly to the corresponding characters in the
+     * model string.
+     */
+    virtual void Text(
+        sal_uInt16 nLength,      /// length of this portion in the model string
+        sal_uInt16 nType,         /// type of this portion
+        sal_Int32 nHeight = 0,   /// height of this portion
+        sal_Int32 nWidth = 0     /// width of this portion
+        ) = 0;
+    /** special portion. This method is called for every non-text
+     * portion. The parameters describe the length of the
+     * corresponding characters in the model string (often 0 or 1),
+     * the text which is displayed, and the type of the portion.
+     */
+    virtual void Special(
+        sal_uInt16 nLength,      /// length of this portion in the model string
+        const OUString& rText, /// text which is painted on-screen
+        sal_uInt16 nType,         /// type of this portion
+        sal_Int32 nHeight = 0,     /// font height of the painted text
+        sal_Int32 nWidth = 0     /// width of this portion
+        ) = 0;
+    /** line break. This method is called whenever a line break in the
+     * layout occurs.
+     */
+    virtual void LineBreak(KSHORT nWidth) = 0;
+    /** skip characters. The SwTxtFrame may only display partially
+     * display a certain paragraph (e.g. when the paragaph is split
+     * across multiple pages). In this case, the Skip() method must be
+     * called to inform the portion handler to ignore a certain run of
+     * characters in the 'model string'. Skip(), if used at all, must
+     * be called before any of the other methods is called. Calling
+     * Skip() between portions is not allowed.
+     */
+    virtual void Skip(
+        sal_uInt16 nLength   /// number of 'model string' characters to be skipped
+        ) = 0;
+    /** end of paragraph. This method is to be called when all the
+     * paragraph's portions have been processed.
+     */
+    virtual void Finish() = 0;
+    virtual void SetAttrFieldType( sal_uInt16 )
+    { return; }
+};
+
+namespace com { namespace sun { namespace star {
+    namespace i18n { struct Boundary; }
+    namespace accessibility { class XAccessibleHyperlink; }
+    namespace style { struct TabStop; }
+    } } }
+
+class SwSpecialPos{};
+
+class SwAccessiblePortionData : public SwPortionHandler
+{
+    // the node this portion is referring to
+    const SwTxtNode* pTxtNode;
+    // variables used while collecting the data
+    OUStringBuffer aBuffer;
+    sal_Int32 nModelPosition;
+    sal_Bool bFinished;
+    const SwViewOption* pViewOptions;
+    // the accessible string
+    OUString sAccessibleString;
+    // positions array
+    // instances of Position_t must always include the minimum and
+    // maximum positions as first/last elements (to simplify the
+    // algorithms)
+    typedef std::vector<sal_Int32> Positions_t;
+    Positions_t aLineBreaks;        /// position of line breaks
+    Positions_t aModelPositions;    /// position of portion breaks in the model
+    Positions_t aAccessiblePositions;   /// portion breaks in sAccessibleString
+    Positions_t aFieldPosition;
+    Positions_t aAttrFieldType;
+    typedef std::vector<sal_uInt8> PortionAttrs_t;
+    PortionAttrs_t aPortionAttrs;   /// additional portion attributes
+    Positions_t* pSentences;    /// positions of sentence breaks
+    size_t nBeforePortions;     /// # of portions before first model character
+    sal_Bool bLastIsSpecial;    /// set if last portion was 'Special()'
+    /// returns the index of the first position whose value is smaller
+    /// or equal, and whose following value is equal or larger
+    size_t FindBreak( const Positions_t& rPositions, sal_Int32 nValue ) const;
+    /// like FindBreak, but finds the last equal or larger position
+    size_t FindLastBreak( const Positions_t& rPositions, sal_Int32 nValue ) const;
+    /// fill the boundary with the values from rPositions[nPos]
+    void FillBoundary(com::sun::star::i18n::Boundary& rBound,
+                      const Positions_t& rPositions,
+                      size_t nPos ) const;
+    /// Access to portion attributes
+    sal_Bool IsPortionAttrSet( size_t nPortionNo, sal_uInt8 nAttr ) const;
+    sal_Bool IsSpecialPortion( size_t nPortionNo ) const;
+    sal_Bool IsReadOnlyPortion( size_t nPortionNo ) const;
+    sal_Bool IsGrayPortionType( sal_uInt16 nType ) const;
+    // helper method for GetEditableRange(...):
+    void AdjustAndCheck( sal_Int32 nPos, size_t& nPortionNo,
+                         sal_Int32& nCorePos, sal_Bool& bEdit ) const;
+public:
+    SwAccessiblePortionData( const SwTxtNode* pTxtNd,
+                             const SwViewOption* pViewOpt = NULL );
+    virtual ~SwAccessiblePortionData();
+    // SwPortionHandler methods
+    virtual void Text(sal_uInt16 nLength, sal_uInt16 nType, sal_Int32 nHeight = 0, sal_Int32 nWidth = 0);
+    virtual void Special(sal_uInt16 nLength, const OUString& rText, sal_uInt16 nType, sal_Int32 nHeight = 0, sal_Int32 nWidth = 0);
+    virtual void LineBreak(KSHORT nWidth);
+    virtual void Skip(sal_uInt16 nLength);
+    virtual void Finish();
+    virtual void SetAttrFieldType( sal_uInt16 nAttrFldType );
+    sal_Bool FillBoundaryIFDateField( com::sun::star::i18n::Boundary& rBound, const sal_Int32 nPos );
+    sal_Bool IsIndexInFootnode(sal_Int32 nIndex);
+    sal_Bool IsInGrayPortion( sal_Int32 nPos );
+    sal_Int32 GetFieldIndex(sal_Int32 nPos);
+    sal_Bool IsZeroCorePositionData();
+    // access to the portion data
+    /// get the text string, as presented by the layout
+    const OUString& GetAccessibleString() const;
+    /// get the start & end positions of the sentence
+    void GetLineBoundary( com::sun::star::i18n::Boundary& rBound,
+                          sal_Int32 nPos ) const;
+    // get start and end position of the last line
+    void GetLastLineBoundary( com::sun::star::i18n::Boundary& rBound ) const;
+    /// Determine whether this core position is valid for these portions.
+    /// (A paragraph may be split into several frames, e.g. at page
+    ///  boundaries. In this case, only part of a paragraph is represented
+    ///  through this object. This method determines whether one particular
+    ///  position is valid for this object or not.)
+    sal_Bool IsValidCorePosition( sal_Int32 nPos ) const;
+    sal_Int32 GetFirstValidCorePosition() const;
+    sal_Int32 GetLastValidCorePosition() const;
+    /// get the position in the accessibility string for a given model position
+    sal_Int32 GetAccessiblePosition( sal_Int32 nPos ) const;
+    // #i89175#
+    sal_Int32 GetLineCount() const;
+    sal_Int32 GetLineNo( const sal_Int32 nPos ) const;
+    void GetBoundaryOfLine( const sal_Int32 nLineNo,
+                            com::sun::star::i18n::Boundary& rLineBound );
+    /// get the position in the model string for a given
+    /// (accessibility) position
+    sal_Int32 GetModelPosition( sal_Int32 nPos ) const;
+    /// fill a SwSpecialPos structure, suitable for calling
+    /// SwTxtFrm->GetCharRect
+    /// Returns the core position, and fills thr rpPos either with NULL or
+    /// with the &rPos, after putting the appropriate data into it.
+    sal_uInt16 FillSpecialPos( sal_Int32 nPos,
+                           SwSpecialPos& rPos,
+                           SwSpecialPos*& rpPos ) const;
+    // get boundaries of words/sentences. The data structures are
+    // created on-demand.
+    void GetSentenceBoundary( com::sun::star::i18n::Boundary& rBound,
+                              sal_Int32 nPos );
+    // get (a) boundary for attribut change
+    void GetAttributeBoundary( com::sun::star::i18n::Boundary& rBound,
+                               sal_Int32 nPos ) const;
+    sal_uInt16 GetAttrFldType( sal_Int32 nPos );
+    /// Convert start and end positions into core positions.
+    /// @returns true if 'special' portions are included either completely
+    ///          or not at all. This can be used to test whether editing
+    ///          that range would be legal
+    sal_Bool GetEditableRange( sal_Int32 nStart, sal_Int32 nEnd,
+                               sal_Int32& nCoreStart, sal_Int32& nCoreEnd ) const;
+private:
+    typedef std::pair<sal_Int32,sal_Int32> PAIR_POS;
+    typedef std::vector<PAIR_POS> VEC_PAIR_POS;
+    VEC_PAIR_POS m_vecPairPos;
+};
+
+
+
+typedef ::boost::unordered_map< OUString,
+                         ::com::sun::star::beans::PropertyValue,
+                         OUStringHash,
+                         ::std::equal_to< OUString > > tAccParaPropValMap;
+class SwAccessibleParagraph :
+        public SwClient, // #i108125#
+        public SwAccessibleContext,
+        public ::com::sun::star::accessibility::XAccessibleEditableText,
+        public com::sun::star::accessibility::XAccessibleSelection,
+        public com::sun::star::accessibility::XAccessibleHypertext,
+        public com::sun::star::accessibility::XAccessibleTextMarkup,
+        public com::sun::star::accessibility::XAccessibleMultiLineText,
+        public ::com::sun::star::accessibility::XAccessibleTextAttributes,
+        public com::sun::star::accessibility::XAccessibleTextSelection,
+        public  com::sun::star::accessibility::XAccessibleExtendedAttributes
+{
+    friend class SwAccessibleHyperlink;
+    OUString sDesc;  // protected by base classes mutex
+    // data for this paragraph's text portions; this contains the
+    // mapping from the core 'model string' to the accessible text
+    // string.
+    // pPortionData may be NULL; it should only be accessed through the
+    // Get/Clear/Has/UpdatePortionData() methods
+    SwAccessiblePortionData* pPortionData;
+    SwAccessibleHyperTextData *pHyperTextData;
+    sal_Int32 nOldCaretPos; // The 'old' caret pos. It's only valid as long
+                            // as the cursor is inside this object (protected by
+                            // mutex)
+    sal_Bool bIsHeading;    // protected by base classes mutex
+    sal_Int32 nHeadingLevel;
+    // implementation for XAccessibleSelection
+    SwAccessibleSelectionHelper aSelectionHelper;
+    SwParaChangeTrackingInfo* mpParaChangeTrackInfo; // #i108125#
+    /// get the SwTxtNode (requires frame; check before)
+    const SwTxtNode* GetTxtNode() const {}
+    /// get the (accessible) text string (requires frame; check before)
+    OUString GetString() {}
+    OUString GetDescription() {}
+    // get the current care position
+    sal_Int32 GetCaretPos() {}
+    // determine the current selection. Fill the values with
+    // -1 if there is no selection in the this paragraph
+    sal_Bool GetSelection(sal_Int32& nStart, sal_Int32& nEnd) {}
+    // helper for GetSelection and getCaretPosition
+    // #i27301# - add parameter <_bForSelection>, which indicates,
+    // if the cursor is retrieved for selection or for caret position.
+    SwPaM* GetCursor( const bool _bForSelection ) {}
+    // for cut/copy/paste: execute a particular slot at the view shell
+    void ExecuteAtViewShell( sal_uInt16 nSlot ) {}
+    // helper method for get/setAttributes
+    // (for the special case of (nEndIndex==-1) a single character will
+    //  be selected)
+    SwXTextPortion* CreateUnoPortion( sal_Int32 nStart, sal_Int32 nEnd ) {}
+    // methods for checking the parameter range:
+    // does nPos point to a char?
+    sal_Bool IsValidChar(sal_Int32 nPos, sal_Int32 nLength) {}
+    // does nPos point to a position? (may be behind the last character)
+    sal_Bool IsValidPosition(sal_Int32 nPos, sal_Int32 nLength) {}
+    // is nBegin...nEnd a valid range? (nEnd points past the last character)
+    sal_Bool IsValidRange(sal_Int32 nBegin, sal_Int32 nEnd, sal_Int32 nLength) {}
+    // Ensure ordered range (i.e. nBegin is smaller then nEnd)
+    void OrderRange(sal_Int32& nBegin, sal_Int32& nEnd)
+    {
+        if( nBegin > nEnd )
+        {
+            sal_Int32 nTmp = nBegin; nBegin = nEnd; nEnd = nTmp;
+        }
+    }
+    const SwRedline* GetRedlineAtIndex( sal_Int32 nPos ) {}
+    OUString GetFieldTypeNameAtIndex(sal_Int32 nIndex) {}
+    // #i63870#
+    void _getDefaultAttributesImpl(
+            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
+            tAccParaPropValMap& rDefAttrSeq,
+            const bool bOnlyCharAttrs = false ) {}
+    void _getRunAttributesImpl(
+            const sal_Int32 nIndex,
+            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
+            tAccParaPropValMap& rRunAttrSeq ) {}
+    void _getSupplementalAttributesImpl(
+            const sal_Int32 nIndex,
+            const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes,
+            tAccParaPropValMap& rSupplementalAttrSeq ) {}
+    void _correctValues(
+            const sal_Int32 nIndex,
+            ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue >& rValues ) {}
+public:
+    SwTOXSortTabBase* GetTOXSortTabBase() {}
+    short GetTOCLevel() {}
+    sal_Bool IsHeading() const {}
+protected:
+    // Set states for getAccessibleStateSet.
+    // This drived class additinaly sets MULTILINE(1), MULTISELECTABLE(+),
+    // FOCUSABLE(+) and FOCUSED(+)
+    virtual void GetStates( ::utl::AccessibleStateSetHelper& rStateSet ) {}
+    virtual void _InvalidateContent( sal_Bool bVisibleDataFired ) {}
+    virtual void _InvalidateCursorPos() {}
+    virtual void _InvalidateFocus() {}
+    virtual ~SwAccessibleParagraph() {}
+    // handling of data for the text portions
+    // force update of new portion data
+    void UpdatePortionData()
+        throw( com::sun::star::uno::RuntimeException ) {}
+    // remove the current portion data
+    void ClearPortionData() {}
+    // get portion data; update if necessary
+    SwAccessiblePortionData& GetPortionData()
+        throw( com::sun::star::uno::RuntimeException )
+    {
+      if( pPortionData == NULL )
+        UpdatePortionData();
+      return *pPortionData;
+    }
+    // determine if portion data is currently available
+  sal_Bool HasPortionData()   { return (pPortionData != NULL) ;}
+    //helpers for word boundaries
+    sal_Bool GetCharBoundary( com::sun::star::i18n::Boundary& rBound,
+                              const OUString& rText,
+                              sal_Int32 nPos ) {}
+    sal_Bool GetWordBoundary( com::sun::star::i18n::Boundary& rBound,
+                              const OUString& rText,
+                              sal_Int32 nPos ) {}
+    sal_Bool GetSentenceBoundary( com::sun::star::i18n::Boundary& rBound,
+                                  const OUString& rText,
+                                  sal_Int32 nPos ) {}
+    sal_Bool GetLineBoundary( com::sun::star::i18n::Boundary& rBound,
+                              const OUString& rText,
+                              sal_Int32 nPos ) {}
+    sal_Bool GetParagraphBoundary( com::sun::star::i18n::Boundary& rBound,
+                                   const OUString& rText,
+                                   sal_Int32 nPos ) {}
+    sal_Bool GetAttributeBoundary( com::sun::star::i18n::Boundary& rBound,
+                                   const OUString& rText,
+                                   sal_Int32 nPos ) {}
+    sal_Bool GetGlyphBoundary( com::sun::star::i18n::Boundary& rBound,
+                               const OUString& rText,
+                               sal_Int32 nPos ) {}
+    // get boundaries of word/sentence/etc. for specified text type
+    // Does all argument checking, and then delegates to helper methods above.
+    sal_Bool GetTextBoundary( com::sun::star::i18n::Boundary& rBound,
+                              const OUString& rText,
+                              sal_Int32 nPos,
+                              sal_Int16 aTextType )
+        throw (
+            ::com::sun::star::lang::IndexOutOfBoundsException,
+            ::com::sun::star::lang::IllegalArgumentException,
+            ::com::sun::star::uno::RuntimeException) {}
+    virtual void Modify( const SfxPoolItem* pOld, const SfxPoolItem* pNew) {}
+public:
+    SwAccessibleParagraph( SwAccessibleMap& rInitMap,
+                           const SwTxtFrm& rTxtFrm ) {}
+  operator ::com::sun::star::accessibility::XAccessibleText *(){}
+    virtual sal_Bool HasCursor() {}   // required by map to remember that object
+    com::sun::star::uno::Sequence< ::com::sun::star::style::TabStop > GetCurrentTabStop( sal_Int32 nIndex  ) {}
+    virtual sal_Int16 SAL_CALL getAccessibleRole (void)     throw (::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleContext
+    // Return this object's description.
+    virtual OUString SAL_CALL
+        getAccessibleDescription (void)
+        throw (com::sun::star::uno::RuntimeException) {}
+    // Return the parents locale or throw exception if this object has no
+    // parent yet/anymore.
+    virtual ::com::sun::star::lang::Locale SAL_CALL
+        getLocale (void)
+        throw (::com::sun::star::accessibility::IllegalAccessibleComponentStateException, ::com::sun::star::uno::RuntimeException) {}
+    // #i27138# - paragraphs are in relation CONTENT_FLOWS_FROM and/or CONTENT_FLOWS_TO
+    virtual ::com::sun::star::uno::Reference<
+            ::com::sun::star::accessibility::XAccessibleRelationSet> SAL_CALL
+        getAccessibleRelationSet (void)
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleComponent
+    virtual void SAL_CALL grabFocus()
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // #i71385#
+    virtual sal_Int32 SAL_CALL getForeground()
+        throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getBackground()
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // XServiceInfo
+    // Returns an identifier for the implementation of this object.
+    virtual OUString SAL_CALL
+        getImplementationName (void)
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // Return whether the specified service is supported by this class.
+    virtual sal_Bool SAL_CALL
+        supportsService (const OUString& sServiceName)
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // Returns a list of all supported services.  In this case that is just
+    // the AccessibleContext service.
+    virtual ::com::sun::star::uno::Sequence< OUString> SAL_CALL
+        getSupportedServiceNames (void)
+        throw (::com::sun::star::uno::RuntimeException) {}
+    // XInterface
+    // (XInterface methods need to be implemented to disambiguate
+    // between those inherited through SwAcessibleContext and
+    // XAccessibleEditableText).
+    virtual ::com::sun::star::uno::Any SAL_CALL queryInterface(
+        const ::com::sun::star::uno::Type& aType )
+        throw (::com::sun::star::uno::RuntimeException) {}
+    virtual void SAL_CALL acquire(  ) throw ()
+  { 
+    //SwAccessibleContext::acquire() {} 
+  };
+  virtual void SAL_CALL release(  ) throw ()
+  { 
+    //SwAccessibleContext::release() {} 
+  };
+    // XTypeProvider
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > SAL_CALL getTypes(  ) throw(::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::uno::Sequence< sal_Int8 > SAL_CALL getImplementationId(  ) throw(::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleText
+    virtual sal_Int32 SAL_CALL getCaretPosition(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL setCaretPosition( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Unicode SAL_CALL getCharacter( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getCharacterAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::awt::Rectangle SAL_CALL getCharacterBounds( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getCharacterCount(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getIndexAtPoint( const ::com::sun::star::awt::Point& aPoint ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual OUString SAL_CALL getSelectedText(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getSelectionStart(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getSelectionEnd(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL setSelection( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual OUString SAL_CALL getText(  ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual OUString SAL_CALL getTextRange( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextAtIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBeforeIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL getTextBehindIndex( sal_Int32 nIndex, sal_Int16 aTextType ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL copyText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleEditableText
+    virtual sal_Bool SAL_CALL cutText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL pasteText( sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL deleteText( sal_Int32 nStartIndex, sal_Int32 nEndIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL insertText( const OUString& sText, sal_Int32 nIndex ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL replaceText( sal_Int32 nStartIndex, sal_Int32 nEndIndex, const OUString& sReplacement ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL setAttributes( sal_Int32 nStartIndex, sal_Int32 nEndIndex, const ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue >& aAttributeSet ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL setText( const OUString& sText ) throw (::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleSelection
+    virtual void SAL_CALL selectAccessibleChild(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException ) {}
+    virtual sal_Bool SAL_CALL isAccessibleChildSelected(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException ) {}
+    virtual void SAL_CALL clearAccessibleSelection(  )
+        throw ( ::com::sun::star::uno::RuntimeException ) {}
+    virtual void SAL_CALL selectAllAccessibleChildren(  )
+        throw ( ::com::sun::star::uno::RuntimeException ) {}
+    virtual sal_Int32 SAL_CALL getSelectedAccessibleChildCount(  )
+        throw ( ::com::sun::star::uno::RuntimeException ) {}
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > SAL_CALL getSelectedAccessibleChild(
+        sal_Int32 nSelectedChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException) {}
+    // index has to be treated as global child index.
+    virtual void SAL_CALL deselectAccessibleChild(
+        sal_Int32 nChildIndex )
+        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException ) {}
+    // XAccessibleHypertext
+    virtual sal_Int32 SAL_CALL getHyperLinkCount()
+        throw (::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::uno::Reference<
+            ::com::sun::star::accessibility::XAccessibleHyperlink >
+        SAL_CALL getHyperLink( sal_Int32 nLinkIndex )
+        throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getHyperLinkIndex( sal_Int32 nCharIndex )
+        throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                ::com::sun::star::uno::RuntimeException) {}
+    // #i71360#
+    // XAccesibleTextMarkup
+    virtual sal_Int32 SAL_CALL getTextMarkupCount( sal_Int32 nTextMarkupType )
+            throw (::com::sun::star::lang::IllegalArgumentException,
+                   ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
+            getTextMarkup( sal_Int32 nTextMarkupIndex,
+                           sal_Int32 nTextMarkupType )
+            throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                   ::com::sun::star::lang::IllegalArgumentException,
+                   ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::accessibility::TextSegment > SAL_CALL
+            getTextMarkupAtIndex( sal_Int32 nCharIndex,
+                                  sal_Int32 nTextMarkupType )
+            throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                   ::com::sun::star::lang::IllegalArgumentException,
+                   ::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleTextSelection
+    virtual sal_Bool SAL_CALL scrollToPosition( const ::com::sun::star::awt::Point& aPoint, sal_Bool isLeftTop )
+        throw (::com::sun::star::lang::IllegalArgumentException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getSelectedPortionCount(  )
+        throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getSeletedPositionStart( sal_Int32 nSelectedPortionIndex )
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getSeletedPositionEnd( sal_Int32 nSelectedPortionIndex )
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Bool SAL_CALL removeSelection( sal_Int32 selectionIndex )
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL  addSelection( sal_Int32 selectionIndex, sal_Int32 startOffset, sal_Int32 endOffset)
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+    // XAccessibleExtendedAttributes
+    virtual ::com::sun::star::uno::Any SAL_CALL getExtendedAttributes()
+        throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) ;
+    sal_Bool GetSelectionAtIndex(sal_Int32& nIndex, sal_Int32& nStart, sal_Int32& nEnd) {}
+    sal_Int32 GetRealHeadingLevel() {}
+    // XAccessibleComponent
+    sal_Bool m_bLastHasSelection;
+    sal_Bool tabCharInWord(sal_Int32 nIndex, com::sun::star::i18n::Boundary&  aBound) {}
+    // #i89175#
+    // XAccessibleMultiLineText
+    virtual sal_Int32 SAL_CALL getLineNumberAtIndex( sal_Int32 nIndex )
+            throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                   ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
+            getTextAtLineNumber( sal_Int32 nLineNo )
+            throw (::com::sun::star::lang::IndexOutOfBoundsException,
+                   ::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::accessibility::TextSegment SAL_CALL
+            getTextAtLineWithCaret()
+            throw (::com::sun::star::uno::RuntimeException) {}
+    virtual sal_Int32 SAL_CALL getNumberOfLineWithCaret()
+            throw (::com::sun::star::uno::RuntimeException) {}
+    // #i63870#
+    // XAccesibleTextAttributes
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getDefaultAttributes( const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::uno::RuntimeException) {}
+    virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getRunAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
+};
+
+
+
+//class SwAccessibleMap;
+//class SwAccessibleNoTextFrame : public  SwAccessibleFrameBase {};
+///class SwAccessibleDocument : public SwAccessibleDocumentBase{};
+//class SwAccessibleCell : public SwAccessibleContext {};
+//class SwAccessibleChildSList {};
+//class SwAccessibleChildSList_const_iterator {};
+//class SwAccessibleContext {};
+//class SwAccessibleDocumentBase : public SwAccessibleContext{};
+//class SwAccessibleField {};
+//class SwAccessibleFrame {};
+//class SwAccessibleFrameBase : public SwAccessibleContext {};
+//class SwAccessibleHeaderFooter : public SwAccessibleContext {};
+//class SwAccessibleHyperTextData : public _SwAccessibleHyperlinkMap_Impl {};
+//class SwAccessibleParagraph {};
+//class SwAccessiblePortionData : public SwPortionHandler {};
+//class SwAccessibleSelectionHelper{};
+//class SwAccessibleTable {};
+//class SwAccessibleTableColHeaders : public SwAccessibleTable {};
+//class SwParaChangeTrackingInfo{};
+//class SwRect;
+
+class AccessibleShape;
+class AccessibleStateSetHelper;
+class SdrObject;
+
+
+class SwCellFrm;
+class SwCrsrShell;
+class SwFEShell;
+class SwField;
+class SwField;
+class SwFlyFrm;
+class SwFooterFrm;
+class SwFrm;
+class SwFrmFmt;
+class SwFtnFrm;
+class SwHeaderFrm;
+class SwNoTxtNode;
+class SwPaM;
+class SwRedline;
+class SwSelBoxes;
+class SwTabFrm;
+class SwTableBox;
+class SwTextMarkupHelper;
+class SwTxtAttr;
+class SwTxtFrm;
+class SwTxtNode;
+class SwViewOption;
+class SwViewShell;
+class SwWrongList;
+class SwXTextPortion;
+class VclSimpleEvent;
+class Window;
+class SwAccessibleTableData_Impl;
+class SwAccessibleHyperTextData;
+
+class SwAccessibleNoTextHyperlink;
+
+class SwAccessibleHyperlink {};
+class _SwAccessibleChildMap{};
+
+class SwAccessibleChildMap : public _SwAccessibleChildMap {};
+class SwAccessibleChildMapKey {};
+class SwAccessibleEmbeddedObject : public   SwAccessibleNoTextFrame{};
+class SwAccessibleFootnote : public SwAccessibleContext{};
+class SwAccessibleGraphic : public  SwAccessibleNoTextFrame{};
+class SwAccessiblePage : public SwAccessibleContext {};
+class SwAccessiblePreview : public  SwAccessibleDocumentBase {};
+class SwAccessibleTextFrame : public SwAccessibleFrameBase {};
+
+namespace com { namespace sun { namespace star { namespace accessibility {
+struct AccessibleTableModelChange {
+  inline AccessibleTableModelChange() ;
+    inline AccessibleTableModelChange(const ::sal_Int16& Type_, const ::sal_Int32& FirstRow_, const ::sal_Int32& LastRow_, const ::sal_Int32& FirstColumn_, const ::sal_Int32& LastColumn_) ;
+
+    ::sal_Int16 Type;
+    ::sal_Int32 FirstRow;
+    ::sal_Int32 LastRow;
+    ::sal_Int32 FirstColumn;
+    ::sal_Int32 LastColumn;
+};
+        //inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleTableModelChange const *);
+} } } }
+
