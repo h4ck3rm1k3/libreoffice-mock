@@ -8,9 +8,15 @@ def parse_name(m):
         name  = m.group(1)
         if not name in seen :
             seen[name]=1
+            ns = name.split("::")
+            name = ns.pop()
+            print "".join(["namespace %s{" % n for n in ns])
             print "/*fwd*/class %s; " % name
-            print "/*dcl*/class %s {}; " % name
-        return True
+            print "/*dcl*/class %s {}; " % name            
+            print "".join(["}" for n in ns])
+            return True
+        else:
+            return False
     else:
         return False
 
@@ -27,10 +33,18 @@ def parse_file(filename):
         #el
                                    #error: invalid use of incomplete type '
         if (parse_name(re.search(r'error: invalid use of incomplete type \'const class (\w+)\'', l))):
+            print("#"+l+"\n")
             pass
         elif (parse_name(re.search(r'error: invalid use of incomplete type \'class (\w+)\'', l))):
+            print("#"+l+"\n")
             pass
-        elif (parse_name(re.search(r'error: \'(\w+)\' does not name a type', l))):
+        elif (parse_name(re.search(r'error: \'([\w:]+)\' does not name a type', l))):
+            print("#"+l+"\n")
+            pass
+
+        elif (parse_name(re.search(r'error: \'([\w:]+)\' has not been declared', l))):
+            print("#"+l+"\n")
+
             pass
 
         #error: 'class com::sun::star::accessibility::XAccessible' has no member named 'GetAccessible'

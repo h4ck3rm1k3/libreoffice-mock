@@ -1,27 +1,3 @@
-inlc:
-	cd ..;g++ -save-temps \
-	-DSAL_UNX  \
-	-DUNX  \
-	-DLINUX \
-	-D_LITTLE_ENDIAN \
-	-latk-1.0 \
-	-lgobject-2.0 \
-	-lglib-2.0 \
-	-I ./accessibility/inc \
-	-I /usr/lib/x86_64-linux-gnu/glib-2.0/include/ \
-	-I /usr/include/glib-2.0/ \
-	-I /usr/include/atk-1.0/ \
-	-I ./ \
-	-I ./include \
-	-I ./config_host \
-	-I /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/  \
-	-I ./sw/source/core/access/ \
-	-I ./workdir/UnoApiHeadersTarget/udkapi/comprehensive/ \
-	-I ./workdir/UnoApiHeadersTarget/offapi/comprehensive/ \
-	-I ./include/vcl/ \
-	-I  ./sw/inc/ \
-	fakeinclude/allinc.cxx
-
 all:
 	g++ -save-temps \
 	-latk-1.0 \

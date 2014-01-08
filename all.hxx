@@ -1,8 +1,6 @@
 #pragma once
 #define ISA(X) DOISA(X())
-
 // block this from being included
-
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCELL_HXX
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCONTEXT_HXX
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCONTEXT_HXX
@@ -67,8 +65,6 @@
 #define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLETEXTSELECTION_HDL
 #define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XACCESSIBLEVALUE_HDL
 #define INCLUDED_COM_SUN_STAR_ACCESSIBILITY_XMSAASERVICE_HDL
-
-
 //#include <com/sun/star/uno/Any.hxx>
 //#include <com/sun/star/lang/XComponent.hpp>
 //#include <atkobject.h>
@@ -80,7 +76,6 @@
 #include <memory>
 #include <set>
 #include <boost/unordered_map.hpp>
-
 // real states for events
 #define ACC_STATE_EDITABLE 0x01
 #define ACC_STATE_OPAQUE 0x02
@@ -98,7 +93,6 @@
 //template <class T> void (T,const char *){}
 #define THROW_RUNTIME_EXCEPTION(X,Y)
 template <class T, class U> void CHECk_FOR_WINDOW(T,U){}
-
 #define EDITENG_DLLPUBLIC
 #define DECLARE_XINTERFACE(X)
 namespace com{ namespace sun{ namespace star{ namespace uno{
@@ -110,10 +104,68 @@ class PreviewPage {};
 namespace accessibility {
   /*dcl*/class AccessibleControlShape; 
 }
+
+/*dcl*/class AccessibleControlShape {}; 
+/*dcl*/class AccessibleTextHelper {}; 
+/*dcl*/class AllSettings {}; 
+/*dcl*/class AlphaMask {}; 
+/*dcl*/class Bitmap {}; 
+/*dcl*/class BitmapEx {}; 
+/*dcl*/class Color {}; 
+/*dcl*/class CommandEvent {}; 
+/*dcl*/class Cursor {}; 
+/*dcl*/class DataChangedEvent {}; 
+/*dcl*/class Dialog {}; 
+/*dcl*/class DockingManager {}; 
+/*dcl*/class Font {}; 
+/*dcl*/class FontEmphasisMark {}; 
+/*dcl*/class FontInfo {}; 
+/*dcl*/class FontMetric {}; 
+/*dcl*/class GDIMetaFile {}; 
+/*dcl*/class GfxLink {}; 
+/*dcl*/class Gradient {}; 
+/*dcl*/class Hatch {}; 
+/*dcl*/class HelpEvent {}; 
+/*dcl*/class Image {}; 
+/*dcl*/class ImplControlValue {}; 
+/*dcl*/class ImplDevFontList {}; 
+/*dcl*/class ImplFontCache {}; 
+/*dcl*/class ImplFontEntry {}; 
+/*dcl*/class ImplFrameData {}; 
+/*dcl*/class ImplGetDevFontList {}; 
+/*dcl*/class ImplGetDevSizeList {}; 
+/*dcl*/class ImplLayoutArgs {}; 
+/*dcl*/class ImplMapRes {}; 
+/*dcl*/class ImplObjStack {}; 
+/*dcl*/class ImplOutDevData {}; 
+/*dcl*/class ImplThresholdRes {}; 
+/*dcl*/class ImplWinData {}; 
+/*dcl*/class InputContext {}; 
+/*dcl*/class KeyEvent {}; 
+/*dcl*/class LanguageType {}; 
+/*dcl*/class Line {}; 
+/*dcl*/class LineInfo {}; 
+/*dcl*/class Link {}; 
 /*dcl*/class MapMode{};
+/*dcl*/class MouseEvent {}; 
 /*dcl*/class OUStringBuffer{};
+/*dcl*/class OutDevType {}; 
+/*dcl*/class OutDevViewType {}; 
+/*dcl*/class Pointer {}; 
+/*dcl*/class PointerStyle {}; 
+/*dcl*/class PolyPolygon {}; 
+/*dcl*/class Polygon {}; 
+/*dcl*/class RasterOp {}; 
+/*dcl*/class Reference {}; 
+/*dcl*/class Region {}; 
+/*dcl*/class ResId {}; 
+/*dcl*/class ResMgr {}; 
 /*dcl*/class SET_PARA {}; 
+/*dcl*/class SalFrame {}; 
+/*dcl*/class SalGraphics {}; 
+/*dcl*/class SalLayout {}; 
 /*dcl*/class SdrHint{};
+/*dcl*/class Selection {}; 
 /*dcl*/class SfxBoolItem{};
 /*dcl*/class SfxPoolItem {}; 
 /*dcl*/class SvxAdjustItem{};
@@ -129,6 +181,7 @@ namespace accessibility {
 /*dcl*/class SvxColorItem{};
 /*dcl*/class SvxContourItem{};
 /*dcl*/class SvxCrossedOutItem{};
+/*dcl*/class SvxEditViewForwarder {}; 
 /*dcl*/class SvxEmphasisMarkItem{};
 /*dcl*/class SvxEscapementItem{};
 /*dcl*/class SvxFmtBreakItem{};
@@ -160,23 +213,29 @@ namespace accessibility {
 /*dcl*/class SvxShadowItem{};
 /*dcl*/class SvxShadowedItem{};
 /*dcl*/class SvxTabStopItem{};
+/*dcl*/class SvxTextForwarder{};
 /*dcl*/class SvxTwoLinesItem{};
 /*dcl*/class SvxULSpaceItem{};
 /*dcl*/class SvxUnderlineItem{};
+/*dcl*/class SvxUnoTextRangeBaseList {}; 
+/*dcl*/class SvxViewForwarder {}; 
 /*dcl*/class SvxWeightItem{};
 /*dcl*/class SvxWidowsItem{};
 /*dcl*/class SvxWordLineModeItem{};
 /*dcl*/class SwAccPreviewData; // IMPL
+/*dcl*/class SwAccessibleChild {}; 
+/*dcl*/class SwAccessibleChildMap {}; 
+/*dcl*/class SwAccessibleChildSList_const_iterator {}; 
 /*dcl*/class SwAccessibleContext; 
-
 /*dcl*/class SwAccessibleContextMap_Impl; 
 /*dcl*/class SwAccessibleEventList_Impl; 
 /*dcl*/class SwAccessibleEventMap_Impl; 
 /*dcl*/class SwAccessibleEvent_Impl; 
+/*dcl*/class SwAccessibleField{};
+/*dcl*/class SwAccessibleHyperTextData {}; 
+/*dcl*/class SwAccessibleNoTextHyperlink {}; 
 /*dcl*/class SwAccessibleSelectedParas_Impl;
 /*dcl*/class SwAccessibleShapeMap_Impl; 
-
-/*dcl*/class SwAccessibleField{};
 /*dcl*/class SwChannelBGrf{};
 /*dcl*/class SwChannelGGrf{};
 /*dcl*/class SwChannelRGrf{};
@@ -204,6 +263,7 @@ namespace accessibility {
 /*dcl*/class SwFmtVertOrient{};
 /*dcl*/class SwFmtWrapInfluenceOnObjPos{};
 /*dcl*/class SwFooterFrm{};
+/*dcl*/class SwFrm; 
 /*dcl*/class SwFtnFrm{};
 /*dcl*/class SwGammaGrf{};
 /*dcl*/class SwHeaderAndFooterEatSpacingItem{};
@@ -212,7 +272,9 @@ namespace accessibility {
 /*dcl*/class SwLuminanceGrf{};
 /*dcl*/class SwMirrorGrf{};
 /*dcl*/class SwNumRuleItem{};
+/*dcl*/class SwParaChangeTrackingInfo {}; 
 /*dcl*/class SwParaConnectBorderItem{};
+/*dcl*/class SwRedline {}; 
 /*dcl*/class SwRegisterItem{};
 /*dcl*/class SwRootFrm{};
 /*dcl*/class SwRotationGrf{};
@@ -221,34 +283,33 @@ namespace accessibility {
 /*dcl*/class SwTextGridItem{};
 /*dcl*/class SwTransparencyGrf{};
 /*dcl*/class SwTxtAttr{};
+/*dcl*/class SwXTextPortion {}; 
+/*dcl*/class SystemEnvData {}; 
+/*dcl*/class SystemFontData {}; 
+/*dcl*/class SystemGraphicsData {}; 
+/*dcl*/class SystemTextLayoutData {}; 
+/*dcl*/class SystemWindow {}; 
+/*dcl*/class TextAlign {}; 
+/*dcl*/class TrackingEvent {}; 
+/*dcl*/class VCLXGraphicsList_impl {}; 
+/*dcl*/class VCLXWindow {}; 
+/*dcl*/class VEC_CELL {}; 
+/*dcl*/class VclAlign {}; 
+/*dcl*/class VclPackType {}; 
+/*dcl*/class VirtualDevice {}; 
+/*dcl*/class Wallpaper {}; 
+/*dcl*/class WinBits {}; 
+/*dcl*/class WindowImpl {}; 
+/*dcl*/class WindowResHeader {}; 
+/*dcl*/class WindowType {}; 
 /*dcl*/class XFillGradientItem{};
 /*dcl*/class XFillStyleItem{};
-class SvxUnoTextRangeBase{};
-
-
-
-
-/*dcl*/class AccessibleControlShape {}; 
-namespace com {namespace sun {namespace star {namespace accessibility { class AccessibleEventObject; }}}}
-
-///*dcl*/class AccessibleRelation {}; 
-/*dcl*/class AccessibleTextHelper {}; 
-///*dcl*/class IllegalAccessibleComponentStateException {}; 
-
-
-/*dcl*/class SvxEditViewForwarder {}; 
-/*dcl*/class SvxUnoTextRangeBaseList {}; 
-/*dcl*/class SvxViewForwarder {}; 
-
-
-
-///*dcl*/class TextSegment {}; 
-/*dcl*/class VEC_CELL {}; 
 /*dcl*/class _Alloc {}; 
 /*dcl*/class _Distance {}; 
 /*dcl*/class _DistanceType {}; 
 /*dcl*/class align_t {}; 
 /*dcl*/class aligner_ {}; 
+
 /*dcl*/class bidirectional_iterator_tag {}; 
 /*dcl*/class const_reverse_iterator {}; 
 /*dcl*/class difference_type {}; 
@@ -256,19 +317,216 @@ namespace com {namespace sun {namespace star {namespace accessibility { class Ac
 /*dcl*/class internal_type {}; 
 /*dcl*/class link_pointer {}; 
 /*dcl*/class m_nCurrent {}; 
+/*dcl*/class nType {}; 
 /*dcl*/class node_pointer {}; 
 /*dcl*/class pair {}; 
 /*dcl*/class reference {}; 
 /*dcl*/class reverse_iterator {}; 
-/*dcl*/class SvxTextForwarder{};
-/*dcl*/class SwAccessibleHyperTextData {}; 
+/*dcl*/class sal_uIntPtr {}; 
+/*fwd*/class AllSettings; 
+/*fwd*/class AlphaMask; 
+/*fwd*/class Bitmap; 
+/*fwd*/class BitmapEx; 
+/*fwd*/class Color; 
+/*fwd*/class CommandEvent; 
+/*fwd*/class Cursor; 
+/*fwd*/class DataChangedEvent; 
+/*fwd*/class Dialog; 
+/*fwd*/class DockingManager; 
+/*fwd*/class Font; 
+/*fwd*/class FontEmphasisMark; 
+/*fwd*/class FontInfo; 
+/*fwd*/class FontMetric; 
+/*fwd*/class GDIMetaFile; 
+/*fwd*/class GfxLink; 
+/*fwd*/class Gradient; 
+/*fwd*/class Hatch; 
+/*fwd*/class HelpEvent; 
+/*fwd*/class Image; 
+/*fwd*/class ImplControlValue; 
+/*fwd*/class ImplDevFontList; 
+/*fwd*/class ImplFontCache; 
+/*fwd*/class ImplFontEntry; 
+/*fwd*/class ImplFrameData; 
+/*fwd*/class ImplGetDevFontList; 
+/*fwd*/class ImplGetDevSizeList; 
+/*fwd*/class ImplLayoutArgs; 
+/*fwd*/class ImplMapRes; 
+/*fwd*/class ImplObjStack; 
+/*fwd*/class ImplOutDevData; 
+/*fwd*/class ImplThresholdRes; 
+/*fwd*/class ImplWinData; 
+/*fwd*/class InputContext; 
+/*fwd*/class KeyEvent; 
+/*fwd*/class LanguageType; 
+/*fwd*/class Line; 
+/*fwd*/class LineInfo; 
+/*fwd*/class Link; 
+/*fwd*/class MouseEvent; 
+/*fwd*/class OutDevType; 
+/*fwd*/class OutDevViewType; 
+/*fwd*/class Pointer; 
+/*fwd*/class PointerStyle; 
+/*fwd*/class PolyPolygon; 
+/*fwd*/class Polygon; 
+/*fwd*/class RasterOp; 
+/*fwd*/class Reference; 
+/*fwd*/class Region; 
+/*fwd*/class ResId; 
+/*fwd*/class ResMgr; 
+/*fwd*/class SalFrame; 
+/*fwd*/class SalGraphics; 
+/*fwd*/class SalLayout; 
+/*fwd*/class Selection; 
+/*fwd*/class SwAccessibleChild; 
+/*fwd*/class SwAccessibleChildMap; 
+/*fwd*/class SwAccessibleChildSList_const_iterator; 
+/*fwd*/class SwAccessibleHyperTextData; 
+/*fwd*/class SwAccessibleNoTextHyperlink; 
+/*fwd*/class SwFrm; 
+/*fwd*/class SystemEnvData; 
+/*fwd*/class SystemFontData; 
+/*fwd*/class SystemGraphicsData; 
+/*fwd*/class SystemTextLayoutData; 
+/*fwd*/class SystemWindow; 
+/*fwd*/class TextAlign; 
+/*fwd*/class TrackingEvent; 
+/*fwd*/class VCLXGraphicsList_impl; 
+/*fwd*/class VCLXWindow; 
+/*fwd*/class VclAlign; 
+/*fwd*/class VclPackType; 
+/*fwd*/class VirtualDevice; 
+/*fwd*/class Wallpaper; 
+/*fwd*/class WinBits; 
+/*fwd*/class WindowImpl; 
+/*fwd*/class WindowResHeader; 
+/*fwd*/class WindowType; 
+/*fwd*/class nType; 
+///*dcl*/class AccessibleRelation {}; 
+///*dcl*/class IllegalAccessibleComponentStateException {}; 
+///*dcl*/class SwAccessibleHyperTextData {}; 
 ///*dcl*/class SwAccessiblePortionData {}; 
-/*dcl*/class SwParaChangeTrackingInfo {}; 
-/*dcl*/class SwRedline {}; 
-/*dcl*/class SwXTextPortion {}; 
+///*dcl*/class TextSegment {}; 
+namespace basegfx{
+/*fwd*/class B2DLineJoin; 
+/*dcl*/class B2DLineJoin {}; 
+}
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2173:18: error: 'basegfx::B2DLineJoin' has not been declared
+namespace com{namespace sun{namespace star{namespace drawing{
+/*fwd*/class LineCap; 
+/*dcl*/class LineCap {}; 
+}}}}
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2174:34: error: 'com::sun::star::drawing::LineCap' has not been declared
+
+/*fwd*/class FontSelectPattern; 
+/*dcl*/class FontSelectPattern {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2177:9: error: 'FontSelectPattern' has not been declared
+
+/*fwd*/class OutDevSupportType; 
+/*dcl*/class OutDevSupportType {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2187:29: error: 'OutDevSupportType' has not been declared
+
+/*fwd*/class TextRectInfo; 
+/*dcl*/class TextRectInfo {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2233:38: error: 'TextRectInfo' has not been declared
+
+/*fwd*/class PolyPolyVector; 
+/*dcl*/class PolyPolyVector {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2253:31: error: 'PolyPolyVector' has not been declared
+namespace basegfx{
+/*fwd*/class B2DPolyPolygonVector; 
+/*dcl*/class B2DPolyPolygonVector {}; 
+}
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2257:42: error: 'basegfx::B2DPolyPolygonVector' has not been declared
+
+/*fwd*/class MapUnit; 
+/*dcl*/class MapUnit {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2511:39: error: 'MapUnit' has not been declared
+
+/*fwd*/class FontCharMap; 
+/*dcl*/class FontCharMap {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2538:30: error: 'FontCharMap' has not been declared
+namespace vcl{
+/*fwd*/class FontCapabilities; 
+/*dcl*/class FontCapabilities {}; 
+}
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2539:36: error: 'vcl::FontCapabilities' has not been declared
+
+/*fwd*/class ControlType; 
+/*dcl*/class ControlType {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2587:40: error: 'ControlType' has not been declared
+
+/*fwd*/class ControlPart; 
+/*dcl*/class ControlPart {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2587:59: error: 'ControlPart' has not been declared
+
+/*fwd*/class ControlState; 
+/*dcl*/class ControlState {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2596:45: error: 'ControlState' has not been declared
+
+/*fwd*/class SystemParentData; 
+/*dcl*/class SystemParentData {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2634:53: error: 'SystemParentData' has not been declared
+
+/*fwd*/class ImplDelData; 
+/*dcl*/class ImplDelData {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2669:22: error: 'ImplDelData' has not been declared
+
+/*fwd*/class ImplCalcToTopData; 
+/*dcl*/class ImplCalcToTopData {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2724:25: error: 'ImplCalcToTopData' has not been declared
+
+/*fwd*/class NotifyEvent; 
+/*dcl*/class NotifyEvent {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2730:51: error: 'NotifyEvent' has not been declared
+
+/*fwd*/class Timer; 
+/*dcl*/class Timer {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2754:28: error: 'Timer' has not been declared
+
+/*fwd*/class ScrollBar; 
+/*dcl*/class ScrollBar {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2759:28: error: 'ScrollBar' has not been declared
+
+/*fwd*/class VclSimpleEvent; 
+/*dcl*/class VclSimpleEvent {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2793:32: error: 'VclSimpleEvent' has not been declared
+
+/*fwd*/class StateChangedType; 
+/*dcl*/class StateChangedType {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2824:32: error: 'StateChangedType' has not been declared
+namespace vcl{
+/*fwd*/class ControlLayoutData; 
+/*dcl*/class ControlLayoutData {}; 
+}
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:3090:33: error: 'vcl::ControlLayoutData' has not been declared
+
+/*fwd*/class FixedText; 
+/*dcl*/class FixedText {}; 
+
+// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:3152:29: error: 'FixedText' has not been declared
 
 
 
+class SvxUnoTextRangeBase{};
+namespace com {namespace sun {namespace star {namespace accessibility { class AccessibleEventObject; }}}}
 #define DECLARE_XTYPEPROVIDER(X)
 #define SAL_NO_VTABLE
 #define SVX_DLLPUBLIC
@@ -279,7 +537,6 @@ namespace com {namespace sun {namespace star {namespace accessibility { class Ac
 #define CPPU_GCC_DLLPRIVATE
 #define CPPU_GCC3_ALIGN
 #define SAL_THROW(X)
-
 #define DECL_LINK(X,Y)
 #define SAL_WNODEPRECATED_DECLARATIONS_PUSH
 #define SAL_WNODEPRECATED_DECLARATIONS_POP
@@ -306,10 +563,7 @@ enum colors{
 };
 namespace accessibility {
 class AccessibleShapeTreeInfo{};
-
 }
-
-
 //{
 //   ATK_ROLE_INVALID = 0,
 //   ATK_ROLE_ACCEL_LABEL,
@@ -417,7 +671,6 @@ class AccessibleShapeTreeInfo{};
 // } AtkRole;
 class SwAccessibleMap;
 class SwAccessibleParagraph;
-
 const char * SW_RESSTR(sal_uInt16&){}
 class SwStartNodeType{};
 class ViewShell{};
@@ -430,13 +683,13 @@ namespace osl{
     MutexGuard(Mutex){}
   };
 };
-class OString{
+namespace rtl{
+  class OString{
 public:
   OString(const char *){}
   const char * getStr(){}
   OString & operator += (const char *){}
 };
-namespace rtl{
   // ::rtl::OUString
   class OUString{
   public:
@@ -502,7 +755,6 @@ namespace com{ namespace sun{ namespace star{ namespace uno{ class Type{
           some_types eTypeClass;
           bool operator == (const Type &) const{};
         };       }}}}
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class IllegalAccessibleComponentStateException : public ::com::sun::star::uno::Exception
 {
@@ -513,19 +765,13 @@ public:
   CPPU_GCC_DLLPRIVATE ~IllegalAccessibleComponentStateException() {}
   CPPU_GCC_DLLPRIVATE IllegalAccessibleComponentStateException & operator =(IllegalAccessibleComponentStateException const &) {}
 };
-
 } } } }
-
 namespace accessibility {struct MutexOwner {mutable ::osl::Mutex maMutex;};}
 enum tAccessibleStates{};
 class SwClient{};
-
 class SwTOXSortTabBase{};
-
 class SolarMutexGuard{};
 const int RTL_TEXTENCODING_UTF8=1;
-
-
 namespace rtl{template <class T> class Reference{
 public:
   Reference(){}
@@ -543,19 +789,15 @@ public:
 namespace rtl{
   class OUStringHash{};
 }
-
 namespace com{ namespace sun{namespace star{ namespace lang{
         class XServiceInfo{
         }; }}}}
 //namespace com{ namespace sun{namespace star{ namespace lang{class DisposedException{        }; }}}}
 namespace com{namespace sun{namespace star{namespace lang{class DisposedException{      public:   template <class T>          DisposedException(                            rtl::OUString,                             T &){}};}}}}
-
-
 namespace com{ namespace sun{namespace star{ namespace lang{class IndexOutOfBoundsException{ public: template <class T> IndexOutOfBoundsException( rtl::OUString,  T &  ){}};
         class IllegalArgumentException {};
         
 }}}}
-
 
 namespace com{ namespace sun{ namespace star{ namespace uno{ class Any{ public:
           Type * pType;
@@ -563,7 +805,6 @@ namespace com{ namespace sun{ namespace star{ namespace uno{ class Any{ public:
           template<class T >Any operator>>=(T) const{}
           operator bool(){return false;}
         };}}}}
-
 namespace com{ namespace sun{ namespace star{ namespace uno{template<class T> class Sequence{public:
           Sequence(int){}
           Sequence(){}
@@ -572,10 +813,6 @@ namespace com{ namespace sun{ namespace star{ namespace uno{template<class T> cl
           T * getArray(){}
           void realloc(int){};
 };}}}}
-
-
-
-
 using namespace rtl;
 class SdrObject{};
 class SwCntntFrm;
@@ -583,7 +820,6 @@ class SwTxtNode{
 public:
   void GetOfst(){}
 };
-
 class SwShellTableCrsr;
 class SwCrsrShell{
 public:
@@ -598,7 +834,6 @@ public:
 class FnForEach_SwNodes{};
 class Graphic{};
 class GraphicObject{};
-
 class SfxBroadcaster{};
 class SwGrfFmtColl{};
 class SwHistory{};
@@ -646,7 +881,6 @@ class SwTxtFmtColl;
 /*fwd*/class TableRanges_t;
 /*fwd*/class SfxItemSet;
 /*fwd*/class SwIndex;
-
 class SwOutlineNodes{};
 class Foo{
 public:
@@ -770,8 +1004,6 @@ class SwNodeIndex{
   sal_uLong     operator-= (const SwNodeIndex &){}
   sal_uLong     operator-= (sal_uLong){}
 };
-
-
 class SwTOXBase{};
 class SwTableBoxFmt{};
 class SwTableFmt{};
@@ -782,7 +1014,6 @@ class SwTxtFmtColl{};
 class SwUndoTblToTxt{};
 class SwUndoTxtToTbl{};
 class TableRanges_t{};
-
 class IDocumentContentOperations{};
 class IDocumentDeviceAccess{};
 class IDocumentDrawModelAccess{};
@@ -796,7 +1027,6 @@ class IDocumentRedlineAccess{};
 class IDocumentSettingAccess{};
 class IDocumentStylePoolAccess{};
 class IStyleAccess{};
-
 class SW_DLLPRIVATE{};
 class SdrMarkList{};
 class SdrModel{};
@@ -974,10 +1204,7 @@ class SwTableNode{};
 class SwTxtFtn{};
 class SwViewOption{};
 class SwpHints{};
-
 //::accessibility::IAccessibleViewForwarderListener::VISIBLE_AREA,
-
-
 class SwNode{
 public:
   IDocumentContentOperations *  getIDocumentContentOperations (){}
@@ -1068,7 +1295,6 @@ public:
 };
 class SwCntntNode;
 class SwNodeIndex;
-
 class SwFEShell : public SwCrsrShell{
 public:
   void FinishOLEObj(){}
@@ -1116,7 +1342,6 @@ public:
   SwIndex & GetOfst() const {}
   const SwTxtNode * GetTxtNode() const {}
 };
-
 namespace com{namespace sun{namespace star{ namespace lang{class EventObject{
 public:
   com::sun::star::uno::Reference<
@@ -1137,7 +1362,6 @@ namespace com{ namespace sun{ namespace star{ namespace awt{
 class XFocusListener{};
         // ::com::sun::star::awt::Point
       }}}}
-
 namespace com{ namespace sun{ namespace star{ namespace awt{
 class Size{
         public:
@@ -1146,13 +1370,11 @@ class Size{
         };
       }; }}}
 namespace com{ namespace sun{ namespace star{ namespace uno{class XAggregation{};}}}}
-
 namespace com{ namespace sun{ namespace star{ namespace uno{
         template <class T> class WeakReference  : public Reference<T>{
         public:
           WeakReference<T> operator = (Reference<T>){}
         };       }}}}
-
 namespace com{namespace sun{   namespace star{      namespace lang{class Locale{};      }}}}
 namespace com{ namespace sun{ namespace star{ namespace awt{
 class Point{
@@ -1273,7 +1495,6 @@ template <class T,class U> int rtl_str_compare(T, U){}
 namespace com{namespace sun{namespace star{ namespace lang{class XComponent{};      }}}}
 namespace com{namespace sun{namespace star{ namespace lang{class XTypeProvider{};      }}}}
 namespace com{namespace sun{namespace star{ namespace lang{class XUnoTunnel{};      }}}}
-
 namespace com{namespace sun{namespace star{class XEventListener{};}}}
 namespace com{namespace sun{namespace star{class IllegalArgumentException{};}}}
 class ChildrenManager{};
@@ -1287,8 +1508,6 @@ namespace com{namespace sun{namespace star{namespace accessibility{class Accessi
           };
         };
       }}}}
-
-
 namespace com{ namespace sun{ namespace star{ namespace uno{
 class XInterface{
 public :
@@ -1297,7 +1516,6 @@ public :
   virtual void acquire(){}
   uno::Sequence< uno::Type > getTypes(){}
 };}}}}
-
 namespace com{ namespace sun{ namespace star{ namespace accessibility{ 
 struct AccessibleEventObject: public ::com::sun::star::lang::EventObject{
   AccessibleEventObject()  {}
@@ -1306,11 +1524,9 @@ struct AccessibleEventObject: public ::com::sun::star::lang::EventObject{
   ::com::sun::star::uno::Any NewValue;
   ::com::sun::star::uno::Any OldValue;
 };      }}}}
-
 namespace com{ namespace sun{ namespace star{ namespace accessibility{ class XAccessibleEventListener : public ::com::sun::star::lang::XEventListener{
 public:
   virtual void notifyEvent( const ::com::sun::star::accessibility::AccessibleEventObject& aEvent ) = 0;
-
 protected:
   ~XAccessibleEventListener() throw (){}
 };}}}}
@@ -1345,7 +1561,6 @@ class XAccessibleRelationSet : public ::com::sun::star::uno::XInterface
         protected:
           ~XAccessibleRelationSet() throw (){}
         }; }}}}
-
 namespace com { namespace sun { namespace star { namespace accessibility {
         class XAccessibleContext;
 class  XAccessible : public ::com::sun::star::uno::XInterface
@@ -1358,8 +1573,6 @@ public:
 protected:
   ~XAccessible() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };}}}}
-
-
 namespace com{ namespace sun{ namespace star{ namespace accessibility{
 class XAccessibleContext : public ::com::sun::star::uno::XInterface
        {
@@ -1426,7 +1639,6 @@ class AccessibleEventId{
           };
         };
       }}}}
-
 namespace com{ namespace sun{ namespace star{ namespace accessibility{
 class AccessibleRelationType{
         public :
@@ -1614,7 +1826,6 @@ class PropertyValue{};
     };
   };
 };
-
 //enum AtkRole;
 template<typename T, std::size_t Size>
 std::size_t SAL_N_ELEMENTS(T(&)[Size]){
@@ -1622,13 +1833,9 @@ std::size_t SAL_N_ELEMENTS(T(&)[Size]){
   //std::cout << "Count" << Size << std::endl;
   return Size;
 }
-
 template <class T> void OSL_FAIL(T){}
 template <class T> void OSL_ASSERT(T){}
 class Window;
-
-
-
 class SwPostItMgr{
 public:
   bool HasNotes() {}
@@ -1645,26 +1852,20 @@ public :
   const SwFrm* GetLayout(){}
   template <class T> bool DOISA(T) const{}
 };
-
 /*class SwAccessibleMap{
   public:
   SwViewShell * GetShell() const {}
   };*/
 class Fraction{};
-
-
 using namespace com::sun::star::awt;
 template <class T> void OSL_ENSURE(T, const char * message){}
 class typelib_TypeDescription{};
 class typelib_TypeClass{};
-
 com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleContext>){
 }
 com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, sal_Int16){
 }
-
 class FunkyXAccessible{};
-
 class LanguageTag
 {
 public:
@@ -1744,11 +1945,8 @@ class SwSectionFrm{};
 class SwStringMsgPoolItem{};
 class SwTxtINetFmt{};
 class SwVirtFlyDrawObj{};
-
 template<class T, class U, class V>
 void SAL_WARN_IF(T cond,U a,V b){}
-
-
 namespace com{ namespace sun{ namespace star{ namespace uno{
 class RuntimeException : Exception{
         public:
@@ -1769,22 +1967,1310 @@ namespace comphelper{
     static void addEvent(int nClientId,::com::sun::star::accessibility::AccessibleEventObject& rEvent){}
   };
 };
-
-class Window{
+// class Window{
+// public:
+//   bool HasFocus(){}
+//   FunkyXAccessible funky;
+//   ::com::sun::star::uno::Reference<
+//     ::com::sun::star::accessibility::XAccessible > r;
+//   ::com::sun::star::uno::Reference<
+//     ::com::sun::star::accessibility::XAccessible
+//     > GetAccessible(){}
+//   FunkyXAccessible   GetAccessible2(){}
+//   Window*  GetAccessibleParentWindow(){}
+//   Point OutputToAbsoluteScreenPixel(::com::sun::star::awt::Point ) {}
+// };
+struct RSHEADER_TYPE;
+typedef sal_uInt32 RESOURCE_TYPE;
+class Resource
+{
+protected:
+    ResMgr* m_pResMgr;
+    bool IsAvailableRes( const ResId& rId ) const
+  { //return m_pResMgr->IsAvailable( rId, this ); 
+}
+    void GetRes( const ResId& rResId );
+    void TestRes();
+    void* GetClassRes()
+  { //return m_pResMgr->GetClass(); 
+}
+    void* IncrementRes( sal_uInt32 nBytes )
+  { //return m_pResMgr->Increment( nBytes ); 
+  }
+    static sal_uInt32 GetObjSizeRes( RSHEADER_TYPE * pHT )
+  { //return ResMgr::GetObjSize( pHT ); 
+}
+    sal_uInt32 GetRemainSizeRes()
+  { //return m_pResMgr->GetRemainSize(); 
+}
+    static sal_Int32 GetLongRes( void * pLong )
+  { //return ResMgr::GetLong( pLong ); 
+}
+    static sal_Int16 GetShortRes( void * pShort )
+  { //return ResMgr::GetShort( pShort ); 
+}
+    sal_Int32 ReadLongRes()
+  { //return m_pResMgr->ReadLong(); 
+}
+    sal_Int16 ReadShortRes()
+  { //return m_pResMgr->ReadShort(); 
+}
+    rtl::OUString ReadStringRes()
+  { //return m_pResMgr->ReadString(); 
+}
+    rtl::OString ReadByteStringRes()
+  { //return m_pResMgr->ReadByteString(); 
+}
+    void FreeResource()
+  { //m_pResMgr->PopContext( this ); 
+}
+    Resource() : m_pResMgr( __null ) {}
+    Resource( const ResId& rResId );
 public:
-  bool HasFocus(){}
-  FunkyXAccessible funky;
-  ::com::sun::star::uno::Reference<
-    ::com::sun::star::accessibility::XAccessible > r;
-  ::com::sun::star::uno::Reference<
-    ::com::sun::star::accessibility::XAccessible
-    > GetAccessible(){}
-  FunkyXAccessible   GetAccessible2(){}
-  ::com::sun::star::uno::Reference<
-    ::com::sun::star::accessibility::XAccessible
-    >  GetAccessibleParentWindow(){}
-  Point OutputToAbsoluteScreenPixel(::com::sun::star::awt::Point ) {}
+    ~Resource() {}
 };
+namespace vcl {
+  class PDFWriterImpl{};
+  class ExtOutDevData{};
+  class ITextLayout{};
+}
+class MetricVector{};
+class FontStrikeout{};
+class FontUnderline{};
+class ImplMultiTextLineInfo{};
+class SalTwoRect{};
+class BitmapReadAccess{};
+namespace basegfx {
+  class B2DPolygon{};
+  class B2DPolyPolygon{};
+  class B2DHomMatrix{};
+}
+
+class OutputDevice : public Resource
+{
+    friend class Application;
+    friend class Bitmap;
+    friend class ImplImageBmp;
+    friend class Printer;
+    friend class System;
+    friend class VirtualDevice;
+    friend class Window;
+    friend class WorkWindow;
+    friend class vcl::PDFWriterImpl;
+    friend const char* ImplDbgCheckOutputDevice( const void* pObj );
+    friend void ImplHandleResize( Window* pWindow, long nNewWidth, long nNewHeight );
+private:
+    mutable SalGraphics* mpGraphics;
+    mutable OutputDevice* mpPrevGraphics;
+    mutable OutputDevice* mpNextGraphics;
+    GDIMetaFile* mpMetaFile;
+    mutable ImplFontEntry* mpFontEntry;
+    mutable ImplFontCache* mpFontCache;
+    mutable ImplDevFontList* mpFontList;
+    mutable ImplGetDevFontList* mpGetDevFontList;
+    mutable ImplGetDevSizeList* mpGetDevSizeList;
+    ImplObjStack* mpObjStack;
+    ImplOutDevData* mpOutDevData;
+    VCLXGraphicsList_impl* mpUnoGraphicsList;
+    vcl::PDFWriterImpl* mpPDFWriter;
+    vcl::ExtOutDevData* mpExtOutDevData;
+    VirtualDevice* mpAlphaVDev;
+    long mnOutOffOrigX;
+    long mnOutOffLogicX;
+    long mnOutOffOrigY;
+    long mnOutOffLogicY;
+    long mnOutOffX;
+    long mnOutOffY;
+    long mnOutWidth;
+    long mnOutHeight;
+    sal_Int32 mnDPIX;
+    sal_Int32 mnDPIY;
+    sal_Int32 mnDPIScaleFactor;
+    mutable long mnTextOffX;
+    mutable long mnTextOffY;
+    mutable long mnEmphasisAscent;
+    mutable long mnEmphasisDescent;
+    sal_uLong mnDrawMode;
+    sal_uLong mnTextLayoutMode;
+    ImplMapRes maMapRes;
+    ImplThresholdRes maThresRes;
+    OutDevType meOutDevType;
+    OutDevViewType meOutDevViewType;
+    Region maRegion;
+    Color maLineColor;
+    Color maFillColor;
+    Font maFont;
+    Color maTextColor;
+    Color maTextLineColor;
+    Color maOverlineColor;
+    TextAlign meTextAlign;
+    RasterOp meRasterOp;
+    Wallpaper maBackground;
+    AllSettings maSettings;
+    MapMode maMapMode;
+    Point maRefPoint;
+    sal_uInt16 mnAntialiasing;
+    LanguageType meTextLanguage;
+    mutable bool mbMap : 1;
+    mutable bool mbMapIsDefault : 1;
+    mutable bool mbClipRegion : 1;
+    mutable bool mbBackground : 1;
+    mutable bool mbOutput : 1;
+    mutable bool mbDevOutput : 1;
+    mutable bool mbOutputClipped : 1;
+    mutable bool mbLineColor : 1;
+    mutable bool mbFillColor : 1;
+    mutable bool mbInitLineColor : 1;
+    mutable bool mbInitFillColor : 1;
+    mutable bool mbInitFont : 1;
+    mutable bool mbInitTextColor : 1;
+    mutable bool mbInitClipRegion : 1;
+    mutable bool mbClipRegionSet : 1;
+    mutable bool mbKerning : 1;
+    mutable bool mbNewFont : 1;
+    mutable bool mbTextLines : 1;
+    mutable bool mbTextSpecial : 1;
+    mutable bool mbRefPoint : 1;
+    mutable bool mbEnableRTL : 1;
+public:
+    sal_Int32 ImplGetDPIX() const { return mnDPIX; }
+    sal_Int32 ImplGetDPIY() const { return mnDPIY; }
+    SalGraphics* ImplGetGraphics() const;
+    void ImplReleaseGraphics( sal_Bool bRelease = ((sal_Bool)1) );
+    sal_Bool ImplHasMirroredGraphics();
+    void ImplReMirror( Point &rPoint ) const;
+    void ImplReMirror( Rectangle &rRect ) const;
+    void ImplReMirror( Region &rRegion ) const;
+    void ImplInitOutDevData();
+    void ImplDeInitOutDevData();
+    void ImplInitLineColor();
+    void ImplInitFillColor();
+    bool ImplNewFont() const;
+    void ImplInitFont() const;
+    void ImplInitTextColor();
+    void ImplInitClipRegion();
+    bool ImplSelectClipRegion( const Region&, SalGraphics* pGraphics = __null );
+    void ImplSetClipRegion( const Region* pRegion );
+    SalLayout* ImplLayout( const rtl::OUString&, sal_Int32 nIndex, sal_Int32 nLen,
+                                            const Point& rLogicPos = Point(0,0), long nLogicWidth=0,
+                                            const sal_Int32* pLogicDXArray=__null, bool bFilter = false ) const;
+    ImplLayoutArgs ImplPrepareLayoutArgs( rtl::OUString&, const sal_Int32 nIndex, const sal_Int32 nLen,
+                                            long nPixelWidth, const sal_Int32* pPixelDXArray ) const;
+    SalLayout* ImplGlyphFallbackLayout( SalLayout*, ImplLayoutArgs& ) const;
+    static
+    rtl::OUString ImplGetEllipsisString( const OutputDevice& rTargetDevice, const rtl::OUString& rStr,
+                                                       long nMaxWidth, sal_uInt16 nStyle, const ::vcl::ITextLayout& _rLayout );
+    static
+    void ImplDrawText( OutputDevice& rTargetDevice, const Rectangle& rRect,
+                                              const rtl::OUString& rOrigStr, sal_uInt16 nStyle,
+                                              MetricVector* pVector, rtl::OUString* pDisplayText, ::vcl::ITextLayout& _rLayout );
+    void ImplDrawTextBackground( const SalLayout& );
+    void ImplDrawTextLines( SalLayout&, FontStrikeout eStrikeout, FontUnderline eUnderline, FontUnderline eOverline, sal_Bool bWordLine, sal_Bool bUnderlineAbove );
+    bool ImplDrawRotateText( SalLayout& );
+    void ImplDrawTextDirect( SalLayout&, sal_Bool bTextLines );
+    void ImplDrawSpecialText( SalLayout& );
+    void ImplDrawText( SalLayout& );
+    Rectangle ImplGetTextBoundRect( const SalLayout& );
+    void ImplDrawEmphasisMarks( SalLayout& );
+    void ImplDrawTextRect( long nBaseX, long nBaseY, long nX, long nY, long nWidth, long nHeight );
+    void ImplInitTextLineSize();
+    void ImplInitAboveTextLineSize();
+    void ImplDrawWaveLine( long nBaseX, long nBaseY, long nStartX, long nStartY, long nWidth, long nHeight, long nLineWidth, short nOrientation, const Color& rColor );
+    void ImplDrawWaveTextLine( long nBaseX, long nBaseY, long nX, long nY, long nWidth, FontUnderline eTextLine, Color aColor, sal_Bool bIsAbove );
+    void ImplDrawStraightTextLine( long nBaseX, long nBaseY, long nX, long nY, long nWidth, FontUnderline eTextLine, Color aColor, sal_Bool bIsAbove );
+    void ImplDrawStrikeoutLine( long nBaseX, long nBaseY, long nX, long nY, long nWidth, FontStrikeout eStrikeout, Color aColor );
+    void ImplDrawStrikeoutChar( long nBaseX, long nBaseY, long nX, long nY, long nWidth, FontStrikeout eStrikeout, Color aColor );
+    void ImplDrawTextLine( long nBaseX, long nX, long nY, long nWidth, FontStrikeout eStrikeout, FontUnderline eUnderline, FontUnderline eOverline, sal_Bool bUnderlineAbove );
+    void ImplDrawMnemonicLine( long nX, long nY, long nWidth );
+    void ImplGetEmphasisMark( PolyPolygon& rPolyPoly, sal_Bool& rPolyLine, Rectangle& rRect1, Rectangle& rRect2, long& rYOff, long& rWidth, FontEmphasisMark eEmphasis, long nHeight, short nOrient );
+    void ImplDrawEmphasisMark( long nBaseX, long nX, long nY, const PolyPolygon& rPolyPoly, sal_Bool bPolyLine, const Rectangle& rRect1, const Rectangle& rRect2 );
+    static
+    long ImplGetTextLines( ImplMultiTextLineInfo& rLineInfo, long nWidth, const rtl::OUString& rStr, sal_uInt16 nStyle, const ::vcl::ITextLayout& _rLayout );
+    void ImplInitFontList() const;
+    void ImplUpdateFontData( bool bNewFontLists );
+    static void ImplUpdateAllFontData( bool bNewFontLists );
+    long ImplLogicXToDevicePixel( long nX ) const;
+    long ImplLogicYToDevicePixel( long nY ) const;
+    long ImplLogicWidthToDevicePixel( long nWidth ) const;
+    long ImplLogicHeightToDevicePixel( long nHeight ) const;
+    long ImplDevicePixelToLogicWidth( long nWidth ) const;
+    long ImplDevicePixelToLogicHeight( long nHeight ) const;
+    float ImplFloatLogicHeightToDevicePixel( float ) const;
+    Point ImplLogicToDevicePixel( const Point& rLogicPt ) const;
+    Size ImplLogicToDevicePixel( const Size& rLogicSize ) const;
+    Rectangle ImplLogicToDevicePixel( const Rectangle& rLogicRect ) const;
+    ::basegfx::B2DPolygon ImplLogicToDevicePixel( const ::basegfx::B2DPolygon& ) const;
+    ::basegfx::B2DPolyPolygon ImplLogicToDevicePixel( const ::basegfx::B2DPolyPolygon& ) const;
+    Polygon ImplLogicToDevicePixel( const Polygon& rLogicPoly ) const;
+    PolyPolygon ImplLogicToDevicePixel( const PolyPolygon& rLogicPolyPoly ) const;
+    LineInfo ImplLogicToDevicePixel( const LineInfo& rLineInfo ) const;
+    Rectangle ImplDevicePixelToLogic( const Rectangle& rLogicRect ) const;
+    Region ImplPixelToDevicePixel( const Region& rRegion ) const;
+    void ImplInvalidateViewTransform();
+    basegfx::B2DHomMatrix ImplGetDeviceTransformation() const;
+    void ImplDrawPolygon( const Polygon& rPoly, const PolyPolygon* pClipPolyPoly = __null );
+    void ImplDrawPolyPolygon( const PolyPolygon& rPolyPoly, const PolyPolygon* pClipPolyPoly = __null );
+    void ImplDrawPolyPolygon( sal_uInt16 nPoly, const PolyPolygon& rPolyPoly );
+    void ImplDrawLinearGradient( const Rectangle& rRect, const Gradient& rGradient, sal_Bool bMtf, const PolyPolygon* pClipPolyPoly );
+    void ImplDrawComplexGradient( const Rectangle& rRect, const Gradient& rGradient, sal_Bool bMtf, const PolyPolygon* pClipPolyPoly );
+    void ImplDrawHatch( const PolyPolygon& rPolyPoly, const Hatch& rHatch, sal_Bool bMtf );
+    void ImplCalcHatchValues( const Rectangle& rRect, long nDist, sal_uInt16 nAngle10, Point& rPt1, Point& rPt2, Size& rInc, Point& rEndPt1 );
+    void ImplDrawHatchLine( const Line& rLine, const PolyPolygon& rPolyPoly, Point* pPtBuffer, sal_Bool bMtf );
+    void ImplDrawWallpaper( long nX, long nY, long nWidth, long nHeight, const Wallpaper& rWallpaper );
+    void ImplDrawColorWallpaper( long nX, long nY, long nWidth, long nHeight, const Wallpaper& rWallpaper );
+    void ImplDrawBitmapWallpaper( long nX, long nY, long nWidth, long nHeight, const Wallpaper& rWallpaper );
+    void ImplDrawGradientWallpaper( long nX, long nY, long nWidth, long nHeight, const Wallpaper& rWallpaper );
+    void ImplDrawOutDevDirect( const OutputDevice* pSrcDev, SalTwoRect& rPosAry );
+    void ImplDrawBitmap( const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                        const Bitmap& rBitmap, const sal_uLong nAction );
+    void ImplDrawBitmapEx( const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                        const BitmapEx& rBitmapEx, const sal_uLong nAction );
+    void ImplDrawMask( const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                        const Bitmap& rBitmap, const Color& rMaskColor,
+                                        const sal_uLong nAction );
+    void ImplDrawAlpha( const Bitmap& rBmp, const AlphaMask& rAlpha,
+                                        const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel );
+    Bitmap ImplBlend( Bitmap aBmp,
+                                           BitmapReadAccess* pP,
+                                           BitmapReadAccess* pA,
+                                           const sal_Int32 nOffY,
+                                           const sal_Int32 nDstHeight,
+                                           const sal_Int32 nOffX,
+                                           const sal_Int32 nDstWidth,
+                                           const Rectangle& aBmpRect,
+                                           const Size& aOutSz,
+                                           const bool bHMirr,
+                                           const bool bVMirr,
+                                           const long* pMapX,
+                                           const long* pMapY );
+    Bitmap ImplBlendWithAlpha( Bitmap aBmp,
+                                                    BitmapReadAccess* pP,
+                                                    BitmapReadAccess* pA,
+                                                    const Rectangle& aDstRect,
+                                                    const sal_Int32 nOffY,
+                                                    const sal_Int32 nDstHeight,
+                                                    const sal_Int32 nOffX,
+                                                    const sal_Int32 nDstWidth,
+                                                    const long* pMapX,
+                                                    const long* pMapY );
+    void ImplPrintTransparent( const Bitmap& rBmp, const Bitmap& rMask,
+                                        const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel );
+    void ImplPrintMask( const Bitmap& rMask, const Color& rMaskColor,
+                                        const Point& rDestPt, const Size& rDestSize,
+                                        const Point& rSrcPtPixel, const Size& rSrcSizePixel );
+    void ImplDrawFrameDev( const Point& rPt, const Point& rDevPt, const Size& rDevSize,
+                                        const OutputDevice& rOutDev, const Region& rRegion );
+    void ImplGetFrameDev( const Point& rPt, const Point& rDevPt, const Size& rDevSize,
+                                        OutputDevice& rOutDev );
+    sal_Bool ImplIsRecordLayout() const;
+    static FontEmphasisMark ImplGetEmphasisMarkStyle( const Font& rFont );
+    static sal_Bool ImplIsUnderlineAbove( const Font& );
+    bool ImplIsAntiparallel() const ;
+    Color ImplDrawModeToColor( const Color& rColor ) const;
+    void ImpDrawPolyLineWithLineInfo(const Polygon& rPoly, const LineInfo& rLineInfo);
+    void ImpDrawPolyPolygonWithB2DPolyPolygon(const basegfx::B2DPolyPolygon& rB2DPolyPoly);
+    bool ImpTryDrawPolyLineDirect(
+        const basegfx::B2DPolygon& rB2DPolygon,
+        double fLineWidth = 0.0,
+        double fTransparency = 0.0,
+        basegfx::B2DLineJoin eLineJoin = basegfx::B2DLINEJOIN_NONE,
+        com::sun::star::drawing::LineCap eLineCap = com::sun::star::drawing::LineCap_BUTT);
+    void impPaintLineGeometryWithEvtlExpand(const LineInfo& rInfo, basegfx::B2DPolyPolygon aLinePolyPolygon);
+    SalLayout* getFallbackFont(ImplFontEntry &rFallbackFont,
+        FontSelectPattern &rFontSelData, int nFallbackLevel,
+        ImplLayoutArgs& rLayoutArgs) const;
+protected:
+                        OutputDevice();
+private:
+    OutputDevice( const OutputDevice& rOutDev );
+    OutputDevice& operator =( const OutputDevice& rOutDev );
+public:
+    virtual ~OutputDevice();
+    OutDevType GetOutDevType() const { return meOutDevType; }
+    bool supportsOperation( OutDevSupportType ) const;
+    sal_Int32 GetDPIScaleFactor() const { return mnDPIScaleFactor; }
+    vcl::PDFWriterImpl* GetPDFWriter() const { return mpPDFWriter; }
+    void SetExtOutDevData( vcl::ExtOutDevData* pExtOutDevData ) { mpExtOutDevData = pExtOutDevData; }
+    vcl::ExtOutDevData* GetExtOutDevData() const { return mpExtOutDevData; }
+    void DrawTextLine( const Point& rPos, long nWidth,
+                                      FontStrikeout eStrikeout,
+                                      FontUnderline eUnderline,
+                                      FontUnderline eOverline,
+                                      sal_Bool bUnderlineAbove = ((sal_Bool)0) );
+    void DrawText( const Point& rStartPt, const rtl::OUString& rStr,
+                                  sal_Int32 nIndex = 0, sal_Int32 nLen = -1,
+                                  MetricVector* pVector = __null, rtl::OUString* pDisplayText = __null );
+    long GetTextWidth( const rtl::OUString& rStr, sal_Int32 nIndex = 0, sal_Int32 nLen = -1 ) const;
+    long GetTextHeight() const;
+    float approximate_char_width() const;
+    void DrawTextArray( const Point& rStartPt, const rtl::OUString& rStr,
+                                       const sal_Int32* pDXAry = __null,
+                                       sal_Int32 nIndex = 0,
+                                       sal_Int32 nLen = -1 );
+    long GetTextArray( const rtl::OUString& rStr, sal_Int32* pDXAry = __null,
+                                      sal_Int32 nIndex = 0, sal_Int32 nLen = -1 ) const;
+    bool GetCaretPositions( const rtl::OUString&, sal_Int32* pCaretXArray,
+                                      sal_Int32 nIndex, sal_Int32 nLen,
+                                      sal_Int32* pDXAry = __null, long nWidth = 0,
+                                      sal_Bool bCellBreaking = ((sal_Bool)1) ) const;
+    void DrawStretchText( const Point& rStartPt, sal_uLong nWidth,
+                                         const rtl::OUString& rStr,
+                                         sal_Int32 nIndex = 0, sal_Int32 nLen = -1 );
+    sal_Int32 GetTextBreak( const rtl::OUString& rStr, long nTextWidth,
+                                      sal_Int32 nIndex = 0, sal_Int32 nLen = -1,
+                                      long nCharExtra = 0 ) const;
+    sal_Int32 GetTextBreak( const rtl::OUString& rStr, long nTextWidth,
+                                      sal_Unicode nExtraChar, sal_Int32& rExtraCharPos,
+                                      sal_Int32 nIndex, sal_Int32 nLen,
+                                      long nCharExtra = 0 ) const;
+    void AddTextRectActions( const Rectangle& rRect,
+                                            const rtl::OUString& rOrigStr,
+                                            sal_uInt16 nStyle,
+                                            GDIMetaFile& rMtf );
+    void DrawText( const Rectangle& rRect,
+                                  const rtl::OUString& rStr, sal_uInt16 nStyle = 0,
+                                  MetricVector* pVector = __null, rtl::OUString* pDisplayText = __null,
+                                  ::vcl::ITextLayout* _pTextLayout = __null );
+    Rectangle GetTextRect( const Rectangle& rRect,
+                                     const rtl::OUString& rStr, sal_uInt16 nStyle = ((sal_uInt16)0x2000),
+                                     TextRectInfo* pInfo = __null,
+                                     const ::vcl::ITextLayout* _pTextLayout = __null ) const;
+    rtl::OUString GetEllipsisString( const rtl::OUString& rStr, long nMaxWidth,
+                                           sal_uInt16 nStyle = ((sal_uInt16)0x0400) ) const;
+    void DrawCtrlText( const Point& rPos, const rtl::OUString& rStr,
+                                      sal_Int32 nIndex = 0, sal_Int32 nLen = -1,
+                                      sal_uInt16 nStyle = ((sal_uInt16)0x0002), MetricVector* pVector = __null, rtl::OUString* pDisplayText = __null );
+    long GetCtrlTextWidth( const rtl::OUString& rStr, sal_Int32 nIndex = 0,
+                                          sal_Int32 nLen = -1,
+                                          sal_uInt16 nStyle = ((sal_uInt16)0x0002) ) const;
+    static rtl::OUString GetNonMnemonicString( const rtl::OUString& rStr, sal_Int32& rMnemonicPos );
+    static rtl::OUString GetNonMnemonicString( const rtl::OUString& rStr )
+                            { sal_Int32 nDummy; return GetNonMnemonicString( rStr, nDummy ); }
+    sal_Bool GetTextBoundRect( Rectangle& rRect,
+                            const rtl::OUString& rStr, sal_Int32 nBase = 0, sal_Int32 nIndex = 0, sal_Int32 nLen = -1,
+                            sal_uLong nLayoutWidth = 0, const sal_Int32* pDXArray = __null ) const;
+    sal_Bool GetTextOutline( PolyPolygon&,
+                            const rtl::OUString& rStr, sal_Int32 nBase = 0, sal_Int32 nIndex = 0,
+                            sal_Int32 nLen = -1, sal_Bool bOptimize = ((sal_Bool)1),
+                            sal_uLong nLayoutWidth = 0, const sal_Int32* pDXArray = __null ) const;
+    sal_Bool GetTextOutlines( PolyPolyVector&,
+                            const rtl::OUString& rStr, sal_Int32 nBase = 0, sal_Int32 nIndex = 0,
+                            sal_Int32 nLen = -1, sal_Bool bOptimize = ((sal_Bool)1),
+                            sal_uLong nLayoutWidth = 0, const sal_Int32* pDXArray = __null ) const;
+    sal_Bool GetTextOutlines( ::basegfx::B2DPolyPolygonVector&,
+                            const rtl::OUString& rStr, sal_Int32 nBase = 0, sal_Int32 nIndex = 0,
+                            sal_Int32 nLen = -1, sal_Bool bOptimize = ((sal_Bool)1),
+                            sal_uLong nLayoutWidth = 0, const sal_Int32* pDXArray = __null ) const;
+    sal_Bool GetGlyphBoundRects( const Point& rOrigin, const rtl::OUString& rStr, int nIndex,
+                            int nLen, int nBase, MetricVector& rVector );
+    void DrawPixel( const Point& rPt );
+    void DrawPixel( const Point& rPt, const Color& rColor );
+    void DrawPixel( const Polygon& rPts, const Color* pColors = __null );
+    void DrawPixel( const Polygon& rPts, const Color& rColor );
+    void DrawLine( const Point& rStartPt, const Point& rEndPt );
+    void DrawLine( const Point& rStartPt, const Point& rEndPt,
+                                  const LineInfo& rLineInfo );
+    void DrawPolyLine( const Polygon& rPoly );
+    void DrawPolyLine(
+        const basegfx::B2DPolygon&,
+        double fLineWidth = 0.0,
+        basegfx::B2DLineJoin = basegfx::B2DLINEJOIN_ROUND,
+        com::sun::star::drawing::LineCap = com::sun::star::drawing::LineCap_BUTT);
+    bool TryDrawPolyLineDirect(
+        const basegfx::B2DPolygon& rB2DPolygon,
+        double fLineWidth = 0.0,
+        double fTransparency = 0.0,
+        basegfx::B2DLineJoin eLineJoin = basegfx::B2DLINEJOIN_NONE,
+        com::sun::star::drawing::LineCap eLineCap = com::sun::star::drawing::LineCap_BUTT);
+    void DrawPolyLine( const Polygon& rPoly,
+                                      const LineInfo& rLineInfo );
+    void DrawPolygon( const Polygon& rPoly );
+    void DrawPolygon( const basegfx::B2DPolygon& );
+    void DrawPolyPolygon( const PolyPolygon& rPolyPoly );
+    void DrawPolyPolygon( const basegfx::B2DPolyPolygon& );
+    void DrawRect( const Rectangle& rRect );
+    void DrawRect( const Rectangle& rRect,
+                                  sal_uLong nHorzRount, sal_uLong nVertRound );
+    void DrawEllipse( const Rectangle& rRect );
+    void DrawArc( const Rectangle& rRect,
+                                 const Point& rStartPt, const Point& rEndPt );
+    void DrawPie( const Rectangle& rRect,
+                                 const Point& rStartPt, const Point& rEndPt );
+    void DrawChord( const Rectangle& rRect,
+                                   const Point& rStartPt, const Point& rEndPt );
+    void DrawOutDev( const Point& rDestPt, const Size& rDestSize,
+                                    const Point& rSrcPt, const Size& rSrcSize );
+    void DrawOutDev( const Point& rDestPt, const Size& rDestSize,
+                                    const Point& rSrcPt, const Size& rSrcSize,
+                                    const OutputDevice& rOutDev );
+    void CopyArea( const Point& rDestPt,
+                                  const Point& rSrcPt, const Size& rSrcSize,
+                                  sal_uInt16 nFlags = 0 );
+    void DrawBitmap( const Point& rDestPt,
+                                    const Bitmap& rBitmap );
+    void DrawBitmap( const Point& rDestPt, const Size& rDestSize,
+                                    const Bitmap& rBitmap );
+    void DrawBitmap( const Point& rDestPt, const Size& rDestSize,
+                                    const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                    const Bitmap& rBitmap );
+    void DrawBitmapEx( const Point& rDestPt,
+                                      const BitmapEx& rBitmapEx );
+    void DrawBitmapEx( const Point& rDestPt, const Size& rDestSize,
+                                      const BitmapEx& rBitmapEx );
+    void DrawBitmapEx( const Point& rDestPt, const Size& rDestSize,
+                                      const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                      const BitmapEx& rBitmapEx );
+    void DrawTransformedBitmapEx(
+        const basegfx::B2DHomMatrix& rTransformation,
+        const BitmapEx& rBitmapEx);
+    void DrawMask( const Point& rDestPt,
+                                  const Bitmap& rBitmap, const Color& rMaskColor );
+    void DrawMask( const Point& rDestPt, const Size& rDestSize,
+                                  const Bitmap& rBitmap, const Color& rMaskColor );
+    void DrawMask( const Point& rDestPt, const Size& rDestSize,
+                                  const Point& rSrcPtPixel, const Size& rSrcSizePixel,
+                                  const Bitmap& rBitmap, const Color& rMaskColor );
+    void DrawImage( const Point& rPos,
+                                   const Image& rImage, sal_uInt16 nStyle = 0 );
+    void DrawImage( const Point& rPos, const Size& rSize,
+                                   const Image& rImage, sal_uInt16 nStyle = 0 );
+    void DrawGradient( const Rectangle& rRect, const Gradient& rGradient );
+    void DrawGradient( const PolyPolygon& rPolyPoly, const Gradient& rGradient );
+    void AddGradientActions( const Rectangle& rRect,
+                                            const Gradient& rGradient,
+                                            GDIMetaFile& rMtf );
+    void DrawHatch( const PolyPolygon& rPolyPoly, const Hatch& rHatch );
+    void AddHatchActions( const PolyPolygon& rPolyPoly,
+                                         const Hatch& rHatch,
+                                         GDIMetaFile& rMtf );
+    void DrawWallpaper( const Rectangle& rRect, const Wallpaper& rWallpaper );
+    void DrawWaveLine( const Point& rStartPos, const Point& rEndPos, sal_uInt16 nStyle );
+    void DrawGrid( const Rectangle& rRect, const Size& rDist, sal_uLong nFlags );
+    void DrawTransparent( const PolyPolygon& rPolyPoly, sal_uInt16 nTransparencePercent );
+    void DrawTransparent( const basegfx::B2DPolyPolygon& rB2DPolyPoly, double fTransparency);
+    void DrawTransparent( const GDIMetaFile& rMtf, const Point& rPos, const Size& rSize,
+                                         const Gradient& rTransparenceGradient );
+    bool DrawEPS( const Point& rPt, const Size& rSz,
+                                 const GfxLink& rGfxLink, GDIMetaFile* pSubst = __null );
+    void DrawCheckered(
+        const Point& rPos,
+        const Size& rSize,
+        sal_uInt32 nLen = 8,
+        Color aStart = Color(((ColorData)(((sal_uInt32)((sal_uInt8)(0xFF))))|(((sal_uInt32)((sal_uInt8)(0xFF)))<<8)|(((sal_uInt32)((sal_uInt8)(0xFF)))<<16))),
+        Color aEnd = Color(((ColorData)(((sal_uInt32)((sal_uInt8)(0x00))))|(((sal_uInt32)((sal_uInt8)(0x00)))<<8)|(((sal_uInt32)((sal_uInt8)(0x00)))<<16))));
+    Color GetPixel( const Point& rPt ) const;
+    Bitmap GetBitmap( const Point& rSrcPt, const Size& rSize ) const;
+    BitmapEx GetBitmapEx( const Point& rSrcPt, const Size& rSize ) const;
+    void EnableMapMode( sal_Bool bEnable = ((sal_Bool)1) );
+    sal_Bool IsMapModeEnabled() const { return mbMap; }
+    void EnableRTL( sal_Bool bEnable = ((sal_Bool)1));
+    sal_Bool IsRTLEnabled() const { return mbEnableRTL; }
+    void SetConnectMetaFile( GDIMetaFile* pMtf );
+    GDIMetaFile* GetConnectMetaFile() const { return mpMetaFile; }
+    void EnableOutput( sal_Bool bEnable = ((sal_Bool)1) );
+    sal_Bool IsOutputEnabled() const { return mbOutput; }
+    sal_Bool IsDeviceOutput() const { return mbDevOutput; }
+    sal_Bool IsDeviceOutputNecessary() const { return (mbOutput && mbDevOutput); }
+    sal_Bool IsOutputNecessary() const { return ((mbOutput && mbDevOutput) || (mpMetaFile != __null)); }
+    void SetClipRegion();
+    void SetClipRegion( const Region& rRegion );
+    Region GetClipRegion() const;
+    sal_Bool IsClipRegion() const { return mbClipRegion; }
+    Region GetActiveClipRegion() const;
+    void MoveClipRegion( long nHorzMove, long nVertMove );
+    void IntersectClipRegion( const Rectangle& rRect );
+    void IntersectClipRegion( const Region& rRegion );
+    void SetAntialiasing( sal_uInt16 nMode = 0 );
+    sal_uInt16 GetAntialiasing() const { return mnAntialiasing; }
+    void SetDrawMode( sal_uLong nDrawMode );
+    sal_uLong GetDrawMode() const { return mnDrawMode; }
+    void SetLayoutMode( sal_uLong nTextLayoutMode );
+    sal_uLong GetLayoutMode() const { return mnTextLayoutMode; }
+    void SetDigitLanguage( LanguageType );
+    LanguageType GetDigitLanguage() const { return meTextLanguage; }
+    void SetRasterOp( RasterOp eRasterOp );
+    RasterOp GetRasterOp() const { return meRasterOp; }
+    void SetOutDevViewType( OutDevViewType eOutDevViewType ) { meOutDevViewType=eOutDevViewType; }
+    OutDevViewType GetOutDevViewType() const { return meOutDevViewType; }
+    void SetLineColor();
+    void SetLineColor( const Color& rColor );
+    const Color& GetLineColor() const { return maLineColor; }
+    sal_Bool IsLineColor() const { return mbLineColor; }
+    void SetFillColor();
+    void SetFillColor( const Color& rColor );
+    const Color& GetFillColor() const { return maFillColor; }
+    sal_Bool IsFillColor() const { return mbFillColor; }
+    void SetBackground();
+    void SetBackground( const Wallpaper& rBackground );
+    const Wallpaper& GetBackground() const { return maBackground; }
+    sal_Bool IsBackground() const { return mbBackground; }
+    void SetFont( const Font& rNewFont );
+    const Font& GetFont() const { return maFont; }
+    SystemFontData GetSysFontData( int nFallbacklevel ) const;
+    SystemTextLayoutData GetSysTextLayoutData( const Point& rStartPt, const rtl::OUString& rStr,
+                                                sal_Int32 nIndex = 0, sal_Int32 nLen = -1,
+                                                const sal_Int32* pDXAry = __null ) const;
+    void SetTextColor( const Color& rColor );
+    const Color& GetTextColor() const { return maTextColor; }
+    void SetTextFillColor();
+    void SetTextFillColor( const Color& rColor );
+    Color GetTextFillColor() const;
+    sal_Bool IsTextFillColor() const { return !maFont.IsTransparent(); }
+    void SetTextLineColor();
+    void SetTextLineColor( const Color& rColor );
+    const Color& GetTextLineColor() const { return maTextLineColor; }
+    sal_Bool IsTextLineColor() const { return (maTextLineColor.GetTransparency() == 0); }
+    void SetOverlineColor();
+    void SetOverlineColor( const Color& rColor );
+    const Color& GetOverlineColor() const { return maOverlineColor; }
+    sal_Bool IsOverlineColor() const { return (maOverlineColor.GetTransparency() == 0); }
+    void SetTextAlign( TextAlign eAlign );
+    TextAlign GetTextAlign() const { return maFont.GetAlign(); }
+    virtual void SetSettings( const AllSettings& rSettings );
+    const AllSettings& GetSettings() const { return maSettings; }
+    SystemGraphicsData GetSystemGfxData() const;
+    ::com::sun::star::uno::Any GetSystemGfxDataAny() const;
+    virtual void SetMapMode();
+    virtual void SetMapMode( const MapMode& rNewMapMode );
+    virtual void SetRelativeMapMode( const MapMode& rNewMapMode );
+    const MapMode& GetMapMode() const { return maMapMode; }
+    sal_Bool IsMapMode() const { return mbMap; }
+    void SetRefPoint();
+    void SetRefPoint( const Point& rRefPoint );
+    const Point& GetRefPoint() const { return maRefPoint; }
+    sal_Bool IsRefPoint() const { return mbRefPoint; }
+    basegfx::B2DHomMatrix GetViewTransformation() const;
+    basegfx::B2DHomMatrix GetInverseViewTransformation() const;
+    basegfx::B2DHomMatrix GetViewTransformation( const MapMode& rMapMode ) const;
+    basegfx::B2DHomMatrix GetInverseViewTransformation( const MapMode& rMapMode ) const;
+    void SetPixelOffset( const Size& rOffset );
+    Size GetPixelOffset() const;
+    Point LogicToPixel( const Point& rLogicPt ) const;
+    Size LogicToPixel( const Size& rLogicSize ) const;
+    Rectangle LogicToPixel( const Rectangle& rLogicRect ) const;
+    Polygon LogicToPixel( const Polygon& rLogicPoly ) const;
+    PolyPolygon LogicToPixel( const PolyPolygon& rLogicPolyPoly ) const;
+    basegfx::B2DPolyPolygon LogicToPixel( const basegfx::B2DPolyPolygon& rLogicPolyPoly ) const;
+    Region LogicToPixel( const Region& rLogicRegion )const;
+    Point LogicToPixel( const Point& rLogicPt,
+                                      const MapMode& rMapMode ) const;
+    Size LogicToPixel( const Size& rLogicSize,
+                                      const MapMode& rMapMode ) const;
+    Rectangle LogicToPixel( const Rectangle& rLogicRect,
+                                      const MapMode& rMapMode ) const;
+    Polygon LogicToPixel( const Polygon& rLogicPoly,
+                                      const MapMode& rMapMode ) const;
+    basegfx::B2DPolygon LogicToPixel( const basegfx::B2DPolygon& rLogicPoly,
+                                          const MapMode& rMapMode ) const;
+    PolyPolygon LogicToPixel( const PolyPolygon& rLogicPolyPoly,
+                                      const MapMode& rMapMode ) const;
+    basegfx::B2DPolyPolygon LogicToPixel( const basegfx::B2DPolyPolygon& rLogicPolyPoly,
+                                          const MapMode& rMapMode ) const;
+    Region LogicToPixel( const Region& rLogicRegion,
+                                      const MapMode& rMapMode ) const;
+    Point PixelToLogic( const Point& rDevicePt ) const;
+    Size PixelToLogic( const Size& rDeviceSize ) const;
+    Rectangle PixelToLogic( const Rectangle& rDeviceRect ) const;
+    Polygon PixelToLogic( const Polygon& rDevicePoly ) const;
+    basegfx::B2DPolygon LogicToPixel( const basegfx::B2DPolygon& rLogicPoly ) const;
+    PolyPolygon PixelToLogic( const PolyPolygon& rDevicePolyPoly ) const;
+    basegfx::B2DPolyPolygon PixelToLogic( const basegfx::B2DPolyPolygon& rDevicePolyPoly ) const;
+    Region PixelToLogic( const Region& rDeviceRegion ) const;
+    Point PixelToLogic( const Point& rDevicePt,
+                                      const MapMode& rMapMode ) const;
+    Size PixelToLogic( const Size& rDeviceSize,
+                                      const MapMode& rMapMode ) const;
+    Rectangle PixelToLogic( const Rectangle& rDeviceRect,
+                                      const MapMode& rMapMode ) const;
+    Polygon PixelToLogic( const Polygon& rDevicePoly,
+                                      const MapMode& rMapMode ) const;
+    basegfx::B2DPolygon PixelToLogic( const basegfx::B2DPolygon& rDevicePoly,
+                                      const MapMode& rMapMode ) const;
+    PolyPolygon PixelToLogic( const PolyPolygon& rDevicePolyPoly,
+                                      const MapMode& rMapMode ) const;
+    basegfx::B2DPolyPolygon PixelToLogic( const basegfx::B2DPolyPolygon& rDevicePolyPoly,
+                                          const MapMode& rMapMode ) const;
+    Region PixelToLogic( const Region& rDeviceRegion,
+                                      const MapMode& rMapMode ) const;
+    Point LogicToLogic( const Point& rPtSource,
+                                      const MapMode* pMapModeSource,
+                                      const MapMode* pMapModeDest ) const;
+    Size LogicToLogic( const Size& rSzSource,
+                                      const MapMode* pMapModeSource,
+                                      const MapMode* pMapModeDest ) const;
+    Rectangle LogicToLogic( const Rectangle& rRectSource,
+                                      const MapMode* pMapModeSource,
+                                      const MapMode* pMapModeDest ) const;
+    static Point LogicToLogic( const Point& rPtSource,
+                                      const MapMode& rMapModeSource,
+                                      const MapMode& rMapModeDest );
+    static Size LogicToLogic( const Size& rSzSource,
+                                      const MapMode& rMapModeSource,
+                                      const MapMode& rMapModeDest );
+    static Rectangle LogicToLogic( const Rectangle& rRectSource,
+                                      const MapMode& rMapModeSource,
+                                      const MapMode& rMapModeDest );
+    static long LogicToLogic( long nLongSource,
+                                      MapUnit eUnitSource,
+                                      MapUnit eUnitDest );
+    static basegfx::B2DPolygon LogicToLogic( const basegfx::B2DPolygon& rPoly,
+                                             const MapMode& rMapModeSource,
+                                             const MapMode& rMapModeDest );
+    static basegfx::B2DPolyPolygon LogicToLogic( const basegfx::B2DPolyPolygon& rPolyPoly,
+                                                 const MapMode& rMapModeSource,
+                                                 const MapMode& rMapModeDest );
+    static basegfx::B2DHomMatrix LogicToLogic(const MapMode& rMapModeSource, const MapMode& rMapModeDest);
+    Size GetOutputSizePixel() const
+                            { return Size( mnOutWidth, mnOutHeight ); }
+    long GetOutputWidthPixel() const { return mnOutWidth; }
+    long GetOutputHeightPixel() const { return mnOutHeight; }
+    long GetOutOffXPixel() const { return mnOutOffX; }
+    long GetOutOffYPixel() const { return mnOutOffY; }
+    Size GetOutputSize() const
+                            { return PixelToLogic( GetOutputSizePixel() ); }
+    void Erase();
+    void Erase( const Rectangle& rRect ) { DrawWallpaper( rRect, GetBackground() ); }
+    sal_Bool AddTempDevFont( const rtl::OUString& rFileURL, const rtl::OUString& rFontName );
+    int GetDevFontCount() const;
+    FontInfo GetDevFont( int nDevFontIndex ) const;
+    int GetDevFontSizeCount( const Font& ) const;
+    Size GetDevFontSize( const Font& rFont, int nSizeIndex ) const;
+    sal_Bool IsFontAvailable( const rtl::OUString& rFontName ) const;
+    FontMetric GetFontMetric() const;
+    FontMetric GetFontMetric( const Font& rFont ) const;
+    sal_Bool GetFontCharMap( FontCharMap& rFontCharMap ) const;
+    bool GetFontCapabilities( vcl::FontCapabilities& rFontCapabilities ) const;
+    sal_Int32 HasGlyphs( const Font& rFont, const rtl::OUString& rStr,
+                            sal_Int32 nIndex = 0, sal_Int32 nLen = -1 ) const;
+    long GetMinKashida() const;
+    sal_uInt16 ValidateKashidas ( const rtl::OUString& rTxt,
+                                            sal_uInt16 nIdx, sal_uInt16 nLen,
+                                            sal_uInt16 nKashCount,
+                                            const sal_uInt16* pKashidaPos,
+                                            sal_uInt16* pKashidaPosDropped
+                                            ) const;
+    sal_uInt16 GetBitCount() const;
+    sal_Bool GetTextIsRTL( const rtl::OUString&, sal_Int32 nIndex, sal_Int32 nLen ) const;
+    sal_uInt16 GetAlphaBitCount() const;
+    sal_uLong GetColorCount() const;
+    void Push( sal_uInt16 nFlags = ((sal_uInt16)0xFFFF) );
+    void Pop();
+    sal_uInt32 GetGCStackDepth() const;
+    sal_Bool HasAlpha();
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::rendering::XCanvas > GetCanvas() const;
+    ::com::sun::star::uno::Reference< ::com::sun::star::awt::XGraphics > CreateUnoGraphics();
+    VCLXGraphicsList_impl* GetUnoGraphicsList() const { return mpUnoGraphicsList; }
+    VCLXGraphicsList_impl* CreateUnoGraphicsList()
+                            {
+                                mpUnoGraphicsList = new VCLXGraphicsList_impl();
+                                return mpUnoGraphicsList;
+                            }
+    static void BeginFontSubstitution();
+    static void EndFontSubstitution();
+    static void AddFontSubstitute( const rtl::OUString& rFontName,
+                                           const rtl::OUString& rReplaceFontName,
+                                           sal_uInt16 nFlags = 0 );
+    static void RemoveFontSubstitute( sal_uInt16 n );
+    static sal_uInt16 GetFontSubstituteCount();
+    static Font GetDefaultFont( sal_uInt16 nType,
+                                        LanguageType eLang,
+                                        sal_uLong nFlags,
+                                        const OutputDevice* pOutDev = __null );
+    bool RemoveTransparenciesFromMetaFile( const GDIMetaFile& rInMtf, GDIMetaFile& rOutMtf,
+                                                          long nMaxBmpDPIX, long nMaxBmpDPIY,
+                                                          bool bReduceTransparency,
+                                                          bool bTransparencyAutoMode,
+                                                          bool bDownsampleBitmaps,
+                                                          const Color& rBackground = Color( ((ColorData)(((sal_uInt32)((sal_uInt8)(0xFF))))|(((sal_uInt32)((sal_uInt8)(0xFF)))<<8)|(((sal_uInt32)((sal_uInt8)(0xFF)))<<16)|(((sal_uInt32)((sal_uInt8)(0xFF)))<<24)) )
+                                                          );
+    Bitmap GetDownsampledBitmap( const Size& rDstSz,
+                                              const Point& rSrcPt, const Size& rSrcSz,
+                                              const Bitmap& rBmp, long nMaxBmpDPIX, long nMaxBmpDPIY );
+    sal_Bool IsNativeControlSupported( ControlType nType, ControlPart nPart ) const;
+    sal_Bool HitTestNativeControl( ControlType nType,
+                                                ControlPart nPart,
+                                                const Rectangle& rControlRegion,
+                                                const Point& aPos,
+                                                sal_Bool& rIsInside ) const;
+    sal_Bool DrawNativeControl( ControlType nType,
+                                            ControlPart nPart,
+                                            const Rectangle& rControlRegion,
+                                            ControlState nState,
+                                            const ImplControlValue& aValue,
+                                            rtl::OUString aCaption );
+    sal_Bool GetNativeControlRegion( ControlType nType,
+                                                ControlPart nPart,
+                                                const Rectangle& rControlRegion,
+                                                ControlState nState,
+                                                const ImplControlValue& aValue,
+                                                rtl::OUString aCaption,
+                                                Rectangle &rNativeBoundingRegion,
+                                                Rectangle &rNativeContentRegion ) const;
+};
+class Window : public OutputDevice
+{
+    friend class Cursor;
+    friend class OutputDevice;
+    friend class Application;
+    friend class SystemWindow;
+    friend class WorkWindow;
+    friend class Dialog;
+    friend class MessBox;
+    friend class DockingWindow;
+    friend class FloatingWindow;
+    friend class GroupBox;
+    friend class PushButton;
+    friend class RadioButton;
+    friend class SystemChildWindow;
+    friend class ImplBorderWindow;
+    friend class VclBuilder;
+    friend class ImplDockingWindowWrapper;
+    friend class ImplPopupFloatWin;
+    friend class MenuFloatingWindow;
+    friend class svt::PopupWindowControllerImpl;
+private:
+    WindowImpl* mpWindowImpl;
+    void ImplInitWindowData( WindowType nType );
+    friend Window* ImplFindWindow( const SalFrame* pFrame, Point& rSalFramePos );
+public:
+    void ImplInit( Window* pParent, WinBits nStyle, SystemParentData* pSystemParentData );
+    WinBits ImplInitRes( const ResId& rResId );
+    WindowResHeader ImplLoadResHeader( const ResId& rResId );
+    void ImplLoadRes( const ResId& rResId );
+    void ImplSetFrameParent( const Window* pParent );
+    void ImplInsertWindow( Window* pParent );
+    void ImplRemoveWindow( sal_Bool bRemoveFrameData );
+    Window* ImplGetWindow();
+    ImplFrameData* ImplGetFrameData();
+                   SalFrame* ImplGetFrame() const;
+    ImplWinData* ImplGetWinData() const;
+    SalGraphics* ImplGetFrameGraphics() const;
+    void ImplCallFocusChangeActivate( Window* pNewOverlapWindow, Window* pOldOverlapWindow );
+    Window* ImplFindWindow( const Point& rFramePos );
+    sal_uInt16 ImplHitTest( const Point& rFramePos );
+    Window* ImplGetParent() const;
+    Window* ImplGetClientWindow() const;
+    Window* ImplGetBorderWindow() const;
+    Window* ImplGetFirstOverlapWindow();
+    const Window* ImplGetFirstOverlapWindow() const;
+    Window* ImplGetFrameWindow() const;
+    sal_Bool ImplIsRealParentPath( const Window* pWindow ) const;
+    sal_Bool ImplIsChild( const Window* pWindow, sal_Bool bSystemWindow = ((sal_Bool)0) ) const;
+    sal_Bool ImplIsWindowOrChild( const Window* pWindow, sal_Bool bSystemWindow = ((sal_Bool)0) ) const;
+    sal_Bool ImplIsDockingWindow() const;
+    sal_Bool ImplIsFloatingWindow() const;
+    sal_Bool ImplIsSplitter() const;
+    sal_Bool ImplIsPushButton() const;
+    sal_Bool ImplIsOverlapWindow() const;
+    void ImplSetMouseTransparent( sal_Bool bTransparent );
+    int ImplTestMousePointerSet();
+    PointerStyle ImplGetMousePointer() const;
+    void ImplResetReallyVisible();
+    void ImplSetReallyVisible();
+    void ImplCallInitShow();
+    void ImplAddDel( ImplDelData* pDel );
+    void ImplRemoveDel( ImplDelData* pDel );
+    void ImplInitResolutionSettings();
+    void ImplPointToLogic( Font& rFont ) const;
+    void ImplLogicToPoint( Font& rFont ) const;
+    Point ImplOutputToFrame( const Point& rPos );
+    Point ImplFrameToOutput( const Point& rPos );
+    sal_Bool ImplSysObjClip( const Region* pOldRegion );
+    void ImplUpdateSysObjChildrenClip();
+    void ImplUpdateSysObjOverlapsClip();
+    void ImplUpdateSysObjClip();
+    sal_Bool ImplSetClipFlagChildren( sal_Bool bSysObjOnlySmaller = ((sal_Bool)0) );
+    sal_Bool ImplSetClipFlagOverlapWindows( sal_Bool bSysObjOnlySmaller = ((sal_Bool)0) );
+    sal_Bool ImplSetClipFlag( sal_Bool bSysObjOnlySmaller = ((sal_Bool)0) );
+    void ImplIntersectWindowClipRegion( Region& rRegion );
+    void ImplIntersectWindowRegion( Region& rRegion );
+    void ImplExcludeWindowRegion( Region& rRegion );
+    void ImplExcludeOverlapWindows( Region& rRegion );
+    void ImplExcludeOverlapWindows2( Region& rRegion );
+    void ImplClipBoundaries( Region& rRegion, sal_Bool bThis, sal_Bool bOverlaps );
+    sal_Bool ImplClipChildren( Region& rRegion );
+    void ImplClipAllChildren( Region& rRegion );
+    void ImplClipSiblings( Region& rRegion );
+    void ImplInitWinClipRegion();
+    void ImplInitWinChildClipRegion();
+    Region* ImplGetWinChildClipRegion();
+    void ImplIntersectAndUnionOverlapWindows( const Region& rInterRegion, Region& rRegion );
+    void ImplIntersectAndUnionOverlapWindows2( const Region& rInterRegion, Region& rRegion );
+    void ImplCalcOverlapRegionOverlaps( const Region& rInterRegion, Region& rRegion );
+    void ImplCalcOverlapRegion( const Rectangle& rSourceRect, Region& rRegion,
+                                               sal_Bool bChildren, sal_Bool bParent, sal_Bool bSiblings );
+    void ImplCallPaint( const Region* pRegion, sal_uInt16 nPaintFlags );
+    void ImplCallOverlapPaint();
+    void ImplPostPaint();
+    void ImplInvalidateFrameRegion( const Region* pRegion, sal_uInt16 nFlags );
+    void ImplInvalidateOverlapFrameRegion( const Region& rRegion );
+    void ImplInvalidateParentFrameRegion( Region& rRegion );
+    void ImplInvalidate( const Region* rRegion, sal_uInt16 nFlags );
+    void ImplValidateFrameRegion( const Region* rRegion, sal_uInt16 nFlags );
+    void ImplValidate( const Region* rRegion, sal_uInt16 nFlags );
+    void ImplMoveInvalidateRegion( const Rectangle& rRect, long nHorzScroll, long nVertScroll, sal_Bool bChildren );
+    void ImplMoveAllInvalidateRegions( const Rectangle& rRect, long nHorzScroll, long nVertScroll, sal_Bool bChildren );
+    void ImplScroll( const Rectangle& rRect, long nHorzScroll, long nVertScroll, sal_uInt16 nFlags );
+    void ImplUpdateAll( sal_Bool bOverlapWindows = ((sal_Bool)1) );
+    void ImplUpdateWindowPtr( Window* pWindow );
+    void ImplUpdateWindowPtr();
+    void ImplUpdateOverlapWindowPtr( sal_Bool bNewFrame );
+    sal_Bool ImplUpdatePos();
+    void ImplUpdateSysObjPos();
+    WindowImpl* ImplGetWindowImpl() const { return mpWindowImpl; }
+    bool ImplCheckUIFont( const Font& rFont );
+    void ImplUpdateGlobalSettings( AllSettings& rSettings, sal_Bool bCallHdl = ((sal_Bool)1) );
+    void ImplAlignChildren();
+    void ImplPosSizeWindow( long nX, long nY, long nWidth, long nHeight, sal_uInt16 nFlags );
+    void ImplToBottomChild();
+    void ImplCalcToTop( ImplCalcToTopData* pPrevData );
+    void ImplToTop( sal_uInt16 nFlags );
+    void ImplStartToTop( sal_uInt16 nFlags );
+    void ImplFocusToTop( sal_uInt16 nFlags, sal_Bool bReallyVisible );
+    void ImplShowAllOverlaps();
+    void ImplHideAllOverlaps();
+    void ImplNotifyKeyMouseCommandEventListeners( NotifyEvent& rNEvt );
+    void ImplCallMouseMove( sal_uInt16 nMouseCode, sal_Bool bModChanged = ((sal_Bool)0) );
+    void ImplGenerateMouseMove();
+    void ImplGrabFocus( sal_uInt16 nFlags );
+    void ImplInvertFocus( const Rectangle& rRect );
+    void ImplControlFocus( sal_uInt16 nFlags = 0 );
+    Window* ImplGetDlgWindow( sal_uInt16 n, sal_uInt16 nType, sal_uInt16 nStart = 0, sal_uInt16 nEnd = 0xFFFF, sal_uInt16* pIndex = __null );
+    sal_Bool ImplDlgCtrl( const KeyEvent& rKEvt, sal_Bool bKeyInput );
+    sal_Bool ImplHasDlgCtrl();
+    void ImplDlgCtrlNextWindow();
+    void ImplDlgCtrlFocusChanged( Window* pWindow, sal_Bool bGetFocus );
+    Window* ImplFindDlgCtrlWindow( Window* pWindow );
+    long ImplLogicUnitToPixelX( long nX, MapUnit eUnit );
+    long ImplLogicUnitToPixelY( long nY, MapUnit eUnit );
+    sal_Bool ImplIsWindowInFront( const Window* pTestWindow ) const;
+    void ImplSaveOverlapBackground();
+    sal_Bool ImplRestoreOverlapBackground( Region& rInvRegion );
+    void ImplDeleteOverlapBackground();
+    void ImplInvalidateAllOverlapBackgrounds();
+    static void ImplNewInputContext();
+    void ImplCallActivateListeners(Window*);
+    void ImplCallDeactivateListeners(Window*);
+    long ImplHandlePaintHdl(void*); static long LinkStubImplHandlePaintHdl(void * pThis, void *);
+    long ImplGenerateMouseMoveHdl(void*); static long LinkStubImplGenerateMouseMoveHdl(void * pThis, void *);
+    long ImplTrackTimerHdl(Timer*); static long LinkStubImplTrackTimerHdl(void * pThis, void *);
+    long ImplAsyncFocusHdl(void*); static long LinkStubImplAsyncFocusHdl(void * pThis, void *);
+    long ImplHideOwnerDrawWindowsHdl(void*); static long LinkStubImplHideOwnerDrawWindowsHdl(void * pThis, void *);
+    long ImplHandleResizeTimerHdl(void*); static long LinkStubImplHandleResizeTimerHdl(void * pThis, void *);
+    static void ImplCalcSymbolRect( Rectangle& rRect );
+    void ImplHandleScroll( ScrollBar* pHScrl, long nX, ScrollBar* pVScrl, long nY );
+    sal_Bool ImplIsAccessibleCandidate() const;
+    sal_Bool ImplIsAccessibleNativeFrame() const;
+    sal_uInt16 ImplGetAccessibleCandidateChildWindowCount( sal_uInt16 nFirstWindowType ) const;
+    Window* ImplGetAccessibleCandidateChild( sal_uInt16 nChild, sal_uInt16& rChildCount, sal_uInt16 nFirstWindowType, sal_Bool bTopLevel = ((sal_Bool)1) ) const;
+    sal_Bool ImplRegisterAccessibleNativeFrame();
+    void ImplRevokeAccessibleNativeFrame();
+    void ImplCallResize();
+    void ImplCallMove();
+    Rectangle ImplOutputToUnmirroredAbsoluteScreenPixel( const Rectangle& rRect ) const;
+    void ImplMirrorFramePos( Point &pt ) const;
+    long ImplGetUnmirroredOutOffX();
+    void ImplIncModalCount();
+    void ImplDecModalCount();
+    ::std::vector<Window *>& ImplGetOwnerDrawList();
+    Window* ImplGetTopmostFrameWindow();
+    Rectangle ImplGetWindowExtentsRelative( Window *pRelativeWindow, sal_Bool bClientOnly ) const;
+    void ImplNotifyIconifiedState( sal_Bool bIconified );
+    bool ImplStopDnd();
+    void ImplStartDnd();
+    static void ImplInitAppFontData( Window* pWindow );
+    void ImplPaintToDevice( OutputDevice* pTargetOutDev, const Point& rPos );
+    void ImplIsInTaskPaneList( sal_Bool mbIsInTaskList );
+    ::com::sun::star::uno::Reference< ::com::sun::star::rendering::XCanvas >
+                               ImplGetCanvas( const Size& rFullscreenSize, bool bFullscreen, bool bSpriteCanvas ) const;
+private:
+    Window();
+    Window (const Window &);
+    Window & operator= (const Window &);
+protected:
+    explicit Window( WindowType nType );
+            void SetCompoundControl( sal_Bool bCompound );
+            void ImplCallEventListeners( sal_uLong nEvent, void* pData = __null );
+            void CallEventListeners( sal_uLong nEvent, void* pData = __null );
+            void FireVclEvent( VclSimpleEvent* pEvent );
+    void ImplAdjustNWFSizes();
+    Window* getLegacyNonLayoutAccessibleRelationMemberOf() const;
+    Window* getLegacyNonLayoutAccessibleRelationLabeledBy() const;
+    Window* getLegacyNonLayoutAccessibleRelationLabelFor() const;
+    virtual Window* getAccessibleRelationLabelFor() const;
+    virtual sal_uInt16 getDefaultAccessibleRole() const;
+    virtual rtl::OUString getDefaultAccessibleName() const;
+public:
+    explicit Window( Window* pParent, WinBits nStyle = 0 );
+                        Window( Window* pParent, const ResId& rResId );
+    virtual ~Window();
+    virtual void MouseMove( const MouseEvent& rMEvt );
+    virtual void MouseButtonDown( const MouseEvent& rMEvt );
+    virtual void MouseButtonUp( const MouseEvent& rMEvt );
+    virtual void KeyInput( const KeyEvent& rKEvt );
+    virtual void KeyUp( const KeyEvent& rKEvt );
+    virtual void PrePaint();
+    virtual void Paint( const Rectangle& rRect );
+    virtual void PostPaint();
+    virtual void Draw( OutputDevice* pDev, const Point& rPos, const Size& rSize, sal_uLong nFlags );
+    virtual void Move();
+    virtual void Resize();
+    virtual void Activate();
+    virtual void Deactivate();
+    virtual void GetFocus();
+    virtual void LoseFocus();
+    virtual void RequestHelp( const HelpEvent& rHEvt );
+    virtual void Command( const CommandEvent& rCEvt );
+    virtual void Tracking( const TrackingEvent& rTEvt );
+    virtual void UserEvent( sal_uLong nEvent, void* pEventData );
+    virtual void StateChanged( StateChangedType nStateChange );
+    virtual void DataChanged( const DataChangedEvent& rDCEvt );
+    virtual long PreNotify( NotifyEvent& rNEvt );
+    virtual long Notify( NotifyEvent& rNEvt );
+    virtual Window* GetPreferredKeyInputWindow();
+                void AddEventListener( const Link& rEventListener );
+                void RemoveEventListener( const Link& rEventListener );
+                void AddChildEventListener( const Link& rEventListener );
+                void RemoveChildEventListener( const Link& rEventListener );
+    sal_uLong PostUserEvent( const Link& rLink, void* pCaller = __null );
+    sal_Bool PostUserEvent( sal_uLong& rEventId, const Link& rLink, void* pCaller = __null );
+    void RemoveUserEvent( sal_uLong nUserEvent );
+    void IncrementLockCount();
+    void DecrementLockCount();
+    sal_Bool IsLocked( sal_Bool bChildren = ((sal_Bool)0) ) const;
+    LanguageType GetInputLanguage() const;
+    void SetStyle( WinBits nStyle );
+    WinBits GetStyle() const;
+    WinBits GetPrevStyle() const;
+    void SetExtendedStyle( WinBits nExtendedStyle );
+    WinBits GetExtendedStyle() const;
+    void SetType( WindowType nType );
+    WindowType GetType() const;
+    sal_Bool IsSystemWindow() const;
+    sal_Bool IsDialog() const;
+    sal_Bool IsMenuFloatingWindow() const;
+    sal_Bool IsToolbarFloatingWindow() const;
+    sal_Bool IsTopWindow() const;
+    SystemWindow* GetSystemWindow() const;
+    void EnableAllResize( sal_Bool bEnable = ((sal_Bool)1) );
+    void SetBorderStyle( sal_uInt16 nBorderStyle );
+    sal_uInt16 GetBorderStyle() const;
+    void GetBorder( sal_Int32& rLeftBorder, sal_Int32& rTopBorder,
+                                   sal_Int32& rRightBorder, sal_Int32& rBottomBorder ) const;
+    Size CalcWindowSize( const Size& rOutSz ) const;
+    Size CalcOutputSize( const Size& rWinSz ) const;
+    long CalcTitleWidth() const;
+    void EnableClipSiblings( sal_Bool bClipSiblings = ((sal_Bool)1) );
+    void EnableChildTransparentMode( sal_Bool bEnable = ((sal_Bool)1) );
+    sal_Bool IsChildTransparentModeEnabled() const;
+    void SetMouseTransparent( sal_Bool bTransparent );
+    sal_Bool IsMouseTransparent() const;
+    void SetPaintTransparent( sal_Bool bTransparent );
+    sal_Bool IsPaintTransparent() const;
+    void SetDialogControlStart( sal_Bool bStart );
+    sal_Bool IsDialogControlStart() const;
+    void SetDialogControlFlags( sal_uInt16 nFlags );
+    sal_uInt16 GetDialogControlFlags() const;
+    struct PointerState
+    {
+        sal_uLong mnState;
+        Point maPos;
+    };
+    PointerState GetPointerState();
+    sal_Bool IsMouseOver();
+    sal_uLong GetCurrentModButtons();
+    void SetInputContext( const InputContext& rInputContext );
+    const InputContext& GetInputContext() const;
+    void EndExtTextInput( sal_uInt16 nFlags );
+    void SetCursorRect( const Rectangle* pRect = __null, long nExtTextInputWidth = 0 );
+    const Rectangle* GetCursorRect() const;
+    long GetCursorExtTextInputWidth() const;
+    void SetCompositionCharRect( const Rectangle* pRect, long nCompositionLength, sal_Bool bVertical = ((sal_Bool)0) );
+    using OutputDevice::SetSettings;
+    virtual void SetSettings( const AllSettings& rSettings );
+    virtual void SetSettings( const AllSettings& rSettings, sal_Bool bChild );
+    void UpdateSettings( const AllSettings& rSettings, sal_Bool bChild = ((sal_Bool)0) );
+    void NotifyAllChildren( DataChangedEvent& rDCEvt );
+    void SetPointFont( const Font& rFont );
+    Font GetPointFont() const;
+    void SetZoomedPointFont( const Font& rFont );
+    long GetDrawPixel( OutputDevice* pDev, long nPixels ) const;
+    Font GetDrawPixelFont( OutputDevice* pDev ) const;
+    void SetControlFont();
+    void SetControlFont( const Font& rFont );
+    Font GetControlFont() const;
+    sal_Bool IsControlFont() const;
+    void SetControlForeground();
+    void SetControlForeground( const Color& rColor );
+    Color GetControlForeground() const;
+    sal_Bool IsControlForeground() const;
+    void SetControlBackground();
+    void SetControlBackground( const Color& rColor );
+    Color GetControlBackground() const;
+    sal_Bool IsControlBackground() const;
+    void SetParentClipMode( sal_uInt16 nMode = 0 );
+    sal_uInt16 GetParentClipMode() const;
+    void SetWindowRegionPixel();
+    void SetWindowRegionPixel( const Region& rRegion );
+    const Region& GetWindowRegionPixel() const;
+    sal_Bool IsWindowRegionPixel() const;
+    Region GetWindowClipRegionPixel( sal_uInt16 nFlags = 0 ) const;
+    Region GetPaintRegion() const;
+    sal_Bool IsInPaint() const;
+    void ExpandPaintClipRegion( const Region& rRegion );
+    void SetParent( Window* pNewParent );
+    Window* GetParent() const;
+    Dialog* GetParentDialog() const;
+    void Show( sal_Bool bVisible = ((sal_Bool)1), sal_uInt16 nFlags = 0 );
+    void Hide( sal_uInt16 nFlags = 0 ) { Show( ((sal_Bool)0), nFlags ); }
+    sal_Bool IsVisible() const;
+    sal_Bool IsReallyVisible() const;
+    sal_Bool IsReallyShown() const;
+    sal_Bool IsInInitShow() const;
+    void Enable( bool bEnable = true, bool bChild = true );
+    void Disable( bool bChild = true ) { Enable( false, bChild ); }
+    sal_Bool IsEnabled() const;
+    void EnableInput( sal_Bool bEnable = ((sal_Bool)1), sal_Bool bChild = ((sal_Bool)1) );
+    void EnableInput( sal_Bool bEnable, sal_Bool bChild, sal_Bool bSysWin,
+                                     const Window* pExcludeWindow = __null );
+    sal_Bool IsInputEnabled() const;
+    void AlwaysEnableInput( sal_Bool bAlways, sal_Bool bChild = ((sal_Bool)1) );
+    sal_Bool IsAlwaysEnableInput() const;
+    void AlwaysDisableInput( sal_Bool bAlways, sal_Bool bChild = ((sal_Bool)1) );
+    void SetCallHandlersOnInputDisabled( bool bCall );
+    bool IsCallHandlersOnInputDisabled() const;
+    sal_Bool IsInModalMode() const;
+    bool IsInModalNonRefMode() const;
+    void SetActivateMode( sal_uInt16 nMode );
+    sal_uInt16 GetActivateMode() const;
+    void ToTop( sal_uInt16 nFlags = 0 );
+    void SetZOrder( Window* pRefWindow, sal_uInt16 nFlags );
+    void EnableAlwaysOnTop( sal_Bool bEnable = ((sal_Bool)1) );
+    sal_Bool IsAlwaysOnTopEnabled() const;
+    virtual void setPosSizePixel( long nX, long nY,
+                                         long nWidth, long nHeight,
+                                         sal_uInt16 nFlags = (((((sal_uInt16)0x0001) | ((sal_uInt16)0x0002)) | (((sal_uInt16)0x0004) | ((sal_uInt16)0x0008)))) );
+    virtual void SetPosPixel( const Point& rNewPos );
+    virtual Point GetPosPixel() const;
+    virtual void SetSizePixel( const Size& rNewSize );
+    virtual Size GetSizePixel() const;
+    virtual void SetPosSizePixel( const Point& rNewPos,
+                                         const Size& rNewSize );
+    virtual void SetOutputSizePixel( const Size& rNewSize );
+    sal_Bool IsDefaultPos() const;
+    sal_Bool IsDefaultSize() const;
+    Point OutputToScreenPixel( const Point& rPos ) const;
+    Point ScreenToOutputPixel( const Point& rPos ) const;
+    Point OutputToNormalizedScreenPixel( const Point& rPos ) const;
+    Point NormalizedScreenToOutputPixel( const Point& rPos ) const;
+    Point OutputToAbsoluteScreenPixel( const Point& rPos ) const;
+    Point AbsoluteScreenToOutputPixel( const Point& rPos ) const;
+    Rectangle GetDesktopRectPixel() const;
+    Rectangle GetWindowExtentsRelative( Window *pRelativeWindow ) const;
+    Rectangle GetClientWindowExtentsRelative( Window *pRelativeWindow ) const;
+    virtual sal_Bool IsScrollable() const;
+    virtual void Scroll( long nHorzScroll, long nVertScroll,
+                                sal_uInt16 nFlags = 0 );
+    virtual void Scroll( long nHorzScroll, long nVertScroll,
+                                const Rectangle& rRect, sal_uInt16 nFlags = 0 );
+    virtual void Invalidate( sal_uInt16 nFlags = 0 );
+    virtual void Invalidate( const Rectangle& rRect, sal_uInt16 nFlags = 0 );
+    virtual void Invalidate( const Region& rRegion, sal_uInt16 nFlags = 0 );
+    void Validate( sal_uInt16 nFlags = 0 );
+    sal_Bool HasPaintEvent() const;
+    void Update();
+    void Flush();
+    void Sync();
+    void EnableDocking( sal_Bool bEnable = ((sal_Bool)1) );
+    static DockingManager* GetDockingManager();
+    void EnablePaint( sal_Bool bEnable );
+    sal_Bool IsPaintEnabled() const;
+    void SetUpdateMode( sal_Bool bUpdate );
+    sal_Bool IsUpdateMode() const;
+    void SetParentUpdateMode( sal_Bool bUpdate );
+    void GrabFocus();
+    sal_Bool HasFocus() const;
+    sal_Bool HasChildPathFocus( sal_Bool bSystemWindow = ((sal_Bool)0) ) const;
+    sal_Bool IsActive() const;
+    sal_Bool HasActiveChildFrame();
+    sal_uInt16 GetGetFocusFlags() const;
+    void GrabFocusToDocument();
+    void SetFakeFocus( bool bFocus );
+    sal_Bool IsCompoundControl() const;
+    static sal_uIntPtr SaveFocus();
+    static sal_Bool EndSaveFocus( sal_uIntPtr nSaveId, sal_Bool bRestore = ((sal_Bool)1) );
+    void CaptureMouse();
+    void ReleaseMouse();
+    sal_Bool IsMouseCaptured() const;
+    void SetPointer( const Pointer& rPointer );
+    const Pointer& GetPointer() const;
+    void EnableChildPointerOverwrite( sal_Bool bOverwrite = ((sal_Bool)1) );
+    void SetPointerPosPixel( const Point& rPos );
+    Point GetPointerPosPixel();
+    Point GetLastPointerPosPixel();
+    void ShowPointer( sal_Bool bVisible );
+    void EnterWait();
+    void LeaveWait();
+    sal_Bool IsWait() const;
+    void SetCursor( Cursor* pCursor );
+    Cursor* GetCursor() const;
+    void SetZoom( const Fraction& rZoom );
+    const Fraction& GetZoom() const;
+    sal_Bool IsZoom() const;
+    long CalcZoom( long n ) const;
+    virtual void SetText( const rtl::OUString& rStr );
+    virtual rtl::OUString GetText() const;
+    virtual rtl::OUString GetDisplayText() const;
+    virtual const Wallpaper& GetDisplayBackground() const;
+    void SetHelpText( const rtl::OUString& rHelpText );
+    const rtl::OUString& GetHelpText() const;
+    void SetQuickHelpText( const rtl::OUString& rHelpText );
+    const rtl::OUString& GetQuickHelpText() const;
+    void SetHelpId( const rtl::OString& );
+    const rtl::OString& GetHelpId() const;
+    void SetUniqueId( const rtl::OString& );
+    const rtl::OString& GetUniqueId() const;
+    Window* FindWindow( const Point& rPos ) const;
+    sal_uInt16 GetChildCount() const;
+    Window* GetChild( sal_uInt16 nChild ) const;
+    Window* GetWindow( sal_uInt16 nType ) const;
+    sal_Bool IsChild( const Window* pWindow, sal_Bool bSystemWindow = ((sal_Bool)0) ) const;
+    sal_Bool IsWindowOrChild( const Window* pWindow, sal_Bool bSystemWindow = ((sal_Bool)0) ) const;
+    void SetData( void* pNewData );
+    void* GetData() const;
+    void ShowFocus( const Rectangle& rRect );
+    void HideFocus();
+    void Invert( const Rectangle& rRect, sal_uInt16 nFlags = 0 );
+    void Invert( const Polygon& rPoly, sal_uInt16 nFlags = 0 );
+    void DrawSelectionBackground( const Rectangle& rRect, sal_uInt16 highlight, sal_Bool bChecked, sal_Bool bDrawBorder, sal_Bool bDrawExtBorderOnly );
+    void DrawSelectionBackground( const Rectangle& rRect, sal_uInt16 highlight, sal_Bool bChecked, sal_Bool bDrawBorder, sal_Bool bDrawExtBorderOnly, Color* pSelectionTextColor );
+    void DrawSelectionBackground( const Rectangle& rRect, sal_uInt16 highlight, sal_Bool bChecked, sal_Bool bDrawBorder, sal_Bool bDrawExtBorderOnly, long nCornerRadius, Color* pSelectionTextColor, Color* pPaintColor );
+    void ShowTracking( const Rectangle& rRect,
+                                      sal_uInt16 nFlags = ((sal_uInt16)0x0001) );
+    void HideTracking();
+    void InvertTracking( const Rectangle& rRect,
+                                        sal_uInt16 nFlags = ((sal_uInt16)0x0001) );
+    void InvertTracking( const Polygon& rPoly, sal_uInt16 nFlags = 0 );
+    void StartTracking( sal_uInt16 nFlags = 0 );
+    void EndTracking( sal_uInt16 nFlags = 0 );
+    sal_Bool IsTracking() const;
+    void StartAutoScroll( sal_uInt16 nFlags );
+    void EndAutoScroll();
+    sal_Bool HandleScrollCommand( const CommandEvent& rCmd,
+                                             ScrollBar* pHScrl = __null,
+                                             ScrollBar* pVScrl = __null );
+    void SaveBackground( const Point& rPos, const Size& rSize,
+                                        const Point& rDestOff, VirtualDevice& rSaveDevice );
+    const SystemEnvData* GetSystemData() const;
+    ::com::sun::star::uno::Any GetSystemDataAny() const;
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::awt::XWindowPeer > GetComponentInterface( sal_Bool bCreate = ((sal_Bool)1) );
+    virtual void SetComponentInterface( ::com::sun::star::uno::Reference< ::com::sun::star::awt::XWindowPeer > xIFace );
+    ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > GetAccessible( sal_Bool bCreate = ((sal_Bool)1) );
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > CreateAccessible();
+    void SetAccessible( ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > );
+    Window* GetAccessibleParentWindow() const;
+    sal_uInt16 GetAccessibleChildWindowCount();
+    Window* GetAccessibleChildWindow( sal_uInt16 n );
+    void SetAccessibleRole( sal_uInt16 nRole );
+    sal_uInt16 GetAccessibleRole() const;
+    void SetAccessibleName( const rtl::OUString& rName );
+    rtl::OUString GetAccessibleName() const;
+    void SetAccessibleDescription( const rtl::OUString& rDescr );
+    rtl::OUString GetAccessibleDescription() const;
+    void SetAccessibleRelationLabeledBy( Window* pLabeledBy );
+    Window* GetAccessibleRelationLabeledBy() const;
+    void SetAccessibleRelationLabelFor( Window* pLabelFor );
+    Window* GetAccessibleRelationLabelFor() const;
+    void SetAccessibleRelationMemberOf( Window* pMemberOf );
+    Window* GetAccessibleRelationMemberOf() const;
+    sal_Bool IsAccessibilityEventsSuppressed( sal_Bool bTraverseParentPath = ((sal_Bool)1) );
+    void SetAccessibilityEventsSuppressed(sal_Bool bSuppressed);
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::rendering::XCanvas > GetCanvas() const;
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::rendering::XSpriteCanvas > GetSpriteCanvas() const;
+    void RecordLayoutData( vcl::ControlLayoutData* pLayout, const Rectangle& rRect );
+    VCLXWindow* GetWindowPeer() const;
+    void SetWindowPeer( ::com::sun::star::uno::Reference< ::com::sun::star::awt::XWindowPeer > xPeer, VCLXWindow* pVCLXWindow );
+    sal_Bool IsCreatedWithToolkit() const;
+    void SetCreatedWithToolkit( sal_Bool b );
+    virtual Window* GetParentLabelFor( const Window* pLabel ) const;
+    virtual Window* GetParentLabeledBy( const Window* pLabeled ) const;
+    KeyEvent GetActivationKey() const;
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::datatransfer::dnd::XDropTarget > GetDropTarget();
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::datatransfer::dnd::XDragSource > GetDragSource();
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::datatransfer::dnd::XDragGestureRecognizer > GetDragGestureRecognizer();
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::datatransfer::clipboard::XClipboard > GetClipboard();
+    virtual ::com::sun::star::uno::Reference< ::com::sun::star::datatransfer::clipboard::XClipboard > GetPrimarySelection();
+    virtual Size GetOptimalSize() const;
+    virtual void queue_resize();
+    void set_height_request(sal_Int32 nHeightRequest);
+    sal_Int32 get_height_request() const;
+    void set_width_request(sal_Int32 nWidthRequest);
+    sal_Int32 get_width_request() const;
+    Size get_preferred_size() const;
+    VclAlign get_halign() const;
+    void set_halign(VclAlign eAlign);
+    VclAlign get_valign() const;
+    void set_valign(VclAlign eAlign);
+    bool get_hexpand() const;
+    void set_hexpand(bool bExpand);
+    bool get_vexpand() const;
+    void set_vexpand(bool bExpand);
+    bool get_expand() const;
+    void set_expand(bool bExpand);
+    bool get_fill() const;
+    void set_fill(bool bFill);
+    void set_border_width(sal_Int32 nBorderWidth);
+    sal_Int32 get_border_width() const;
+    void set_margin_left(sal_Int32 nWidth);
+    sal_Int32 get_margin_left() const;
+    void set_margin_right(sal_Int32 nWidth);
+    sal_Int32 get_margin_right() const;
+    void set_margin_top(sal_Int32 nWidth);
+    sal_Int32 get_margin_top() const;
+    void set_margin_bottom(sal_Int32 nWidth);
+    sal_Int32 get_margin_bottom() const;
+    VclPackType get_pack_type() const;
+    void set_pack_type(VclPackType ePackType);
+    sal_Int32 get_padding() const;
+    void set_padding(sal_Int32 nPadding);
+    sal_Int32 get_grid_width() const;
+    void set_grid_width(sal_Int32 nCols);
+    sal_Int32 get_grid_left_attach() const;
+    void set_grid_left_attach(sal_Int32 nAttach);
+    sal_Int32 get_grid_height() const;
+    void set_grid_height(sal_Int32 nRows);
+    sal_Int32 get_grid_top_attach() const;
+    void set_grid_top_attach(sal_Int32 nAttach);
+    bool get_secondary() const;
+    void set_secondary(bool bSecondary);
+    bool get_non_homogeneous() const;
+    void set_non_homogeneous(bool bNonHomogeneous);
+    virtual bool set_property(const rtl::OString &rKey, const rtl::OString &rValue);
+    bool set_font_attribute(const rtl::OString &rKey, const rtl::OString &rValue);
+    void add_to_size_group(boost::shared_ptr< VclSizeGroup > xGroup);
+    void remove_from_all_size_groups();
+    void add_mnemonic_label(FixedText *pLabel);
+    void remove_mnemonic_label(FixedText *pLabel);
+    std::vector<FixedText*> list_mnemonic_labels() const;
+    void reorderWithinParent(sal_uInt16 nNewPosition);
+    void EnableNativeWidget( sal_Bool bEnable = ((sal_Bool)1) );
+    sal_Bool IsNativeWidgetEnabled() const;
+    void PaintToDevice( OutputDevice* pDevice, const Point& rPos, const Size& rSize );
+    void doLazyDelete();
+    sal_uInt16 GetIndicatorState() const;
+    void SimulateKeyPress( sal_uInt16 nKeyCode ) const;
+    virtual rtl::OUString GetSurroundingText() const;
+    virtual Selection GetSurroundingTextSelection() const;
+};
+
 //com/sun/star/accessibility/XAccessibleEventBroadcaster.hdl
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleEventBroadcaster : public ::com::sun::star::uno::XInterface
@@ -1798,8 +3284,6 @@ protected:
     ~XAccessibleEventBroadcaster() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
-
 namespace accessibility {
 /** @descr
         This base class provides an implementation of the
@@ -2085,7 +3569,6 @@ private:
 //     };
 //   }
 // }
-
 //namespace sw { namespace access { /*dcl*/class SwAccessibleChild; }}
 namespace sw { namespace access {
 class SwAccessibleChild
@@ -2127,7 +3610,6 @@ class SwAccessibleChild
         void Init( Window* pWindow ) {}
 };
 } } // eof of namespace sw::access
-
 class SwAccessibleChildSList_const_iterator
 {
 private:
@@ -2209,8 +3691,6 @@ public:
         return mrAccMap;
     }
 };
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class SAL_NO_VTABLE XAccessibleExtendedAttributes : 
       public ::com::sun::star::uno::XInterface
@@ -2222,15 +3702,9 @@ protected:
     ~XAccessibleExtendedAttributes() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
-
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
         class XAccessibleGroupPosition{};
       }}}}
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleKeyBinding : public ::com::sun::star::uno::XInterface
 {
@@ -2243,7 +3717,6 @@ protected:
 };
         ::com::sun::star::uno::Type const & cppu_detail_getUnoType( ::com::sun::star::accessibility::XAccessibleKeyBinding const *){}
 } } } }
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleAction : public ::com::sun::star::uno::XInterface
 {
@@ -2286,8 +3759,6 @@ struct TextSegment {
 };
 ::com::sun::star::uno::Type const & cppu_detail_getUnoType( ::com::sun::star::accessibility::TextSegment const *) {}
 } } } }
-
-
 //class IAccessibleViewForwarderListener{};
 namespace accessibility {
 class IAccessibleViewForwarder;
@@ -2316,7 +3787,6 @@ protected:
     ~IAccessibleViewForwarderListener() {}
 };
 }
-
 class AccessibleComponentBase{};
 class SdrObject;
 namespace com { namespace sun { namespace star { namespace accessibility {
@@ -2346,7 +3816,6 @@ protected:
 };
 ::com::sun::star::uno::Type const & cppu_detail_getUnoType( ::com::sun::star::accessibility::XAccessibleText const *) {}
 } } } }
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleHypertext : public ::com::sun::star::accessibility::XAccessibleText
 {
@@ -2360,7 +3829,6 @@ protected:
 };
 ::com::sun::star::uno::Type const & cppu_detail_getUnoType( ::com::sun::star::accessibility::XAccessibleHypertext const *) {}
 } } } }
-
 namespace accessibility {
 /** <p>This interface provides the means to transform between internal
     coordinates in 100th of mm and screen coordinates without giving direct
@@ -2435,8 +3903,6 @@ public:
     virtual Size PixelToLogic (const Size& rSize) const = 0;
 };
 } // end of namespace accessibility
-
-
 class SvxEditSource {
 public:
   virtual 	~SvxEditSource (){}
@@ -2450,7 +3916,6 @@ public:
   virtual void 	removeRange (SvxUnoTextRangeBase *pOldRange) {} 
   virtual const SvxUnoTextRangeBaseList & 	getRanges () const {}
 };
-
 namespace accessibility
 {
     class AccessibleTextHelper_Impl;
@@ -2491,18 +3956,13 @@ namespace accessibility
         const std::auto_ptr< AccessibleTextHelper_Impl > mpImpl;
     };
 }
-
-
 namespace accessibility {
 class AccessibleShape;
 }
-
-
 namespace accessibility {
 class AccessibleShape;
 class AccessibleShapeTreeInfo;
 }
-
 namespace accessibility {
 class IAccessibleParent
 {
@@ -2525,7 +3985,6 @@ public:
     virtual sal_Bool IsDocumentSelAll(){ return sal_False; }
 };
 }
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleSelection : public ::com::sun::star::uno::XInterface
 {
@@ -2543,7 +4002,6 @@ protected:
     ~XAccessibleSelection() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
 namespace accessibility {
 class AccessibleShapeInfo;
     //class AccessibleShapeTreeInfo;
@@ -2903,7 +4361,6 @@ private:
     void UpdateNameAndDescription (void) {}
 };
 } // end of namespace accessibility
-
 class SwAccessibleMap : 
     public ::accessibility::IAccessibleViewForwarder,
     public ::accessibility::IAccessibleParent
@@ -3080,18 +4537,14 @@ public:
     SET_PARA m_setParaAdd;
     SET_PARA m_setParaRemove;
 };
-
 namespace com { namespace sun { namespace star { namespace awt {
     class XControl;
 } } } }
-
 namespace comphelper
 {
     class OWrappedAccessibleChildrenManager;
 }
-
 class SdrObject;
-
 namespace accessibility {
   typedef ::cppu::ImplHelper4 < ::com::sun::star::beans::XPropertyChangeListener
                                 , ::com::sun::star::util::XModeChangeListener
@@ -3099,7 +4552,6 @@ namespace accessibility {
                                 , ::com::sun::star::accessibility::XAccessibleEventListener
                                 > AccessibleControlShape_Base;
 }
-
 class SdrObject;
 namespace accessibility {
     typedef ::cppu::ImplHelper4 <   ::com::sun::star::beans::XPropertyChangeListener
@@ -3232,9 +4684,6 @@ private:
     AccessibleControlShape& operator= (const AccessibleControlShape&) {}
 };
 } // end of namespace accessibility
-
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleTextMarkup : public ::com::sun::star::accessibility::XAccessibleText
 {
@@ -3248,7 +4697,6 @@ protected:
     ~XAccessibleTextMarkup() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleTextAttributes : public ::com::sun::star::uno::XInterface
 {
@@ -3260,8 +4708,6 @@ protected:
     ~XAccessibleTextAttributes() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleValue : public ::com::sun::star::uno::XInterface
 {
@@ -3276,8 +4722,6 @@ protected:
     ~XAccessibleValue() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
-
 namespace com { namespace sun { namespace star { namespace accessibility { namespace detail {
 struct theIllegalAccessibleComponentStateExceptionType : public 
 rtl::StaticWithInit< ::com::sun::star::uno::Type *, theIllegalAccessibleComponentStateExceptionType >
@@ -3285,8 +4729,6 @@ rtl::StaticWithInit< ::com::sun::star::uno::Type *, theIllegalAccessibleComponen
     ::com::sun::star::uno::Type * operator()() const    {}
 };
 } } } } }
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleComponent : public ::com::sun::star::uno::XInterface
 {
@@ -3305,14 +4747,12 @@ protected:
     ~XAccessibleComponent() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
 namespace com { namespace sun { namespace star { namespace accessibility { namespace detail {
 struct theAccessibleEventObjectType : public rtl::StaticWithInit< ::com::sun::star::uno::Type *, theAccessibleEventObjectType >
 {
     ::com::sun::star::uno::Type * operator()() const    {    }
 };
 } } } } }
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleMultiLineText : public ::com::sun::star::accessibility::XAccessibleText
 {
@@ -3325,7 +4765,6 @@ public:
 protected:
     ~XAccessibleMultiLineText() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };  }}}}      
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleTable : public ::com::sun::star::uno::XInterface
 {
@@ -3355,8 +4794,6 @@ protected:
     ~XAccessibleTable() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleEditableText : public ::com::sun::star::accessibility::XAccessibleText
 {
@@ -3373,7 +4810,6 @@ protected:
     ~XAccessibleEditableText() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
       }}}}
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class XAccessibleTextSelection : public ::com::sun::star::uno::XInterface
 {
@@ -3389,7 +4825,6 @@ protected:
     ~XAccessibleTextSelection() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };
 } } } }
-
 // Any method of this class must be called with an acquired solar mutex!
 class SwAccessibleFrame
 {
@@ -3397,7 +4832,6 @@ class SwAccessibleFrame
     const SwFrm* mpFrm;
     const sal_Bool mbIsInPagePreview;
 protected:
-    // #i77106# - method needs to be called by new class <SwAccessibleTableColHeaders>
     static sal_Int32 GetChildCount( SwAccessibleMap& rAccMap,
                                     const SwRect& rVisArea,
                                     const SwFrm *pFrm,
@@ -3442,11 +4876,9 @@ protected:
   // MT: Move to private area?
   sal_Bool bIsAccDocUse;
 public:
-
   SwAccessibleFrame():
     mbIsInPagePreview(0)
   {} // added an empty constructor
-
   // Return the SwFrm this context is attached to.
   const SwFrm* GetFrm() const { return mpFrm; };
   static const SwFrm* GetParent( const sw::access::SwAccessibleChild& rFrmOrObj,
@@ -3480,7 +4912,6 @@ protected:
     }
     OUString GetFormattedPageNumber() const {}
 };
-
 class SwAccessibleContext :
     public ::cppu::WeakImplHelper5<
                 ::com::sun::star::accessibility::XAccessible,
@@ -3514,7 +4945,6 @@ private:
     sal_Bool bIsDefuncState : 1;
     // Are we currently disposing that object (protected by solar mutex)?
     sal_Bool bDisposing : 1;
-    // #i85634# - boolean, indicating if the accessible context is
     // in general registered at the accessible map.
     bool bRegisteredAtAccessibleMap;
   void InitStates();// 
@@ -3559,7 +4989,6 @@ protected:
   void ScrolledOut( const SwRect& rOldVisArea );
     // Invalidate the states of all children of the specified SwFrm. The
     // SwFrm might belong the current object or to any child or grandchild!
-    // #i27301# - use new type definition for <_nStates>
     void InvalidateChildrenStates( const SwFrm* _pFrm,
                                    tAccessibleStates _nStates );
     // Dispose children of the specified SwFrm. The SwFrm might belong to
@@ -3590,7 +5019,6 @@ protected:
         bRegisteredAtAccessibleMap = false;
     }
   void RemoveFrmFromAccessibleMap() ;
-
 public:
   ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Type > getTypes(){}
   SwAccessibleContext(){}
@@ -3662,7 +5090,6 @@ public:
     // The Focus state has changed
   void InvalidateFocus() ;
     // Check states
-    // #i27301# - use new type definition for <_nStates>
   void InvalidateStates( tAccessibleStates _nStates ) ;
     // the XAccessibleRelationSet may have changed
   void InvalidateRelation( sal_uInt16 nType ) ;
@@ -3683,10 +5110,7 @@ public:
   sal_Bool  IsSeletedInDoc(){  return bIsSeletedInDoc; }
   static OUString GetResource( sal_uInt16 nResId,                                        const OUString *pArg1 = 0,                                 const OUString *pArg2 = 0 );
 };
-
-
 static SwAccessibleContext UnusedSwAccessibleContext;
-
 class SwAccessibleSelectionHelper
 {
     /// the context on which this helper works
@@ -3698,10 +5122,8 @@ class SwAccessibleSelectionHelper
 public:
   SwAccessibleSelectionHelper():
     rContext(UnusedSwAccessibleContext){}
-
   SwAccessibleSelectionHelper( SwAccessibleContext& rContext ): 
     rContext(rContext) {}
-
     ~SwAccessibleSelectionHelper() {}
     //=====  XAccessibleSelection  ============================================
     void selectAccessibleChild(
@@ -3728,8 +5150,6 @@ public:
         throw ( ::com::sun::star::lang::IndexOutOfBoundsException,
                 ::com::sun::star::uno::RuntimeException ) {}
 };
-
-
 class SwAccessibleTable;
 class SwAccessibleCell : public SwAccessibleContext,
                   ::com::sun::star::accessibility::XAccessibleValue,
@@ -3801,7 +5221,6 @@ public:
   virtual ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > SAL_CALL getSelectedAccessibleChild(       sal_Int32 nSelectedChildIndex )        throw ( ::com::sun::star::lang::IndexOutOfBoundsException,                ::com::sun::star::uno::RuntimeException) ;
   virtual void SAL_CALL deselectAccessibleChild( sal_Int32 nSelectedChildIndex )       throw ( ::com::sun::star::lang::IndexOutOfBoundsException,                ::com::sun::star::uno::RuntimeException );
 };
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 class SAL_NO_VTABLE XAccessibleTableSelection : public ::com::sun::star::uno::XInterface
 {
@@ -3814,14 +5233,10 @@ public:
 protected:
     ~XAccessibleTableSelection() throw () {} // avoid warnings about virtual members and non-virtual dtor
 };} } } }
-
-
 class SwAccessibleTableData_Impl {};
-
 namespace sw { namespace access {
     class SwAccessibleChild;
 } }
-
 class SwAccessibleTable :
         public SwAccessibleContext,
         public ::com::sun::star::accessibility::XAccessibleTable,
@@ -4019,7 +5434,6 @@ public:
     void ClearSelectionCellCache() {}
     void AddSelectionCell(const SwAccessibleContext* ,sal_Bool bAddOrRemove) {}
 };
-
 // #i77106# - subclass to represent table column headers
 class SwAccessibleTableColHeaders : public SwAccessibleTable
 {
@@ -4065,14 +5479,10 @@ public:
         getImplementationName (void)
         throw (::com::sun::star::uno::RuntimeException) {}
 };
-
 const sal_Char 	sAccessibleServiceName [] = "com.sun.star.accessibility.Accessible";
 const sal_Char 	sDefunc [] = "object is defunctional";
 const sal_Char 	sMissingWindow [] = "window is missing";
-
 template <class T>  const com::sun::star::uno::Type& getCppuType(T){}
-
-
 class SwAccessibleDocumentBase : public SwAccessibleContext
 {
     ::com::sun::star::uno::Reference<
@@ -4134,13 +5544,11 @@ public:
        namespace accessibility {
          class XAccessibleGetAccFlowTo{};
        }}}}
-
  // SwAccessibleDocumentBase a;
  // com::sun::star::accessibility::XAccessibleSelection b;                              
  com::sun::star::document::XEventListener c;
  // com::sun::star::accessibility::XAccessibleExtendedAttributes d;
  com::sun::star::accessibility::XAccessibleGetAccFlowTo e;
-
 class SwAccessibleDocument : 
 public SwAccessibleDocumentBase,
 public com::sun::star::accessibility::XAccessibleSelection,
@@ -4231,7 +5639,6 @@ public:
         SAL_CALL get_AccFlowTo(const ::com::sun::star::uno::Any& rAny, sal_Int32 nType)
         throw ( ::com::sun::star::uno::RuntimeException );
 };
-
 class SwAccessibleFrameBase {
 public:
   SwAccessibleMap* GetMap(){};
@@ -4242,7 +5649,6 @@ public:
   virtual void release(){}
   virtual void acquire(){}
 };}}}}
-
 class SwAccessibleNoTextFrame : public  SwAccessibleFrameBase,
                                 public ::com::sun::star::accessibility::XAccessibleImage,
                                 public ::com::sun::star::accessibility::XAccessibleHypertext//Added by yangzhh for HyperLink
@@ -4334,8 +5740,6 @@ public:
         getAccessibleRelationSet (void)
         throw (::com::sun::star::uno::RuntimeException);
 };
-
-
 class SwAccessibleHeaderFooter : public SwAccessibleContext
 {
 protected:
@@ -4370,7 +5774,6 @@ public:
     sal_Int32 SAL_CALL getBackground()
         throw (::com::sun::star::uno::RuntimeException);
 };
-
 class SwPortionHandler
 {
 public:
@@ -4422,15 +5825,12 @@ public:
     virtual void SetAttrFieldType( sal_uInt16 )
     { return; }
 };
-
 namespace com { namespace sun { namespace star {
     namespace i18n { struct Boundary; }
     namespace accessibility { class XAccessibleHyperlink; }
     namespace style { struct TabStop; }
     } } }
-
 class SwSpecialPos{};
-
 class SwAccessiblePortionData : public SwPortionHandler
 {
     // the node this portion is referring to
@@ -4542,9 +5942,6 @@ private:
     typedef std::vector<PAIR_POS> VEC_PAIR_POS;
     VEC_PAIR_POS m_vecPairPos;
 };
-
-
-
 typedef ::boost::unordered_map< OUString,
                          ::com::sun::star::beans::PropertyValue,
                          OUStringHash,
@@ -4873,9 +6270,6 @@ public:
     virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getDefaultAttributes( const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::uno::RuntimeException) {}
     virtual ::com::sun::star::uno::Sequence< ::com::sun::star::beans::PropertyValue > SAL_CALL getRunAttributes( sal_Int32 nIndex, const ::com::sun::star::uno::Sequence< OUString >& aRequestedAttributes ) throw (::com::sun::star::lang::IndexOutOfBoundsException, ::com::sun::star::uno::RuntimeException) {}
 };
-
-
-
 //class SwAccessibleMap;
 //class SwAccessibleNoTextFrame : public  SwAccessibleFrameBase {};
 ///class SwAccessibleDocument : public SwAccessibleDocumentBase{};
@@ -4896,12 +6290,9 @@ public:
 //class SwAccessibleTableColHeaders : public SwAccessibleTable {};
 //class SwParaChangeTrackingInfo{};
 //class SwRect;
-
 class AccessibleShape;
 class AccessibleStateSetHelper;
 class SdrObject;
-
-
 class SwCellFrm;
 class SwCrsrShell;
 class SwFEShell;
@@ -4931,12 +6322,9 @@ class VclSimpleEvent;
 class Window;
 class SwAccessibleTableData_Impl;
 class SwAccessibleHyperTextData;
-
 class SwAccessibleNoTextHyperlink;
-
 class SwAccessibleHyperlink {};
 class _SwAccessibleChildMap{};
-
 class SwAccessibleChildMap : public _SwAccessibleChildMap {};
 class SwAccessibleChildMapKey {};
 class SwAccessibleEmbeddedObject : public   SwAccessibleNoTextFrame{};
@@ -4945,12 +6333,10 @@ class SwAccessibleGraphic : public  SwAccessibleNoTextFrame{};
 class SwAccessiblePage : public SwAccessibleContext {};
 class SwAccessiblePreview : public  SwAccessibleDocumentBase {};
 class SwAccessibleTextFrame : public SwAccessibleFrameBase {};
-
 namespace com { namespace sun { namespace star { namespace accessibility {
 struct AccessibleTableModelChange {
   inline AccessibleTableModelChange() ;
     inline AccessibleTableModelChange(const ::sal_Int16& Type_, const ::sal_Int32& FirstRow_, const ::sal_Int32& LastRow_, const ::sal_Int32& FirstColumn_, const ::sal_Int32& LastColumn_) ;
-
     ::sal_Int16 Type;
     ::sal_Int32 FirstRow;
     ::sal_Int32 LastRow;
@@ -4959,4 +6345,3 @@ struct AccessibleTableModelChange {
 };
         //inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleTableModelChange const *);
 } } } }
-
