@@ -39,3 +39,10 @@ all:
 	../sw/source/core/access/parachangetrackinginfo.cxx \
 	../sw/source/core/access/textmarkuphelper.cxx\
 	fake.cxx
+
+parse:
+	-make > log.txt 2>&1
+	python parse.py -i log.txt
+
+parselog:
+	python parse.py -i log.txt

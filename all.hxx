@@ -1,5 +1,48 @@
 #pragma once
 #define ISA(X) DOISA(X())
+#define DECLARE_XTYPEPROVIDER(X)
+#define SAL_NO_VTABLE
+#define SVX_DLLPUBLIC
+#define SVX_DLLPRIVATE
+#define SAL_CALL
+#define SAL_UNUSED_PARAMETER
+#define CPPU_GCC_DLLPUBLIC_EXPORT
+#define CPPU_GCC_DLLPRIVATE
+#define CPPU_GCC3_ALIGN
+#define SAL_THROW(X)
+#define DECL_LINK(X,Y)
+#define SAL_WNODEPRECATED_DECLARATIONS_PUSH
+#define SAL_WNODEPRECATED_DECLARATIONS_POP
+typedef bool sal_Bool;
+typedef char sal_Char;
+typedef char sal_Int8;
+typedef unsigned char  sal_uInt8;
+typedef int  sal_Int32;
+typedef int  WinBits; 
+typedef int  sal_Unicode;
+typedef long long sal_Int64;
+typedef long sal_uLong;
+typedef short sal_Int16;
+typedef short KSHORT;
+typedef unsigned int   sal_uInt32;
+typedef unsigned short sal_uInt16;
+class UnoTunnelIdInit{};
+class xTableReference{};
+const sal_Bool sal_False=false;
+const sal_Bool sal_True=false;
+const int SW_ADD_SELECT = 1;
+enum colors{
+  COL_BLACK,
+  COL_WHITE
+};
+
+#include <utility>
+
+namespace cppu{
+/*fwd*/class OInterfaceContainerHelper; 
+/*dcl*/class OInterfaceContainerHelper {}; 
+}
+
 // block this from being included
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCELL_HXX
 #define INCLUDED_SW_SOURCE_CORE_ACCESS_ACCCONTEXT_HXX
@@ -95,10 +138,31 @@
 template <class T, class U> void CHECk_FOR_WINDOW(T,U){}
 #define EDITENG_DLLPUBLIC
 #define DECLARE_XINTERFACE(X)
+namespace com{ namespace sun{ namespace star{ namespace rendering{
+        class XCanvas{};
+      }}}}
+
 namespace com{ namespace sun{ namespace star{ namespace uno{
         class XInterface;
       }}}}
-namespace com{namespace sun{namespace star{ namespace drawing{class XShape{};      }}}}
+
+namespace com{ namespace sun{ namespace star{ namespace awt{
+        class XGraphics{};
+      }}}}
+
+typedef sal_uInt32 ColorData;
+
+namespace com{namespace sun{namespace star{ namespace drawing{
+enum LineCap
+{
+    LineCap_BUTT = 0,
+    LineCap_ROUND = 1,
+    LineCap_SQUARE = 2,
+    LineCap_MAKE_FIXED_SIZE = 0x7fffffff
+};
+class XShape{};      
+}}}}
+
 class ChangeType{};
 class PreviewPage {};
 namespace accessibility {
@@ -111,13 +175,20 @@ namespace accessibility {
 /*dcl*/class AlphaMask {}; 
 /*dcl*/class Bitmap {}; 
 /*dcl*/class BitmapEx {}; 
-/*dcl*/class Color {}; 
+/*dcl*/class Color {
+public :
+  Color(){};
+  Color(sal_uInt32){};
+  sal_uInt32 GetTransparency() const {}
+  
+}; 
 /*dcl*/class CommandEvent {}; 
 /*dcl*/class Cursor {}; 
 /*dcl*/class DataChangedEvent {}; 
 /*dcl*/class Dialog {}; 
 /*dcl*/class DockingManager {}; 
-/*dcl*/class Font {}; 
+class Impl_Font;
+
 /*dcl*/class FontEmphasisMark {}; 
 /*dcl*/class FontInfo {}; 
 /*dcl*/class FontMetric {}; 
@@ -224,8 +295,8 @@ namespace accessibility {
 /*dcl*/class SvxWordLineModeItem{};
 /*dcl*/class SwAccPreviewData; // IMPL
 /*dcl*/class SwAccessibleChild {}; 
-/*dcl*/class SwAccessibleChildMap {}; 
-/*dcl*/class SwAccessibleChildSList_const_iterator {}; 
+class _SwAccessibleChildMap{};
+class SwAccessibleChildMap : public _SwAccessibleChildMap {};
 /*dcl*/class SwAccessibleContext; 
 /*dcl*/class SwAccessibleContextMap_Impl; 
 /*dcl*/class SwAccessibleEventList_Impl; 
@@ -298,7 +369,7 @@ namespace accessibility {
 /*dcl*/class VclPackType {}; 
 /*dcl*/class VirtualDevice {}; 
 /*dcl*/class Wallpaper {}; 
-/*dcl*/class WinBits {}; 
+
 /*dcl*/class WindowImpl {}; 
 /*dcl*/class WindowResHeader {}; 
 /*dcl*/class WindowType {}; 
@@ -319,7 +390,7 @@ namespace accessibility {
 /*dcl*/class m_nCurrent {}; 
 /*dcl*/class nType {}; 
 /*dcl*/class node_pointer {}; 
-/*dcl*/class pair {}; 
+
 /*dcl*/class reference {}; 
 /*dcl*/class reverse_iterator {}; 
 /*dcl*/class sal_uIntPtr {}; 
@@ -397,7 +468,7 @@ namespace accessibility {
 /*fwd*/class VclPackType; 
 /*fwd*/class VirtualDevice; 
 /*fwd*/class Wallpaper; 
-/*fwd*/class WinBits; 
+
 /*fwd*/class WindowImpl; 
 /*fwd*/class WindowResHeader; 
 /*fwd*/class WindowType; 
@@ -408,15 +479,31 @@ namespace accessibility {
 ///*dcl*/class SwAccessiblePortionData {}; 
 ///*dcl*/class TextSegment {}; 
 namespace basegfx{
-/*fwd*/class B2DLineJoin; 
-/*dcl*/class B2DLineJoin {}; 
+  enum B2VectorOrientation
+    {
+      ORIENTATION_POSITIVE = 0,
+      ORIENTATION_NEGATIVE,
+      ORIENTATION_NEUTRAL
+    };
+
+  enum B2VectorContinuity
+    {
+      CONTINUITY_NONE = 0,
+      CONTINUITY_C1,
+        CONTINUITY_C2
+    };
+  
+  enum B2DLineJoin
+    {
+      B2DLINEJOIN_NONE,
+      B2DLINEJOIN_MIDDLE,
+        B2DLINEJOIN_BEVEL,
+      B2DLINEJOIN_MITER,
+      B2DLINEJOIN_ROUND
+    };
+
 }
 // mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2173:18: error: 'basegfx::B2DLineJoin' has not been declared
-namespace com{namespace sun{namespace star{namespace drawing{
-/*fwd*/class LineCap; 
-/*dcl*/class LineCap {}; 
-}}}}
-// mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2174:34: error: 'com::sun::star::drawing::LineCap' has not been declared
 
 /*fwd*/class FontSelectPattern; 
 /*dcl*/class FontSelectPattern {}; 
@@ -527,40 +614,6 @@ namespace vcl{
 
 class SvxUnoTextRangeBase{};
 namespace com {namespace sun {namespace star {namespace accessibility { class AccessibleEventObject; }}}}
-#define DECLARE_XTYPEPROVIDER(X)
-#define SAL_NO_VTABLE
-#define SVX_DLLPUBLIC
-#define SVX_DLLPRIVATE
-#define SAL_CALL
-#define SAL_UNUSED_PARAMETER
-#define CPPU_GCC_DLLPUBLIC_EXPORT
-#define CPPU_GCC_DLLPRIVATE
-#define CPPU_GCC3_ALIGN
-#define SAL_THROW(X)
-#define DECL_LINK(X,Y)
-#define SAL_WNODEPRECATED_DECLARATIONS_PUSH
-#define SAL_WNODEPRECATED_DECLARATIONS_POP
-typedef bool sal_Bool;
-typedef char sal_Char;
-typedef char sal_Int8;
-typedef unsigned char  sal_uInt8;
-typedef int  sal_Int32;
-typedef int  sal_Unicode;
-typedef long long sal_Int64;
-typedef long sal_uLong;
-typedef short sal_Int16;
-typedef short KSHORT;
-typedef unsigned int   sal_uInt32;
-typedef unsigned short sal_uInt16;
-class UnoTunnelIdInit{};
-class xTableReference{};
-const sal_Bool sal_False=false;
-const sal_Bool sal_True=false;
-const int SW_ADD_SELECT = 1;
-enum colors{
-  COL_BLACK,
-  COL_WHITE
-};
 namespace accessibility {
 class AccessibleShapeTreeInfo{};
 }
@@ -708,6 +761,8 @@ public:
   OString OUStringToOString(OUString , int ){}
   template <class T, class U> class StaticWithInit{};
 }
+
+
 namespace com{ namespace sun{ namespace star{ namespace uno{
         enum extra{ UNO_QUERY }; 
         template <class T> class Reference{
@@ -748,6 +803,7 @@ namespace com{ namespace sun{ namespace star{ namespace uno{enum types{
 namespace com{ namespace sun{ namespace star{ namespace uno{enum some_types{
           typelib_TypeClass_INTERFACE,
 };}}}}
+
 namespace com{ namespace sun{ namespace star{ namespace uno{ class Type{
         public :
           Type(com::sun::star::uno::types, rtl::OUString&){}
@@ -796,8 +852,7 @@ namespace com{ namespace sun{namespace star{ namespace lang{
 namespace com{namespace sun{namespace star{namespace lang{class DisposedException{      public:   template <class T>          DisposedException(                            rtl::OUString,                             T &){}};}}}}
 namespace com{ namespace sun{namespace star{ namespace lang{class IndexOutOfBoundsException{ public: template <class T> IndexOutOfBoundsException( rtl::OUString,  T &  ){}};
         class IllegalArgumentException {};
-        
-}}}}
+      }}}}
 
 namespace com{ namespace sun{ namespace star{ namespace uno{ class Any{ public:
           Type * pType;
@@ -851,6 +906,7 @@ class SwTableNode;
 class SwTxtNode;
 namespace svt{
   class EmbeddedObjectRef{};
+  class PopupWindowControllerImpl;
 };
 class SwSectionFmt{};
 class SwSectionData{};
@@ -1355,6 +1411,9 @@ class EventObject{};
       }}}}
 namespace com{ namespace sun{ namespace star{ namespace document{class XEventListener{};   }}}}
 namespace com{ namespace sun{ namespace star{ namespace lang{class XEventListener{};   }}}}
+namespace com{ namespace sun{ namespace star{ namespace awt{
+        class XGraphic{};
+      }}}}
 namespace com{ namespace sun{ namespace star{ namespace awt{
 class KeyStroke{};
       }}}}
@@ -2045,7 +2104,146 @@ namespace basegfx {
   class B2DPolyPolygon{};
   class B2DHomMatrix{};
 }
+class FontFamily{};
 
+
+/*fwd*/class rtl_TextEncoding; 
+/*dcl*/class rtl_TextEncoding {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2125:20: error: 'rtl_TextEncoding' has not been declared
+/*fwd*/class FontPitch; 
+/*dcl*/class FontPitch {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2135:18: error: 'FontPitch' has not been declared
+/*fwd*/class FontKerning; 
+/*dcl*/class FontKerning {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2141:20: error: 'FontKerning' has not been declared
+/*fwd*/class FontWeight; 
+/*dcl*/class FontWeight {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2144:19: error: 'FontWeight' has not been declared
+/*fwd*/class FontWidth; 
+/*dcl*/class FontWidth {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2146:22: error: 'FontWidth' has not been declared
+/*fwd*/class FontItalic; 
+/*dcl*/class FontItalic {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2148:19: error: 'FontItalic' has not been declared
+/*fwd*/class FontRelief; 
+/*dcl*/class FontRelief {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2154:21: error: 'FontRelief' has not been declared
+/*fwd*/class ImplFontAttributes; 
+/*dcl*/class ImplFontAttributes {}; 
+// // /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2167:29: error: 'ImplFontAttributes' has not been declared
+/*fwd*/class SvStream; 
+/*dcl*/class SvStream {}; 
+// /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2173:12: error: 'SvStream' does not name a type
+
+
+class Font
+{
+private:
+  Impl_Font* mpImplFont;
+  void MakeUnique();  
+public:
+  Font();
+  Font( const Font& );
+  Font( const rtl::OUString& rFamilyName, const Size& );
+  Font( const rtl::OUString& rFamilyName, const rtl::OUString& rStyleName, const Size& );
+  Font( FontFamily eFamily, const Size& );
+  ~Font();
+  void SetColor( const Color& );
+  const Color& GetColor() const;
+  void SetFillColor( const Color& );
+  const Color& GetFillColor() const;
+  void SetTransparent( sal_Bool bTransparent );
+  sal_Bool IsTransparent() const;
+  void SetAlign( TextAlign );
+  TextAlign GetAlign() const;
+  void SetName( const rtl::OUString& rFamilyName );
+  const rtl::OUString& GetName() const;
+  void SetStyleName( const rtl::OUString& rStyleName );
+  const rtl::OUString& GetStyleName() const;
+  void SetSize( const Size& );
+  const Size& GetSize() const;
+  void SetHeight( long nHeight );
+  long GetHeight() const;
+  void SetWidth( long nWidth );
+  long GetWidth() const;
+  void SetFamily( FontFamily );
+  FontFamily GetFamily() const;
+  void SetCharSet( rtl_TextEncoding );
+  rtl_TextEncoding GetCharSet() const;
+  void SetLanguageTag( const LanguageTag & );
+  const LanguageTag& GetLanguageTag() const;
+  void SetCJKContextLanguageTag( const LanguageTag& );
+  const LanguageTag& GetCJKContextLanguageTag() const;
+  void SetLanguage( LanguageType );
+  LanguageType GetLanguage() const;
+  void SetCJKContextLanguage( LanguageType );
+  LanguageType GetCJKContextLanguage() const;
+  void SetPitch( FontPitch ePitch );
+  FontPitch GetPitch() const;
+  void SetOrientation( short nLineOrientation );
+  short GetOrientation() const;
+  void SetVertical( sal_Bool bVertical );
+  sal_Bool IsVertical() const;
+  void SetKerning( FontKerning nKerning );
+  FontKerning GetKerning() const;
+  sal_Bool IsKerning() const;
+  void SetWeight( FontWeight );
+  FontWeight GetWeight() const;
+  void SetWidthType( FontWidth );
+  FontWidth GetWidthType() const;
+  void SetItalic( FontItalic );
+  FontItalic GetItalic() const;
+  void SetOutline( sal_Bool bOutline );
+    sal_Bool IsOutline() const;
+    void SetShadow( sal_Bool bShadow );
+    sal_Bool IsShadow() const;
+    void SetRelief( FontRelief );
+    FontRelief GetRelief() const;
+    void SetUnderline( FontUnderline );
+    FontUnderline GetUnderline() const;
+    void SetOverline( FontUnderline );
+    FontUnderline GetOverline() const;
+    void SetStrikeout( FontStrikeout );
+    FontStrikeout GetStrikeout() const;
+    void SetEmphasisMark( FontEmphasisMark );
+    FontEmphasisMark GetEmphasisMark() const;
+    void SetWordLineMode( sal_Bool bWordLine );
+    sal_Bool IsWordLineMode() const;
+    void Merge( const Font& rFont );
+    void GetFontAttributes( ImplFontAttributes& rAttrs ) const;
+    Font& operator=( const Font& );
+    sal_Bool operator==( const Font& ) const;
+    sal_Bool operator!=( const Font& rFont ) const
+                            { return !(Font::operator==( rFont )); }
+    sal_Bool IsSameInstance( const Font& ) const;
+    friend SvStream& operator>>( SvStream& rIStm, Font& );
+    friend SvStream& operator<<( SvStream& rOStm, const Font& );
+    static Font identifyFont( const void* pBuffer, sal_uInt32 nLen );
+};
+
+namespace com{namespace sun{namespace star{namespace awt{
+/*fwd*/class XWindowPeer; 
+/*dcl*/class XWindowPeer {}; 
+}}}}
+
+namespace com{namespace sun{namespace star{namespace rendering{
+/*fwd*/class XSpriteCanvas; 
+/*dcl*/class XSpriteCanvas {}; 
+}}}}
+
+namespace com{namespace sun{namespace star{
+      namespace datatransfer{
+        namespace dnd{
+          class XDropTarget{};
+          class XDragSource{};
+          class XDragGestureRecognizer{};
+        };
+        namespace clipboard {
+          class XClipboard{};
+        };
+      }; 
+}}}
+class VclSizeGroup{};
 class OutputDevice : public Resource
 {
     friend class Application;
@@ -4537,9 +4735,12 @@ public:
     SET_PARA m_setParaAdd;
     SET_PARA m_setParaRemove;
 };
+
+
 namespace com { namespace sun { namespace star { namespace awt {
-    class XControl;
+        class XControl;
 } } } }
+
 namespace comphelper
 {
     class OWrappedAccessibleChildrenManager;
@@ -6324,8 +6525,8 @@ class SwAccessibleTableData_Impl;
 class SwAccessibleHyperTextData;
 class SwAccessibleNoTextHyperlink;
 class SwAccessibleHyperlink {};
-class _SwAccessibleChildMap{};
-class SwAccessibleChildMap : public _SwAccessibleChildMap {};
+
+
 class SwAccessibleChildMapKey {};
 class SwAccessibleEmbeddedObject : public   SwAccessibleNoTextFrame{};
 class SwAccessibleFootnote : public SwAccessibleContext{};
