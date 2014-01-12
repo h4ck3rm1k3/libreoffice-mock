@@ -11,6 +11,10 @@
 #define CPPU_GCC3_ALIGN
 #define SAL_THROW(X)
 #define DECL_LINK(X,Y)
+
+/*dcl*/class Link {}; 
+template <class A> const Link  & doLink(A) {}
+#define LINK(OBJ,CLASS,CLASS2) doLink(OBJ) 
 #define SAL_WNODEPRECATED_DECLARATIONS_PUSH
 #define SAL_WNODEPRECATED_DECLARATIONS_POP
 typedef bool sal_Bool;
@@ -216,7 +220,7 @@ class Impl_Font;
 /*dcl*/class LanguageType {}; 
 /*dcl*/class Line {}; 
 /*dcl*/class LineInfo {}; 
-/*dcl*/class Link {}; 
+
 /*dcl*/class MapMode{};
 /*dcl*/class MouseEvent {}; 
 /*dcl*/class OUStringBuffer{};
@@ -759,9 +763,31 @@ public:
     OUString & operator += (OUString &){};
     OUString & operator += (char){};
     OUString & operator += (const char * ){};
-  };
+    bool isEmpty() const{}
+
+    OUString & operator=( const OUString & str ){}
+    sal_Unicode operator [](sal_Int32 index) const {}
+
+    ///
+    };
+
+    sal_Bool operator == ( const OUString& rStr1, const OUString& rStr2 ){}
+    sal_Bool operator == ( const OUString& rStr1, const sal_Unicode * pStr2 ){}
+    sal_Bool operator == ( const sal_Unicode * pStr1, const OUString& rStr2 ){}
+    sal_Bool operator != ( const OUString& rStr1, const OUString& rStr2 ){}
+    sal_Bool operator != ( const OUString& rStr1, const sal_Unicode * pStr2 ){}
+    sal_Bool operator != ( const sal_Unicode * pStr1, const OUString& rStr2 ){}
+    sal_Bool operator < ( const OUString& rStr1, const OUString& rStr2 ){}
+    sal_Bool operator > ( const OUString& rStr1, const OUString& rStr2 ){}
+    sal_Bool operator <= ( const OUString& rStr1, const OUString& rStr2 ) {}
+    sal_Bool operator >= ( const OUString& rStr1, const OUString& rStr2 ){}
+    OUString operator+( const OUString& rStr1, const OUString& rStr2 ){}
+
+
   OString OUStringToOString(OUString , int ){}
   template <class T, class U> class StaticWithInit{};
+
+
 }
 
 
@@ -1451,6 +1477,13 @@ class Size{
         public:
           Size(){}
           Size(int x, int y){}
+
+  long Width() const { }
+  long Height() const { }
+  long& Width() {  }
+  long& Height() { }
+
+
         };
       }; }}}
 namespace com{ namespace sun{ namespace star{ namespace uno{class XAggregation{};}}}}
@@ -1474,18 +1507,24 @@ class Point{
         };  }}}}
 namespace com{ namespace sun{ namespace star{ namespace awt{
         // com::sun::star::awt::Rectangle
+
 class Rectangle : public Point{
-        public:
-          Rectangle(int, int, int, int){}
-          Rectangle(){}
-          int Width;
-          int Height;
-          int Left() const {}
-          int Top() const {}
-          Point TopLeft() const{}
-          void Move(int x, int y) {}
-          int GetWidth() const {}
-          int GetHeight() const {}
+public:
+  Rectangle(int, int, int, int){}
+  Rectangle(){}
+  int Width;
+  int Height;
+  int Left() const {}
+  int Top() const {}
+  Point TopLeft() const{}
+  void Move(int x, int y) {}
+  int GetWidth() const {}
+  int GetHeight() const {}
+  Size GetSize() const {};
+
+  bool IsInside( const Point& rPOINT ) const;
+  bool IsInside( const Rectangle& rRect ) const;
+
         };  }}}}
 
 class SwRect : public com::sun::star::awt::Rectangle
@@ -4988,7 +5027,6 @@ template <class T, class U> void DBG_ASSERT(T,U){}
 enum stuff{
   GPOS_NONE,
   KEY_RETURN,
-  LINK,
   ND_TEXTNODE,
   CHECK_FOR_DEFUNC,
   CHECK_FOR_WINDOW,
@@ -4998,7 +5036,6 @@ enum stuff{
   CNT_TXT,
   COL_AUTO,
   COL_TRANSPARENT,
-  SFX_TITLE_APINAME,
   STR_ACCESS_DOC_DESC,
   STR_ACCESS_DOC_NAME,
   STR_ACCESS_DOC_WORDPROCESSING_READONLY,
@@ -5029,7 +5066,24 @@ enum stuff{
 class  VclWindowEvent{};
 class  WindowChildEventListener{};
 //class SwCntntNode{};
-class SwDocShell{};
+class SwDocShell{
+public:
+    rtl::OUString GetTitle() const;
+  rtl::OUString GetTitle( sal_uInt16 nMaxLen = 0 ) const;
+};
+
+enum sfx_title {
+  SFX_TITLE_TITLE   = 0,
+  SFX_TITLE_FILENAME  = 1,
+  SFX_TITLE_FULLNAME   = 2,
+  SFX_TITLE_APINAME   = 3,
+  SFX_TITLE_DETECT   = 4,
+  SFX_TITLE_CAPTION   = 5,
+  SFX_TITLE_PICKLIST   = 6,
+  SFX_TITLE_HISTORY   = 7,
+  SFX_TITLE_MAXLEN   = 10
+};
+
 //class SwDoc{};
 class SwDrawContact{};
 class SwFmtChg{};
@@ -8806,3 +8860,29 @@ private:
     bool IncrementalDocStatCalculate(long nChars, bool bFields = true);
     long DoIdleStatsUpdate( Timer * ); static long LinkStubDoIdleStatsUpdate( void* pThis, void* );
 };
+
+
+#define IMPL_LINK( Class, Method, ArgType, ArgName ) \
+    IMPL_STUB( Class, Method, ArgType ) \
+    long Class::Method( ArgType ArgName )
+
+#define IMPL_LINK_NOARG( Class, Method ) \
+    IMPL_STUB( Class, Method, void* ) \
+    long Class::Method( SAL_UNUSED_PARAMETER void* )
+
+#define IMPL_LINK_INLINE_START( Class, Method, ArgType, ArgName ) \
+    inline long Class::Method( ArgType ArgName )
+
+#define IMPL_LINK_INLINE_END( Class, Method, ArgType, ArgName ) \
+    IMPL_STUB( Class, Method, ArgType )
+
+#define IMPL_LINK_NOARG_INLINE_START( Class, Method ) \
+    inline long Class::Method( SAL_UNUSED_PARAMETER void* )
+
+#define IMPL_LINK_NOARG_INLINE_END( Class, Method ) \
+    IMPL_STUB( Class, Method, void* )
+
+#define IMPL_LINK_INLINE( Class, Method, ArgType, ArgName, Body ) \
+    long Class::Method( ArgType ArgName ) \
+    Body \
+    IMPL_STUB( Class, Method, ArgType )
