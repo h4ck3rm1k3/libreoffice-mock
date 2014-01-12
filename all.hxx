@@ -294,7 +294,6 @@ class Impl_Font;
 /*dcl*/class SvxWidowsItem{};
 /*dcl*/class SvxWordLineModeItem{};
 /*dcl*/class SwAccPreviewData; // IMPL
-/*dcl*/class SwAccessibleChild {}; 
 class _SwAccessibleChildMap{};
 class SwAccessibleChildMap : public _SwAccessibleChildMap {};
 /*dcl*/class SwAccessibleContext; 
@@ -449,7 +448,7 @@ class SwAccessibleChildMap : public _SwAccessibleChildMap {};
 /*fwd*/class SalGraphics; 
 /*fwd*/class SalLayout; 
 /*fwd*/class Selection; 
-/*fwd*/class SwAccessibleChild; 
+///*fwd*/class SwAccessibleChild; 
 /*fwd*/class SwAccessibleChildMap; 
 /*fwd*/class SwAccessibleChildSList_const_iterator; 
 /*fwd*/class SwAccessibleHyperTextData; 
@@ -727,7 +726,10 @@ class SwAccessibleParagraph;
 const char * SW_RESSTR(sal_uInt16&){}
 class SwStartNodeType{};
 class ViewShell{};
-class xmlTextWriterPtr{};
+
+struct _xmlTextWriter;
+typedef struct _xmlTextWriter *xmlTextWriterPtr;
+
 class xub_StrLen{};
 namespace osl{
   class Mutex{};
@@ -916,7 +918,7 @@ class SwTxtFmtColl;
 /*fwd*/class FnForEach_SwNodes;
 /*fwd*/class Graphic;
 /*fwd*/class GraphicObject;
-/*fwd*/class SdrLayerID;
+typedef sal_uInt8 SdrLayerID;
 /*fwd*/class SfxBroadcaster;
 /*fwd*/class SwAttrSet;
 /*fwd*/class SwGrfFmtColl;
@@ -1070,14 +1072,37 @@ class SwTxtFmtColl{};
 class SwUndoTblToTxt{};
 class SwUndoTxtToTbl{};
 class TableRanges_t{};
-class IDocumentContentOperations{};
+  enum SwMoveFlags
+    {
+      DOC_MOVEDEFAULT = 0x00,
+      DOC_MOVEALLFLYS = 0x01,
+      DOC_CREATEUNDOOBJ = 0x02,
+      DOC_MOVEREDLINES = 0x04,
+      DOC_NO_DELFRMS = 0x08
+    };
+  
+  enum InsertFlags
+    { 
+      INS_DEFAULT = 0x00, 
+      INS_EMPTYEXPAND = 0x01, 
+      INS_NOHINTEXPAND = 0x02, 
+      INS_FORCEHINTEXPAND = 0x04
+    };
+class IDocumentContentOperations{
+public:
+
+};
 class IDocumentDeviceAccess{};
 class IDocumentDrawModelAccess{};
 class IDocumentFieldsAccess{};
 class IDocumentLayoutAccess{};
 class IDocumentLineNumberAccess{};
 class IDocumentLinksAdministration{};
-class IDocumentListItems{};
+class IDocumentListItems{
+public:
+  class tSortedNodeNumList {}; 
+};
+
 class IDocumentMarkAccess{};
 class IDocumentRedlineAccess{};
 class IDocumentSettingAccess{};
@@ -1099,7 +1124,7 @@ public:
 class SwCntntNode{};
 class SwCursor{};
 class SwDepend{};
-class SwDoc{};
+//class SwDoc{};
 class SwEndNode{};
 class SwFmtAnchor{};
 class SwFmtCntnt{};
@@ -1462,6 +1487,7 @@ class Rectangle : public Point{
           int GetWidth() const {}
           int GetHeight() const {}
         };  }}}}
+
 class SwRect : public com::sun::star::awt::Rectangle
 {
 public:
@@ -1472,7 +1498,12 @@ public:
   SwRect SVRect() const {}
   int GetPreviewPageSize( int nPageNum ) {}
   bool IsEmpty() const {}
+
+  sal_Bool HasArea() const{};
+  void Clear(){};
+
 };
+
 namespace cppu{template <class T> class UnoType{
   public :
     static const com::sun::star::uno::Type& get(){}
@@ -1902,192 +1933,80 @@ public:
   template <class T> bool HasFrmConnectedSidebarWins(T) {}
   template <class T, class U> Window* GetSidebarWinForFrmByIndex(T,U) {}
   template <class T, class U> Window* GetAllSidebarWinForFrm(T,U) {}
+
 };
-class SwViewShell : public SwCrsrShell{
+
+/*fwd*/class FrameControlType; 
+/*dcl*/class FrameControlType {}; 
+class SwViewImp;
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:1967:39: error: 'TypeId' does not name a type
+/*fwd*/class TypeId; 
+/*dcl*/class TypeId {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:1968:11: error: 'SwViewImp' does not name a type
+/*fwd*/class SwViewImp; 
+/*dcl*/class SwViewImp {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:1971:19: error: 'OutputDevice' has not been declared
+/*fwd*/class OutputDevice; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:1989:5: error: 'stack' in namespace 'std' does not name a type
+namespace std{
+/*fwd*/class stack; 
+/*dcl*/class stack {}; 
+}
+
+class SdrPaintWindow{};
+class SwRootFrmPtr{};
+
+class SwViewShell;
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2033:11: error: 'IDocumentStatistics' does not name a type
+/*fwd*/class IDocumentStatistics; 
+/*dcl*/class IDocumentStatistics {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2034:5: error: 'IDocumentUndoRedo' does not name a type
+/*fwd*/class IDocumentUndoRedo; 
+/*dcl*/class IDocumentUndoRedo {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2037:11: error: 'IDocumentOutlineNodes' does not name a type
+/*fwd*/class IDocumentOutlineNodes; 
+/*dcl*/class IDocumentOutlineNodes {
+
 public :
-  Window * GetWin() const{}
-  bool IsPreview(){}
-  SwPostItMgr * GetPostItMgr(){}
-  const SwFrm* GetLayout(){}
-  template <class T> bool DOISA(T) const{}
-};
-/*class SwAccessibleMap{
-  public:
-  SwViewShell * GetShell() const {}
-  };*/
-class Fraction{};
-using namespace com::sun::star::awt;
-template <class T> void OSL_ENSURE(T, const char * message){}
-class typelib_TypeDescription{};
-class typelib_TypeClass{};
-com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleContext>){
-}
-com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, sal_Int16){
-}
-class FunkyXAccessible{};
-class LanguageTag
-{
-public:
-  ::com::sun::star::lang::Locale getLocale() {}
-};
-class Settings{
-public:
-  LanguageTag GetLanguageTag() {}
-};
-class Application{
-public:
-  static Settings GetSettings() {}
-};
-class SwWrtShell
-  : public SwCrsrShell
-{
-public:
-  template<class T>  void SetSelection(T&) {}
-  void SttSelect() {}
-};
-template <class T, class U> void DBG_ASSERT(T,U){}
-enum stuff{
-  GPOS_NONE,
-  KEY_RETURN,
-  LINK,
-  ND_TEXTNODE,
-  CHECK_FOR_DEFUNC,
-  CHECK_FOR_WINDOW,
-  ClearFrm,
-  CNT_GRF,
-  CNT_OLE,
-  CNT_TXT,
-  COL_AUTO,
-  COL_TRANSPARENT,
-  SFX_TITLE_APINAME,
-  STR_ACCESS_DOC_DESC,
-  STR_ACCESS_DOC_NAME,
-  STR_ACCESS_DOC_WORDPROCESSING_READONLY,
-  STR_ACCESS_DOC_WORDPROCESSING,
-  STR_ACCESS_ENDNOTE_NAME,
-  STR_ACCESS_FOOTER_DESC,
-  STR_ACCESS_FOOTER_NAME,
-  STR_ACCESS_FOOTNOTE_NAME,
-  STR_ACCESS_HEADER_DESC,
-  STR_ACCESS_HEADER_NAME,
-  STR_ACCESS_PAGE_DESC,
-  STR_ACCESS_PAGE_NAME,
-  STR_ACCESS_PREVIEW_DOC_NAME,
-  STR_ACCESS_PREVIEW_DOC_SUFFIX,
-  SVX_NUM_ARABIC,
-  SVX_NUM_NUMBER_NONE,
-  RES_DESCRIPTION_CHANGED,
-  RES_FMT_CHG,
-  RES_NAME_CHANGED,
-  RES_OBJECTDYING,
-  RES_TITLE_CHANGED,
-  RES_TXTATR_INETFMT,
-  TOX_CONTENT_SECTION,
-  TOX_HEADER_SECTION,
-  URLLOAD_NOFILTER,
-  VCLEVENT_OBJECT_DYING,
-  VCLEVENT_WINDOW_HIDE,
-  VCLEVENT_WINDOW_SHOW,
-};
-class  VclWindowEvent{};
-class  WindowChildEventListener{};
-//class SwCntntNode{};
-class SwDocShell{};
-//class SwDoc{};
-class SwDrawContact{};
-class SwFmtChg{};
-//class SwFrmFmt{};
-class SwModify{};
-class SW_MOD{};
-class SwPtrMsgPoolItem{};
-class SwSectionFrm{};
-class SwStringMsgPoolItem{};
-class SwTxtINetFmt{};
-class SwVirtFlyDrawObj{};
-template<class T, class U, class V>
-void SAL_WARN_IF(T cond,U a,V b){}
-namespace com{ namespace sun{ namespace star{ namespace uno{
-class RuntimeException : Exception{
-        public:
-          template<class T> RuntimeException(
-                                             rtl::OUString,
-                                             com::sun::star::uno::Reference<
-                                             T>&){}
-        };
-      }}}}
-namespace comphelper{
-  class AccessibleEventNotifier{
-  public:
-    static int registerClient() {}
-    static void revokeClient( int nClientId ) {}
-    static int removeEventListener(sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>&) {}
-    static void addEventListener( sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>& ) {}
-    template <class T> static void revokeClientNotifyDisposing(sal_uInt32&,T&){}
-    static void addEvent(int nClientId,::com::sun::star::accessibility::AccessibleEventObject& rEvent){}
-  };
-};
-// class Window{
-// public:
-//   bool HasFocus(){}
-//   FunkyXAccessible funky;
-//   ::com::sun::star::uno::Reference<
-//     ::com::sun::star::accessibility::XAccessible > r;
-//   ::com::sun::star::uno::Reference<
-//     ::com::sun::star::accessibility::XAccessible
-//     > GetAccessible(){}
-//   FunkyXAccessible   GetAccessible2(){}
-//   Window*  GetAccessibleParentWindow(){}
-//   Point OutputToAbsoluteScreenPixel(::com::sun::star::awt::Point ) {}
-// };
+  /*dcl*/class tSortedOutlineNodeList {}; 
+}; 
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2039:20: error: 'Window* SwViewShell::GetWin() const' cannot be overloaded
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:1908:12: error: with 'Window* SwViewShell::GetWin() const'
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2046:13: error: 'SwPrintData' has not been declared
+/*fwd*/class SwPrintData; 
+/*dcl*/class SwPrintData {}; 
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2048:67: error: ISO C++ forbids declaration of 'rPrintData' with no type [-fpermissive]
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2050:84: error: ISO C++ forbids declaration of 'rOptions' with no type [-fpermissive]
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2052:47: error: 'SfxPrinter' does not name a type
+/*fwd*/class SfxPrinter; 
+/*dcl*/class SfxPrinter {}; 
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2052:59: error: ISO C++ forbids declaration of 'pPrt' with no type [-fpermissive]
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2077:11: error: 'SwAccessibilityOptions' does not name a type
+/*fwd*/class SwAccessibilityOptions; 
+/*dcl*/class SwAccessibilityOptions {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2078:30: error: 'ShellResource' has not been declared
+/*fwd*/class ShellResource; 
+/*dcl*/class ShellResource {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2084:12: error: 'SfxViewShell' does not name a type
+/*fwd*/class SfxViewShell; 
+/*dcl*/class SfxViewShell {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2087:5: error: 'SwPagePreviewLayout' does not name a type
+/*fwd*/class SwPagePreviewLayout; 
+/*dcl*/class SwPagePreviewLayout {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2098:11: error: 'SdrView' does not name a type
+/*fwd*/class SdrView; 
+/*dcl*/class SdrView {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2101:18: error: 'SfxItemPool' does not name a type
+/*fwd*/class SfxItemPool; 
+/*dcl*/class SfxItemPool {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2117:35: error: 'SvtAccessibilityOptions' has not been declared
+/*fwd*/class SvtAccessibilityOptions; 
+/*dcl*/class SvtAccessibilityOptions {}; 
+
 struct RSHEADER_TYPE;
 typedef sal_uInt32 RESOURCE_TYPE;
-class Resource
-{
-protected:
-    ResMgr* m_pResMgr;
-    bool IsAvailableRes( const ResId& rId ) const
-  { //return m_pResMgr->IsAvailable( rId, this ); 
-}
-    void GetRes( const ResId& rResId );
-    void TestRes();
-    void* GetClassRes()
-  { //return m_pResMgr->GetClass(); 
-}
-    void* IncrementRes( sal_uInt32 nBytes )
-  { //return m_pResMgr->Increment( nBytes ); 
-  }
-    static sal_uInt32 GetObjSizeRes( RSHEADER_TYPE * pHT )
-  { //return ResMgr::GetObjSize( pHT ); 
-}
-    sal_uInt32 GetRemainSizeRes()
-  { //return m_pResMgr->GetRemainSize(); 
-}
-    static sal_Int32 GetLongRes( void * pLong )
-  { //return ResMgr::GetLong( pLong ); 
-}
-    static sal_Int16 GetShortRes( void * pShort )
-  { //return ResMgr::GetShort( pShort ); 
-}
-    sal_Int32 ReadLongRes()
-  { //return m_pResMgr->ReadLong(); 
-}
-    sal_Int16 ReadShortRes()
-  { //return m_pResMgr->ReadShort(); 
-}
-    rtl::OUString ReadStringRes()
-  { //return m_pResMgr->ReadString(); 
-}
-    rtl::OString ReadByteStringRes()
-  { //return m_pResMgr->ReadByteString(); 
-}
-    void FreeResource()
-  { //m_pResMgr->PopContext( this ); 
-}
-    Resource() : m_pResMgr( __null ) {}
-    Resource( const ResId& rResId );
-public:
-    ~Resource() {}
-};
 namespace vcl {
   class PDFWriterImpl{};
   class ExtOutDevData{};
@@ -2106,13 +2025,14 @@ namespace basegfx {
 }
 class FontFamily{};
 
-
 /*fwd*/class rtl_TextEncoding; 
 /*dcl*/class rtl_TextEncoding {}; 
 // /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2125:20: error: 'rtl_TextEncoding' has not been declared
+
 /*fwd*/class FontPitch; 
 /*dcl*/class FontPitch {}; 
 // /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2135:18: error: 'FontPitch' has not been declared
+
 /*fwd*/class FontKerning; 
 /*dcl*/class FontKerning {}; 
 // /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2141:20: error: 'FontKerning' has not been declared
@@ -2135,6 +2055,11 @@ class FontFamily{};
 /*dcl*/class SvStream {}; 
 // /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2173:12: error: 'SvStream' does not name a type
 
+class LanguageTag
+{
+public:
+  ::com::sun::star::lang::Locale getLocale() {}
+};
 
 class Font
 {
@@ -2220,17 +2145,14 @@ public:
     friend SvStream& operator<<( SvStream& rOStm, const Font& );
     static Font identifyFont( const void* pBuffer, sal_uInt32 nLen );
 };
-
 namespace com{namespace sun{namespace star{namespace awt{
 /*fwd*/class XWindowPeer; 
 /*dcl*/class XWindowPeer {}; 
 }}}}
-
 namespace com{namespace sun{namespace star{namespace rendering{
 /*fwd*/class XSpriteCanvas; 
 /*dcl*/class XSpriteCanvas {}; 
 }}}}
-
 namespace com{namespace sun{namespace star{
       namespace datatransfer{
         namespace dnd{
@@ -2244,6 +2166,67 @@ namespace com{namespace sun{namespace star{
       }; 
 }}}
 class VclSizeGroup{};
+
+class Resource
+{
+protected:
+    ResMgr* m_pResMgr;
+    bool IsAvailableRes( const ResId& rId ) const
+  { //return m_pResMgr->IsAvailable( rId, this ); 
+}
+    void GetRes( const ResId& rResId );
+    void TestRes();
+    void* GetClassRes()
+  { //return m_pResMgr->GetClass(); 
+}
+    void* IncrementRes( sal_uInt32 nBytes )
+  { //return m_pResMgr->Increment( nBytes ); 
+  }
+    static sal_uInt32 GetObjSizeRes( RSHEADER_TYPE * pHT )
+  { //return ResMgr::GetObjSize( pHT ); 
+}
+    sal_uInt32 GetRemainSizeRes()
+  { //return m_pResMgr->GetRemainSize(); 
+}
+    static sal_Int32 GetLongRes( void * pLong )
+  { //return ResMgr::GetLong( pLong ); 
+}
+    static sal_Int16 GetShortRes( void * pShort )
+  { //return ResMgr::GetShort( pShort ); 
+}
+    sal_Int32 ReadLongRes()
+  { //return m_pResMgr->ReadLong(); 
+}
+    sal_Int16 ReadShortRes()
+  { //return m_pResMgr->ReadShort(); 
+}
+    rtl::OUString ReadStringRes()
+  { //return m_pResMgr->ReadString(); 
+}
+    rtl::OString ReadByteStringRes()
+  { //return m_pResMgr->ReadByteString(); 
+}
+    void FreeResource()
+  { //m_pResMgr->PopContext( this ); 
+}
+    Resource() : m_pResMgr( __null ) {}
+    Resource( const ResId& rResId );
+public:
+    ~Resource() {}
+};
+
+class Fraction{};
+
+namespace com{ namespace sun{ namespace star{ namespace uno{
+class RuntimeException : Exception{
+        public:
+          template<class T> RuntimeException(
+                                             rtl::OUString,
+                                             com::sun::star::uno::Reference<
+                                             T>&){}
+        };
+      }}}}
+
 class OutputDevice : public Resource
 {
     friend class Application;
@@ -3468,7 +3451,6 @@ public:
     virtual rtl::OUString GetSurroundingText() const;
     virtual Selection GetSurroundingTextSelection() const;
 };
-
 //com/sun/star/accessibility/XAccessibleEventBroadcaster.hdl
 namespace com { namespace sun { namespace star { namespace accessibility {
 class  XAccessibleEventBroadcaster : public ::com::sun::star::uno::XInterface
@@ -4737,10 +4719,360 @@ public:
 };
 
 
+class SwViewShell : public SwCrsrShell{
+public :
+  Window * GetWin() const{}
+  bool IsPreview(){}
+  SwPostItMgr * GetPostItMgr(){}
+  const SwFrm* GetLayout(){}
+  template <class T> bool DOISA(T) const{}
+private:
+//     friend void SetOutDev( SwViewShell *pSh, OutputDevice *pOut );
+//     friend void SetOutDevAndWin( SwViewShell *pSh, OutputDevice *pOut, Window *pWin, sal_uInt16 nZoom );
+//     friend class SwViewImp;
+//     friend class SwLayIdle;
+//     friend class SwPagePreviewLayout;
+//     friend void SetSwVisArea( SwViewShell *pSh, const SwRect & );
+//     static BitmapEx* mpReplaceBmp;
+//     static BitmapEx* mpErrorBmp;
+  static sal_Bool mbLstAct;
+  Point maPrtOffst;
+  Size maBrowseBorder;
+  SwRect maInvalidRect;
+  SfxViewShell *mpSfxViewShell;
+  SwViewImp *mpImp;
+  Window *mpWin;
+  OutputDevice *mpOut;
+  OutputDevice* mpTmpRef;
+  SwViewOption *mpOpt;
+  SwAccessibilityOptions* mpAccOptions;
+  sal_Bool mbDocSizeChgd :1;
+  sal_Bool mbPaintWorks :1;
+  sal_Bool mbPaintInProgress :1;
+  sal_Bool mbViewLocked :1;
+  sal_Bool mbInEndAction :1;
+  sal_Bool mbPreview :1;
+  sal_Bool mbFrameView :1;
+  sal_Bool mbEnableSmooth :1;
+  sal_Bool mbEndActionByVirDev:1;
+  bool mbShowHeaderSeparator:1;
+  bool mbShowFooterSeparator:1;
+  bool mbHeaderFooterEdit:1;
+  bool mbInConstructor:1;
+  bool mbTiledRendering:1;
+  SdrPaintWindow* mpTargetPaintWindow;
+  OutputDevice* mpBufferedOut;
+  SwRootFrmPtr mpLayout;
+//     void Init( const SwViewOption *pNewOpt );
+//     inline void ResetInvalidRect();
+  void Reformat(){}
+//     void PaintDesktop( const SwRect & );
+//     void _PaintDesktop( const SwRegionRects &rRegion );
+//     sal_Bool CheckInvalidForPaint( const SwRect & );
+//     void PrepareForPrint( const SwPrintData &rOptions );
+//     void ImplApplyViewOptions( const SwViewOption &rOpt );
+protected:
+  static ShellResource* mpShellRes;
+  static Window* mpCareWindow;
+  SwRect maVisArea;
+  SwDoc *mpDoc;
+  sal_uInt16 mnStartAction;
+  sal_uInt16 mnLockPaint;
+  bool mbSelectAll;
+public:
+    static void* CreateType(); static TypeId StaticType(); static sal_Bool IsOf( TypeId aSameOrSuperType ); virtual TypeId Type() const; virtual sal_Bool IsA( TypeId aSameOrSuperType ) const;
+          SwViewImp *Imp() { return mpImp; }
+    const SwViewImp *Imp() const { return mpImp; }
+    const SwNodes& GetNodes() const;
+    void InitPrt( OutputDevice *pOutDev );
+    inline void StartAction();
+           void ImplStartAction();
+    inline void EndAction( const sal_Bool bIdleEnd = ((sal_Bool)0) );
+           void ImplEndAction( const sal_Bool bIdleEnd = ((sal_Bool)0) );
+    sal_uInt16 ActionCount() const { return mnStartAction; }
+    sal_Bool ActionPend() const { return mnStartAction != 0; }
+    sal_Bool IsInEndAction() const { return mbInEndAction; }
+    void SetEndActionByVirDev( sal_Bool b ) { mbEndActionByVirDev = b; }
+    sal_Bool IsEndActionByVirDev() { return mbEndActionByVirDev; }
+    void SetRestoreActions(sal_uInt16 nSet);
+    sal_uInt16 GetRestoreActions() const;
+    inline sal_Bool HasInvalidRect() const { return maInvalidRect.HasArea(); }
+    void ChgHyphenation() { Reformat(); }
+    void ChgNumberDigits();
+    sal_Bool AddPaintRect( const SwRect &rRect );
+    void InvalidateWindows( const SwRect &rRect );
+protected:
+  //    std::stack<Region> mPrePostPaintRegions;
+    OutputDevice* mpPrePostOutDev;
+    MapMode maPrePostMapMode;
+public:
+    void PrePaint();
+    void DLPrePaint2(const Region& rRegion);
+    void DLPostPaint2(bool bPaintFormLayer);
+    const MapMode& getPrePostMapMode() const { return maPrePostMapMode; }
+    virtual void Paint(const Rectangle &rRect);
+    void PaintTile(VirtualDevice &rDevice, int contextWidth, int contextHeight, int tilePosX, int tilePosY, long tileWidth, long tileHeight);
+    sal_Bool IsPaintInProgress() const { return mbPaintInProgress; }
+  bool IsDrawingLayerPaintInProgress() const {};    //{ return !mPrePostPaintRegions.empty(); }
+    virtual void VisPortChgd( const SwRect & );
+    sal_Bool SmoothScroll( long lXDiff, long lYDiff, const Rectangle* );
+    void EnableSmooth( sal_Bool b ) { mbEnableSmooth = b; }
+    const SwRect& VisArea() const { return maVisArea; }
+    void MakeVisible( const SwRect & );
+    void SizeChgNotify();
+    void UISizeNotify();
+    Point GetPagePos( sal_uInt16 nPageNum ) const;
+    sal_uInt16 GetNumPages();
+    sal_Bool IsDummyPage( sal_uInt16 nPageNum ) const;
+    void SetFirstVisPageInvalid();
+    SwRootFrm *GetLayout() const;
+    sal_Bool IsNewLayout() const;
+     Size GetDocSize() const;
+    void CalcLayout();
+    sal_uInt16 GetPageCount() const;
+    const Size GetPageSize( sal_uInt16 nPageNum, bool bSkipEmptyPages ) const;
+    inline SwDoc *GetDoc() const { return mpDoc; }
+    const IDocumentSettingAccess* getIDocumentSettingAccess() const;
+          IDocumentSettingAccess* getIDocumentSettingAccess();
+    const IDocumentDeviceAccess* getIDocumentDeviceAccess() const;
+          IDocumentDeviceAccess* getIDocumentDeviceAccess();
+    const IDocumentMarkAccess* getIDocumentMarkAccess() const;
+          IDocumentMarkAccess* getIDocumentMarkAccess();
+    const IDocumentDrawModelAccess* getIDocumentDrawModelAccess() const;
+          IDocumentDrawModelAccess* getIDocumentDrawModelAccess();
+    const IDocumentRedlineAccess* getIDocumentRedlineAccess() const;
+          IDocumentRedlineAccess* getIDocumentRedlineAccess();
+    const IDocumentLayoutAccess* getIDocumentLayoutAccess() const;
+          IDocumentLayoutAccess* getIDocumentLayoutAccess();
+    IDocumentContentOperations* getIDocumentContentOperations();
+    IDocumentStylePoolAccess* getIDocumentStylePoolAccess();
+    const IDocumentStatistics* getIDocumentStatistics() const;
+    IDocumentUndoRedo const& GetIDocumentUndoRedo() const;
+    IDocumentUndoRedo & GetIDocumentUndoRedo();
+    const IDocumentListItems* getIDocumentListItemsAccess() const;
+    const IDocumentOutlineNodes* getIDocumentOutlineNodesAccess() const;
+    OutputDevice& GetRefDev() const;
+  //    inline Window* GetWin() const { return mpWin; }
+    inline OutputDevice* GetOut() const { return mpOut; }
+    void SetWin(Window* win) { mpWin = win; }
+    static inline sal_Bool IsLstEndAction() { return SwViewShell::mbLstAct; }
+    void ChgAllPageOrientation( sal_uInt16 eOri );
+    void ChgAllPageSize( Size &rSz );
+    sal_Bool PrintOrPDFExport( OutputDevice *pOutDev,
+            SwPrintData const& rPrintData,
+            sal_Int32 nRenderer );
+    void PrintProspect( OutputDevice *pOutDev, const SwPrintData &rPrintData,
+            sal_Int32 nRenderer );
+    static void PrtOle2( SwDoc *pDoc, const SwViewOption *pOpt, const SwPrintData& rOptions,
+                         OutputDevice* pOleOut, const Rectangle& rRect );
+    SwDoc * FillPrtDoc( SwDoc* pPrtDoc, const SfxPrinter* pPrt );
+    void CalcPagesForPrint( sal_uInt16 nMax );
+    void UpdateFlds(sal_Bool bCloseDB = ((sal_Bool)0));
+    sal_Bool IsAnyFieldInDoc() const;
+    void UpdateAllCharts();
+    sal_Bool HasCharts() const;
+    void SetParaSpaceMax( bool bNew );
+    void SetParaSpaceMaxAtPages( bool bNew );
+    void SetTabCompat( bool bNew );
+    void SetAddExtLeading( bool bNew );
+    void SetUseVirDev( bool nNew );
+    void SetAddParaSpacingToTableCells( bool _bAddParaSpacingToTableCells );
+    void SetUseFormerLineSpacing( bool _bUseFormerLineSpacing );
+    void SetUseFormerObjectPositioning( bool _bUseFormerObjPos );
+    void SetConsiderWrapOnObjPos( bool _bConsiderWrapOnObjPos );
+    void SetUseFormerTextWrapping( bool _bUseFormerTextWrapping );
+    void SetDoNotJustifyLinesWithManualBreak( bool _bDoNotJustifyLinesWithManualBreak );
+    void LayoutIdle();
+    inline const SwViewOption *GetViewOptions() const { return mpOpt; }
+    virtual void ApplyViewOptions( const SwViewOption &rOpt );
+           void SetUIOptions( const SwViewOption &rOpt );
+    virtual void SetReadonlyOption(sal_Bool bSet);
+           void SetPDFExportOption(sal_Bool bSet);
+           void SetPrtFormatOption(sal_Bool bSet);
+           void SetReadonlySelectionOption(sal_Bool bSet);
+    const SwAccessibilityOptions* GetAccessibilityOptions() const { return mpAccOptions;}
+    static void SetShellRes( ShellResource* pRes ) { mpShellRes = pRes; }
+    static ShellResource* GetShellRes();
+    static void SetCareWin( Window* pNew );
+    static Window* GetCareWin(SwViewShell& rVSh)
+                          { return mpCareWindow ? mpCareWindow : CareChildWin(rVSh); }
+    static Window* CareChildWin(SwViewShell& rVSh);
+    inline SfxViewShell *GetSfxViewShell() { return mpSfxViewShell; }
+    inline void SetSfxViewShell(SfxViewShell *pNew) { mpSfxViewShell = pNew; }
+    virtual void DrawSelChanged();
+    SwPagePreviewLayout* PagePreviewLayout();
+    void AdjustOptionsForPagePreview( SwPrintData const& rPrintOptions );
+    sal_Bool IsViewLocked() const { return mbViewLocked; }
+    void LockView( sal_Bool b ) { mbViewLocked = b; }
+    inline void LockPaint();
+           void ImplLockPaint();
+    inline void UnlockPaint( sal_Bool bVirDev = ((sal_Bool)0) );
+           void ImplUnlockPaint( sal_Bool bVirDev );
+           sal_Bool IsPaintLocked() const { return mnLockPaint != 0; }
+    sal_Bool HasDrawView() const;
+    void MakeDrawView();
+          SdrView *GetDrawView();
+    const SdrView *GetDrawView() const { return ((SwViewShell*)this)->GetDrawView(); }
+    SdrView *GetDrawViewWithValidMarkList();
+    inline const SfxItemPool& GetAttrPool() const;
+                 SfxItemPool& GetAttrPool();
+    sal_Bool IsPreview() const { return mbPreview; }
+    sal_Bool IsFrameView() const { return mbFrameView; }
+    void SetFrameView( const Size& rBrowseBorder )
+           { mbFrameView = ((sal_Bool)1); maBrowseBorder = rBrowseBorder; }
+    void CheckBrowseView( sal_Bool bBrowseChgd );
+    const Size& GetBrowseBorder() const;
+    sal_Int32 GetBrowseWidth() const;
+    void SetBrowseBorder( const Size& rNew );
+    ::com::sun::star::uno::Reference< ::com::sun::star::accessibility::XAccessible > CreateAccessible();
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::accessibility::XAccessible >
+            CreateAccessiblePreview();
+    void ShowPreviewSelection( sal_uInt16 nSelPage );
+    void InvalidateAccessibleFocus();
+    void ApplyAccessiblityOptions(SvtAccessibilityOptions& rAccessibilityOptions);
+    void InvalidateAccessibleParaFlowRelation( const SwTxtFrm* _pFromTxtFrm,                                               const SwTxtFrm* _pToTxtFrm );
+    void InvalidateAccessibleParaTextSelection();
+    void InvalidateAccessibleParaAttrs( const SwTxtFrm& rTxtFrm );
+    SwAccessibleMap* GetAccessibleMap();
+    SwViewShell( SwViewShell&, Window *pWin = 0, OutputDevice *pOut = 0,
+                long nFlags = 0 );
+    SwViewShell( SwDoc& rDoc, Window *pWin,
+               const SwViewOption *pOpt = 0, OutputDevice *pOut = 0,
+               long nFlags = 0 );
+    virtual ~SwViewShell();
+    sal_Int32 GetPageNumAndSetOffsetForPDF( OutputDevice& rOut, const SwRect& rRect ) const;
+    inline bool IsInConstructor() const { return mbInConstructor; }
+    static const BitmapEx& GetReplacementBitmap( bool bIsErrorState );
+    static void DeleteReplacementBitmaps();
+    const SwPostItMgr* GetPostItMgr() const { return (const_cast<SwViewShell*>(this))->GetPostItMgr(); }
+  //    SwPostItMgr* GetPostItMgr();
+    void ToggleHeaderFooterEdit();
+    bool IsHeaderFooterEdit() const { return mbHeaderFooterEdit; }
+  bool IsShowHeaderFooterSeparator( FrameControlType eControl ) {} // return (eControl == Header)? mbShowHeaderSeparator: mbShowFooterSeparator; }
+  virtual void SetShowHeaderFooterSeparator( FrameControlType eControl, bool bShow ) {}//{ if ( eControl == Header ) mbShowHeaderSeparator = bShow; else mbShowFooterSeparator = bShow; }
+    bool IsSelectAll() { return mbSelectAll; }
+};
+/*class SwAccessibleMap{
+  public:
+  SwViewShell * GetShell() const {}
+  };*/
+
+typedef void* FontToSubsFontConverter;
+
+using namespace com::sun::star::awt;
+template <class T> void OSL_ENSURE(T, const char * message){}
+class typelib_TypeDescription{};
+class typelib_TypeClass{};
+com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleContext>){
+}
+com::sun::star::uno::Any operator<<= (com::sun::star::uno::Any, sal_Int16){
+}
+class FunkyXAccessible{};
+class Settings{
+public:
+  LanguageTag GetLanguageTag() {}
+};
+class Application{
+public:
+  static Settings GetSettings() {}
+};
+class SwWrtShell
+  : public SwCrsrShell
+{
+public:
+  template<class T>  void SetSelection(T&) {}
+  void SttSelect() {}
+};
+template <class T, class U> void DBG_ASSERT(T,U){}
+enum stuff{
+  GPOS_NONE,
+  KEY_RETURN,
+  LINK,
+  ND_TEXTNODE,
+  CHECK_FOR_DEFUNC,
+  CHECK_FOR_WINDOW,
+  ClearFrm,
+  CNT_GRF,
+  CNT_OLE,
+  CNT_TXT,
+  COL_AUTO,
+  COL_TRANSPARENT,
+  SFX_TITLE_APINAME,
+  STR_ACCESS_DOC_DESC,
+  STR_ACCESS_DOC_NAME,
+  STR_ACCESS_DOC_WORDPROCESSING_READONLY,
+  STR_ACCESS_DOC_WORDPROCESSING,
+  STR_ACCESS_ENDNOTE_NAME,
+  STR_ACCESS_FOOTER_DESC,
+  STR_ACCESS_FOOTER_NAME,
+  STR_ACCESS_FOOTNOTE_NAME,
+  STR_ACCESS_HEADER_DESC,
+  STR_ACCESS_HEADER_NAME,
+  STR_ACCESS_PAGE_DESC,
+  STR_ACCESS_PAGE_NAME,
+  STR_ACCESS_PREVIEW_DOC_NAME,
+  STR_ACCESS_PREVIEW_DOC_SUFFIX,
+  RES_DESCRIPTION_CHANGED,
+  RES_FMT_CHG,
+  RES_NAME_CHANGED,
+  RES_OBJECTDYING,
+  RES_TITLE_CHANGED,
+  RES_TXTATR_INETFMT,
+  TOX_CONTENT_SECTION,
+  TOX_HEADER_SECTION,
+  URLLOAD_NOFILTER,
+  VCLEVENT_OBJECT_DYING,
+  VCLEVENT_WINDOW_HIDE,
+  VCLEVENT_WINDOW_SHOW,
+};
+class  VclWindowEvent{};
+class  WindowChildEventListener{};
+//class SwCntntNode{};
+class SwDocShell{};
+//class SwDoc{};
+class SwDrawContact{};
+class SwFmtChg{};
+//class SwFrmFmt{};
+class SwModify{};
+class SW_MOD{};
+class SwPtrMsgPoolItem{};
+class SwSectionFrm{};
+class SwStringMsgPoolItem{};
+class SwTxtINetFmt{};
+class SwVirtFlyDrawObj{};
+template<class T, class U, class V>
+void SAL_WARN_IF(T cond,U a,V b){}
+
+namespace comphelper{
+  class AccessibleEventNotifier{
+  public:
+    static int registerClient() {}
+    static void revokeClient( int nClientId ) {}
+    static int removeEventListener(sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>&) {}
+    static void addEventListener( sal_uInt32&, const com::sun::star::uno::Reference<com::sun::star::accessibility::XAccessibleEventListener>& ) {}
+    template <class T> static void revokeClientNotifyDisposing(sal_uInt32&,T&){}
+    static void addEvent(int nClientId,::com::sun::star::accessibility::AccessibleEventObject& rEvent){}
+  };
+};
+// class Window{
+// public:
+//   bool HasFocus(){}
+//   FunkyXAccessible funky;
+//   ::com::sun::star::uno::Reference<
+//     ::com::sun::star::accessibility::XAccessible > r;
+//   ::com::sun::star::uno::Reference<
+//     ::com::sun::star::accessibility::XAccessible
+//     > GetAccessible(){}
+//   FunkyXAccessible   GetAccessible2(){}
+//   Window*  GetAccessibleParentWindow(){}
+//   Point OutputToAbsoluteScreenPixel(::com::sun::star::awt::Point ) {}
+// };
+
+
 namespace com { namespace sun { namespace star { namespace awt {
         class XControl;
 } } } }
-
 namespace comphelper
 {
     class OWrappedAccessibleChildrenManager;
@@ -5294,12 +5626,10 @@ public:
   void InvalidateStates( tAccessibleStates _nStates ) ;
     // the XAccessibleRelationSet may have changed
   void InvalidateRelation( sal_uInt16 nType ) ;
-  void InvalidateTextSelection() ; // #i27301# - text selection has changed
-  void InvalidateAttr() ; // #i88069# - attributes has changed
+  void InvalidateTextSelection() ; 
+  void InvalidateAttr() ; 
   bool HasAdditionalAccessibleChildren() ;
-    // #i88070# - get additional child by index
   Window* GetAdditionalAccessibleChild( const sal_Int32 nIndex ) ;
-    // #i88070# - get all additional accessible children
   void GetAdditionalAccessibleChildren( std::vector< Window* >* pChildren ) ;
     const OUString& GetName() const { return sName; }
   virtual sal_Bool HasCursor() ;   // required by map to remember that object
@@ -5635,7 +5965,7 @@ public:
     void ClearSelectionCellCache() {}
     void AddSelectionCell(const SwAccessibleContext* ,sal_Bool bAddOrRemove) {}
 };
-// #i77106# - subclass to represent table column headers
+
 class SwAccessibleTableColHeaders : public SwAccessibleTable
 {
 protected:
@@ -5869,7 +6199,7 @@ public:
                              sal_Int16 nInitRole,
                              const SwFlyFrm *pFlyFrm );
     // XAccessibleContext
-    // #i73249# - Return the object's current name.
+
     virtual OUString SAL_CALL
         getAccessibleName (void)
         throw (::com::sun::star::uno::RuntimeException);
@@ -6056,7 +6386,7 @@ class SwAccessiblePortionData : public SwPortionHandler
     typedef std::vector<sal_uInt8> PortionAttrs_t;
     PortionAttrs_t aPortionAttrs;   /// additional portion attributes
     Positions_t* pSentences;    /// positions of sentence breaks
-    size_t nBeforePortions;     /// # of portions before first model character
+    size_t nBeforePortions;     /// no of portions before first model character
     sal_Bool bLastIsSpecial;    /// set if last portion was 'Special()'
     /// returns the index of the first position whose value is smaller
     /// or equal, and whose following value is equal or larger
@@ -6187,7 +6517,6 @@ class SwAccessibleParagraph :
     // -1 if there is no selection in the this paragraph
     sal_Bool GetSelection(sal_Int32& nStart, sal_Int32& nEnd) {}
     // helper for GetSelection and getCaretPosition
-    // #i27301# - add parameter <_bForSelection>, which indicates,
     // if the cursor is retrieved for selection or for caret position.
     SwPaM* GetCursor( const bool _bForSelection ) {}
     // for cut/copy/paste: execute a particular slot at the view shell
@@ -6308,7 +6637,6 @@ public:
     virtual ::com::sun::star::lang::Locale SAL_CALL
         getLocale (void)
         throw (::com::sun::star::accessibility::IllegalAccessibleComponentStateException, ::com::sun::star::uno::RuntimeException) {}
-    // #i27138# - paragraphs are in relation CONTENT_FLOWS_FROM and/or CONTENT_FLOWS_TO
     virtual ::com::sun::star::uno::Reference<
             ::com::sun::star::accessibility::XAccessibleRelationSet> SAL_CALL
         getAccessibleRelationSet (void)
@@ -6526,7 +6854,6 @@ class SwAccessibleHyperTextData;
 class SwAccessibleNoTextHyperlink;
 class SwAccessibleHyperlink {};
 
-
 class SwAccessibleChildMapKey {};
 class SwAccessibleEmbeddedObject : public   SwAccessibleNoTextFrame{};
 class SwAccessibleFootnote : public SwAccessibleContext{};
@@ -6534,6 +6861,7 @@ class SwAccessibleGraphic : public  SwAccessibleNoTextFrame{};
 class SwAccessiblePage : public SwAccessibleContext {};
 class SwAccessiblePreview : public  SwAccessibleDocumentBase {};
 class SwAccessibleTextFrame : public SwAccessibleFrameBase {};
+
 namespace com { namespace sun { namespace star { namespace accessibility {
 struct AccessibleTableModelChange {
   inline AccessibleTableModelChange() ;
@@ -6546,3 +6874,1935 @@ struct AccessibleTableModelChange {
 };
         //inline ::com::sun::star::uno::Type const & cppu_detail_getUnoType(SAL_UNUSED_PARAMETER ::com::sun::star::accessibility::AccessibleTableModelChange const *);
 } } } }
+
+
+class SwAttrPool;
+class SwPageDescs{};
+/*fwd*/class DocumentSettingId; 
+/*dcl*/class DocumentSettingId {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7143:13: error: 'SwFldUpdateFlags' does not name a type
+
+
+/*fwd*/class SwFldUpdateFlags; 
+/*dcl*/class SwFldUpdateFlags {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7145:13: error: 'SwCharCompressType' does not name a type
+
+
+/*fwd*/class SwCharCompressType; 
+/*dcl*/class SwCharCompressType {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7157:19: error: 'JobSetup' does not name a type
+
+
+/*fwd*/class JobSetup; 
+/*dcl*/class JobSetup {}; 
+
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7158:47: error: ISO C++ forbids declaration of 'rJobSetup' with no type [-fpermissive]
+
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7163:13: error: 'RedlineMode_t' does not name a type
+
+
+/*fwd*/class RedlineMode_t; 
+/*dcl*/class RedlineMode_t {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7169:19: error: 'SwRedlineTbl' does not name a type
+
+
+/*fwd*/class SwRedlineTbl; 
+/*dcl*/class SwRedlineTbl {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7195:13: error: 'sfx2' does not name a type
+
+
+/*fwd*/namespace sfx2 {
+         
+}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7598:13: error: 'LinkManager' in namespace 'sfx2' does not name a type
+namespace sfx2{
+/*fwd*/class LinkManager; 
+/*dcl*/class LinkManager {}; 
+}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7603:13: error: 'SvLinkSource' in namespace 'sfx2' does not name a type
+namespace sfx2{
+/*fwd*/class SvLinkSource; 
+/*dcl*/class SvLinkSource {}; 
+}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8258:33: error: 'SvxBorderLine' in 'class editeng' does not name a type
+
+namespace editeng { 
+/*dcl*/class SvxBorderLine {};}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8327:5: error: 'IXmlIdRegistry' in namespace 'sfx2' does not name a type
+namespace sfx2{
+/*fwd*/class IXmlIdRegistry; 
+/*dcl*/class IXmlIdRegistry {}; 
+}
+
+
+/*fwd*/class SwFldTypes; 
+/*dcl*/class SwFldTypes {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7205:13: error: 'SwFieldType' does not name a type
+
+
+/*fwd*/class SwFieldType; 
+/*dcl*/class SwFieldType {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7212:28: error: 'SwTxtFld' has not been declared
+
+
+/*fwd*/class SwTxtFld; 
+/*dcl*/class SwTxtFld {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7212:70: error: 'SwMsgPoolItem' has not been declared
+
+
+/*fwd*/class SwMsgPoolItem; 
+/*dcl*/class SwMsgPoolItem {}; 
+
+/*fwd*/class SwDocUpdtFld; 
+/*dcl*/class SwDocUpdtFld {}; 
+
+/*fwd*/class DateTime; 
+/*dcl*/class DateTime {}; 
+
+/*fwd*/class SwCalc; 
+/*dcl*/class SwCalc {}; 
+/*fwd*/class _SetGetExpFld; 
+/*dcl*/class _SetGetExpFld {}; 
+/*fwd*/class SwHash; 
+/*dcl*/class SwHash {}; 
+/*fwd*/class SwFlyFrmFmt; 
+/*dcl*/class SwFlyFrmFmt {}; 
+/*fwd*/class SwDrawFrmFmt; 
+/*dcl*/class SwDrawFrmFmt {}; 
+/*fwd*/class SetAttrMode; 
+/*dcl*/class SetAttrMode {}; 
+namespace utl{
+/*fwd*/class TransliterationWrapper; 
+/*dcl*/class TransliterationWrapper {}; 
+}
+/*fwd*/class SwFmt; 
+/*dcl*/class SwFmt {}; 
+/*fwd*/class SwCharFmt; 
+/*dcl*/class SwCharFmt {}; 
+/*fwd*/class SwNumRule; 
+/*dcl*/class SwNumRule {}; 
+/*fwd*/class SwLineNumberInfo; 
+/*dcl*/class SwLineNumberInfo {}; 
+/*fwd*/class SwDocStat; 
+/*dcl*/class SwDocStat {}; 
+/*fwd*/class SdrPageView; 
+/*dcl*/class SdrPageView {}; 
+
+/*fwd*/class SwLayouter; 
+/*dcl*/class SwLayouter {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7330:13: error: 'SwChartDataProvider' does not name a type
+
+
+/*fwd*/class SwChartDataProvider; 
+/*dcl*/class SwChartDataProvider {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7331:58: error: 'SwTable' does not name a type
+
+
+/*fwd*/class SwTable; 
+/*dcl*/class SwTable {}; 
+
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7331:67: error: ISO C++ forbids declaration of 'pTable' with no type [-fpermissive]
+
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7332:13: error: 'SwChartLockController_Helper' does not name a type
+
+
+/*fwd*/class SwChartLockController_Helper; 
+/*dcl*/class SwChartLockController_Helper {}; 
+
+/*fwd*/class SwNodeNum; 
+/*dcl*/class SwNodeNum {}; 
+
+/*fwd*/class SwList; 
+/*dcl*/class SwList {}; 
+
+namespace sw{
+/*fwd*/class tExternalDataType; 
+/*dcl*/class tExternalDataType {}; 
+}
+
+namespace sw{
+/*fwd*/class tExternalDataPointer; 
+/*dcl*/class tExternalDataPointer {}; 
+}
+/*fwd*/class EditFieldInfo; 
+/*dcl*/class EditFieldInfo {}; 
+
+/*fwd*/class SwPosFlyFrms; 
+/*dcl*/class SwPosFlyFrms {}; 
+
+/*fwd*/class SwFtnInfo; 
+/*dcl*/class SwFtnInfo {}; 
+
+/*fwd*/class SwEndNoteInfo; 
+/*dcl*/class SwEndNoteInfo {}; 
+
+/*fwd*/class SwFtnIdxs; 
+/*dcl*/class SwFtnIdxs {}; 
+
+
+/*fwd*/class SwConversionArgs; 
+/*dcl*/class SwConversionArgs {}; 
+
+/*fwd*/class SwAuthEntry; 
+/*dcl*/class SwAuthEntry {}; 
+
+/*fwd*/class SwNewDBMgr; 
+/*dcl*/class SwNewDBMgr {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7444:27: error: 'SwDBData' does not name a type
+
+
+/*fwd*/class SwDBData; 
+/*dcl*/class SwDBData {}; 
+
+/*fwd*/class SwFrmFmts; 
+/*dcl*/class SwFrmFmts {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7471:11: error: 'SwCharFmts' does not name a type
+
+
+/*fwd*/class SwCharFmts; 
+/*dcl*/class SwCharFmts {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7497:11: error: 'SwTxtFmtColls' does not name a type
+
+
+/*fwd*/class SwTxtFmtColls; 
+/*dcl*/class SwTxtFmtColls {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7502:5: error: 'SwConditionTxtFmtColl' does not name a type
+
+
+/*fwd*/class SwConditionTxtFmtColl; 
+/*dcl*/class SwConditionTxtFmtColl {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7514:11: error: 'SwGrfFmtColls' does not name a type
+
+
+/*fwd*/class SwGrfFmtColls; 
+/*dcl*/class SwGrfFmtColls {}; 
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7526:29: error: 'FlyCntType' has not been declared
+
+/*fwd*/class SwTextBlocks; 
+/*dcl*/class SwTextBlocks {}; 
+
+/*fwd*/class SwRenderData; 
+/*dcl*/class SwRenderData {}; 
+/*fwd*/class SwPrintUIOptions; 
+/*dcl*/class SwPrintUIOptions {}; 
+/*fwd*/class SfxStyleFamily; 
+/*dcl*/class SfxStyleFamily {}; 
+/*fwd*/class SwTOXMarks; 
+/*dcl*/class SwTOXMarks {}; 
+/*fwd*/class SwTOXMark; 
+/*dcl*/class SwTOXMark {}; 
+
+/*fwd*/class SwTOXBaseSection; 
+/*dcl*/class SwTOXBaseSection {}; 
+
+/*fwd*/class SwTOXType; 
+/*dcl*/class SwTOXType {}; 
+
+/*fwd*/class TOXTypes; 
+/*dcl*/class TOXTypes {}; 
+
+
+/*fwd*/class SwTOXTypes; 
+/*dcl*/class SwTOXTypes {}; 
+
+/*fwd*/class SwTOIKeyType; 
+/*dcl*/class SwTOIKeyType {}; 
+
+
+/*fwd*/class SwSortOptions; 
+/*dcl*/class SwSortOptions {}; 
+
+/*fwd*/class SwNumRuleTbl; 
+/*dcl*/class SwNumRuleTbl {}; 
+
+/*fwd*/class eDefaultNumberFormatPositionAndSpaceMode; 
+/*dcl*/class eDefaultNumberFormatPositionAndSpaceMode {}; 
+
+/*fwd*/class SwTabCols; 
+/*dcl*/class SwTabCols {}; 
+
+/*fwd*/class SwTableAutoFmt; 
+/*dcl*/class SwTableAutoFmt {}; 
+
+/*fwd*/class SwTwips; 
+/*dcl*/class SwTwips {}; 
+
+/*fwd*/class SwFmtRefMark; 
+/*dcl*/class SwFmtRefMark {}; 
+
+
+/*fwd*/class SwEditShell; 
+/*dcl*/class SwEditShell {}; 
+
+namespace sw{
+/*fwd*/class IShellCursorSupplier; 
+/*dcl*/class IShellCursorSupplier {}; 
+}
+/*fwd*/class SwSectionFmts; 
+/*dcl*/class SwSectionFmts {}; 
+/*fwd*/class SfxObjectShellLock; 
+/*dcl*/class SfxObjectShellLock {}; 
+
+/*fwd*/class SfxObjectShell; 
+/*dcl*/class SfxObjectShell {}; 
+
+/*fwd*/class SwDrawView; 
+/*dcl*/class SwDrawView {}; 
+
+/*fwd*/class Outliner; 
+/*dcl*/class Outliner {}; 
+/*fwd*/class SwAutoCorrExceptWord; 
+/*dcl*/class SwAutoCorrExceptWord {}; 
+/*fwd*/class SvxMacro; 
+/*dcl*/class SvxMacro {}; 
+
+/*fwd*/class SbxArray; 
+/*dcl*/class SbxArray {}; 
+/*fwd*/class SwCallMouseEvent; 
+/*dcl*/class SwCallMouseEvent {}; 
+
+/*fwd*/class SvNumberFormatter; 
+/*dcl*/class SvNumberFormatter {}; 
+/*fwd*/class SwPagePreviewPrtData; 
+/*dcl*/class SwPagePreviewPrtData {}; 
+
+/*fwd*/class SwUnoCrsrTbl; 
+/*dcl*/class SwUnoCrsrTbl {}; 
+
+/*fwd*/class SwUnoCrsr; 
+/*dcl*/class SwUnoCrsr {}; 
+/*fwd*/class RndStdIds; 
+/*dcl*/class RndStdIds {}; 
+
+/*fwd*/class SwExtTextInput; 
+/*dcl*/class SwExtTextInput {}; 
+
+/*fwd*/class SwAutoCompleteWord; 
+/*dcl*/class SwAutoCompleteWord {}; 
+
+/*fwd*/class SwRubyList; 
+/*dcl*/class SwRubyList {}; 
+
+/*fwd*/class SwLayoutCache; 
+/*dcl*/class SwLayoutCache {}; 
+
+/*fwd*/class IGrammarContact; 
+/*dcl*/class IGrammarContact {}; 
+
+namespace com{namespace sun{namespace star{namespace container{
+/*fwd*/class XNameContainer; 
+/*dcl*/class XNameContainer {}; 
+}}}}
+
+
+namespace sw{
+/*fwd*/class MetaFieldManager; 
+/*dcl*/class MetaFieldManager {}; 
+}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7926:5: error: 'UndoManager' in namespace 'sw' does not name a type
+
+namespace sw{
+/*fwd*/class UndoManager; 
+/*dcl*/class UndoManager {}; 
+}
+
+
+namespace boost{
+/*fwd*/class is_null; 
+/*dcl*/class is_null {}; 
+}
+
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7789:29: error: 'XSpellChecker1' is not a member of 'com::sun::star::linguistic2'
+namespace com{namespace sun{namespace star{namespace linguistic2{
+/*fwd*/class XSpellChecker1; 
+/*dcl*/class XSpellChecker1 {}; 
+}}}}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7793:9: error: 'XHyphenatedWord' is not a member of 'com::sun::star::linguistic2'
+namespace com{namespace sun{namespace star{namespace linguistic2{
+/*fwd*/class XHyphenatedWord; 
+/*dcl*/class XHyphenatedWord {}; 
+}}}}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7953:33: error: 'SwTOXSearch' has not been declared
+/*fwd*/class SwTOXSearch; 
+/*dcl*/class SwTOXSearch {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8054:39: error: 'SwInsertTableOptions' does not name a type
+/*fwd*/class SwInsertTableOptions; 
+/*dcl*/class SwInsertTableOptions {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8128:37: error: 'SwLabelType' does not name a type
+/*fwd*/class SwLabelType; 
+/*dcl*/class SwLabelType {}; 
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8161:39: error: 'XStorage' is not a member of 'com::sun::star::embed'
+namespace com{namespace sun{namespace star{namespace embed{
+/*fwd*/class XStorage; 
+/*dcl*/class XStorage {}; 
+}}}}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8269:37: error: 'XProofreadingIterator' is not a member of 'com::sun::star::linguistic2'
+namespace com{namespace sun{namespace star{namespace linguistic2{
+/*fwd*/class XProofreadingIterator; 
+/*dcl*/class XProofreadingIterator {}; 
+}}}}
+
+
+namespace com{namespace sun{namespace star{namespace i18n{
+/*fwd*/class ForbiddenCharacters; 
+/*dcl*/class ForbiddenCharacters {}; 
+}}}}
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8048:15: error: 'SvxNumPositionAndSpaceMode' in namespace 'SvxNumberFormat' does not name a type
+// in line /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:8315:37: error: 'XVBAEventProcessor' is not a member of 'com::sun::star::script::vba'
+namespace com{namespace sun{namespace star{namespace script{namespace vba{
+/*fwd*/class XVBAEventProcessor; 
+/*dcl*/class XVBAEventProcessor {}; 
+}}}}}
+
+/*fwd*/class SvxForbiddenCharactersTable; 
+/*dcl*/class SvxForbiddenCharactersTable {}; 
+
+enum FlyCntType
+{
+     FLYCNTTYPE_ALL = 0,
+     FLYCNTTYPE_FRM,
+     FLYCNTTYPE_GRF,
+     FLYCNTTYPE_OLE
+
+};
+
+namespace com{namespace sun{ namespace star{
+    namespace text{
+        class XNumberingFormatter;
+    }
+}}}
+
+namespace com { namespace sun { namespace star { namespace style { namespace NumberingType {
+
+          enum _X_ { 
+            AIU_FULLWIDTH_JA = (sal_Int16)21,
+            AIU_HALFWIDTH_JA = (sal_Int16)22,
+            ARABIC = (sal_Int16)4,
+            BITMAP = (sal_Int16)8,
+            CHARS_ARABIC = (sal_Int16)31,
+            CHARS_ARABIC_ABJAD = (sal_Int16)54,
+            CHARS_CYRILLIC_LOWER_LETTER_BG = (sal_Int16)39,
+            CHARS_CYRILLIC_LOWER_LETTER_N_BG = (sal_Int16)41,
+            CHARS_CYRILLIC_LOWER_LETTER_N_RU = (sal_Int16)45,
+            CHARS_CYRILLIC_LOWER_LETTER_N_SR = (sal_Int16)51,
+            CHARS_CYRILLIC_LOWER_LETTER_RU = (sal_Int16)43,
+            CHARS_CYRILLIC_LOWER_LETTER_SR = (sal_Int16)49,
+            CHARS_CYRILLIC_UPPER_LETTER_BG = (sal_Int16)38,
+            CHARS_CYRILLIC_UPPER_LETTER_N_BG = (sal_Int16)40,
+            CHARS_CYRILLIC_UPPER_LETTER_N_RU = (sal_Int16)44,
+            CHARS_CYRILLIC_UPPER_LETTER_N_SR = (sal_Int16)50,
+            CHARS_CYRILLIC_UPPER_LETTER_RU = (sal_Int16)42,
+            CHARS_CYRILLIC_UPPER_LETTER_SR = (sal_Int16)48,
+            CHARS_GREEK_LOWER_LETTER = (sal_Int16)53,
+            CHARS_GREEK_UPPER_LETTER = (sal_Int16)52,
+            CHARS_HEBREW = (sal_Int16)33,
+            CHARS_KHMER = (sal_Int16)35,
+            CHARS_LAO = (sal_Int16)36,
+            CHARS_LOWER_LETTER = (sal_Int16)1,
+            CHARS_LOWER_LETTER_N = (sal_Int16)10,
+            CHARS_MYANMAR = (sal_Int16)47,
+            CHARS_NEPALI = (sal_Int16)34,
+            CHARS_PERSIAN = (sal_Int16)46,
+            CHARS_PERSIAN_WORD = (sal_Int16)55,
+            CHARS_THAI = (sal_Int16)32,
+            CHARS_TIBETAN = (sal_Int16)37,
+            CHARS_UPPER_LETTER = (sal_Int16)0,
+            CHARS_UPPER_LETTER_N = (sal_Int16)9,
+            CHAR_SPECIAL = (sal_Int16)6,
+            CIRCLE_NUMBER = (sal_Int16)14,
+            DI_ZI_ZH = (sal_Int16)19,
+            FULLWIDTH_ARABIC = (sal_Int16)13,
+            HANGUL_CIRCLED_JAMO_KO = (sal_Int16)29,
+            HANGUL_CIRCLED_SYLLABLE_KO = (sal_Int16)30,
+            HANGUL_JAMO_KO = (sal_Int16)27,
+            HANGUL_SYLLABLE_KO = (sal_Int16)28,
+            IROHA_FULLWIDTH_JA = (sal_Int16)23,
+            IROHA_HALFWIDTH_JA = (sal_Int16)24,
+            NATIVE_NUMBERING = (sal_Int16)12,
+            NUMBER_HANGUL_KO = (sal_Int16)26,
+            NUMBER_LOWER_ZH = (sal_Int16)15,
+            NUMBER_NONE = (sal_Int16)5,
+            NUMBER_TRADITIONAL_JA = (sal_Int16)20,
+            NUMBER_UPPER_KO = (sal_Int16)25,
+            NUMBER_UPPER_ZH = (sal_Int16)16,
+            NUMBER_UPPER_ZH_TW = (sal_Int16)17,
+            PAGE_DESCRIPTOR = (sal_Int16)7,
+            ROMAN_LOWER = (sal_Int16)3,
+            ROMAN_UPPER = (sal_Int16)2,
+            TIAN_GAN_ZH = (sal_Int16)18,
+            TRANSLITERATION = (sal_Int16)11,
+
+          };
+        }}}}}
+
+
+class SvxNumberType
+{
+    static sal_Int32 nRefCount;
+  static com::sun::star::uno::Reference<com::sun::star::text::XNumberingFormatter> xFormatter;
+
+    sal_Int16 nNumType;
+    sal_Bool bShowSymbol;
+
+public:
+    explicit SvxNumberType(sal_Int16 nType = com::sun::star::style::NumberingType::ARABIC);
+    SvxNumberType(const SvxNumberType& rType);
+    ~SvxNumberType();
+
+    OUString GetNumStr( sal_uLong nNo ) const;
+    OUString GetNumStr( sal_uLong nNo, const com::sun::star::lang::Locale& rLocale ) const;
+
+    void SetNumberingType(sal_Int16 nSet) {nNumType = nSet;}
+    sal_Int16 GetNumberingType() const {return nNumType;}
+
+    void SetShowSymbol(sal_Bool bSet) {bShowSymbol = bSet;}
+    sal_Bool IsShowSymbol()const{return bShowSymbol;}
+
+    sal_Bool IsTxtFmt() const
+                    {
+                        return com::sun::star::style::NumberingType::NUMBER_NONE != nNumType &&
+                               com::sun::star::style::NumberingType::CHAR_SPECIAL != nNumType &&
+                               com::sun::star::style::NumberingType::BITMAP != nNumType;
+                    }
+};
+
+enum SvxCaseMap
+{
+    SVX_CASEMAP_NOT_MAPPED,
+    SVX_CASEMAP_VERSALIEN,
+    SVX_CASEMAP_GEMEINE,
+    SVX_CASEMAP_TITEL,
+    SVX_CASEMAP_KAPITAELCHEN,
+    SVX_CASEMAP_END
+};
+
+enum SvxEscapement
+{
+    SVX_ESCAPEMENT_OFF,
+    SVX_ESCAPEMENT_SUPERSCRIPT,
+    SVX_ESCAPEMENT_SUBSCRIPT,
+    SVX_ESCAPEMENT_END
+};
+
+enum SvxShadowLocation
+{
+    SVX_SHADOW_NONE,
+    SVX_SHADOW_TOPLEFT,
+    SVX_SHADOW_TOPRIGHT,
+    SVX_SHADOW_BOTTOMLEFT,
+    SVX_SHADOW_BOTTOMRIGHT,
+    SVX_SHADOW_END
+};
+
+enum SvxTabAdjust
+{
+    SVX_TAB_ADJUST_LEFT = 0,
+    SVX_TAB_ADJUST_RIGHT,
+    SVX_TAB_ADJUST_DECIMAL,
+    SVX_TAB_ADJUST_CENTER,
+    SVX_TAB_ADJUST_DEFAULT,
+    SVX_TAB_ADJUST_END
+};
+
+enum SvxLineSpace
+{
+    SVX_LINE_SPACE_AUTO,
+    SVX_LINE_SPACE_FIX,
+    SVX_LINE_SPACE_MIN,
+    SVX_LINE_SPACE_END
+};
+
+enum SvxInterLineSpace
+{
+    SVX_INTER_LINE_SPACE_OFF,
+    SVX_INTER_LINE_SPACE_PROP,
+    SVX_INTER_LINE_SPACE_FIX,
+    SVX_INTER_LINE_SPACE_END
+};
+
+enum SvxAdjust
+{
+    SVX_ADJUST_LEFT,
+    SVX_ADJUST_RIGHT,
+    SVX_ADJUST_BLOCK,
+    SVX_ADJUST_CENTER,
+    SVX_ADJUST_BLOCKLINE,
+    SVX_ADJUST_END
+};
+
+enum SvxSpecialLineSpace
+{
+    SVX_LINESPACE_USER,
+    SVX_LINESPACE_ONE_LINE,
+    SVX_LINESPACE_ONE_POINT_FIVE_LINES,
+    SVX_LINESPACE_TWO_LINES,
+    SVX_LINESPACE_END
+};
+
+enum SvxBreak
+{
+    SVX_BREAK_NONE,
+    SVX_BREAK_COLUMN_BEFORE,
+    SVX_BREAK_COLUMN_AFTER,
+    SVX_BREAK_COLUMN_BOTH,
+    SVX_BREAK_PAGE_BEFORE,
+    SVX_BREAK_PAGE_AFTER,
+    SVX_BREAK_PAGE_BOTH,
+    SVX_BREAK_END
+};
+
+enum SvxCellHorJustify
+{
+    SVX_HOR_JUSTIFY_STANDARD,
+    SVX_HOR_JUSTIFY_LEFT,
+    SVX_HOR_JUSTIFY_CENTER,
+    SVX_HOR_JUSTIFY_RIGHT,
+    SVX_HOR_JUSTIFY_BLOCK,
+    SVX_HOR_JUSTIFY_REPEAT
+};
+
+enum SvxCellJustifyMethod
+{
+    SVX_JUSTIFY_METHOD_AUTO,
+    SVX_JUSTIFY_METHOD_DISTRIBUTE
+};
+
+enum SvxCellVerJustify
+{
+    SVX_VER_JUSTIFY_STANDARD,
+    SVX_VER_JUSTIFY_TOP,
+    SVX_VER_JUSTIFY_CENTER,
+    SVX_VER_JUSTIFY_BOTTOM,
+    SVX_VER_JUSTIFY_BLOCK
+};
+
+enum SvxCellOrientation
+{
+    SVX_ORIENTATION_STANDARD,
+    SVX_ORIENTATION_TOPBOTTOM,
+    SVX_ORIENTATION_BOTTOMTOP,
+    SVX_ORIENTATION_STACKED
+};
+
+enum SvxDrawToolEnum
+{
+    SVX_SNAP_DRAW_SELECT,
+
+    SVX_SNAP_DRAW_LINE,
+    SVX_SNAP_DRAW_RECT,
+    SVX_SNAP_DRAW_ELLIPSE,
+    SVX_SNAP_DRAW_POLYGON_NOFILL,
+    SVX_SNAP_DRAW_BEZIER_NOFILL,
+    SVX_SNAP_DRAW_FREELINE_NOFILL,
+    SVX_SNAP_DRAW_ARC,
+    SVX_SNAP_DRAW_PIE,
+    SVX_SNAP_DRAW_CIRCLECUT,
+    SVX_SNAP_DRAW_TEXT,
+    SVX_SNAP_DRAW_TEXT_VERTICAL,
+    SVX_SNAP_DRAW_TEXT_MARQUEE,
+    SVX_SNAP_DRAW_CAPTION,
+    SVX_SNAP_DRAW_CAPTION_VERTICAL
+};
+
+enum SvxDrawAlignEnum
+{
+    SVX_OBJECT_ALIGN_LEFT,
+    SVX_OBJECT_ALIGN_CENTER,
+    SVX_OBJECT_ALIGN_RIGHT,
+    SVX_OBJECT_ALIGN_UP,
+    SVX_OBJECT_ALIGN_MIDDLE,
+    SVX_OBJECT_ALIGN_DOWN
+};
+
+enum SvxDrawBezierEnum
+{
+    SVX_BEZIER_MOVE,
+    SVX_BEZIER_INSERT,
+    SVX_BEZIER_DELETE,
+    SVX_BEZIER_CUTLINE,
+    SVX_BEZIER_CONVERT,
+    SVX_BEZIER_EDGE,
+    SVX_BEZIER_SMOOTH,
+    SVX_BEZIER_SYMMTR,
+    SVX_BEZIER_CLOSE,
+    SVX_BEZIER_ELIMINATE_POINTS
+};
+
+enum SvxSpellArea
+{
+    SVX_SPELL_BODY = 0,
+    SVX_SPELL_BODY_END,
+    SVX_SPELL_BODY_START,
+    SVX_SPELL_OTHER
+};
+
+enum SvxFrameAnchor
+{
+    SVX_FLY_AT_CNTNT,
+    SVX_FLY_IN_CNTNT,
+    SVX_FLY_PAGE
+};
+
+enum SvxExtNumType
+{
+    SVX_NUM_CHARS_UPPER_LETTER,
+    SVX_NUM_CHARS_LOWER_LETTER,
+    SVX_NUM_ROMAN_UPPER,
+    SVX_NUM_ROMAN_LOWER,
+    SVX_NUM_ARABIC,
+    SVX_NUM_NUMBER_NONE,
+    SVX_NUM_CHAR_SPECIAL,
+    SVX_NUM_PAGEDESC,
+    SVX_NUM_BITMAP,
+    SVX_NUM_CHARS_UPPER_LETTER_N,
+    SVX_NUM_CHARS_LOWER_LETTER_N,
+    SVX_NUM_TRANSLITERATION,
+    SVX_NUM_NATIVE_NUMBERING,
+    SVX_NUM_FULL_WIDTH_ARABIC,
+    SVX_NUM_CIRCLE_NUMBER,
+    SVX_NUM_NUMBER_LOWER_ZH,
+    SVX_NUM_NUMBER_UPPER_ZH,
+    SVX_NUM_NUMBER_UPPER_ZH_TW,
+    SVX_NUM_TIAN_GAN_ZH,
+    SVX_NUM_DI_ZI_ZH,
+    SVX_NUM_NUMBER_TRADITIONAL_JA,
+    SVX_NUM_AIU_FULLWIDTH_JA,
+    SVX_NUM_AIU_HALFWIDTH_JA,
+    SVX_NUM_IROHA_FULLWIDTH_JA,
+    SVX_NUM_IROHA_HALFWIDTH_JA
+};
+
+enum SvxCompareMode
+{
+    SVX_CMP_AUTO = 0,
+    SVX_CMP_BY_WORD,
+    SVX_CMP_BY_CHAR
+};
+
+
+class SvxNumberFormat : public SvxNumberType
+{
+public:
+    enum SvxNumPositionAndSpaceMode
+    {
+        LABEL_WIDTH_AND_POSITION,
+        LABEL_ALIGNMENT
+    };
+    enum LabelFollowedBy
+    {
+        LISTTAB,
+        SPACE,
+        NOTHING
+    };
+
+private:
+    OUString sPrefix;
+    OUString sSuffix;
+
+    SvxAdjust eNumAdjust;
+
+    sal_uInt8 nInclUpperLevels;
+    sal_uInt16 nStart;
+
+    sal_Unicode cBullet;
+    sal_uInt16 nBulletRelSize;
+    Color nBulletColor;
+
+    SvxNumPositionAndSpaceMode mePositionAndSpaceMode;
+
+    short nFirstLineOffset;
+    short nAbsLSpace;
+    short nLSpace;
+    short nCharTextDistance;
+
+
+
+    LabelFollowedBy meLabelFollowedBy;
+
+    long mnListtabPos;
+
+    long mnFirstLineIndent;
+
+    long mnIndentAt;
+
+    SvxBrushItem* pGraphicBrush;
+    sal_Int16 eVertOrient;
+
+    Size aGraphicSize;
+    Font* pBulletFont;
+
+    OUString sCharStyleName;
+
+    static long GraphicArrived( SvxNumberFormat*, void * );
+    virtual void NotifyGraphicArrived();
+public:
+    explicit SvxNumberFormat( sal_Int16 nNumberingType,
+                     SvxNumPositionAndSpaceMode ePositionAndSpaceMode = LABEL_WIDTH_AND_POSITION );
+    SvxNumberFormat(const SvxNumberFormat& rFormat);
+    SvxNumberFormat( SvStream & rStream );
+
+    virtual ~SvxNumberFormat();
+
+    SvStream& Store(SvStream &rStream, FontToSubsFontConverter pConverter);
+    SvxNumberFormat* Create(SvStream& rStream );
+
+    SvxNumberFormat& operator=( const SvxNumberFormat& );
+    sal_Bool operator==( const SvxNumberFormat& ) const;
+    sal_Bool operator!=( const SvxNumberFormat& rFmt) const {return !(*this == rFmt);}
+
+    void SetNumAdjust(SvxAdjust eSet) {eNumAdjust = eSet;}
+    SvxAdjust GetNumAdjust() const {return eNumAdjust;}
+    void SetPrefix(const OUString& rSet) { sPrefix = rSet;}
+    const OUString& GetPrefix() const { return sPrefix;}
+    void SetSuffix(const OUString& rSet) { sSuffix = rSet;}
+    const OUString& GetSuffix() const { return sSuffix;}
+
+    void SetCharFmtName(const OUString& rSet){ sCharStyleName = rSet; }
+    virtual OUString GetCharFmtName()const;
+
+    void SetBulletFont(const Font* pFont);
+    const Font* GetBulletFont() const {return pBulletFont;}
+    void SetBulletChar(sal_Unicode cSet){cBullet = cSet;}
+    sal_Unicode GetBulletChar()const {return cBullet;}
+    void SetBulletRelSize(sal_uInt16 nSet) {nBulletRelSize = nSet;}
+    sal_uInt16 GetBulletRelSize() const { return nBulletRelSize;}
+    void SetBulletColor(Color nSet){nBulletColor = nSet;}
+    Color GetBulletColor()const {return nBulletColor;}
+
+    void SetIncludeUpperLevels( sal_uInt8 nSet ) { nInclUpperLevels = nSet;}
+    sal_uInt8 GetIncludeUpperLevels()const { return nInclUpperLevels;}
+    void SetStart(sal_uInt16 nSet) {nStart = nSet;}
+    sal_uInt16 GetStart() const {return nStart;}
+
+    virtual void SetGraphicBrush( const SvxBrushItem* pBrushItem, const Size* pSize = 0, const sal_Int16* pOrient = 0);
+    const SvxBrushItem* GetBrush() const {return pGraphicBrush;}
+    void SetGraphic( const OUString& rName );
+    virtual void SetVertOrient(sal_Int16 eSet);
+    virtual sal_Int16 GetVertOrient() const;
+    void SetGraphicSize(const Size& rSet) {aGraphicSize = rSet;}
+    const Size& GetGraphicSize() const {return aGraphicSize;}
+
+    SvxNumPositionAndSpaceMode GetPositionAndSpaceMode() const;
+    void SetPositionAndSpaceMode( SvxNumPositionAndSpaceMode ePositionAndSpaceMode );
+
+    void SetLSpace(short nSet) {nLSpace = nSet;}
+    short GetLSpace() const;
+    void SetAbsLSpace(short nSet) {nAbsLSpace = nSet;}
+    short GetAbsLSpace() const;
+    void SetFirstLineOffset(short nSet) { nFirstLineOffset = nSet;}
+    short GetFirstLineOffset() const;
+    void SetCharTextDistance(short nSet) { nCharTextDistance = nSet; }
+    short GetCharTextDistance() const;
+
+    void SetLabelFollowedBy( const LabelFollowedBy eLabelFollowedBy );
+    LabelFollowedBy GetLabelFollowedBy() const;
+    void SetListtabPos( const long nListtabPos );
+    long GetListtabPos() const;
+    void SetFirstLineIndent( const long nFirstLineIndent );
+    long GetFirstLineIndent() const;
+    void SetIndentAt( const long nIndentAt );
+    long GetIndentAt() const;
+
+    static Size GetGraphicSizeMM100(const Graphic* pGraphic);
+    static OUString CreateRomanString( sal_uLong nNo, sal_Bool bUpper );
+};
+
+// ELSE /mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:7797:
+class SwDoc {
+  /*:
+    public IInterface,
+    public IDocumentSettingAccess,
+    public IDocumentDeviceAccess,
+    public IDocumentRedlineAccess,
+    public IDocumentLinksAdministration,
+    public IDocumentFieldsAccess,
+    public IDocumentContentOperations,
+    public IDocumentStylePoolAccess,
+    public IDocumentLineNumberAccess,
+    public IDocumentStatistics,
+    public IDocumentState,
+    public IDocumentDrawModelAccess,
+    public IDocumentLayoutAccess,
+    public IDocumentTimerAccess,
+    public IDocumentChartDataProviderAccess,
+    public IDocumentListItems,
+    public IDocumentOutlineNodes,
+    public IDocumentListsAccess,
+    public IDocumentExternalData
+                                     */
+//    friend void _InitCore();
+//     friend void _FinitCore();
+//   //::boost::scoped_ptr<SwNodes> m_pNodes;
+//     SwAttrPool* mpAttrPool;
+//     SwPageDescs maPageDescs;
+//     Link maOle2Link;    Timer maIdleTimer;
+//     Timer maOLEModifiedTimer;
+//     Timer maStatsUpdateTimer;
+//     SwDBData maDBData;
+//     ::com::sun::star::uno::Sequence <sal_Int8 > maRedlinePasswd;
+//     OUString msTOIAutoMarkURL;
+//     boost::ptr_vector< boost::nullable<OUString> > maPatternNms;
+//     com::sun::star::uno::Reference<com::sun::star::container::XNameContainer>
+//         mxXForms;
+//     mutable com::sun::star::uno::Reference< com::sun::star::linguistic2::XProofreadingIterator > m_xGCIterator;    const ::boost::scoped_ptr< ::sw::mark::MarkManager> mpMarkManager;
+//     const ::boost::scoped_ptr< ::sw::MetaFieldManager > m_pMetaFieldManager;
+//     const ::boost::scoped_ptr< ::sw::UndoManager > m_pUndoManager;
+//     SwFrmFmt *mpDfltFrmFmt;
+//     SwFrmFmt *mpEmptyPageFmt;
+//     SwFrmFmt *mpColumnContFmt;
+//     SwCharFmt *mpDfltCharFmt;
+//     SwTxtFmtColl *mpDfltTxtFmtColl;
+//     SwGrfFmtColl *mpDfltGrfFmtColl;    SwFrmFmts *mpFrmFmtTbl;
+//     SwCharFmts *mpCharFmtTbl;
+//     SwFrmFmts *mpSpzFrmFmtTbl;
+//     SwSectionFmts *mpSectionFmtTbl;
+//     SwFrmFmts *mpTblFrmFmtTbl;
+//     SwTxtFmtColls *mpTxtFmtCollTbl;
+//     SwGrfFmtColls *mpGrfFmtCollTbl;    
+//   SwTOXTypes *mpTOXTypes;
+//     SwDefTOXBase_Impl * mpDefTOXBases;    
+//   SwViewShell *mpCurrentView;
+//     SdrModel *mpDrawModel;    
+//   SwDocUpdtFld *mpUpdtFlds;
+//     SwFldTypes *mpFldTypes;
+//     SwNewDBMgr *mpNewDBMgr;
+//     VirtualDevice *mpVirDev;
+//     SfxPrinter *mpPrt;
+//     SwPrintData *mpPrtData;    
+//   SwDoc *mpGlossaryDoc;    
+//   SwNumRule *mpOutlineRule;
+//     SwFtnInfo *mpFtnInfo;
+//     SwEndNoteInfo *mpEndNoteInfo;
+//     SwLineNumberInfo*mpLineNumberInfo;
+//     SwFtnIdxs *mpFtnIdxs;
+//     SwDocStat *mpDocStat;    SwDocShell *mpDocShell;
+//     SfxObjectShellLock mxTmpDocShell;
+//     sfx2::LinkManager *mpLinkMgr;    
+//   SwAutoCorrExceptWord *mpACEWord;    
+//   SwURLStateChanged *mpURLStateChgd;
+//     SvNumberFormatter *mpNumberFormatter;
+//     mutable SwNumRuleTbl *mpNumRuleTbl;
+//     mutable boost::unordered_map<OUString, SwNumRule *, OUStringHash> maNumRuleMap;
+//     typedef boost::unordered_map<OUString, SwList*, OUStringHash> tHashMapForLists;
+//     tHashMapForLists maLists;
+//     tHashMapForLists maListStyleLists;
+//     SwRedlineTbl *mpRedlineTbl;
+//     OUString *mpAutoFmtRedlnComment;
+//     SwUnoCrsrTbl *mpUnoCrsrTbl;
+//     SwPagePreviewPrtData *mpPgPViewPrtData;
+//     SwPaM *mpExtInputRing;
+//     SwLayouter *mpLayouter;
+//     IStyleAccess *mpStyleAccess;
+//     SwLayoutCache *mpLayoutCache;
+//     SwModify *mpUnoCallBack;
+//     IGrammarContact *mpGrammarContact;
+//     mutable comphelper::ImplementationReference< SwChartDataProvider
+//         , ::com::sun::star::chart2::data::XDataProvider >
+//                                 maChartDataProviderImplRef;
+//     SwChartLockController_Helper *mpChartControllerHelper;
+//     rtl::Reference<SvxForbiddenCharactersTable> mxForbiddenCharsTable;
+//     com::sun::star::uno::Reference< com::sun::star::script::vba::XVBAEventProcessor > mxVbaEvents;
+//     com::sun::star::uno::Reference<com::sun::star::container::XNameContainer> m_xTemplateToProjectCache;
+// public:
+//     struct lessThanNodeNum
+//     {
+//         bool operator()( const SwNodeNum* pNodeNumOne,
+//                          const SwNodeNum* pNodeNumTwo ) const;
+//     };
+//     typedef ::std::set< const SwNodeNum*, lessThanNodeNum > tImplSortedNodeNumList;
+// private:
+//     tImplSortedNodeNumList* mpListItemsList;
+//     ::std::auto_ptr< ::sfx2::IXmlIdRegistry > m_pXmlIdRegistry;
+    sal_uInt16 mnUndoCnt;
+    sal_uInt16 mnUndoSttEnd;
+    sal_uInt16 mnAutoFmtRedlnCommentNo;
+    sal_uInt16 mnLinkUpdMode;
+    SwFldUpdateFlags meFldUpdMode;
+    RedlineMode_t meRedlineMode;
+    SwCharCompressType meChrCmprType;
+    sal_uInt32 mnRsid;
+    sal_uInt32 mnRsidRoot;
+    sal_Int32 mReferenceCount;
+    sal_Int32 mIdleBlockCount;
+    sal_Int8 mnLockExpFld;
+    SdrLayerID mnHeaven;
+    SdrLayerID mnHell;
+    SdrLayerID mnControls;
+    SdrLayerID mnInvisibleHeaven;
+    SdrLayerID mnInvisibleHell;
+    SdrLayerID mnInvisibleControls;
+     bool mbGlossDoc : 1;
+     bool mbModified : 1;
+     bool mbDtor : 1;
+     bool mbPageNums : 1;
+     bool mbLoaded : 1;
+    bool mbUpdateExpFld : 1;
+    bool mbNewDoc : 1;
+    bool mbNewFldLst : 1;
+    bool mbCopyIsMove : 1;
+    bool mbVisibleLinks : 1;
+    bool mbInReading : 1;
+    bool mbInXMLImport : 1;
+    bool mbUpdateTOX : 1;
+    bool mbInLoadAsynchron : 1;
+    bool mbHTMLMode : 1;
+    bool mbInCallModified : 1;
+    bool mbIsGlobalDoc : 1;
+    bool mbGlblDocSaveLinks : 1;
+    bool mbIsLabelDoc : 1;
+    bool mbIsAutoFmtRedline : 1;
+    bool mbOLEPrtNotifyPending : 1;
+    bool mbAllOLENotify : 1;
+    bool mbIsRedlineMove : 1;
+    bool mbInsOnlyTxtGlssry : 1;
+    bool mbContains_MSVBasic : 1;
+    bool mbPurgeOLE : 1;
+    bool mbKernAsianPunctuation : 1;
+    bool mbReadlineChecked : 1;
+    bool mbLinksUpdated : 1;
+    bool mbClipBoard : 1;
+    bool mbColumnSelection : 1;
+    bool mbIsPrepareSelAll : 1;
+    bool mbContainsAtPageObjWithContentAnchor : 1;
+    bool mbParaSpaceMax : 1;
+    bool mbParaSpaceMaxAtPages : 1;
+    bool mbTabCompat : 1;
+    bool mbUseVirtualDevice : 1;
+    bool mbAddFlyOffsets : 1;
+    bool mbAddExternalLeading : 1;
+    bool mbUseHiResolutionVirtualDevice : 1;
+    bool mbOldLineSpacing : 1;
+    bool mbAddParaSpacingToTableCells : 1;
+    bool mbUseFormerObjectPos : 1;
+    bool mbUseFormerTextWrapping : 1;
+    bool mbConsiderWrapOnObjPos : 1;
+    bool mbMathBaselineAlignment : 1;
+    bool mbStylesNoDefault : 1;
+    bool mbFloattableNomargins : 1;
+    bool mEmbedFonts : 1;
+    bool mEmbedSystemFonts : 1;
+    bool mbOldNumbering : 1;
+    bool mbIgnoreFirstLineIndentInNumbering : 1;
+    bool mbDoNotJustifyLinesWithManualBreak : 1;
+    bool mbDoNotResetParaAttrsForNumFont : 1;
+    bool mbTableRowKeep : 1;
+    bool mbIgnoreTabsAndBlanksForLineCalculation : 1;
+    bool mbDoNotCaptureDrawObjsOnPage : 1;
+    bool mbOutlineLevelYieldsOutlineRule : 1;
+    bool mbClipAsCharacterAnchoredWriterFlyFrames : 1;
+    bool mbUnixForceZeroExtLeading : 1;
+    bool mbOldPrinterMetrics : 1;
+    bool mbTabRelativeToIndent : 1;
+    bool mbProtectForm : 1;
+    bool mbInvertBorderSpacing : 1;
+    bool mbCollapseEmptyCellPara : 1;
+    bool mbTabAtLeftIndentForParagraphsInList;
+    bool mbSmallCapsPercentage66;
+    bool mbTabOverflow;
+    bool mbUnbreakableNumberings;
+    bool mbClippedPictures;
+    bool mbBackgroundParaOverDrawings;
+    bool mbTabOverMargin;
+    bool mbSurroundTextWrapSmall;
+    bool mbLastBrowseMode : 1;
+    sal_uInt32 mn32DummyCompatabilityOptions1;
+    sal_uInt32 mn32DummyCompatabilityOptions2;
+    bool mbStartIdleTimer;
+//     static SwAutoCompleteWord *mpACmpltWords;
+//     void checkRedlining(RedlineMode_t& _rReadlineMode);
+//     long AddDrawUndo( SdrUndoAction * ); static long LinkStubAddDrawUndo( void* pThis, void* );
+//     void DrawNotifyUndoHdl();
+//     bool CopyImpl( SwPaM&, SwPosition&, const bool MakeNewFrms ,
+//             const bool bCopyAll, SwPaM *const pCpyRng ) const;
+//     SwFlyFrmFmt* _MakeFlySection( const SwPosition& rAnchPos,
+//                                 const SwCntntNode& rNode, RndStdIds eRequestId,
+//                                 const SfxItemSet* pFlyAttrSet,
+//                                 SwFrmFmt* = 0 );
+//     SwFlyFrmFmt* _InsNoTxtNode( const SwPosition&rPos, SwNoTxtNode*,
+//                                 const SfxItemSet* pFlyAttrSet,
+//                                 const SfxItemSet* pGrfAttrSet,
+//                                 SwFrmFmt* = 0 );
+//     void CopyFlyInFlyImpl( const SwNodeRange& rRg,
+//                             const sal_Int32 nEndContentIndex,
+//                             const SwNodeIndex& rStartIdx,
+//                             const bool bCopyFlyAtFly = false ) const;
+//     sal_Int8 SetFlyFrmAnchor( SwFrmFmt& rFlyFmt, SfxItemSet& rSet, bool bNewFrms );
+//     typedef SwFmt* (SwDoc:: *FNCopyFmt)( const OUString&, SwFmt*, bool, bool );
+//     SwFmt* CopyFmt( const SwFmt& rFmt, const SwFmtsBase& rFmtArr,
+//                         FNCopyFmt fnCopyFmt, const SwFmt& rDfltFmt );
+//     void CopyFmtArr( const SwFmtsBase& rSourceArr, SwFmtsBase& rDestArr,
+//                         FNCopyFmt fnCopyFmt, SwFmt& rDfltFmt );
+//     void CopyPageDescHeaderFooterImpl( bool bCpyHeader,
+//                                 const SwFrmFmt& rSrcFmt, SwFrmFmt& rDestFmt );
+//     SwFmt* FindFmtByName( const SwFmtsBase& rFmtArr, const OUString& rName ) const;
+//     VirtualDevice& CreateVirtualDevice_() const;
+//     SfxPrinter& CreatePrinter_() const;
+//     void PrtDataChanged();
+//     SwDoc( const SwDoc &);
+//     void _InitFieldTypes();
+//     void _MakeFldList( int eMode );
+//     void UpdateDBNumFlds( SwDBNameInfField& rDBFld, SwCalc& rCalc );
+//     void AddUsedDBToList( std::vector<OUString>& rDBNameList,
+//                           const std::vector<OUString>& rUsedDBNames );
+//     void AddUsedDBToList( std::vector<OUString>& rDBNameList, const OUString& rDBName );
+//     bool IsNameInArray( const std::vector<OUString>& rOldNames, const OUString& rName );
+//     void GetAllDBNames( std::vector<OUString>& rAllDBNames );
+//     OUString ReplaceUsedDBs( const std::vector<OUString>& rUsedDBNames,
+//                              const OUString& rNewName, const OUString& rFormula );
+//     std::vector<OUString>& FindUsedDBs( const std::vector<OUString>& rAllDBNames,
+//                                 const OUString& rFormula,
+//                                 std::vector<OUString>& rUsedDBNames );
+//     void InitDrawModel();
+//     void ReleaseDrawModel();
+//     void _CreateNumberFormatter();
+//     sal_Bool _UnProtectTblCells( SwTable& rTbl );
+//     bool SplitDoc( sal_uInt16 eDocType, const OUString& rPath, bool bOutline,
+//                         const SwTxtFmtColl* pSplitColl, int nOutlineLevel = 0 );
+//     void _UpdateCharts( const SwTable& rTbl, SwViewShell& rVSh ) const;
+//     sal_Bool _SelectNextRubyChars( SwPaM& rPam, SwRubyListEntry& rRubyEntry,
+//                                 sal_uInt16 nMode );
+//     long DoIdleJobs( Timer * ); static long LinkStubDoIdleJobs( void* pThis, void* );
+//     void DoUpdateAllCharts();
+//     long DoUpdateModifiedOLE( Timer * ); static long LinkStubDoUpdateModifiedOLE( void* pThis, void* );
+//     SwFmt *_MakeCharFmt(const OUString &, SwFmt *, bool, bool );
+//     SwFmt *_MakeFrmFmt(const OUString &, SwFmt *, bool, bool );
+//     SwFmt *_MakeTxtFmtColl(const OUString &, SwFmt *, bool, bool );
+private:
+  sal_Bool mbReadOnly;
+  OUString msDocAccTitle;
+//     void InitTOXTypes();
+//     void Paste( const SwDoc& );
+//     bool DeleteAndJoinImpl(SwPaM&, const bool);
+//     bool DeleteAndJoinWithRedlineImpl(SwPaM&, const bool unused = false);
+//     bool DeleteRangeImpl(SwPaM&, const bool unused = false);
+//     bool DeleteRangeImplImpl(SwPaM &);
+//     bool ReplaceRangeImpl(SwPaM&, OUString const&, const bool);
+public:
+    SwDoc();
+    ~SwDoc();
+    bool IsInDtor() const {} // { return mbDtor; }
+  SwNodes & GetNodes(){}; //{ return *m_pNodes; }
+  SwNodes const& GetNodes() const {}//{ return *m_pNodes; }
+    virtual sal_Int32 acquire();
+    virtual sal_Int32 release();
+    virtual sal_Int32 getReferenceCount() const;
+    virtual bool get( DocumentSettingId id) const;
+    virtual void set( DocumentSettingId id, bool value);
+    virtual const com::sun::star::i18n::ForbiddenCharacters* getForbiddenCharacters( sal_uInt16 nLang, bool bLocaleData ) const;
+    virtual void setForbiddenCharacters( sal_uInt16 nLang, const com::sun::star::i18n::ForbiddenCharacters& rForbiddenCharacters );
+    virtual rtl::Reference<SvxForbiddenCharactersTable>& getForbiddenCharacterTable();
+    virtual const rtl::Reference<SvxForbiddenCharactersTable>& getForbiddenCharacterTable() const;
+    virtual sal_uInt16 getLinkUpdateMode( bool bGlobalSettings ) const;
+    virtual void setLinkUpdateMode( sal_uInt16 nMode );
+    virtual SwFldUpdateFlags getFieldUpdateFlags( bool bGlobalSettings ) const;
+    virtual void setFieldUpdateFlags( SwFldUpdateFlags eMode );
+    virtual SwCharCompressType getCharacterCompressionType() const;
+    virtual void setCharacterCompressionType( SwCharCompressType nType );
+    virtual sal_uInt32 getRsid() const;
+    virtual void setRsid( sal_uInt32 nVal );
+    virtual sal_uInt32 getRsidRoot() const;
+    virtual void setRsidRoot( sal_uInt32 nVal );
+    virtual SfxPrinter* getPrinter( bool bCreate ) const;
+    virtual void setPrinter( SfxPrinter* pP, bool bDeleteOld, bool bCallPrtDataChanged );
+    virtual VirtualDevice* getVirtualDevice( bool bCreate ) const;
+    virtual void setVirtualDevice( VirtualDevice* pVd, bool bDeleteOld, bool bCallVirDevDataChanged );
+    virtual OutputDevice* getReferenceDevice( bool bCreate ) const;
+    virtual void setReferenceDeviceType( bool bNewVirtual, bool bNewHiRes );
+    virtual const JobSetup* getJobsetup() const;
+    virtual void setJobsetup( const JobSetup& rJobSetup );
+    virtual const SwPrintData & getPrintData() const;
+    virtual void setPrintData( const SwPrintData& rPrtData);
+    IDocumentMarkAccess* getIDocumentMarkAccess();
+    const IDocumentMarkAccess* getIDocumentMarkAccess() const;
+    virtual RedlineMode_t GetRedlineMode() const;
+    virtual void SetRedlineMode_intern( RedlineMode_t eMode);
+    virtual void SetRedlineMode( RedlineMode_t eMode);
+    virtual bool IsRedlineOn() const;
+    virtual bool IsIgnoreRedline() const;
+    virtual bool IsInRedlines(const SwNode& rNode) const;
+    virtual const SwRedlineTbl& GetRedlineTbl() const;
+    virtual bool AppendRedline( SwRedline* pPtr, bool bCallDelete);
+    virtual bool SplitRedline(const SwPaM& rPam);
+    virtual bool DeleteRedline( const SwPaM& rPam, bool bSaveInUndo, sal_uInt16 nDelType);
+    virtual bool DeleteRedline( const SwStartNode& rSection, bool bSaveInUndo, sal_uInt16 nDelType);
+    virtual sal_uInt16 GetRedlinePos( const SwNode& rNode, sal_uInt16 nType) const;
+    virtual void CompressRedlines();
+    virtual const SwRedline* GetRedline( const SwPosition& rPos, sal_uInt16* pFndPos) const;
+    virtual bool IsRedlineMove() const;
+    virtual void SetRedlineMove( bool bFlag);
+    virtual bool AcceptRedline( sal_uInt16 nPos, bool bCallDelete);
+    virtual bool AcceptRedline( const SwPaM& rPam, bool bCallDelete);
+    virtual bool RejectRedline( sal_uInt16 nPos, bool bCallDelete);
+    virtual bool RejectRedline( const SwPaM& rPam, bool bCallDelete);
+    virtual const SwRedline* SelNextRedline( SwPaM& rPam) const;
+    virtual const SwRedline* SelPrevRedline( SwPaM& rPam) const;
+    virtual void UpdateRedlineAttr();
+    virtual sal_uInt16 GetRedlineAuthor();
+    virtual sal_uInt16 InsertRedlineAuthor(const OUString& rAuthor);
+    virtual bool SetRedlineComment( const SwPaM& rPam, const OUString& rComment);
+    virtual const ::com::sun::star::uno::Sequence <sal_Int8>& GetRedlinePassword() const;
+    virtual void SetRedlinePassword( const ::com::sun::star::uno::Sequence <sal_Int8>& rNewPassword);
+    IDocumentUndoRedo & GetIDocumentUndoRedo();
+    IDocumentUndoRedo const& GetIDocumentUndoRedo() const;
+    virtual bool IsVisibleLinks() const;
+    virtual void SetVisibleLinks(bool bFlag);
+    virtual sfx2::LinkManager& GetLinkManager();
+    virtual const sfx2::LinkManager& GetLinkManager() const;
+    virtual void UpdateLinks(bool bUI);
+    virtual bool GetData(const OUString& rItem, const OUString& rMimeType, ::com::sun::star::uno::Any& rValue) const;
+    virtual bool SetData(const OUString& rItem, const OUString& rMimeType, const ::com::sun::star::uno::Any& rValue);
+    virtual ::sfx2::SvLinkSource* CreateLinkSource(const OUString& rItem);
+    virtual bool EmbedAllLinks();
+    virtual void SetLinksUpdated(const bool bNewLinksUpdated);
+    virtual bool LinksUpdated() const;
+    virtual const SwFldTypes *GetFldTypes() const;
+    virtual SwFieldType *InsertFldType(const SwFieldType &);
+    virtual SwFieldType *GetSysFldType( const sal_uInt16 eWhich ) const;
+    virtual SwFieldType* GetFldType(sal_uInt16 nResId, const OUString& rName, bool bDbFieldMatching) const;
+    virtual void RemoveFldType(sal_uInt16 nFld);
+    virtual void UpdateFlds( SfxPoolItem* pNewHt, bool bCloseDB);
+    virtual void InsDeletedFldType(SwFieldType &);
+    virtual bool PutValueToField(const SwPosition & rPos, const com::sun::star::uno::Any& rVal, sal_uInt16 nWhich);
+    virtual bool UpdateFld(SwTxtFld * rDstFmtFld, SwField & rSrcFld, SwMsgPoolItem * pMsgHnt, bool bUpdateTblFlds);
+    virtual void UpdateRefFlds(SfxPoolItem* pHt);
+    virtual void UpdateTblFlds(SfxPoolItem* pHt);
+    virtual void UpdateExpFlds(SwTxtFld* pFld, bool bUpdateRefFlds);
+    virtual void UpdateUsrFlds();
+    virtual void UpdatePageFlds(SfxPoolItem*);
+    virtual void LockExpFlds();
+    virtual void UnlockExpFlds();
+    virtual bool IsExpFldsLocked() const;
+    virtual SwDocUpdtFld& GetUpdtFlds() const;
+    virtual bool SetFieldsDirty(bool b, const SwNode* pChk, sal_uLong nLen);
+    virtual void SetFixFields(bool bOnlyTimeDate, const DateTime* pNewDateTime);
+    virtual void FldsToCalc(SwCalc& rCalc, sal_uLong nLastNd, sal_uInt16 nLastCnt);
+    virtual void FldsToCalc(SwCalc& rCalc, const _SetGetExpFld& rToThisFld);
+    virtual void FldsToExpand(SwHash**& ppTbl, sal_uInt16& rTblSize, const _SetGetExpFld& rToThisFld);
+    virtual bool IsNewFldLst() const;
+    virtual void SetNewFldLst( bool bFlag);
+    virtual void InsDelFldInFldLst(bool bIns, const SwTxtFld& rFld);
+    static SwField* GetFieldAtPos(const SwPosition& rPos);
+    static SwTxtFld* GetTxtFldAtPos(const SwPosition& rPos);
+    bool containsUpdatableFields();
+    virtual bool CopyRange(SwPaM&, SwPosition&, const bool bCopyAll) const;
+    virtual void DeleteSection(SwNode* pNode);
+    virtual bool DeleteRange(SwPaM&);
+    virtual bool DelFullPara(SwPaM&);
+    virtual bool DeleteAndJoin( SwPaM&,
+                                const bool bForceJoinNext = false );
+    virtual bool MoveRange(SwPaM&, SwPosition&, SwMoveFlags);
+    virtual bool MoveNodeRange(SwNodeRange&, SwNodeIndex&, SwMoveFlags);
+    virtual bool MoveAndJoin(SwPaM&, SwPosition&, SwMoveFlags);
+    virtual bool Overwrite(const SwPaM &rRg, const OUString& rStr);
+    virtual bool InsertString(const SwPaM &rRg, const OUString&,
+              const enum InsertFlags nInsertMode = INS_EMPTYEXPAND );
+    virtual bool UpdateParRsid( SwTxtNode *pTxtNode, sal_uInt32 nVal = 0 );
+    virtual bool UpdateRsid( const SwPaM &rRg, sal_uInt16 nLen );
+    virtual SwFlyFrmFmt* Insert(const SwPaM &rRg, const OUString& rGrfName, const OUString& rFltName, const Graphic* pGraphic,
+                        const SfxItemSet* pFlyAttrSet, const SfxItemSet* pGrfAttrSet, SwFrmFmt*);
+    virtual SwFlyFrmFmt* Insert(const SwPaM& rRg, const GraphicObject& rGrfObj, const SfxItemSet* pFlyAttrSet,
+                        const SfxItemSet* pGrfAttrSet, SwFrmFmt*);
+    virtual SwDrawFrmFmt* Insert(const SwPaM &rRg, SdrObject& rDrawObj, const SfxItemSet* pFlyAttrSet, SwFrmFmt*);
+    virtual SwFlyFrmFmt* Insert(const SwPaM &rRg, const svt::EmbeddedObjectRef& xObj, const SfxItemSet* pFlyAttrSet,
+                        const SfxItemSet* pGrfAttrSet, SwFrmFmt*);
+    virtual bool InsertPoolItem(
+        const SwPaM &rRg,
+        const SfxPoolItem&,
+        const SetAttrMode nFlags,
+        const bool bExpandCharToPara=false);
+    virtual bool InsertItemSet (const SwPaM &rRg, const SfxItemSet&,
+                                const SetAttrMode nFlags);
+    virtual void ReRead(SwPaM&, const OUString& rGrfName, const OUString& rFltName, const Graphic* pGraphic, const GraphicObject* pGrfObj);
+    virtual void TransliterateText(const SwPaM& rPaM, utl::TransliterationWrapper&);
+    virtual SwFlyFrmFmt* InsertOLE(const SwPaM &rRg, const OUString& rObjName, sal_Int64 nAspect, const SfxItemSet* pFlyAttrSet,
+                           const SfxItemSet* pGrfAttrSet, SwFrmFmt*);
+    virtual bool SplitNode(const SwPosition &rPos, bool bChkTableStart);
+    virtual bool AppendTxtNode(SwPosition& rPos);
+        virtual void SetModified(SwPaM &rPaM);
+    virtual bool ReplaceRange(SwPaM& rPam, const OUString& rNewStr,
+                              const bool bRegExReplace);
+    virtual void RemoveLeadingWhiteSpace(const SwPosition & rPos );
+    virtual SwTxtFmtColl* GetTxtCollFromPool( sal_uInt16 nId, bool bRegardLanguage = true );
+    virtual SwFmt* GetFmtFromPool( sal_uInt16 nId );
+    virtual SwFrmFmt* GetFrmFmtFromPool( sal_uInt16 nId );
+    virtual SwCharFmt* GetCharFmtFromPool( sal_uInt16 nId );
+    virtual SwPageDesc* GetPageDescFromPool( sal_uInt16 nId, bool bRegardLanguage = true );
+    virtual SwNumRule* GetNumRuleFromPool( sal_uInt16 nId );
+    virtual bool IsPoolTxtCollUsed( sal_uInt16 nId ) const;
+    virtual bool IsPoolFmtUsed( sal_uInt16 nId ) const;
+    virtual bool IsPoolPageDescUsed( sal_uInt16 nId ) const;
+    virtual const SwLineNumberInfo& GetLineNumberInfo() const;
+    virtual void SetLineNumberInfo(const SwLineNumberInfo& rInfo);
+    virtual void DocInfoChgd();
+    virtual const SwDocStat &GetDocStat() const;
+    virtual const SwDocStat &GetUpdatedDocStat(bool bCompleteAsync = false, bool bFields = true);
+    virtual void SetDocStat(const SwDocStat& rStat);
+    virtual void UpdateDocStat(bool bCompleteAsync = false, bool bFields = true);
+    virtual void SetModified();
+    virtual void ResetModified();
+    virtual bool IsModified() const;
+    virtual bool IsLoaded() const;
+    virtual bool IsUpdateExpFld() const;
+    virtual bool IsNewDoc() const;
+    virtual bool IsPageNums() const;
+    virtual void SetPageNums(bool b);
+    virtual void SetNewDoc(bool b);
+    virtual void SetUpdateExpFldStat(bool b);
+    virtual void SetLoaded(bool b);
+    virtual const SdrModel* GetDrawModel() const;
+    virtual SdrModel* GetDrawModel();
+    virtual SdrLayerID GetHeavenId() const;
+    virtual SdrLayerID GetHellId() const;
+    virtual SdrLayerID GetControlsId() const;
+    virtual SdrLayerID GetInvisibleHeavenId() const;
+    virtual SdrLayerID GetInvisibleHellId() const;
+    virtual SdrLayerID GetInvisibleControlsId() const;
+    virtual void NotifyInvisibleLayers( SdrPageView& _rSdrPageView );
+    virtual bool IsVisibleLayerId( const SdrLayerID& _nLayerId ) const;
+    virtual SdrLayerID GetVisibleLayerIdByInvisibleOne( const SdrLayerID& _nInvisibleLayerId );
+    virtual SdrLayerID GetInvisibleLayerIdByVisibleOne( const SdrLayerID& _nVisibleLayerId );
+    virtual SdrModel* _MakeDrawModel();
+    virtual SdrModel* GetOrCreateDrawModel();
+    virtual void SetCurrentViewShell( SwViewShell* pNew );
+    virtual SwLayouter* GetLayouter();
+    virtual const SwLayouter* GetLayouter() const;
+    virtual void SetLayouter( SwLayouter* pNew );
+    virtual SwFrmFmt* MakeLayoutFmt( RndStdIds eRequest, const SfxItemSet* pSet );
+    virtual void DelLayoutFmt( SwFrmFmt *pFmt );
+    virtual SwFrmFmt* CopyLayoutFmt( const SwFrmFmt& rSrc, const SwFmtAnchor& rNewAnchor, bool bSetTxtFlyAtt, bool bMakeFrms );
+    virtual const SwViewShell *GetCurrentViewShell() const;
+    virtual SwViewShell *GetCurrentViewShell();
+    virtual const SwRootFrm *GetCurrentLayout() const;
+    virtual SwRootFrm *GetCurrentLayout();
+    virtual bool HasLayout() const;
+    void ClearSwLayouterEntries();
+    virtual void StartIdling();
+    virtual void StopIdling();
+    virtual void BlockIdling();
+    virtual void UnblockIdling();
+    virtual void StartBackgroundJobs();
+    virtual SwChartDataProvider * GetChartDataProvider( bool bCreate = false ) const;
+    virtual void CreateChartInternalDataProviders( const SwTable *pTable );
+    virtual SwChartLockController_Helper & GetChartControllerHelper();
+    virtual void addListItem( const SwNodeNum& rNodeNum );
+    virtual void removeListItem( const SwNodeNum& rNodeNum );
+    virtual OUString getListItemText( const SwNodeNum& rNodeNum,
+                                    const bool bWithNumber = true,
+                                    const bool bWithSpacesForLevel = false ) const;
+    virtual void getListItems( IDocumentListItems::tSortedNodeNumList& orNodeNumList ) const;
+    virtual void getNumItems( IDocumentListItems::tSortedNodeNumList& orNodeNumList ) const;
+    virtual sal_Int32 getOutlineNodesCount() const;
+    virtual int getOutlineLevel( const sal_Int32 nIdx ) const;
+    virtual OUString getOutlineText( const sal_Int32 nIdx,
+                                   const bool bWithNumber,
+                                   const bool bWithSpacesForLevel,
+                                   const bool bWithFtn ) const;
+    virtual SwTxtNode* getOutlineNode( const sal_Int32 nIdx ) const;
+    virtual void getOutlineNodes( IDocumentOutlineNodes::tSortedOutlineNodeList& orOutlineNodeList ) const;
+    virtual SwList* createList( const OUString& rListId,
+                                const OUString& rDefaultListStyleName );
+    virtual void deleteList( const OUString& rListId );
+    virtual SwList* getListByName( const OUString& rListId ) const;
+    virtual SwList* createListForListStyle( const OUString& rListStyleName );
+    virtual SwList* getListForListStyle( const OUString& rListStyleName ) const;
+    virtual void deleteListForListStyle( const OUString& rListStyleName );
+    virtual void trackChangeOfListStyleName( const OUString& rListStyleName,
+                                             const OUString& rNewListStyleName );
+    virtual void setExternalData(::sw::tExternalDataType eType,
+                                 ::sw::tExternalDataPointer pPayload);
+    virtual ::sw::tExternalDataPointer getExternalData(::sw::tExternalDataType eType);
+    virtual void setDocReadOnly( sal_Bool b) { mbReadOnly = b; }
+    virtual sal_Bool getDocReadOnly() const {} // { return mbReadOnly; }
+    virtual void setDocAccTitle( const OUString& rTitle ) { msDocAccTitle = rTitle; }
+    virtual const OUString getDocAccTitle() const {} // { return msDocAccTitle; }
+    static long BackgroundDone( SwDoc*, SvxBrushItem * );
+    long CalcFieldValueHdl( EditFieldInfo* ); static long LinkStubCalcFieldValueHdl( void* pThis, void* );
+    bool IsOLEPrtNotifyPending() const {} // { return mbOLEPrtNotifyPending; }
+    inline void SetOLEPrtNotifyPending( bool bSet = true );
+    void PrtOLENotify( sal_Bool bAll );
+    void SetSelAll( bool bSel )
+    {
+        mbIsPrepareSelAll = bSel;
+    }
+    bool IsPrepareSelAll() const {} // { return mbIsPrepareSelAll; }
+    void SetPrepareSelAll() { mbIsPrepareSelAll = true; }
+    void SetContainsAtPageObjWithContentAnchor( const bool bFlag )
+    {
+        mbContainsAtPageObjWithContentAnchor = bFlag;
+    }
+    bool DoesContainAtPageObjWithContentAnchor()
+    {
+        return mbContainsAtPageObjWithContentAnchor;
+    }
+    SwPosFlyFrms GetAllFlyFmts( const SwPaM* = 0,
+                        bool bDrawAlso = false,
+                        bool bAsCharAlso = false ) const;
+    SwFlyFrmFmt *MakeFlyFrmFmt (const OUString &rFmtName, SwFrmFmt *pDerivedFrom);
+    SwDrawFrmFmt *MakeDrawFrmFmt(const OUString &rFmtName, SwFrmFmt *pDerivedFrom);
+    SwFlyFrmFmt* MakeFlySection( RndStdIds eAnchorType,
+                                 const SwPosition* pAnchorPos,
+                                 const SfxItemSet* pSet = 0,
+                                 SwFrmFmt *pParent = 0,
+                                 bool bCalledFromShell = false );
+    SwFlyFrmFmt* MakeFlyAndMove( const SwPaM& rPam, const SfxItemSet& rSet,
+                                const SwSelBoxes* pSelBoxes = 0,
+                                SwFrmFmt *pParent = 0 );
+    void CopyWithFlyInFly( const SwNodeRange& rRg,
+                            const sal_Int32 nEndContentIndex,
+                            const SwNodeIndex& rInsPos,
+                            sal_Bool bMakeNewFrms = ((sal_Bool)1),
+                            sal_Bool bDelRedlines = ((sal_Bool)1),
+                            sal_Bool bCopyFlyAtFly = ((sal_Bool)0) ) const;
+    bool SetFlyFrmAttr( SwFrmFmt& rFlyFmt, SfxItemSet& rSet );
+    bool SetFrmFmtToFly( SwFrmFmt& rFlyFmt, SwFrmFmt& rNewFmt,
+                        SfxItemSet* pSet = 0, bool bKeepOrient = false );
+    void SetFlyFrmTitle( SwFlyFrmFmt& rFlyFrmFmt,
+                         const OUString& sNewTitle );
+    void SetFlyFrmDescription( SwFlyFrmFmt& rFlyFrmFmt,
+                               const OUString& sNewDescription );
+  const SwFtnInfo& GetFtnInfo() const {} //{ return *mpFtnInfo; }
+    void SetFtnInfo(const SwFtnInfo& rInfo);
+  const SwEndNoteInfo& GetEndNoteInfo() const {}; //{ return *mpEndNoteInfo; }
+    void SetEndNoteInfo(const SwEndNoteInfo& rInfo);
+          SwFtnIdxs& GetFtnIdxs() {} // { return *mpFtnIdxs; }
+    const SwFtnIdxs& GetFtnIdxs() const {} // { return *mpFtnIdxs; }
+    bool SetCurFtn( const SwPaM& rPam, const OUString& rNumStr,
+                    sal_uInt16 nNumber, bool bIsEndNote );
+    ::com::sun::star::uno::Any
+            Spell( SwPaM&, ::com::sun::star::uno::Reference<
+                            ::com::sun::star::linguistic2::XSpellChecker1 > &,
+                   sal_uInt16* pPageCnt, sal_uInt16* pPageSt, bool bGrammarCheck,
+                   SwConversionArgs *pConvArgs = 0 ) const;
+    ::com::sun::star::uno::Reference<
+        ::com::sun::star::linguistic2::XHyphenatedWord >
+            Hyphenate( SwPaM *pPam, const Point &rCrsrPos,
+                         sal_uInt16* pPageCnt, sal_uInt16* pPageSt );
+    void CountWords( const SwPaM& rPaM, SwDocStat& rStat ) const;
+    void SetGlossDoc( bool bGlssDc = true ) { mbGlossDoc = bGlssDc; }
+    bool IsInsOnlyTextGlossary() const {} // { return mbInsOnlyTxtGlssry; }
+    void Summary( SwDoc* pExtDoc, sal_uInt8 nLevel, sal_uInt8 nPara, bool bImpress );
+    void ChangeAuthorityData(const SwAuthEntry* pNewData);
+    bool IsInCallModified() const {} // { return mbInCallModified; }
+    bool IsInHeaderFooter( const SwNodeIndex& rIdx ) const;
+    short GetTextDirection( const SwPosition& rPos,
+                            const Point* pPt = 0 ) const;
+    bool IsInVerticalText( const SwPosition& rPos,
+                               const Point* pPt = 0 ) const;
+    void SetNewDBMgr( SwNewDBMgr* pNewMgr ) {} // { mpNewDBMgr = pNewMgr; }
+    SwNewDBMgr* GetNewDBMgr() const {} // { return mpNewDBMgr; }
+    void ChangeDBFields( const std::vector<OUString>& rOldNames,
+                        const OUString& rNewName );
+    void SetInitDBFields(sal_Bool b);
+    void GetAllUsedDB( std::vector<OUString>& rDBNameList,
+                       const std::vector<OUString>* pAllDBNames = 0 );
+    void ChgDBData( const SwDBData& rNewData );
+    SwDBData GetDBData();
+    const SwDBData& GetDBDesc();
+    const SwDBData& _GetDBDesc() const {} // { return maDBData; }
+    OUString GetUniqueGrfName() const;
+    OUString GetUniqueOLEName() const;
+    OUString GetUniqueFrameName() const;
+    std::set<SwRootFrm*> GetAllLayouts();
+    void SetFlyName( SwFlyFrmFmt& rFmt, const OUString& rName );
+    const SwFlyFrmFmt* FindFlyByName( const OUString& rName, sal_Int8 nNdTyp = 0 ) const;
+    void GetGrfNms( const SwFlyFrmFmt& rFmt, OUString* pGrfName, OUString* pFltName ) const;
+    void SetAllUniqueFlyNames();
+    void ResetAttrs( const SwPaM &rRg,
+                     bool bTxtAttr = true,
+                     const std::set<sal_uInt16> &rAttrs = std::set<sal_uInt16>(),
+                     const bool bSendDataChangedEvents = true );
+    void RstTxtAttrs(const SwPaM &rRg, bool bInclRefToxMark = false );
+    void SetAttr( const SfxPoolItem&, SwFmt& );
+    void SetAttr( const SfxItemSet&, SwFmt& );
+    void ResetAttrAtFormat( const sal_uInt16 nWhichId,
+                            SwFmt& rChangedFormat );
+    void SetDefault( const SfxPoolItem& );
+    void SetDefault( const SfxItemSet& );
+    const SfxPoolItem& GetDefault( sal_uInt16 nFmtHint ) const;
+    bool DontExpandFmt( const SwPosition& rPos, bool bFlag = true );
+    const SwFrmFmts* GetFrmFmts() const {} // { return mpFrmFmtTbl; }
+          SwFrmFmts* GetFrmFmts() {} // { return mpFrmFmtTbl; }
+    const SwCharFmts* GetCharFmts() const {} // { return mpCharFmtTbl;}
+    const SwFrmFmts* GetSpzFrmFmts() const {} // { return mpSpzFrmFmtTbl; }
+          SwFrmFmts* GetSpzFrmFmts() {} // { return mpSpzFrmFmtTbl; }
+    const SwFrmFmt *GetDfltFrmFmt() const {} // { return mpDfltFrmFmt; }
+          SwFrmFmt *GetDfltFrmFmt() {} // { return mpDfltFrmFmt; }
+    const SwFrmFmt *GetEmptyPageFmt() const {} // { return mpEmptyPageFmt; }
+          SwFrmFmt *GetEmptyPageFmt() {} // { return mpEmptyPageFmt; }
+    const SwFrmFmt *GetColumnContFmt() const {} //{ return mpColumnContFmt; }
+          SwFrmFmt *GetColumnContFmt() {} // { return mpColumnContFmt; }
+    const SwCharFmt *GetDfltCharFmt() const {} // { return mpDfltCharFmt;}
+          SwCharFmt *GetDfltCharFmt() {} // { return mpDfltCharFmt;}
+    IStyleAccess& GetIStyleAccess() {} // { return *mpStyleAccess; }
+    void RemoveAllFmtLanguageDependencies();
+    SwFrmFmt *MakeFrmFmt(const OUString &rFmtName, SwFrmFmt *pDerivedFrom,
+                          bool bBroadcast = false, bool bAuto = true);
+    void DelFrmFmt( SwFrmFmt *pFmt, bool bBroadcast = false );
+  SwFrmFmt* FindFrmFmtByName( const OUString& rName ) const {}
+    //{ return (SwFrmFmt*)FindFmtByName( (SwFmtsBase&)*mpFrmFmtTbl, rName ); }
+    SwCharFmt *MakeCharFmt(const OUString &rFmtName, SwCharFmt *pDerivedFrom,
+                           bool bBroadcast = false,
+                           bool bAuto = true );
+    void DelCharFmt(sal_uInt16 nFmt, bool bBroadcast = false);
+    void DelCharFmt(SwCharFmt* pFmt, bool bBroadcast = false);
+    SwCharFmt* FindCharFmtByName( const OUString& rName ) const
+        {} //{ return (SwCharFmt*)FindFmtByName( (SwFmtsBase&)*mpCharFmtTbl, rName ); }
+    const SwTxtFmtColl* GetDfltTxtFmtColl() const {} // { return mpDfltTxtFmtColl; }
+    const SwTxtFmtColls *GetTxtFmtColls() const {} // { return mpTxtFmtCollTbl; }
+    SwTxtFmtColl *MakeTxtFmtColl( const OUString &rFmtName,
+                                  SwTxtFmtColl *pDerivedFrom,
+                                  bool bBroadcast = false,
+                                  bool bAuto = true );
+    SwConditionTxtFmtColl* MakeCondTxtFmtColl( const OUString &rFmtName,
+                                               SwTxtFmtColl *pDerivedFrom,
+                                               bool bBroadcast = false);
+    void DelTxtFmtColl(sal_uInt16 nFmt, bool bBroadcast = false);
+    void DelTxtFmtColl( SwTxtFmtColl* pColl, bool bBroadcast = false );
+    bool SetTxtFmtColl( const SwPaM &rRg, SwTxtFmtColl *pFmt,
+                            bool bReset = true,
+                            bool bResetListAttrs = false );
+    SwTxtFmtColl* FindTxtFmtCollByName( const OUString& rName ) const
+        {} //{ return (SwTxtFmtColl*)FindFmtByName( (SwFmtsBase&)*mpTxtFmtCollTbl, rName ); }
+    void ChkCondColls();
+    const SwGrfFmtColl* GetDfltGrfFmtColl() const {} // { return mpDfltGrfFmtColl; }
+    const SwGrfFmtColls *GetGrfFmtColls() const {} // { return mpGrfFmtCollTbl; }
+    SwGrfFmtColl *MakeGrfFmtColl(const OUString &rFmtName,
+                                    SwGrfFmtColl *pDerivedFrom);
+    SwGrfFmtColl* FindGrfFmtCollByName( const OUString& rName ) const
+        {} //{ return (SwGrfFmtColl*)FindFmtByName( (SwFmtsBase&)*mpGrfFmtCollTbl, rName ); }
+    const SwFrmFmts* GetTblFrmFmts() const {} // { return mpTblFrmFmtTbl; }
+          SwFrmFmts* GetTblFrmFmts() {} // { return mpTblFrmFmtTbl; }
+    sal_uInt16 GetTblFrmFmtCount( bool bUsed ) const;
+    SwFrmFmt& GetTblFrmFmt(sal_uInt16 nFmt, bool bUsed ) const;
+    SwTableFmt* MakeTblFrmFmt(const OUString &rFmtName, SwFrmFmt *pDerivedFrom);
+    void DelTblFrmFmt( SwTableFmt* pFmt );
+    SwTableFmt* FindTblFmtByName( const OUString& rName, sal_Bool bAll = ((sal_Bool)0) ) const;
+    sal_uInt16 GetFlyCount( FlyCntType eType = FLYCNTTYPE_ALL) const;
+    SwFrmFmt* GetFlyNum(sal_uInt16 nIdx, FlyCntType eType = FLYCNTTYPE_ALL);
+    SwFrmFmt *CopyFrmFmt ( const SwFrmFmt& );
+    SwCharFmt *CopyCharFmt( const SwCharFmt& );
+    SwTxtFmtColl* CopyTxtColl( const SwTxtFmtColl& rColl );
+    SwGrfFmtColl* CopyGrfColl( const SwGrfFmtColl& rColl );
+    void ReplaceStyles( const SwDoc& rSource, bool bIncludePageStyles = true );
+    void ReplaceDefaults( const SwDoc& rSource );
+    void ReplaceCompatabilityOptions(const SwDoc& rSource);
+    bool IsUsed( const SwModify& ) const;
+    bool IsUsed( const SwNumRule& ) const;
+    sal_uInt16 SetDocPattern( const OUString& rPatternName );
+  const OUString* GetDocPattern( sal_uInt16 nPos ) const {}
+    // {
+    //     if(nPos >= maPatternNms.size())
+    //         return __null;
+    //     if(boost::is_null(maPatternNms.begin() + nPos))
+    //         return __null;
+    //     return &(maPatternNms[nPos]);
+    // }
+    void GCFieldTypes();
+    void SetGlossaryDoc( SwDoc* pDoc ) {} // { mpGlossaryDoc = pDoc; }
+    bool InsertGlossary( SwTextBlocks& rBlock, const OUString& rEntry,
+                        SwPaM& rPaM, SwCrsrShell* pShell = 0);
+    void CalculatePagesForPrinting( const SwRootFrm& rLayout, SwRenderData &rData, const SwPrintUIOptions &rOptions, bool bIsPDFExport,
+            sal_Int32 nDocPageCount );
+    void UpdatePagesForPrintingWithPostItData( SwRenderData &rData, const SwPrintUIOptions &rOptions, bool bIsPDFExport,
+            sal_Int32 nDocPageCount );
+    void CalculatePagePairsForProspectPrinting( const SwRootFrm& rLayout, SwRenderData &rData, const SwPrintUIOptions &rOptions,
+            sal_Int32 nDocPageCount );
+    sal_uInt16 GetPageDescCnt() const {} // { return maPageDescs.size(); }
+    const SwPageDesc& GetPageDesc( const sal_uInt16 i ) const {} // { return *maPageDescs[i]; }
+    SwPageDesc& GetPageDesc( sal_uInt16 i ) {} // { return *maPageDescs[i]; }
+    SwPageDesc* FindPageDescByName( const OUString& rName,
+                                    sal_uInt16* pPos = 0 ) const;
+    void CopyPageDesc( const SwPageDesc& rSrcDesc, SwPageDesc& rDstDesc,
+                        bool bCopyPoolIds = true );
+    void CopyHeader( const SwFrmFmt& rSrcFmt, SwFrmFmt& rDestFmt )
+  {} //{ CopyPageDescHeaderFooterImpl( true, rSrcFmt, rDestFmt ); }
+    void CopyFooter( const SwFrmFmt& rSrcFmt, SwFrmFmt& rDestFmt )
+  {}//{ CopyPageDescHeaderFooterImpl( false, rSrcFmt, rDestFmt ); }
+    SwPageDesc * GetPageDesc( const OUString & rName );
+    void ChgPageDesc( const OUString & rName, const SwPageDesc& );
+    void ChgPageDesc( sal_uInt16 i, const SwPageDesc& );
+    bool FindPageDesc( const OUString & rName, sal_uInt16 * pFound );
+    void DelPageDesc( const OUString & rName, bool bBroadcast = false);
+    void DelPageDesc( sal_uInt16 i, bool bBroadcast = false );
+    void PreDelPageDesc(SwPageDesc * pDel);
+    sal_uInt16 MakePageDesc( const OUString &rName, const SwPageDesc* pCpy = 0,
+                             bool bRegardLanguage = true,
+                             bool bBroadcast = false);
+    void BroadcastStyleOperation(OUString rName, SfxStyleFamily eFamily,
+                                 sal_uInt16 nOp);
+    void CheckDefaultPageFmt();
+    sal_uInt16 GetCurTOXMark( const SwPosition& rPos, SwTOXMarks& ) const;
+    void DeleteTOXMark( const SwTOXMark* pTOXMark );
+    const SwTOXMark& GotoTOXMark( const SwTOXMark& rCurTOXMark,
+                                SwTOXSearch eDir, sal_Bool bInReadOnly );
+    const SwTOXBaseSection* InsertTableOf( const SwPosition& rPos,
+                                            const SwTOXBase& rTOX,
+                                            const SfxItemSet* pSet = 0,
+                                            bool bExpand = false );
+    const SwTOXBaseSection* InsertTableOf( sal_uLong nSttNd, sal_uLong nEndNd,
+                                            const SwTOXBase& rTOX,
+                                            const SfxItemSet* pSet = 0 );
+    const SwTOXBase* GetCurTOX( const SwPosition& rPos ) const;
+    const SwAttrSet& GetTOXBaseAttrSet(const SwTOXBase& rTOX) const;
+    bool DeleteTOX( const SwTOXBase& rTOXBase, bool bDelNodes = false );
+    OUString GetUniqueTOXBaseName( const SwTOXType& rType,
+                                   const OUString sChkStr ) const;
+    bool SetTOXBaseName(const SwTOXBase& rTOXBase, const OUString& rName);
+    void SetTOXBaseProtection(const SwTOXBase& rTOXBase, sal_Bool bProtect);
+    void SetUpdateTOX( bool bFlag = true ) {} // { mbUpdateTOX = bFlag; }
+    bool IsUpdateTOX() const {} // { return mbUpdateTOX; }
+  OUString GetTOIAutoMarkURL() const {}//{return msTOIAutoMarkURL;}
+  void SetTOIAutoMarkURL(const OUString& rSet) {} //{msTOIAutoMarkURL = rSet;}
+    void ApplyAutoMark();
+    bool IsInReading() const {} // { return mbInReading; }
+    void SetInReading( bool bNew ) {} // { mbInReading = bNew; }
+    bool IsClipBoard() const {} // { return mbClipBoard; }
+    void SetClipBoard( bool bNew ) {} // { mbClipBoard = bNew; }
+    bool IsColumnSelection() const {} // { return mbColumnSelection; }
+    void SetColumnSelection( bool bNew ) {} // { mbColumnSelection = bNew; }
+    bool IsInXMLImport() const {} // { return mbInXMLImport; }
+    void SetInXMLImport( bool bNew ) {} // { mbInXMLImport = bNew; }
+    sal_uInt16 GetTOXTypeCount( TOXTypes eTyp ) const;
+    const SwTOXType* GetTOXType( TOXTypes eTyp, sal_uInt16 nId ) const;
+    sal_Bool DeleteTOXType( TOXTypes eTyp, sal_uInt16 nId );
+    const SwTOXType* InsertTOXType( const SwTOXType& rTyp );
+    const SwTOXTypes& GetTOXTypes() const {} // { return *mpTOXTypes; }
+    const SwTOXBase* GetDefaultTOXBase( TOXTypes eTyp, bool bCreate = false );
+    void SetDefaultTOXBase(const SwTOXBase& rBase);
+    sal_uInt16 GetTOIKeys( SwTOIKeyType eTyp, std::vector<OUString>& rArr ) const;
+    bool SortTbl(const SwSelBoxes& rBoxes, const SwSortOptions&);
+    bool SortText(const SwPaM&, const SwSortOptions&);
+    void CorrAbs( const SwNodeIndex& rOldNode, const SwPosition& rNewPos,
+                    const sal_uInt16 nOffset = 0, sal_Bool bMoveCrsr = ((sal_Bool)0) );
+    void CorrAbs( const SwNodeIndex& rStartNode, const SwNodeIndex& rEndNode,
+                    const SwPosition& rNewPos, sal_Bool bMoveCrsr = ((sal_Bool)0) );
+    void CorrAbs( const SwPaM& rRange, const SwPosition& rNewPos,
+                    sal_Bool bMoveCrsr = ((sal_Bool)0) );
+    void CorrRel( const SwNodeIndex& rOldNode, const SwPosition& rNewPos,
+                    const sal_uInt16 nOffset = 0, sal_Bool bMoveCrsr = ((sal_Bool)0) );
+  SwNumRule* GetOutlineNumRule() const{}
+   //{
+   //     return mpOutlineRule;
+   //}
+    void SetOutlineNumRule( const SwNumRule& rRule );
+    void PropagateOutlineRule();
+    bool OutlineUpDown( const SwPaM& rPam, short nOffset = 1 );
+    bool MoveOutlinePara( const SwPaM& rPam, short nOffset = 1);
+    bool GotoOutline( SwPosition& rPos, const OUString& rName ) const;
+    void SetNumRule( const SwPaM&,
+                     const SwNumRule&,
+                     const bool bCreateNewList,
+                     const OUString sContinuedListId = OUString(),
+                     bool bSetItem = true,
+                     const bool bResetIndentAttrs = false );
+    void SetCounted( const SwPaM&, bool bCounted);
+    void MakeUniqueNumRules(const SwPaM & rPaM);
+    void SetNumRuleStart( const SwPosition& rPos, sal_Bool bFlag = ((sal_Bool)1) );
+    void SetNodeNumStart( const SwPosition& rPos, sal_uInt16 nStt );
+    SwNumRule* GetCurrNumRule( const SwPosition& rPos ) const;
+    const SwNumRuleTbl& GetNumRuleTbl() const {} // { return *mpNumRuleTbl; }
+    void AddNumRule(SwNumRule * pRule);
+    sal_uInt16 MakeNumRule( const OUString &rName,
+        const SwNumRule* pCpy = 0,
+        bool bBroadcast = false,
+        const SvxNumberFormat::SvxNumPositionAndSpaceMode eDefaultNumberFormatPositionAndSpaceMode =
+            SvxNumberFormat::LABEL_WIDTH_AND_POSITION );
+    sal_uInt16 FindNumRule( const OUString& rName ) const;
+    SwNumRule* FindNumRulePtr( const OUString& rName ) const;
+    bool RenameNumRule(const OUString & aOldName, const OUString & aNewName,
+                           bool bBroadcast = false);
+    bool DelNumRule( const OUString& rName, bool bBroadCast = false );
+    OUString GetUniqueNumRuleName( const OUString* pChkStr = 0, bool bAutoNum = true ) const;
+    void UpdateNumRule();
+    void ChgNumRuleFmts( const SwNumRule& rRule );
+    bool ReplaceNumRule( const SwPosition& rPos, const OUString& rOldRule,
+                        const OUString& rNewRule );
+    bool GotoNextNum( SwPosition&, bool bOverUpper = true,
+                        sal_uInt8* pUpper = 0, sal_uInt8* pLower = 0 );
+    bool GotoPrevNum( SwPosition&, bool bOverUpper = true,
+                        sal_uInt8* pUpper = 0, sal_uInt8* pLower = 0 );
+    const SwNumRule * SearchNumRule(const SwPosition & rPos,
+                                    const bool bForward,
+                                    const bool bNum,
+                                    const bool bOutline,
+                                    int nNonEmptyAllowed,
+                                    OUString& sListId,
+                                    const bool bInvestigateStartNode = false );
+    bool NoNum( const SwPaM& );
+    void DelNumRules( const SwPaM& );
+    void InvalidateNumRules();
+    bool NumUpDown( const SwPaM&, bool bDown = true );
+    bool MoveParagraph( const SwPaM&, long nOffset = 1, bool bIsOutlMv = false );
+    bool NumOrNoNum( const SwNodeIndex& rIdx, sal_Bool bDel = ((sal_Bool)0));
+    void StopNumRuleAnimations( OutputDevice* );
+    const SwTable* InsertTable( const SwInsertTableOptions& rInsTblOpts,
+                                const SwPosition& rPos, sal_uInt16 nRows,
+                                sal_uInt16 nCols, short eAdjust,
+                                const SwTableAutoFmt* pTAFmt = 0,
+                                const std::vector<sal_uInt16> *pColArr = 0,
+                                sal_Bool bCalledFromShell = ((sal_Bool)0),
+                                sal_Bool bNewModel = ((sal_Bool)1) );
+                 SwTableNode* IsIdxInTbl( const SwNodeIndex& rIdx );
+    inline const SwTableNode* IsIdxInTbl( const SwNodeIndex& rIdx ) const;
+    const SwTable* TextToTable( const SwInsertTableOptions& rInsTblOpts,
+                                const SwPaM& rRange, sal_Unicode cCh,
+                                short eAdjust,
+                                const SwTableAutoFmt* = 0 );
+    const SwTable* TextToTable( const std::vector< std::vector<SwNodeRange> >& rTableNodes );
+    sal_Bool TableToText( const SwTableNode* pTblNd, sal_Unicode cCh );
+    bool InsertCol( const SwCursor& rCursor,
+                    sal_uInt16 nCnt = 1, bool bBehind = true );
+    bool InsertCol( const SwSelBoxes& rBoxes,
+                    sal_uInt16 nCnt = 1, bool bBehind = true );
+    bool InsertRow( const SwCursor& rCursor,
+                    sal_uInt16 nCnt = 1, bool bBehind = true );
+    bool InsertRow( const SwSelBoxes& rBoxes,
+                    sal_uInt16 nCnt = 1, bool bBehind = true );
+    sal_Bool DeleteRowCol( const SwSelBoxes& rBoxes, bool bColumn = false );
+    sal_Bool DeleteRow( const SwCursor& rCursor );
+    sal_Bool DeleteCol( const SwCursor& rCursor );
+    sal_Bool SplitTbl( const SwSelBoxes& rBoxes, sal_Bool bVert = ((sal_Bool)1),
+                       sal_uInt16 nCnt = 1, sal_Bool bSameHeight = ((sal_Bool)0) );
+    sal_uInt16 MergeTbl( SwPaM& rPam );
+    OUString GetUniqueTblName() const;
+    sal_Bool IsInsTblFormatNum() const;
+    sal_Bool IsInsTblChangeNumFormat() const;
+    sal_Bool IsInsTblAlignNum() const;
+    void GetTabCols( SwTabCols &rFill, const SwCursor* pCrsr,
+                    const SwCellFrm* pBoxFrm = 0 ) const;
+    void SetTabCols( const SwTabCols &rNew, sal_Bool bCurRowOnly,
+                    const SwCursor* pCrsr, const SwCellFrm* pBoxFrm = 0 );
+    void GetTabRows( SwTabCols &rFill, const SwCursor* pCrsr,
+                    const SwCellFrm* pBoxFrm = 0 ) const;
+    void SetTabRows( const SwTabCols &rNew, sal_Bool bCurColOnly, const SwCursor* pCrsr,
+                     const SwCellFrm* pBoxFrm = 0 );
+    void SetTabCols(SwTable& rTab, const SwTabCols &rNew, const SwTabCols &rOld,
+                                    const SwTableBox *pStart, sal_Bool bCurRowOnly);
+    void SetRowsToRepeat( SwTable &rTable, sal_uInt16 nSet );
+    sal_Bool SetTableAutoFmt( const SwSelBoxes& rBoxes, const SwTableAutoFmt& rNew );
+    sal_Bool GetTableAutoFmt( const SwSelBoxes& rBoxes, SwTableAutoFmt& rGet );
+    void AppendUndoForInsertFromDB( const SwPaM& rPam, sal_Bool bIsTable );
+    sal_Bool SetColRowWidthHeight( SwTableBox& rAktBox, sal_uInt16 eType,
+                                SwTwips nAbsDiff, SwTwips nRelDiff );
+    SwTableBoxFmt* MakeTableBoxFmt();
+    SwTableLineFmt* MakeTableLineFmt();
+    void ChkBoxNumFmt( SwTableBox& rAktBox, sal_Bool bCallUpdate );
+    void SetTblBoxFormulaAttrs( SwTableBox& rBox, const SfxItemSet& rSet );
+    void ClearBoxNumAttrs( const SwNodeIndex& rNode );
+    void ClearLineNumAttrs( SwPosition & rPos );
+    sal_Bool InsCopyOfTbl( SwPosition& rInsPos, const SwSelBoxes& rBoxes,
+                        const SwTable* pCpyTbl = 0, sal_Bool bCpyName = ((sal_Bool)0),
+                        sal_Bool bCorrPos = ((sal_Bool)0) );
+    sal_Bool UnProtectCells( const OUString& rTblName );
+    sal_Bool UnProtectCells( const SwSelBoxes& rBoxes );
+    sal_Bool UnProtectTbls( const SwPaM& rPam );
+    sal_Bool HasTblAnyProtection( const SwPosition* pPos,
+                              const OUString* pTblName = 0,
+                              sal_Bool* pFullTblProtection = 0 );
+    sal_Bool SplitTable( const SwPosition& rPos, sal_uInt16 eMode = 0,
+                        sal_Bool bCalcNewSize = ((sal_Bool)0) );
+    sal_Bool MergeTable( const SwPosition& rPos, sal_Bool bWithPrev = ((sal_Bool)1),
+                        sal_uInt16 nMode = 0 );
+    void UpdateCharts( const OUString &rName ) const;
+  void UpdateAllCharts() {} //{ DoUpdateAllCharts(); }
+    void SetTableName( SwFrmFmt& rTblFmt, const OUString &rNewName );
+    const SwFmtRefMark* GetRefMark( const OUString& rName ) const;
+    const SwFmtRefMark* GetRefMark( sal_uInt16 nIndex ) const;
+    sal_uInt16 GetRefMarks( std::vector<OUString>* = 0 ) const;
+    SwFlyFrmFmt* InsertLabel( const SwLabelType eType, const OUString &rTxt, const OUString& rSeparator,
+                    const OUString& rNumberingSeparator,
+                    const sal_Bool bBefore, const sal_uInt16 nId, const sal_uLong nIdx,
+                    const OUString& rCharacterStyle,
+                    const sal_Bool bCpyBrd = ((sal_Bool)1) );
+    SwFlyFrmFmt* InsertDrawLabel(
+        const OUString &rTxt, const OUString& rSeparator, const OUString& rNumberSeparator,
+        const sal_uInt16 nId, const OUString& rCharacterStyle, SdrObject& rObj );
+    const SwAttrPool& GetAttrPool() const {} // { return *mpAttrPool; }
+          SwAttrPool& GetAttrPool() {} // { return *mpAttrPool; }
+    SwEditShell* GetEditShell( SwViewShell** ppSh = 0 ) const;
+    ::sw::IShellCursorSupplier * GetIShellCursorSupplier();
+  inline void SetOle2Link(const Link& rLink) {} // {maOle2Link = rLink;}
+  inline const Link& GetOle2Link() const {} // {return maOle2Link;}
+    SwSection * InsertSwSection(SwPaM const& rRange, SwSectionData &,
+            SwTOXBase const*const pTOXBase = 0,
+            SfxItemSet const*const pAttr = 0, bool const bUpdate = true);
+    sal_uInt16 IsInsRegionAvailable( const SwPaM& rRange,
+                                const SwNode** ppSttNd = 0 ) const;
+    SwSection* GetCurrSection( const SwPosition& rPos ) const;
+    SwSectionFmts& GetSections() {} // { return *mpSectionFmtTbl; }
+    const SwSectionFmts& GetSections() const {} // { return *mpSectionFmtTbl; }
+    SwSectionFmt *MakeSectionFmt( SwSectionFmt *pDerivedFrom );
+    void DelSectionFmt( SwSectionFmt *pFmt, bool bDelNodes = false );
+    void UpdateSection(sal_uInt16 const nSect, SwSectionData &,
+            SfxItemSet const*const = 0, bool const bPreventLinkUpdate = false);
+    OUString GetUniqueSectionName( const OUString* pChkStr = 0 ) const;
+          SwDocShell* GetDocShell() {} // { return mpDocShell; }
+    const SwDocShell* GetDocShell() const {} // { return mpDocShell; }
+    void SetDocShell( SwDocShell* pDSh );
+    void SetTmpDocShell( SfxObjectShellLock rLock ) {} // { mxTmpDocShell = rLock; }
+    SfxObjectShellLock GetTmpDocShell() {} // { return mxTmpDocShell; }
+    SfxObjectShell* GetPersist() const;
+    ::com::sun::star::uno::Reference< ::com::sun::star::embed::XStorage > GetDocStorage();
+    bool IsInLoadAsynchron() const {} // { return mbInLoadAsynchron; }
+    void SetInLoadAsynchron( bool bFlag ) {} // { mbInLoadAsynchron = bFlag; }
+    bool SelectServerObj( const OUString& rStr, SwPaM*& rpPam,
+                            SwNodeRange*& rpRange ) const;
+    bool IsCopyIsMove() const {} // { return mbCopyIsMove; }
+    void SetCopyIsMove( bool bFlag ) {} // { mbCopyIsMove = bFlag; }
+    SwDrawContact* GroupSelection( SdrView& );
+    void UnGroupSelection( SdrView& );
+    bool DeleteSelection( SwDrawView& );
+    void SpellItAgainSam( bool bInvalid, bool bOnlyWrong, bool bSmartTags );
+    void InvalidateAutoCompleteFlag();
+    void SetCalcFieldValueHdl(Outliner* pOutliner);
+    bool IsVisitedURL( const OUString& rURL ) const;
+    void SetAutoCorrExceptWord( SwAutoCorrExceptWord* pNew );
+    SwAutoCorrExceptWord* GetAutoCorrExceptWord() {} // { return mpACEWord; }
+    const SwFmtINetFmt* FindINetAttr( const OUString& rName ) const;
+    bool ExecMacro( const SvxMacro& rMacro, OUString* pRet = 0, SbxArray* pArgs = 0 );
+    sal_uInt16 CallEvent( sal_uInt16 nEvent, const SwCallMouseEvent& rCallEvent,
+                        bool bChkPtr = false, SbxArray* pArgs = 0,
+                        const Link* pCallBack = 0 );
+    void MoveLeftMargin( const SwPaM& rPam, bool bRight = true,
+                        bool bModulus = true );
+    inline SvNumberFormatter* GetNumberFormatter( sal_Bool bCreate = ((sal_Bool)1) );
+    inline const SvNumberFormatter* GetNumberFormatter( sal_Bool bCreate = ((sal_Bool)1) ) const;
+    bool HasInvisibleContent() const;
+    bool RemoveInvisibleContent();
+    bool RestoreInvisibleContent();
+    bool ConvertFieldsToText();
+    sal_Bool GenerateGlobalDoc( const OUString& rPath,
+                                const SwTxtFmtColl* pSplitColl = 0 );
+    sal_Bool GenerateGlobalDoc( const OUString& rPath, int nOutlineLevel = 0 );
+    sal_Bool GenerateHTMLDoc( const OUString& rPath,
+                                const SwTxtFmtColl* pSplitColl = 0 );
+    sal_Bool GenerateHTMLDoc( const OUString& rPath, int nOutlineLevel = 0 );
+    long CompareDoc( const SwDoc& rDoc );
+    long MergeDoc( const SwDoc& rDoc );
+    void SetAutoFmtRedlineComment( const OUString* pTxt, sal_uInt16 nSeqNo = 0 );
+    bool IsAutoFmtRedline() const {} // { return mbIsAutoFmtRedline; }
+    void SetAutoFmtRedline( bool bFlag ) {} // { mbIsAutoFmtRedline = bFlag; }
+    void SetTxtFmtCollByAutoFmt( const SwPosition& rPos, sal_uInt16 nPoolId,
+                                const SfxItemSet* pSet = 0 );
+    void SetFmtItemByAutoFmt( const SwPaM& rPam, const SfxItemSet& );
+    void ClearDoc();
+    const SwPagePreviewPrtData* GetPreviewPrtData() const {} // { return mpPgPViewPrtData; }
+    void SetPreviewPrtData( const SwPagePreviewPrtData* pData );
+  void SetOLEObjModified(){}
+    //{ if( GetCurrentViewShell() ) maOLEModifiedTimer.Start(); }
+    const SwUnoCrsrTbl& GetUnoCrsrTbl() const {} // { return *mpUnoCrsrTbl; }
+    SwUnoCrsr* CreateUnoCrsr( const SwPosition& rPos, bool bTblCrsr = false );
+    bool ChgAnchor( const SdrMarkList& _rMrkList,
+                        RndStdIds _eAnchorType,
+                        const bool _bSameOnly,
+                        const bool _bPosCorr );
+    void SetRowHeight( const SwCursor& rCursor, const SwFmtFrmSize &rNew );
+    void GetRowHeight( const SwCursor& rCursor, SwFmtFrmSize *& rpSz ) const;
+    void SetRowSplit( const SwCursor& rCursor, const SwFmtRowSplit &rNew );
+    void GetRowSplit( const SwCursor& rCursor, SwFmtRowSplit *& rpSz ) const;
+    sal_Bool BalanceRowHeight( const SwCursor& rCursor, sal_Bool bTstOnly = ((sal_Bool)1) );
+    void SetRowBackground( const SwCursor& rCursor, const SvxBrushItem &rNew );
+    sal_Bool GetRowBackground( const SwCursor& rCursor, SvxBrushItem &rToFill ) const;
+    void SetTabBorders( const SwCursor& rCursor, const SfxItemSet& rSet );
+    void SetTabLineStyle( const SwCursor& rCursor,
+                          const Color* pColor, sal_Bool bSetLine,
+                          const editeng::SvxBorderLine* pBorderLine );
+    void GetTabBorders( const SwCursor& rCursor, SfxItemSet& rSet ) const;
+    void SetBoxAttr( const SwCursor& rCursor, const SfxPoolItem &rNew );
+    sal_Bool GetBoxAttr( const SwCursor& rCursor, SfxPoolItem &rToFill ) const;
+    void SetBoxAlign( const SwCursor& rCursor, sal_uInt16 nAlign );
+    sal_uInt16 GetBoxAlign( const SwCursor& rCursor ) const;
+    void AdjustCellWidth( const SwCursor& rCursor, sal_Bool bBalance = ((sal_Bool)0) );
+    int Chainable( const SwFrmFmt &rSource, const SwFrmFmt &rDest );
+    int Chain( SwFrmFmt &rSource, const SwFrmFmt &rDest );
+    void Unchain( SwFrmFmt &rFmt );
+    SdrObject* CloneSdrObj( const SdrObject&, bool bMoveWithinDoc = false,
+                            bool bInsInPage = true );
+    SwExtTextInput* CreateExtTextInput( const SwPaM& rPam );
+    void DeleteExtTextInput( SwExtTextInput* pDel );
+    SwExtTextInput* GetExtTextInput( const SwNode& rNd,
+                                sal_Int32 nCntntPos = -1) const;
+    SwExtTextInput* GetExtTextInput() const;
+    static SwAutoCompleteWord& GetAutoCompleteWords() {} // { return *mpACmpltWords; }
+    bool ContainsMSVBasic() const {} // { return mbContains_MSVBasic; }
+    void SetContainsMSVBasic( bool bFlag ) {} // { mbContains_MSVBasic = bFlag; }
+    sal_uInt16 FillRubyList( const SwPaM& rPam, SwRubyList& rList,
+                        sal_uInt16 nMode );
+    sal_uInt16 SetRubyList( const SwPaM& rPam, const SwRubyList& rList,
+                        sal_uInt16 nMode );
+    void ReadLayoutCache( SvStream& rStream );
+    void WriteLayoutCache( SvStream& rStream );
+    SwLayoutCache* GetLayoutCache() const {} // { return mpLayoutCache; }
+    bool ContainsHiddenChars() const;
+    SwModify* GetUnoCallBack() const;
+    IGrammarContact* getGrammarContact() const {} // { return mpGrammarContact; }
+    void MarkListLevel( const OUString& sListId,
+                        const int nListLevel,
+                        const bool bValue );
+    void MarkListLevel( SwList& rList,
+                        const int nListLevel,
+                        const bool bValue );
+    void ChgFmt(SwFmt & rFmt, const SfxItemSet & rSet);
+    void RenameFmt(SwFmt & rFmt, const OUString & sNewName,
+                   bool bBroadcast = false);
+    void ChgTOX(SwTOXBase & rTOX, const SwTOXBase & rNew);
+    OUString GetPaMDescr(const SwPaM & rPaM) const;
+    bool IsFirstOfNumRule(SwPosition & rPos);
+    com::sun::star::uno::Reference<com::sun::star::container::XNameContainer>
+        getXForms() const;
+    com::sun::star::uno::Reference< com::sun::star::linguistic2::XProofreadingIterator > GetGCIterator() const;
+    bool isXForms() const;
+    void initXForms( bool bCreateDefaultModel );
+    void disposeXForms( );
+    void SetDefaultPageMode(bool bSquaredPageMode);
+    sal_Bool IsSquaredPageMode() const;
+    void Setn32DummyCompatabilityOptions1( sal_uInt32 CompatabilityOptions1 )
+    {
+        mn32DummyCompatabilityOptions1 = CompatabilityOptions1;
+    }
+    sal_uInt32 Getn32DummyCompatabilityOptions1( )
+    {
+        return mn32DummyCompatabilityOptions1;
+    }
+    void Setn32DummyCompatabilityOptions2( sal_uInt32 CompatabilityOptions2 )
+    {
+        mn32DummyCompatabilityOptions2 = CompatabilityOptions2;
+    }
+    sal_uInt32 Getn32DummyCompatabilityOptions2( )
+    {
+        return mn32DummyCompatabilityOptions2;
+    }
+    com::sun::star::uno::Reference< com::sun::star::script::vba::XVBAEventProcessor > GetVbaEventProcessor();
+    void SetVBATemplateToProjectCache( com::sun::star::uno::Reference< com::sun::star::container::XNameContainer >& xCache ) {} // { m_xTemplateToProjectCache = xCache; };
+        com::sun::star::uno::Reference< com::sun::star::container::XNameContainer > GetVBATemplateToProjectCache() {} // { return m_xTemplateToProjectCache; };
+    ::sfx2::IXmlIdRegistry& GetXmlIdRegistry();
+    ::sw::MetaFieldManager & GetMetaFieldManager();
+    ::sw::UndoManager & GetUndoManager();
+    ::sw::UndoManager const& GetUndoManager() const;
+    SfxObjectShell* CreateCopy(bool bCallInitNew) const;
+    void dumpAsXml( xmlTextWriterPtr writer = __null );
+private:
+    void CopyMasterHeader(const SwPageDesc &rChged, const SwFmtHeader &rHead, SwPageDesc *pDesc, bool bLeft, bool bFirst);
+    void CopyMasterFooter(const SwPageDesc &rChged, const SwFmtFooter &rFoot, SwPageDesc *pDesc, bool bLeft, bool bFirst);
+    bool IncrementalDocStatCalculate(long nChars, bool bFields = true);
+    long DoIdleStatsUpdate( Timer * ); static long LinkStubDoIdleStatsUpdate( void* pThis, void* );
+};

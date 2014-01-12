@@ -41,8 +41,9 @@ all:
 	fake.cxx
 
 parse:
-	-make > log.txt 2>&1
-	python parse.py -i log.txt
+	- bash -x parse.sh 
+#	-make > log.txt 2>&1
+#python parse.py -i log.txt
 
 parselog:
 	python parse.py -i log.txt
