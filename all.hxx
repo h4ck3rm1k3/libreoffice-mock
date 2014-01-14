@@ -594,7 +594,19 @@ namespace vcl{
 // mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2759:28: error: 'ScrollBar' has not been declared
 
 /*fwd*/class VclSimpleEvent; 
-/*dcl*/class VclSimpleEvent {}; 
+/*dcl*/class VclSimpleEvent {
+public:
+  template <class T> bool DOISA(T) const {};
+  sal_uLong GetId() const {}; //{ return nId; }
+}; 
+
+class Window;
+
+class VclWindowEvent : public VclSimpleEvent {
+public:
+  Window* GetWindow() const {};//{ return pWindow; }
+  void* GetData() const {}; // { return pData; }
+};
 
 // mnt/data/home/mdupont/experiments/libreoffice-core/fakeinclude/all.hxx:2793:32: error: 'VclSimpleEvent' has not been declared
 
@@ -742,13 +754,16 @@ namespace osl{
     MutexGuard(Mutex){}
   };
 };
+
 namespace rtl{
   class OString{
-public:
-  OString(const char *){}
-  const char * getStr(){}
-  OString & operator += (const char *){}
+  public:
+    OString(const char *){}
+    const char * getStr(){}
+    OString & operator += (const char *){};
+    template <class T> OString & operator+=( const T & str ) {};
 };
+  
   // ::rtl::OUString
   class OUString{
   public:
@@ -760,13 +775,27 @@ public:
     int lastIndexOf(char replacedChar){}
     int lastIndexOf(OUString & s){}
     OUString & replaceAt(char iReplace, int pos, OUString replaceStr){}
-    OUString & operator += (OUString &){};
+    
+    template <class T> OUString & operator += (T &){};
     OUString & operator += (char){};
     OUString & operator += (const char * ){};
-    bool isEmpty() const{}
+    template <class T> OUString & operator+=( const T & str ){};
 
+    bool isEmpty() const{}
     OUString & operator=( const OUString & str ){}
     sal_Unicode operator [](sal_Int32 index) const {}
+    sal_Bool equalsAscii( const sal_Char* asciiStr ) const {}
+
+    static OString number( int i, sal_Int16 radix = 10 ){};
+    static OString number( unsigned int i, sal_Int16 radix = 10 ){};
+    static OString number( long i, sal_Int16 radix = 10 ){};
+    static OString number( unsigned long i, sal_Int16 radix = 10 ){};
+    static OString number( long long ll, sal_Int16 radix = 10 ){};
+    static OString number( unsigned long long ll, sal_Int16 radix = 10 ){};
+    static OString number( float f ) {};
+    static OString number( double d ) {};
+
+
 
     ///
     };
@@ -904,6 +933,7 @@ public:
   void GetOfst(){}
 };
 class SwShellTableCrsr;
+
 class SwCrsrShell{
 public:
   void ClearMark(){};
@@ -913,7 +943,12 @@ public:
   void ShowCrsr(){};
   bool IsTableMode() const{};
   const SwShellTableCrsr *      GetTableCrsr () const {}
+
+  sal_uInt16 GetPageCnt();
+  SwCntntFrm *GetCurrFrm( const sal_Bool bCalcFrm = ((sal_Bool)1) ) const {}
+
 };
+
 class FnForEach_SwNodes{};
 class Graphic{};
 class GraphicObject{};
@@ -1409,14 +1444,19 @@ public:
   bool IsObjSelected()const{}
   template <class T> void SelectObj(T&, int){}
   template <class T> void SelectObj(T&, int, SdrObject *&){}
+  sal_Bool GetPageNumber( long nYPos, sal_Bool bAtCrsrPos, sal_uInt16& rPhyNum, sal_uInt16& rVirtNum, rtl::OUString &rDisplay ) const {};
+
 };
 class AFrm{
 public:
   bool IsEmpty() const{}
 };
 class SwTabFrm;
-class SwFrm{
+class SwPageFrm;
+
+class SwFrm : public SwClient { 
 public :
+  SwPageFrm *FindPageFrm(){}
   SwAttrSet * GetAttrSet() const{};
   bool IsRootFrm() const{};
   bool IsLayoutFrm() const{};
@@ -1425,7 +1465,8 @@ public :
   bool IsEmptyPage() const{};
   bool IsFlyFrm() const{};
   bool IsCntntFrm() const{};
-  const SwCntntFrm * ContainsCntnt() const{};
+  const SwCntntFrm *ContainsCntnt() const{}
+  SwCntntFrm *ContainsCntnt(){}
   int GetPhyPageNum() const{};
   const SdrObject * GetVirtDrawObj() const{};
   const AFrm & Frm() const{};
@@ -1440,11 +1481,29 @@ class SwCellFrm : public SwFrm{
 public:
   SwTableBox * GetTabBox() const{};
 };
-class SwPageFrm  : public SwFrm{};
+
+class SwPageFrm  : public SwFrm{
+
+};
+
 class SwFlyFrm   : public SwFrm{};
-class SwCntntFrm : public SwFrm{};
-class SwLayoutFrm : public SwFrm{};
-class SwTxtFrm : public SwCntntFrm{
+class SwCntntFrm : public SwFrm{
+public:
+  sal_Bool IsInFly() const{}
+  SwFlyFrm *FindFlyFrm() const{}
+  SwFlyFrm *FindFlyFrm( const ::com::sun::star::uno::Reference < ::com::sun::star::embed::XEmbeddedObject >& ) const{}
+
+
+};
+
+class SwLayoutFrm : public SwFrm{
+public:
+  const SwCntntFrm *ContainsCntnt() const{}
+  SwCntntFrm *ContainsCntnt(){}
+
+};
+
+class SwTxtFrm : public SwCntntFrm {
 public:
   SwIndex & GetOfst() const {}
   const SwTxtNode * GetTxtNode() const {}
@@ -1456,9 +1515,16 @@ public:
   //     Reference< XInterface > Source;
   template <class T> EventObject(T){}
   EventObject( ){}
+
+  ::rtl::OUString EventName;
+
 };     }}}}
 namespace com{ namespace sun{ namespace star{ namespace document{
-class EventObject{};
+class EventObject{
+public:
+  ::rtl::OUString EventName;
+
+};
       }}}}
 namespace com{ namespace sun{ namespace star{ namespace document{class XEventListener{};   }}}}
 namespace com{ namespace sun{ namespace star{ namespace lang{class XEventListener{};   }}}}
@@ -5063,7 +5129,8 @@ enum stuff{
   VCLEVENT_WINDOW_HIDE,
   VCLEVENT_WINDOW_SHOW,
 };
-class  VclWindowEvent{};
+
+
 class  WindowChildEventListener{};
 //class SwCntntNode{};
 class SwDocShell{
@@ -6134,6 +6201,7 @@ public:
  com::sun::star::document::XEventListener c;
  // com::sun::star::accessibility::XAccessibleExtendedAttributes d;
  com::sun::star::accessibility::XAccessibleGetAccFlowTo e;
+
 class SwAccessibleDocument : 
 public SwAccessibleDocumentBase,
 public com::sun::star::accessibility::XAccessibleSelection,
@@ -6223,7 +6291,12 @@ public:
     ::com::sun::star::uno::Sequence< ::com::sun::star::uno::Any >
         SAL_CALL get_AccFlowTo(const ::com::sun::star::uno::Any& rAny, sal_Int32 nType)
         throw ( ::com::sun::star::uno::RuntimeException );
+
+   long WindowChildEventListener( VclSimpleEvent* ); 
+  static long LinkStubWindowChildEventListener( void* pThis, void* );
+
 };
+
 class SwAccessibleFrameBase {
 public:
   SwAccessibleMap* GetMap(){};
@@ -8861,6 +8934,11 @@ private:
     long DoIdleStatsUpdate( Timer * ); static long LinkStubDoIdleStatsUpdate( void* pThis, void* );
 };
 
+#define IMPL_STUB(Class, Method, ArgType) \
+    long Class::LinkStub##Method( void* pThis, void* pCaller) \
+    { \
+        return ((Class*)pThis )->Method( (ArgType)pCaller ); \
+    }
 
 #define IMPL_LINK( Class, Method, ArgType, ArgName ) \
     IMPL_STUB( Class, Method, ArgType ) \
